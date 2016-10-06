@@ -1,13 +1,11 @@
-# play-heroku-seed README
-You can try a deployed instance of the app here: https://afternoon-wildwood-5782.herokuapp.com/
+# HorsleyParish.co.uk README
+This is a webservice application serving the community of Horsley Parish, Gloucerstershire.
 
-This application is meant to make it easier to create a Play application with basic Create, Read, Update and Delete functionality and get it up onto Heroku. Database manipulation is handled by Slick connected to PostgreSQL.
+It provides a web interface for members of the public and a RESTFUL webservice for use by application clients. It is a Play Framework application with a PostgreSQL database. It is designed to run on Heroku, with manipulation handled by Slick.
 
 ## Getting started
 
-You can deploy your own copy of the app on Heroku using this button:
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+This application is accessible to the public and can be downloaded from bitbucket on run on a local machine.
 
 ### Local development on OSX
 #### Database Setup
