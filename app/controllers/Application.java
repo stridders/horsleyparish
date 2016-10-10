@@ -37,4 +37,13 @@ public class Application extends Controller {
         return redirect("/pages");
     }
 
+    public static Result anything(String path) {
+        if (path.equals("")) {
+            return movedPermanently(request().path() + "web");
+        }
+        UserProfile userProfile = new UserProfile("Jon", "Stride", "email@jonstride.uk", "A000001");
+        return notFound(views.html.notFoundPage.render(path, userProfile));
+    }
+
+
 }

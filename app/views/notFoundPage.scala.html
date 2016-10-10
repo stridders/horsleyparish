@@ -1,0 +1,36 @@
+@import security.model.UserProfile
+@import play.api.Play.current
+
+@(path: String, userProfile: UserProfile)
+@config= @{play.Play.application().configuration() }
+
+<!DOCTYPE html>
+  <html ng-app="HorsleyParish">
+    <head>
+      <title>Horsley Parish, Gloucestershire, Community website</title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scala=1"/>
+      <link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
+      <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap-3.3.7/bootstrap.min.css")"/>
+      <link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
+      <link rel="stylesheet" href="@routes.Assets.at("stylesheets/horsleyparish.css")"/>
+
+    </head>
+
+      <body class="pace-done">
+        <div>
+          <div id="page-wrapper" class="gray-bg">
+
+            <div class="middle-box text-center">
+              <h1>404</h1>
+              <h3 class="font-bold">Page Not Found</h3>
+              <div>
+                Sorry, but the page you are looking for has not been found.<br>
+                Please check the URL (in the top of your browser) for any obvious errors.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </body>
+    </html>
