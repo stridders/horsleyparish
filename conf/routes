@@ -6,7 +6,7 @@
 GET     /                               controllers.Application.redirect()
 
 GET     /web                            controllers.Application.index()
-#GET     /api                            controllers.Root.apiRoot()
+GET     /api                            controllers.Root.apiRoot()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /web/*file                      controllers.Assets.at(path="/public", file)
