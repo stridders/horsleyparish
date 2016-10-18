@@ -13,6 +13,7 @@
 
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
+		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.css"))'>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/horsleyparish.css")"/>
@@ -21,6 +22,10 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-route.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-animate.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-aria.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-messages.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.js"))'></script>
 
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
@@ -37,17 +42,14 @@
 
 	<body ng-app="horsleyParish" class="pace-done">
 		<div>
-			Hello world
+			<!-- Header wrapper -->
+			<div ng-include="'/web/pages/common/page-header.html'"></div>
 
+			<!-- Main view -->
+			<div ng-view class="main-page"></div>
 
-				<!-- Header wrapper -->
-				<div ng-include="'/web/pages/common/page-header.html'"></div>
-
-				<!-- Main view -->
-				<div ng-view class="main-page"></div>
-
-				<!-- footer wrapper -->
-				<div ng-include="'web/pages/index.html'"></div>
+			<!-- footer wrapper -->
+			<div ng-include="'web/pages/index.html'"></div>
 
 		</div>
 	</body>
