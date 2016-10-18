@@ -1,7 +1,7 @@
 @import security.model.UserProfile
 @import play.api.Play.current
 
-@(path: String, userProfile: UserProfile)
+@(webJarAssets: WebJarAssets, path: String, userProfile: UserProfile)
 @config= @{play.Play.application().configuration() }
 
 <!DOCTYPE html>
@@ -10,8 +10,9 @@
       <title>Horsley Parish, Gloucestershire, Community website</title>
       <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scala=1"/>
+      <link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
+      <link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
       <link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
-      <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap-3.3.7/bootstrap.min.css")"/>
       <link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
       <link rel="stylesheet" href="@routes.Assets.at("stylesheets/horsleyparish.css")"/>
 

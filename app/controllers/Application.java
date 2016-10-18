@@ -15,35 +15,42 @@ import javax.inject.Named;
  */
 public class Application extends Controller {
 
-    @Inject
-    @Named("app.version")
-    String appVersion;
+//    @Inject
+//    @Named("app.version")
+//    String appVersion;
 
     @Inject
     Configuration configuration;
 
+    @Inject
+    WebJarAssets webJarAssets;
+
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
-    public static Result index() {
+    public Result index() {
         UserProfile userProfile = new UserProfile("Jon", "Stride", "email@jonstride.uk", "A000001");
-        return ok(index.render(userProfile));
+        return ok(index.render(webJarAssets,userProfile));
     }
 
-    public static Result version() {
+    public Result version() {
         return ok("Horsley Parish (Gloucestershire) Website.  Build version: ");
     }
 
-    public static Result redirect() {
-        return redirect("/pages");
+    public Result redirect() {
+        return redirect("/web");
     }
 
-    public static Result anything(String path) {
-        if (path.equals("")) {
+    public Result anything(String stuff) {
+        if (stuff.equals("")) {
             return movedPermanently(request().path() + "web");
         }
         UserProfile userProfile = new UserProfile("Jon", "Stride", "email@jonstride.uk", "A000001");
-        return notFound(views.html.notFoundPage.render(path, userProfile));
+        return notFound(views.html.notFoundPage.render(webJarAssets, stuff, userProfile));
     }
 
+    public Result untrail(String path) {
+        String newPath = request().path().replaceAll("/$", "");
+        return movedPermanently(newPath);
+    }
 
 }

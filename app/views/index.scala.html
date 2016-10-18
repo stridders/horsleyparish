@@ -1,44 +1,55 @@
 @import security.model.UserProfile
 @import play.api.Play.current
 
-@(userProfile: UserProfile)
+@(webJarAssets: WebJarAssets, userProfile: UserProfile)
 @config= @{play.Play.application().configuration() }
 
 <!DOCTYPE html>
+<html>
 	<head>
 		<title>Horsley Parish, Gloucestershire, Community website</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scala=1"/>
 
+		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
+		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
-		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap-3.3.7/bootstrap.min.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/horsleyparish.css")"/>
 
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/libs/bootstrap/bootstrap.min.js")"></script>
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/libs/bootstrap/ui-bootstrap-tpls-2.1.4.min.js")"></script>
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-1.5.8/angular.min.js")"></script>
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-1.5.8/angular-resource.min.js")"></script>
-		<script type="text/javascript" src="@routes.Assets.at("javascripts/libs/angular-1.5.8/angular-route.min.js")"></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-route.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.js"))'></script>
+
+		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
+
+		<script>
+			var app = angular.module('horsleyParish',[]);
+			var imagesDir = "@routes.Assets.at("images")";
+
+			app.value("play_http_context", "@config.getString("play.http.context")");
+		</script>
 
 	</head>
 
 
-	<div class="container">
-	    <h1>Title here</h1>
+	<body ng-app="horsleyParish" class="pace-done">
+		<div>
+			Hello world
 
-	    <table class="table table-striped">
-		    <thead>
-		    	<tr>
-		    		<th>ID</th>
-					<th>Name</th>
-					<th>Edit</th>
-					<th>Delete</th>
-		    	</tr>
-		    </thead>
-			<tbody>
 
-			</tbody>
-		</table>
-	</div>
+				<!-- Header wrapper -->
+				<div ng-include="'/web/pages/common/page-header.html'"></div>
 
+				<!-- Main view -->
+				<div ng-view class="main-page"></div>
+
+				<!-- footer wrapper -->
+				<div ng-include="'web/pages/index.html'"></div>
+
+		</div>
+	</body>
+
+</html>

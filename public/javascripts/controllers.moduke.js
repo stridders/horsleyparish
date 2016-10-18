@@ -1,0 +1,1 @@
+angular.module('horsleyParish.controllers', ['ui.router', 'ui.bootstrap']);

@@ -3,16 +3,18 @@
 # ~~~~
 
 # Home page
+GET     /*somePath/                     controllers.Application.untrail(somePath : String)
 GET     /                               controllers.Application.redirect()
 
 GET     /web                            controllers.Application.index()
-#GET     /api                            controllers.Root.apiRoot()
+
+#GET    /api                            controllers.Root.apiRoot()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /web/*file                      controllers.Assets.at(path="/public", file)
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)
-
-
+GET     /webjars/*file                  controllers.WebJarAssets.at(file)
 GET     /version                        controllers.Application.version()
 
-GET     /$path<.*>                      controllers.Application.anything(path: String)
+#Everything else
+GET     /$stuff<.*>                      controllers.Application.anything(stuff: String)
