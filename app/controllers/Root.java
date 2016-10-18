@@ -12,7 +12,7 @@ import static play.mvc.Results.ok;
  */
 public class Root extends Controller {
 
-    public Result apiRoot() {
+    public static Result apiRoot() {
         RepresentationFactory rf    = new StandardRepresentationFactory();
         Representation serviceLinks = rf.newRepresentation();
 
