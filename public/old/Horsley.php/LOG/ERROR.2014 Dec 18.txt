@@ -1,0 +1,4 @@
+[2014/12/18 12:02:55] [andrea.1102@hotmail.co.uk] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

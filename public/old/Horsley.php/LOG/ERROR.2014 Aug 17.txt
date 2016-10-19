@@ -1,0 +1,4 @@
+[2014/08/17 00:29:06] [p.horwood@thomsonadsett.com] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

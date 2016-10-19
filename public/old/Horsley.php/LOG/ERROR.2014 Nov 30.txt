@@ -1,0 +1,4 @@
+[2014/11/30 19:22:55] [Public User] [ERRC000003][AJAX_Update_Row_SUB.php]
+Error updating web_page_template row
+SQL:UPDATE web_page_template set WPT_Template=NULL,WPT_Text1=null,WPT_Text2=null,WPT_width=NULL, WPT_height=NULL WHERE WPT_SiteID=1 AND WPT_ID= --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+___________________________________________________________________

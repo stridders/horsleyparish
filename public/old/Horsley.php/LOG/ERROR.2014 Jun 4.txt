@@ -1,0 +1,8 @@
+[2014/06/4 07:52:58] [meteor601@talktalk.net] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________
+[2014/06/4 08:00:22] [meteor601@talktalk.net] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

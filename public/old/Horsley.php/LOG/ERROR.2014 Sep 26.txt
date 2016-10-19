@@ -1,0 +1,4 @@
+[2014/09/26 13:22:55] [rdbaker@iinet.net.au] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

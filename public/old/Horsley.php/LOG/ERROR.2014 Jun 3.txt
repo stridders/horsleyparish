@@ -1,0 +1,16 @@
+[2014/06/3 12:29:58] [Public User] [ERRC000003][AJAX_Update_Row_SUB.php]
+Error updating web_page_template row
+SQL:UPDATE web_page_template set WPT_Template=NULL,WPT_Text1=' ',WPT_Text2=' ',WPT_width=NULL, WPT_height=NULL WHERE WPT_SiteID=1 AND WPT_ID= --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+___________________________________________________________________
+[2014/06/3 17:56:01] [js@tip.uk.com] [ERRC000003][ChangeMenu.php]
+Error deleting menu item
+SQL:DELETE FROM groups WHERE G_SiteID=1 AND G_GroupID='BellCastle' --  Error: Cannot delete or update a parent row: a foreign key constraint fails (`horsleypar1/web_pages`, CONSTRAINT `web_pages_ibfk_1` FOREIGN KEY (`WP_Group`) REFERENCES `groups` (`G_GroupID`))
+___________________________________________________________________
+[2014/06/3 17:57:41] [js@tip.uk.com] [ERRC000003][ChangeMenu.php]
+Error deleting menu item
+SQL:DELETE FROM groups WHERE G_SiteID=1 AND G_GroupID='BellCastle' --  Error: Cannot delete or update a parent row: a foreign key constraint fails (`horsleypar1/web_pages`, CONSTRAINT `web_pages_ibfk_1` FOREIGN KEY (`WP_Group`) REFERENCES `groups` (`G_GroupID`))
+___________________________________________________________________
+[2014/06/3 17:58:09] [js@tip.uk.com] [ERRC000003][ChangeMenu.php]
+Error deleting menu item
+SQL:DELETE FROM groups WHERE G_SiteID=1 AND G_GroupID='BellCastle' --  Error: Cannot delete or update a parent row: a foreign key constraint fails (`horsleypar1/web_pages`, CONSTRAINT `web_pages_ibfk_1` FOREIGN KEY (`WP_Group`) REFERENCES `groups` (`G_GroupID`))
+___________________________________________________________________

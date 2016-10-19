@@ -1,0 +1,8 @@
+[2014/03/12 20:39:25] [studio@marcuswalters.com] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________
+[2014/03/12 20:41:17] [studio@marcuswalters.com] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

@@ -1,0 +1,24 @@
+[2015/04/9 14:43:26] [Amberyer@aol.com] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________
+[2015/04/9 14:45:37] [Amberyer@aol.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,NULL,'2015-5-2','Surprise party for my friends daughter','17:30',1,'N','','13:30','Children's party','Amberyer@aol.com',NULL) --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's party','Amberyer@aol.com',NULL)' at line 1
+___________________________________________________________________
+[2015/04/9 14:45:47] [Amberyer@aol.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,NULL,'2015-5-2','Surprise party for my friends daughter','17:30',1,'N','','13:30','Children's party','Amberyer@aol.com',NULL) --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's party','Amberyer@aol.com',NULL)' at line 1
+___________________________________________________________________
+[2015/04/9 14:46:00] [Amberyer@aol.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,NULL,'2015-5-2','Surprise party for my friends daughter','17:30',1,'N','','13:30','Children's party','Amberyer@aol.com',NULL) --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's party','Amberyer@aol.com',NULL)' at line 1
+___________________________________________________________________
+[2015/04/9 14:46:09] [Amberyer@aol.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,NULL,'2015-5-2','Surprise party for my friends daughter','17:30',1,'N','','13:30','Children's party','Amberyer@aol.com',NULL) --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's party','Amberyer@aol.com',NULL)' at line 1
+___________________________________________________________________
+[2015/04/9 14:47:00] [Amberyer@aol.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,NULL,'2015-5-2','Surprise party for my friends daughter ','17:30',1,'N','','13:30','Children's party','Amberyer@aol.com',NULL) --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's party','Amberyer@aol.com',NULL)' at line 1
+___________________________________________________________________

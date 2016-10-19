@@ -1,0 +1,72 @@
+[2014/01/1 09:57:15] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-01-1','Please ignore. Just testing the new website is working','01:30',1,'N','','01:00','test booking','Jon Stride') --  Error: 
+___________________________________________________________________
+[2014/01/1 11:28:46] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'No comments','2014-01-1','please ignore','00:15',1,'N','','00:00','test booking','js@tip.uk.com') --  Error: 
+___________________________________________________________________
+[2014/01/1 11:43:05] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'no comments','2014-01-01','please ignore','00:15',1,'N','','00:00','test booking','js@tip.uk.com') --  Error: 
+___________________________________________________________________
+[2014/01/1 11:43:59] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'no comments','2014-01-01','please ignore','00:15',1,'N','','00:00','test booking','js@tip.uk.com') --  Error: 
+___________________________________________________________________
+[2014/01/1 11:48:00] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'no comments','2014-01-01','please ignore','00:15',1,'N','','00:00','test booking','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-00:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 12:40:28] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-01-1','please ignore','00:15',1,'N','','00:00','test booking','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-00:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 12:45:03] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'fffff','2014-01-1','ffff','00:15',1,'N','','00:00','ffff','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-00:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 13:52:33] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'dad','2014-01-1','x\\zx\\','00:15',1,'N','','00:00','test','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-00:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 13:58:34] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'fff','2014-01-1','ffff','01:15',1,'N','','01:00','ffff','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-01:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 14:12:46] [js@tip.uk.com] [ERRC000003][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'asf','2014-01-1','fafs','00:15',1,'N','','00:00','fsdafasd','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-00:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 14:19:32] [js@tip.uk.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'ffff','2014-01-1','fffff','02:15',1,'N','','02:00','ffffff','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-02:00-1' for key 1
+___________________________________________________________________
+[2014/01/1 14:26:05] [js@tip.uk.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking
+SQL:INSERT INTO booking (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,
+														   B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,'ffffff','2014-01-1','fffffff','00:15',1,'N','','00:00','fffff','js@tip.uk.com') --  Error: Duplicate entry '1-2014-01-01-00:00-1' for key 1
+___________________________________________________________________

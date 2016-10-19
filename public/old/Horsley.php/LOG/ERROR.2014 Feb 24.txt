@@ -1,0 +1,6 @@
+[2014/02/24 18:32:41] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-11-1','Will Lawrence?','24:00',3,'N','','10:00','French Country Dance','kbutt@tiscali.co.uk') --  Error: Duplicate entry '3-2014-11-01-10:00-1' for key 1
+___________________________________________________________________

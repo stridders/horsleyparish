@@ -1,0 +1,4 @@
+[2014/09/10 09:25:35] [t.heaven@talktalk.net] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

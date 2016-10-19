@@ -1,0 +1,4 @@
+[2015/05/6 00:04:02] [Public User] [ERRC000003][I_Booking_Calendar.php]
+Error connecting to DB
+SQL Error: Lost connection to MySQL server at 'reading authorization packet', system error: 2
+___________________________________________________________________

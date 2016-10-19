@@ -1,0 +1,4 @@
+[2014/12/30 07:48:59] [Public User] [ERRC000003][I_Booking_Calendar.php]
+Error connecting to DB
+SQL Error: Lost connection to MySQL server at 'reading final connect information', system error: 2
+___________________________________________________________________

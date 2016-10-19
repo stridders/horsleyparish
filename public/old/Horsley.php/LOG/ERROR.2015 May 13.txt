@@ -1,0 +1,5 @@
+[2015/05/13 10:29:36] [Augustbump@hotmail.com] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,NULL,'2015-9-12','Hi, I'd like to book the hall for my babys first birthday party. Could you tell me if this date is available and how much it would be please. Thanks
+Beckie','17:00',1,'N','','14:00','First birthday party','Augustbump@hotmail.com',NULL) --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'd like to book the hall for my babys first birthday party. Could you tell me if ' at line 1
+___________________________________________________________________

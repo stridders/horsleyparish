@@ -1,0 +1,144 @@
+[2014/02/3 11:43:58] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-02-22','Quiz','23:45',1,'N','','13:00','Shop Quiz','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-02-22-13:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 11:47:02] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-02-05','Session from 9.30-15.15','08:30',1,'N','','08:15','Playgroup','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-02-05-08:15-1' for key 1
+___________________________________________________________________
+[2014/02/3 11:48:10] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-02-05','Session from 9.30-15.15','15:15',1,'N','','08:30','Playgroup','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-02-05-08:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 11:51:58] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-02-16','Carolyne Crowe','00:15',1,'N','','00:00','Child party Crowe','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-02-16-00:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 11:54:23] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-02-23','Actual event 11-4.40','17:30',1,'N','','10:00','Hazel Young Dance event','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-02-23-10:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 11:58:18] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-03-21','Event','15:30',1,'N','','09:00','Fiona Eadie','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-03-21-09:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 11:58:19] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-03-21','Event','15:30',1,'N','','09:00','Fiona Eadie','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-03-21-09:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:00:35] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-03-23','5th Party','18:00',1,'N','','14:00','Jo Trevain Child party','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-03-23-14:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:02:00] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-03-25','Meeting','22:45',1,'N','','18:00','PCC',NULL) --  Error: Column 'B_UserEmail' cannot be null
+___________________________________________________________________
+[2014/02/3 12:02:11] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-03-25','Meeting','18:15',1,'N','','18:00','PCC','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-03-25-18:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:04:46] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-4-1','Meeting','21:15',1,'N','','19:30','Village Hall committee','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-04-01-19:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:06:55] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-04-5','Child party 5yo','17:30',1,'N','','13:30','McAdam party','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-04-05-13:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:07:39] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-04-5','Adult party','23:45',1,'N','','17:30','Adam Beard party','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-04-05-17:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:09:41] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-04-13','Simon Allen','24:00',1,'N','','00:15','Wax floor','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-04-13-00:15-1' for key 1
+___________________________________________________________________
+[2014/02/3 12:12:47] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-5-3','Event','24:00',1,'N','','10:00','Paul Hoffman','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-05-03-10:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 13:33:28] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-6-14','80th Party','24:00',1,'N','','00:00','Di Humphries','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-06-14-00:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 13:34:34] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-6-20','Fete','21:00',1,'N','','18:00','FHS FETE','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-06-20-18:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 13:37:22] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-7-18','Year 6 ','16:00',1,'N','','14:00','FHS Water fight','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-07-18-14:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 13:39:32] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-9-13','Fete','24:00',1,'N','','00:15','Village Fete','kbutt@tiscali.co.uk') --  Error: Duplicate entry '1-2014-09-13-00:15-1' for key 1
+___________________________________________________________________
+[2014/02/3 16:05:17] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-3-21','Stan','16:15',3,'N','','16:00','String Ensemble FOHC','kbutt@tiscali.co.uk') --  Error: Duplicate entry '3-2014-03-21-16:00-1' for key 1
+___________________________________________________________________
+[2014/02/3 16:10:29] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-4-11','Stan','24:00',3,'N','','17:30','Concert FOHC Pete Rosser','kbutt@tiscali.co.uk') --  Error: Duplicate entry '3-2014-04-11-17:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 16:27:00] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-10-18','Stan','24:00',3,'N','','16:30','FOHC Event Mike Hewit','kbutt@tiscali.co.uk') --  Error: Duplicate entry '3-2014-10-18-16:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 16:28:54] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-10-25','Stan','16:45',3,'N','','16:30','Mike Hewitt FOHC?','kbutt@tiscali.co.uk') --  Error: Duplicate entry '3-2014-10-25-16:30-1' for key 1
+___________________________________________________________________
+[2014/02/3 16:33:31] [kbutt@tiscali.co.uk] [ERRC000014][I_Booking_SUB.php]
+Error inserting new booking request
+SQL:INSERT INTO booking 	
+									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
+													VALUES(1,NULL,'2014-12-20','Stan','24:00',3,'N','','09:00','FOHC ?','kbutt@tiscali.co.uk') --  Error: Duplicate entry '3-2014-12-20-09:00-1' for key 1
+___________________________________________________________________

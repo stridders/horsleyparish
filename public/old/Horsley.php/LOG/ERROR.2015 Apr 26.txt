@@ -1,0 +1,12 @@
+[2015/04/26 08:00:30] [Public User] [ERRC000003][I_Booking_Calendar.php]
+Error connecting to DB
+SQL Error: User horsleypar1 already has more than 'max_user_connections' active connections
+___________________________________________________________________
+[2015/04/26 08:00:32] [Public User] [ERRC000003][I_Booking_Calendar.php]
+Error connecting to DB
+SQL Error: User horsleypar1 already has more than 'max_user_connections' active connections
+___________________________________________________________________
+[2015/04/26 08:00:32] [Public User] [ERRC000003][I_Booking_Calendar.php]
+Error connecting to DB
+SQL Error: User horsleypar1 already has more than 'max_user_connections' active connections
+___________________________________________________________________

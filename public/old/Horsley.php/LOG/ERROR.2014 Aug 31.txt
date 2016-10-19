@@ -1,0 +1,4 @@
+[2014/08/31 16:14:24] [span01@mac.com] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________

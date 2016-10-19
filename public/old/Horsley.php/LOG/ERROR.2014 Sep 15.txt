@@ -1,0 +1,8 @@
+[2014/09/15 02:23:38] [Public User] [ERRC000003][I_Booking_Calendar.php]
+Error connecting to DB
+SQL Error: Lost connection to MySQL server at 'reading final connect information', system error: 2
+___________________________________________________________________
+[2014/09/15 09:58:06] [ben@yourlifehealthandfitness.co.uk] [ERRC000003][AuthenticateUser()]
+Error updating user status
+Unknown column 'U_UserID' in 'where clause'
+___________________________________________________________________
