@@ -1,4 +1,0 @@
-[2014/09/13 13:36:25] [Public User] [ERRC000003][I_Booking_Calendar.php]
-Error connecting to DB
-SQL Error: Host '213.171.218.122' is not allowed to connect to this MySQL server
-___________________________________________________________________

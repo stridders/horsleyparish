@@ -1,8 +1,0 @@
-[2014/04/2 07:20:34] [js@tip.uk.com] [ERRC000003][ChangeMenu.php]
-Error updating menu description
-SQL:UPDATE groups SET G_Desc='The Horse's Mouth' WHERE G_SiteID=1 AND G_GroupID='HorsesMouth' --  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's Mouth' WHERE G_SiteID=1 AND G_GroupID='HorsesMouth'' at line 1
-___________________________________________________________________
-[2014/04/2 08:38:54] [mary.furnival@gmail.com] [ERRC000003][AuthenticateUser()]
-Error updating user status
-Unknown column 'U_UserID' in 'where clause'
-___________________________________________________________________

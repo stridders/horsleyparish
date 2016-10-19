@@ -1,4 +1,0 @@
-[2014/07/14 20:19:39] [nicola_banning@yahoo.com] [ERRC000003][AuthenticateUser()]
-Error updating user status
-Unknown column 'U_UserID' in 'where clause'
-___________________________________________________________________

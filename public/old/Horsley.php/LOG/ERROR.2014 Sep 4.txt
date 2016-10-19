@@ -1,6 +1,0 @@
-[2014/09/4 07:14:32] [js@tip.uk.com] [ERRC000014][I_Booking_SUB.php]
-Error inserting new booking request
-SQL:INSERT INTO booking 	
-									 (B_SiteID,B_Comment,B_Date,B_Desc,B_EndTime,B_Locn,B_Approved,B_PageLink,B_StartTime,B_Title,B_UserEmail) 
-													VALUES(1,NULL,'2014-09-04','Please ignore','04:00',1,'N','','03:00','test booking','js@tip.uk.com') --  Error: Duplicate entry '1-2014-09-04-03:00-1' for key 1
-___________________________________________________________________

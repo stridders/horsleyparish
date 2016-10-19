@@ -1,4 +1,0 @@
-[2014/04/30 15:14:59] [js@tip.uk.com] [ERRC000002][I_EDIT_PDFLIST.php]
-Error while getting PDF list from database
-Table 'horsleypar1.file_list' doesn't exist
-___________________________________________________________________

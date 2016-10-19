@@ -1,8 +1,0 @@
-[2015/01/8 15:39:53] [Public User] [ERRC000003][I_Booking_Calendar.php]
-Error connecting to DB
-SQL Error: Can't connect to MySQL server on '88.208.193.103' (10060)
-___________________________________________________________________
-[2015/01/8 18:05:10] [david@manzi-fe.org] [ERRC000003][AuthenticateUser()]
-Error updating user status
-Unknown column 'U_UserID' in 'where clause'
-___________________________________________________________________

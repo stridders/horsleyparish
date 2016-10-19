@@ -1,8 +1,0 @@
-[2014/11/22 02:05:29] [Public User] [ERRC000003][I_Booking_Calendar.php]
-Error connecting to DB
-[2014/11/22 02:05:29] [Public User] [ERRC000003][I_Booking_Calendar.php]
-rmation', system error: 2
-___________________________________________________________________
-Error connecting to DB
-SQL Error: Lost connection to MySQL server at 'reading authorization packet', system error: 2
-___________________________________________________________________

@@ -1,4 +1,0 @@
-[2015/03/2 21:00:09] [taminglis@hotmail.com] [ERRC000014][I_Booking_SUB.php]
-Error inserting new booking request
-SQL:INSERT INTO booking (B_SiteID, B_Comment, B_Date, B_Desc, B_EndTime, B_Locn, B_Approved, B_PageLink, B_StartTime, B_Title, B_UserEmail, B_RptRef) VALUES(1,'We did book the hall for June 27th but there is a clash of events so we are having to change the day . Is the hall free on this day or June 6th ? I tried emailing but it failed to send for some reason','2015-6-13','Barn dance fundraiser for Horsley school','12:15',1,'N','','12:00','Fhs barn dance','taminglis@hotmail.com',NULL) --  Error: Unknown column 'B_RptRef' in 'field list'
-___________________________________________________________________

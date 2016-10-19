@@ -1,4 +1,0 @@
-[2014/12/1 16:47:28] [Public User] [ERRC000003][I_Booking_Calendar.php. SQL:SELECT * FROM bookable_locations WHERE BL_SiteID=1 AND BL_Locn=1]
-Error while getting location details from DB
-MySQL server has gone away
-___________________________________________________________________

@@ -1,8 +1,0 @@
-[2014/11/9 15:59:21] [mary.furnival@gmail.com] [ERRC000003][AuthenticateUser()]
-Error updating user status
-Unknown column 'U_UserID' in 'where clause'
-___________________________________________________________________
-[2014/11/9 16:00:41] [mary.furnival@gmail.com] [ERRC000003][AuthenticateUser()]
-Error updating user status
-Unknown column 'U_UserID' in 'where clause'
-___________________________________________________________________

@@ -1,4 +1,0 @@
-[2015/04/30 06:43:50] [Littleark@btinternet.com] [ERRC000003][AuthenticateUser()]
-Error updating user status
-Unknown column 'U_UserID' in 'where clause'
-___________________________________________________________________
