@@ -1,18 +1,17 @@
-var app = angular.module('horsleyParish', [
-    'horsleyParish.controllers',
-    'ngRoute',
-    'ngResource']);
+var app = angular.module('horsley', ['horsley.controllers']);
 
 app.config(function($routeProvider) {
 
     $routeProvider
 
         .when('/', {
-            redirectTo  :   '/help'
+            templateUrl  :   'web/pages/home.html'
         })
-        .when('/me', {
-            templateUrl  :   'web/pages/common/page-header.html'
+        .when('/help', {
+            redirectTo  :   'web/pages/help/index.html'
+            //templateUrl  :   '/web/pages/help/index.html'
             //controller    :   'ddd.controller'
         })
+
 
 });

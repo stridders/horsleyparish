@@ -5,7 +5,7 @@
 @config= @{play.Play.application().configuration() }
 
 <!DOCTYPE html>
-<html>
+<html ng-app="horsley" >
 	<head>
 		<title>Horsley Parish, Gloucestershire, Community website</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
@@ -13,7 +13,6 @@
 
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
-		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.css"))'>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/horsleyparish.css")"/>
@@ -21,13 +20,13 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-route.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-animate.min.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-aria.min.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-messages.min.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-resource.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("1.5.8/angular-route.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-filter.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-moment.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.js"))'></script>
 
+		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
 
 		<script>
@@ -40,16 +39,16 @@
 	</head>
 
 
-	<body ng-app="horsleyParish" class="pace-done">
-		<div>
+	<body class="pace-done">
+		<div id="page-wrapper">
 			<!-- Header wrapper -->
 			<div ng-include="'/web/pages/common/page-header.html'"></div>
 
 			<!-- Main view -->
-			<div ng-view class="main-page"></div>
+			<ng-view></ng-view>
 
 			<!-- footer wrapper -->
-			<div ng-include="'web/pages/index.html'"></div>
+			<div ng-include="'web/pages/common/page-footer.html'"></div>
 
 		</div>
 	</body>
