@@ -23,11 +23,13 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-resource.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("1.5.8/angular-route.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-filter.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-moment.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.js"))'></script>
-
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
+
+		<!-- Features -->
+		<script type="text/javascript" src='@routes.Assets.at("features/section-navigation/section-navigation-button.directive.js")'></script>
+		<link rel="stylesheet" href="@routes.Assets.at("features/section-navigation/section-navigation-button.css")"/>
 
 		<script>
 			var app = angular.module('horsleyParish',[]);

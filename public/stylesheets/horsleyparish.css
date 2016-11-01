@@ -1,7 +1,3 @@
-/* BACKGROUNDS*/
-.gray-bg {
-    background-color:#f3f3f4;
-}
 
 body {
     font-family: "Open Sans";
@@ -19,14 +15,17 @@ body #page-wrapper {
     transition: all 0.5s;
 }
 
-.middle-box {
-    max-width: 400px;
-    z-index: 100;
-    margin:  0 auto;
-    padding-top: 40px;
-}
+/* COLOURS */
 
-.middle-box h1 {
-    font-size: 170px;
+.primary-title {
+    background-color: #689F38;
+    color: white;
+    text-align: center;
 }
-
+.primary-body {
+    background-color: #8BC34A;
+    color: white;
+}
+.primary-border {
+    border: solid thin #EEEEEE;
+}
