@@ -55,7 +55,7 @@ body #page-wrapper {
     transform: translateZ(0);
 }
 
-/* COLOURS */
+
 
 .primary-title {
     background-color: #689F38;
@@ -64,7 +64,7 @@ body #page-wrapper {
 }
 .primary-body {
     background-color: #8BC34A;
-    color: white;
+    color: #37474F;
 }
 .primary-border {
     border: solid thin #EEEEEE;
@@ -88,4 +88,10 @@ body #page-wrapper {
 .subtitle {
     font-size: 14px;
     text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }

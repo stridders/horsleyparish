@@ -8,14 +8,16 @@
     function HomePageController() {
         let hpc = this;
         hpc.config = {
-            'title': 'Welcome to Horsley Parish',
-            'subtitle': 'The community website for Horsley Parish, Gloucestershire'
+            title: 'Welcome to Horsley Parish',
+            subtitle: 'The community website for Horsley Parish, Gloucestershire'
         };
-        hpc.links = {
-                'heading': 'The Horses Mouth',
-                'image': '/web/images/img-hdr-para-layer2.png',
-                'text': 'The Horsley Monthly Magazine'
-        };
+        hpc.links = [
+            {
+                heading: 'The Horses Mouth',
+                image: '/web/pages/the-horses-mouth/images/icon_sm.png',
+                text: 'The Horsley Monthly Magazine'
+            }
+        ];
 
     }
 

@@ -1,5 +1,9 @@
 <div class="sec-nav-btn">
-    <div class="primary-title">{{snb.heading}}</div>
-    <div class="primary-body"><img src={{snb.image}}></div>
-    <div class="text-content">{{snb.text}}</div>
+    <div class="primary-title">
+        <p>{{snb.heading}}</p>
+    </div>
+    <div class="primary-body" ng-style="{'background-image': 'url({{snb.image}})'}">
+        <div class="text-content">{{snb.text}}</div>
+    </div>
+
 </div>

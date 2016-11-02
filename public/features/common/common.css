@@ -52,3 +52,10 @@
     display:block;
     z-index:5;
 }
+
+.ftr-container {
+    margin-top: 20px;
+    border-top: solid thin #37474F;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
