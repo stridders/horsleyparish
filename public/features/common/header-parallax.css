@@ -1,0 +1,54 @@
+
+
+.hdr-para-container {
+    overflow: hidden;
+    height: 300px;
+}
+.hdr-para-layer0 {
+    position:absolute;
+    top:10px;
+    width:100%;
+    height:180px;
+    display:block;
+    background-image: url('/web/images/img-hdr-para-layer0.png');
+    background-position: center top;
+    z-index:1;
+}
+.hdr-para-layer1 {
+    position:absolute;
+    top:140px;
+    width:100%;
+    height:200px;
+    display:block;
+    background-image: url('/web/images/img-hdr-para-layer1.png');
+    background-position: center top;
+    z-index:2;
+}
+.hdr-para-layer2 {
+    position:absolute;
+    top:80px;
+    width:100%;
+    height:200px;
+    display:block;
+    background-image: url('/web/images/img-hdr-para-layer2.png');
+    background-position: center top;
+    z-index:3;
+}
+.hdr-para-layer3 {
+    position:absolute;
+    top:120px;
+    width:100%;
+    height:300px;
+    display:block;
+    background-image: url('/web/images/img-hdr-para-layer3.png');
+    background-position: center top;
+    z-index:4;
+}
+.hdr-para-layer4 {
+    position:absolute;
+    top:300px;
+    width:100%;
+    height:100%;
+    display:block;
+    z-index:5;
+}

@@ -15,7 +15,7 @@
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
-		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/horsleyparish.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")"/>
 
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.js"))'></script>
@@ -27,9 +27,17 @@
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
 
+		<!-- Common -->
+		<link rel="stylesheet" href="@routes.Assets.at("features/common/header-parallax.css")"/>
+
 		<!-- Features -->
+
+		<!-- Section-Navigation -->
 		<script type="text/javascript" src='@routes.Assets.at("features/section-navigation/section-navigation-button.directive.js")'></script>
 		<link rel="stylesheet" href="@routes.Assets.at("features/section-navigation/section-navigation-button.css")"/>
+
+		<!-- Home-Page -->
+		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
 
 		<script>
 			var app = angular.module('horsleyParish',[]);
@@ -43,14 +51,21 @@
 
 	<body class="pace-done">
 		<div id="page-wrapper">
-			<!-- Header wrapper -->
-			<div ng-include="'/web/pages/common/page-header.html'"></div>
+			<div class="parallax">
+				<div class="hdr-para-container">
 
-			<!-- Main view -->
-			<ng-view></ng-view>
+					<div ng-include="'/web/features/common/header-parallax.html'"></div>
 
-			<!-- footer wrapper -->
-			<div ng-include="'web/pages/common/page-footer.html'"></div>
+					<div class="parallax__layer parallax__layer--0">
+						<div class="hdr-para-layer4">
+							<ng-view></ng-view>
+							<div ng-include="'web/features/common/page-footer.html'"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
 
 		</div>
 	</body>

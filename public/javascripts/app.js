@@ -5,13 +5,11 @@ app.config(function($routeProvider) {
     $routeProvider
 
         .when('/', {
-            templateUrl  :   'web/pages/home.html'
+            controller  :   'HomePageController',
+            templateUrl :   'web/features/home-page/home-page.html'
+
         })
-        .when('/help', {
-            redirectTo  :   'web/pages/help/index.html'
-            //templateUrl  :   '/web/pages/help/index.html'
-            //controller    :   'ddd.controller'
-        })
+
 
 
 });

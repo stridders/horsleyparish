@@ -1,0 +1,91 @@
+
+body {
+    font-family: "Open Sans";
+}
+
+body #page-wrapper {
+    height: 100%;
+    min-height: 1200px;
+}
+
+.pace-done #page-wrapper {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+/* Parallax base styles
+ --------------------------------------------- */
+.parallax {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+    -webkit-perspective: 300px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+}
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.parallax__layer--minus-200 {
+    -webkit-transform: translateZ(-200px) scale(2);
+    transform: translateZ(-200px) scale(2);
+}
+
+.parallax__layer--minus-150 {
+    -webkit-transform: translateZ(-150px) scale(2);
+    transform: translateZ(-150px) scale(2);
+}
+
+.parallax__layer--minus-80 {
+    -webkit-transform: translateZ(-80px) scale(1.5);
+    transform: translateZ(-80px) scale(1.5);
+}
+
+.parallax__layer--0 {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* COLOURS */
+
+.primary-title {
+    background-color: #689F38;
+    color: white;
+    text-align: center;
+}
+.primary-body {
+    background-color: #8BC34A;
+    color: white;
+}
+.primary-border {
+    border: solid thin #EEEEEE;
+}
+.text-content {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 100;
+    color: #37474F;
+}
+.page-banner {
+    position: relative;
+    top:-50px;
+}
+.title {
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: -4px;
+}
+.subtitle {
+    font-size: 14px;
+    text-align: center;
+}
