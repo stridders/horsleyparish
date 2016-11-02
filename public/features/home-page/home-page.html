@@ -1,15 +1,13 @@
 <div>
     <div class="page-banner">
-        <div class="text-content title">title:{{hpc.config.title}}</div>
+        <div class="text-content title">{{hpc.config.title}}</div>
         <div class="text-content subtitle">{{hpc.config.subtitle}}</div>
     </div>
-
+here: {{hpc.links}}
     <section-nav-btn
-            heading="3-in-1"
-            image=""
-            text="St. Martin's Church (Horsley 3-in-1)">
+            heading="{{hpc.links[0].heading}}"
+            image="{{hpc.links[0].image}}"
+            text="{{hpc.links[0].text}}">
     </section-nav-btn>
 
 </div>
-
-here: {{hpc.config}}

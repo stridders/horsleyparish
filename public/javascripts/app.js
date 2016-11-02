@@ -6,8 +6,8 @@ app.config(function($routeProvider) {
 
         .when('/', {
             controller  :   'HomePageController',
+            controllerAs:   'hpc',
             templateUrl :   'web/features/home-page/home-page.html'
-
         })
 
 
