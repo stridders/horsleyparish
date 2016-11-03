@@ -1,5 +1,4 @@
 
-
 .hdr-para-container {
     overflow: hidden;
     height: 300px;
@@ -51,4 +50,12 @@
     height:100%;
     display:block;
     z-index:5;
+}
+
+/* Link Page Icons */
+.icon-horses-mouth {
+    background-image: url('/web/features/the-horses-mouth/images/ic_horses_mouth_sm.png');
+}
+.icon-history {
+    background-image: url('/web/features/history/images/ic_history_sm.png');
 }

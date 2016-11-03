@@ -9,7 +9,10 @@ app.config(function($routeProvider) {
             controllerAs:   'hpc',
             templateUrl :   'web/features/home-page/home-page.html'
         })
-
-
+        .when('/history', {
+            controller  :   'HistoryController',
+            controllerAs:   'hc',
+            templateUrl :   'web/features/history/history.html'
+        })
 
 });

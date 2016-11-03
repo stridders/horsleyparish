@@ -23,21 +23,31 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-resource.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("1.5.8/angular-route.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-filter.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("0.2.18/angular-ui-router.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.js"))'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
 
 		<!-- Common -->
-		<link rel="stylesheet" href="@routes.Assets.at("features/common/header-parallax.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("features/common/common.css")"/>
 
 		<!-- Features -->
 
 		<!-- Section-Navigation -->
 		<script type="text/javascript" src='@routes.Assets.at("features/section-navigation/section-navigation-button.directive.js")'></script>
-		<link rel="stylesheet" href="@routes.Assets.at("features/section-navigation/section-navigation-button.css")"/>
+		<link rel="stylesheet" href='@routes.Assets.at("features/section-navigation/section-navigation-button.css")'/>
+
+		<!-- Page-Loader -->
+		<script type="text/javascript" src='@routes.Assets.at("features/page-loader/page-loader.directive.js")'></script>
+		<link rel="stylesheet" href='@routes.Assets.at("features/page-loader/page-loader.css")'/>
 
 		<!-- Home-Page -->
 		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
+
+			<!-- History -->
+		<script type="text/javascript" src='@routes.Assets.at("features/history/history.controller.js")'></script>
+
 
 		<script>
 			var app = angular.module('horsleyParish',[]);
@@ -54,12 +64,12 @@
 			<div class="parallax">
 				<div class="hdr-para-container">
 
-					<div ng-include="'/web/features/common/header-parallax.html'"></div>
+					<div ng-include="'/web/features/common/header.html'"></div>
 
 					<div class="parallax__layer parallax__layer--0">
 						<div class="hdr-para-layer4">
 							<ng-view></ng-view>
-							<div ng-include="'web/features/common/page-footer.html'"></div>
+							<div ng-include="'/web/features/common/page-footer.html'"></div>
 						</div>
 					</div>
 

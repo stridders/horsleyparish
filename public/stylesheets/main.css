@@ -64,7 +64,7 @@ body #page-wrapper {
 }
 .primary-body {
     background-color: #8BC34A;
-    color: white;
+    color: #37474F;
 }
 .primary-border {
     border: solid thin #EEEEEE;
@@ -88,4 +88,9 @@ body #page-wrapper {
 .subtitle {
     font-size: 14px;
     text-align: center;
+}
+.flexWrap {
+    display: flex;
+    flex-flow: wrap row;
+    margin:auto;
 }

@@ -11,12 +11,21 @@
             'title': 'Welcome to Horsley Parish',
             'subtitle': 'The community website for Horsley Parish, Gloucestershire'
         };
-        hpc.links = {
-                'heading': 'The Horses Mouth',
-                'image': '/web/images/img-hdr-para-layer2.png',
-                'text': 'The Horsley Monthly Magazine'
-        };
+        hpc.links = [
+            {
+                heading: 'The Horses Mouth',
+                icon: 'icon-horses-mouth',
+                text: 'The Horsley Monthly Magazine',
+                link:   '/horses-mouth'
 
+            },
+            {
+                heading: 'History',
+                icon: 'icon-history',
+                text: 'A history of Horsley Parish',
+                link:   '/history'
+            }
+        ];
     }
 
 })();

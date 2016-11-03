@@ -3,6 +3,13 @@
     overflow: hidden;
     box-shadow: rgba(0,0,0,0.117647) 0px 1px 6px, rgba(0,0,0,0.117647) 0px 1px 4px;
     border-radius: 15px;
-    width: 100px;
-    height:100px;
+    margin: 4pc 4px 4px 4px;
+    width: 150px;
+}
+.sec-nav-btn .primary-body {
+    background-repeat: no-repeat;
+    background-position: top center;
+    display: block;
+    min-width: 50px;
+    min-height: 70px;
 }
