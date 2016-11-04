@@ -13,7 +13,8 @@
             templateUrl:    'web/features/section-navigation/section-navigation-button.html',
             scope: {
                 heading:  '@',
-                icon:     '@',
+                title:    '@',
+                image:    '@',
                 text:     '@',
                 link:     '@'
             },
@@ -24,7 +25,7 @@
                 snb.redirect = redirectToURL;
 
                 function redirectToURL(link) {
-                    console.log("Rediriecting..."+link);
+                    console.log("Redirecting..."+link);
                     $location.path(link);
                 }
 

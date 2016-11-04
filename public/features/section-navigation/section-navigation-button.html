@@ -1,6 +1,6 @@
-<div class="sec-nav-btn" title="{{snb.text}}" ng-click="snb.redirect(snb.link)">
+<div class="sec-nav-btn" title="{{snb.title}}" ng-click="snb.redirect(snb.link)">
     <div class="primary-title">{{snb.heading}}</div>
-    <div ng-class="'primary-body ' + snb.icon">
+    <div class="primary-body" ng-style="{'background-image': 'url({{snb.image}})'}">
+        <div class="text-content">{{snb.text}}</div>
     </div>
-    link:{{snb.link}}
 </div>

@@ -5,7 +5,7 @@ body {
 
 body #page-wrapper {
     height: 100%;
-    min-height: 1200px;
+    height: 1500px;
 }
 
 .pace-done #page-wrapper {
@@ -17,7 +17,7 @@ body #page-wrapper {
 /* Parallax base styles
  --------------------------------------------- */
 .parallax {
-    height: 100vh;
+    height: 1400px;
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 300px;
@@ -46,8 +46,8 @@ body #page-wrapper {
 }
 
 .parallax__layer--minus-80 {
-    -webkit-transform: translateZ(-80px) scale(1.5);
-    transform: translateZ(-80px) scale(1.5);
+    -webkit-transform: translateZ(-80px) scale(1.2);
+    transform: translateZ(-80px) scale(1.2);
 }
 
 .parallax__layer--0 {
@@ -89,8 +89,8 @@ body #page-wrapper {
     font-size: 14px;
     text-align: center;
 }
-.flexWrap {
+.flex-container {
     display: flex;
-    flex-flow: wrap row;
-    margin:auto;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }

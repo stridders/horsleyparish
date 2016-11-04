@@ -1,7 +1,7 @@
 
 .hdr-para-container {
-    overflow: hidden;
     height: 300px;
+    overflow: visible;
 }
 .hdr-para-layer0 {
     position:absolute;
@@ -10,6 +10,7 @@
     height:180px;
     display:block;
     background-image: url('/web/images/img-hdr-para-layer0.png');
+    background-repeat: no-repeat;
     background-position: center top;
     z-index:1;
 }
@@ -20,16 +21,18 @@
     height:200px;
     display:block;
     background-image: url('/web/images/img-hdr-para-layer1.png');
+    background-repeat: no-repeat;
     background-position: center top;
     z-index:2;
 }
 .hdr-para-layer2 {
     position:absolute;
-    top:80px;
+    top:40px;
     width:100%;
     height:200px;
     display:block;
     background-image: url('/web/images/img-hdr-para-layer2.png');
+    background-repeat: no-repeat;
     background-position: center top;
     z-index:3;
 }
@@ -43,19 +46,21 @@
     background-position: center top;
     z-index:4;
 }
-.hdr-para-layer4 {
+.content-container {
+    height: 100%;
     position:absolute;
     top:300px;
     width:100%;
-    height:100%;
     display:block;
     z-index:5;
 }
-
-/* Link Page Icons */
-.icon-horses-mouth {
-    background-image: url('/web/features/the-horses-mouth/images/ic_horses_mouth_sm.png');
-}
-.icon-history {
-    background-image: url('/web/features/history/images/ic_history_sm.png');
+.footer-container {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    margin-top: 80px;
+    border-top: solid thin #37474F;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    height: 100px;
 }

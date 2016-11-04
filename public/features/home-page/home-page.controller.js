@@ -14,16 +14,17 @@
         hpc.links = [
             {
                 heading: 'The Horses Mouth',
-                icon: 'icon-horses-mouth',
-                text: 'The Horsley Monthly Magazine',
-                link:   '/horses-mouth'
-
+                title:   'The Horsley Monthly Magazine',
+                image:   '/web/features/the-horses-mouth/images/ic_horses_mouth_sm.png',
+                text:    '',
+                link:    '/horses-mouth'
             },
             {
                 heading: 'History',
-                icon: 'icon-history',
-                text: 'A history of Horsley Parish',
-                link:   '/history'
+                title:   'A history of Horsley Parish',
+                image:   '/web/features/history/images/ic_history_sm.png',
+                text:    '',
+                link:    '/history'
             }
         ];
     }

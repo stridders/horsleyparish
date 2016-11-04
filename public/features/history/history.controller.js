@@ -8,22 +8,25 @@
     function HistoryController() {
         let hc = this;
         hc.title = "A History of Horsley";
-        hc.subtitle = "A series of extracts from the History of Horsley Parish, documented by the Institute of Historical Reasearch";
+        hc.subtitle = "There's far more to Horsley than meets the eye";
         hc.feature = "history";
         hc.pages = [
             {
                 title:      'Home',
                 subtitle:   'A History of Horsley',
-                number:     '1',
-                url:       '/web/features/history?page=1',
+                pageNumber: '1',
             },
             {
                 title:      'Horsley Estates',
                 subtitle:   'Horsley Manor and Surrounding Estates',
-                number:     '2',
-                url:        '/web/features/history?page=2',
+                pageNumber: '2',
             },
-        ]
+            {
+                title:      'Economic History',
+                subtitle:   '',
+                pageNumber: '3',
+            },
+        ];
     }
 
 })();

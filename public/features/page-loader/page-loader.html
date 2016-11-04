@@ -1,20 +1,16 @@
-<div>
+<div class="flex-container">
     <div class="page-banner">
-        <div class="text-content title">{{pl.title}}</div>
-        <div class="text-content subtitle">{{pl.subtitle}}</div>
-    </div>
-    <div ng-cloak>
-        <md-content class="md-padding">
-            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-                <div ng-repeat="page in pl.pages">
-                    <div ng-click="goto(page.url)" title="{{page.subtitle}}">
-                        Page {{page.title}}
-                    </div>
-                </div>
-            </md-nav-bar>
-            <div class="ext-content">
-                <div ng-include=hc.pageName></div>
-            </div>
-        </md-content>
+        <div class="text-content title">{{pl.heading}}</div>
+        <div class="text-content subtitle">{{pl.subheading}}</div>
     </div>
 </div>
+<div class="flex-container">
+    <div>
+        <ul class="nav nav-tabs pl-tabs">
+            <li ng-repeat="page in pl.pages" ng-class="page.pageNumber === pl.currentPage? true: 'active'">
+                <a ng-click="pl.goto(page)" title="{{page.subtitle}}">{{page.title}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div ng-include=pl.pageURL></div>

@@ -1,4 +1,10 @@
-.navBardemoBasicUsage md-content .ext-content {
-    padding: 50px;
-    margin: 20px;
-    background-color: #FFF2E0; }
+.pl-container {
+    width: 800px;
+    align-items: center;
+    justify-content: center;
+}
+.pl-tabs {
+    align-items: center;
+    justify-content: center;
+    margin: -20px 0px 20px 0px;
+}

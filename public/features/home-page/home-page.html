@@ -3,11 +3,12 @@
         <div class="text-content title">{{hpc.config.title}}</div>
         <div class="text-content subtitle">{{hpc.config.subtitle}}</div>
     </div>
-    <div class="flexWrap">
+    <div class="flex-container">
         <div ng-repeat="link in hpc.links">
             <section-nav-btn
                     heading="{{link.heading}}"
-                    icon="{{link.icon}}"
+                    title="{{link.title}}"
+                    image="{{link.image}}"
                     text="{{link.text}}"
                     link="{{link.link}}">
             </section-nav-btn>
