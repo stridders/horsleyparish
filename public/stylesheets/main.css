@@ -15,59 +15,10 @@ body #page-wrapper {
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
-.hdr-container {
-    position: relative;
-    margin: 0 auto;
-    height: 300px;
-    width: 900px;
-    padding: 0;
-}
-.parallax-0 {
-    display: block;
-    width: 100%;
-    height: 50px;
-    position:absolute;
-    top:20px;
-    transition-property: all;
-    transition-property: transform;
-    transition-duration: 0.1s;
-    background-image: url("/web/images/img-hdr-para-layer0.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    z-index:1;
-}
-.parallax-1 {
-    display: block;
-    width: 100%;
-    height: 100px;
-    position:absolute;
-    top:30px;
-    transition-property: all;
-    transition-property: transform;
-    transition-duration: 0.1s;
-    background-image: url("/web/images/img-hdr-para-layer1.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    z-index:2;
-}
-.parallax-2 {
-    display: block;
-    width: 100%;
-    height: 200px;
-    position:absolute;
-    top:10px;
-    transition-property: all;
-    transition-property: transform;
-    transition-duration: 0.1s;
-    background-image: url("/web/images/img-hdr-para-layer2.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    z-index:3;
-}
 .main-container {
     height: 100%;
     position:absolute;
-    top:300px;
+    top:185px;
     width:100%;
     display:block;
     background-image: url('/web/images/img-hdr-para-layer3.png');
@@ -78,19 +29,19 @@ body #page-wrapper {
 .main-container .main-page {
     background-color: white;
 }
+.footer {
+    margin-top: 40px;
+}
 .footer-container {
-    position: relative;
+    margin: 0 auto;
     height: 100px;
-    width: 100%;
-    margin-top: 80px;
+    width: 900px;
+    padding: 0;
     border-top: solid thin #37474F;
     padding: 10px 10px 10px 10px;
     text-align: center;
-    height: 100px;
+    background-color: white;
 }
-
-
-/* COLOURS */
 
 .primary-title {
     background-color: #689F38;
@@ -111,8 +62,9 @@ body #page-wrapper {
     color: #37474F;
 }
 .page-banner {
-    position: relative;
-    top:-50px;
+    padding: 20px 0px 10px 0px;
+    height: 120px;
+
 }
 .title {
     position: relative;
@@ -125,7 +77,29 @@ body #page-wrapper {
     text-align: center;
 }
 .flex-container {
+    display: -webkit-flex;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+}
+.flex-container-row {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+.flex-container-column {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+.col-pad-20 {
+    width: 20px;
+}
+.text-block {
+    width: 900px;
+    padding: 6px 20px 6px 20px;
 }

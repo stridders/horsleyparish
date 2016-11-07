@@ -31,6 +31,13 @@
 
 		<!-- Features -->
 
+		<!-- Home-Page -->
+		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
+
+		<!-- Header -->
+		<script type="text/javascript" src='@routes.Assets.at("features/common/header.directive.js")'></script>
+		<link rel="stylesheet" href='@routes.Assets.at("features/common/header.css")'/>
+
 		<!-- Section-Navigation -->
 		<script type="text/javascript" src='@routes.Assets.at("features/section-navigation/section-navigation-button.directive.js")'></script>
 		<link rel="stylesheet" href='@routes.Assets.at("features/section-navigation/section-navigation-button.css")'/>
@@ -42,14 +49,13 @@
 		<!-- Home-Page -->
 		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
 
-			<!-- History -->
+		<!-- History -->
 		<script type="text/javascript" src='@routes.Assets.at("features/history/history.controller.js")'></script>
 
 
 		<script>
 			var app = angular.module('horsleyParish',[]);
 			var imagesDir = "@routes.Assets.at("images")";
-
 			app.value("play_http_context", "@config.getString("play.http.context")");
 		</script>
 
@@ -58,21 +64,13 @@
 
 	<body>
 		<div id="page-wrapper">
-			<div class="hdr-container">
-				<div class="flex-container">
-					<div class="parallax parallax-0"></div>
-					<div class="parallax parallax-1"></div>
-					<div class="parallax parallax-2"></div>
-				</div>
-			</div>
+			<header></header>
 			<div class="main-container">
 				<ng-view class="main-page"></ng-view>
 				<div ng-include="'/web/features/common/page-footer.html'"></div>
 			</div>
-
 		</div>
 	</body>
 
-	<script type="text/javascript" src='@routes.Assets.at("javascripts/parallax-scroller.js")'></script>
 
 </html>

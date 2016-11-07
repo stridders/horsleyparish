@@ -25,7 +25,6 @@
                 snb.redirect = redirectToURL;
 
                 function redirectToURL(link) {
-                    console.log("Redirecting..."+link);
                     $location.path(link);
                 }
 

@@ -1,16 +1,32 @@
-<div class="flex-container">
-    <div class="page-banner">
-        <div class="text-content title">{{pl.heading}}</div>
-        <div class="text-content subtitle">{{pl.subheading}}</div>
+
+    <div class="flex-container flex-container-row">
+
+        <div class="nav-menu">
+            <div class="dropdown">
+                <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">Menu
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-banner">
+            <div class="text-content title">{{pl.heading}}</div>
+            <div class="text-content subtitle">{{pl.subheading}}</div>
+        </div>
+        <div>hello</div>
     </div>
-</div>
-<div class="flex-container">
-    <div>
-        <ul class="nav nav-tabs pl-tabs">
-            <li ng-repeat="page in pl.pages" ng-class="page.pageNumber === pl.currentPage? true: 'active'">
-                <a ng-click="pl.goto(page)" title="{{page.subtitle}}">{{page.title}}</a>
-            </li>
-        </ul>
+    <div class="flex-container flex-container-row">
+        <div>
+            <ul class="nav nav-tabs pl-tabs">
+                <li ng-repeat="page in pl.pages" ng-class="page.pageName === pl.currentPage? true: 'active'">
+                    <a ng-click="pl.goto(page)" title="{{page.subtitle}}">{{page.title}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-<div ng-include=pl.pageURL></div>
+    <div ng-include=pl.pageURL></div>
