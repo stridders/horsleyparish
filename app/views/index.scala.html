@@ -29,9 +29,6 @@
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
 
-		<!-- Common -->
-		<link rel="stylesheet" href="@routes.Assets.at("features/common/common.css")"/>
-
 		<!-- Features -->
 
 		<!-- Section-Navigation -->
@@ -59,22 +56,21 @@
 	</head>
 
 
-	<body class="pace-done">
+	<body>
 		<div id="page-wrapper">
-			<div class="parallax">
-				<div class="hdr-para-container">
-					<div ng-include="'/web/features/common/header.html'"></div>
-				</div>
-				<div class="parallax__layer parallax__layer--0">
-					<div class="content-container">
-						<ng-view></ng-view>
-						<div class="footer-container">
-							<div ng-include="'/web/features/common/page-footer.html'"></div>
-						</div>
-					</div>
-				</div>
+			<div class="hdr-container">
+				<img src="/web/images/img-hdr-para-layer0.png" class="parallax parallax-0"/>
+				<img src="/web/images/img-hdr-para-layer1.png" class="parallax parallax-1"/>
+				<img src="/web/images/img-hdr-para-layer2.png" class="parallax parallax-2"/>
 			</div>
+			<div class="main-container">
+				<ng-view class="main-page"></ng-view>
+				<div ng-include="'/web/features/common/page-footer.html'"></div>
+			</div>
+
 		</div>
 	</body>
+
+	<script type="text/javascript" src='@routes.Assets.at("javascripts/parallax-scroller.js")'></script>
 
 </html>
