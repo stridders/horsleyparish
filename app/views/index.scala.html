@@ -38,6 +38,10 @@
 		<script type="text/javascript" src='@routes.Assets.at("features/common/header.directive.js")'></script>
 		<link rel="stylesheet" href='@routes.Assets.at("features/common/header.css")'/>
 
+		<!-- Side-Menu -->
+		<script type="text/javascript" src='@routes.Assets.at("features/side-menu/side-menu.directive.js")'></script>
+		<link rel="stylesheet" href='@routes.Assets.at("features/side-menu/side-menu.css")'/>
+
 		<!-- Section-Navigation -->
 		<script type="text/javascript" src='@routes.Assets.at("features/section-navigation/section-navigation-button.directive.js")'></script>
 		<link rel="stylesheet" href='@routes.Assets.at("features/section-navigation/section-navigation-button.css")'/>
@@ -65,6 +69,7 @@
 	<body>
 		<div id="page-wrapper">
 			<header></header>
+			<side-menu tab-title="Menu"></side-menu>
 			<div class="main-container">
 				<ng-view class="main-page"></ng-view>
 				<div ng-include="'/web/features/common/page-footer.html'"></div>
