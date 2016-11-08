@@ -1,8 +1,7 @@
 .smenu {
     position: absolute;
-    top: 100px;
+    top: 40px;
     right: 0px;
-    overflow: hidden;
 }
 .smenu-box {
     margin-right: -400px;
@@ -14,13 +13,29 @@
     margin-right: 0px;
 }
 .smenu-tab {
+    display: block;
+    padding: 4px 8px 0px 8px;
+    height: 130px;
+    width: 100px;
+    border-radius: 10px 0px 0px 10px;
+    white-space: nowrap;
+    background-color: #689F38;
+    margin-bottom: -130px;
+}
+.smenu-tab-title {
+    font-size: 18px;
+    color: white;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
-    transform-origin: left top;
+    transform-origin: center left;
     text-align: center;
+    padding: 0px 0px 20px 0px;
 }
 .smenu-content {
-    width: 200px;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
     margin-left: 40px;
-    background: #f4f4f4;
-    padding: 5px 5px 5px 5px;
+    background: #f6f6f6;
 }

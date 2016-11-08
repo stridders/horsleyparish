@@ -17,12 +17,17 @@
             controllerAs: 'smc',
             bindToController: true,
             controller: function($scope, $location) {
-                console.log("in side-menu");
                 let smc = this;
-                snb.redirect = redirectToURL;
+                smc.displayed = false;
+                smc.redirect = redirectToURL;
 
                 function redirectToURL(link) {
                     $location.path(link);
+                }
+
+                smc.toggleMenu = function() {
+                    console.log("Clicked");
+                    smc.displayed = !smc.displayed;
                 }
             }
         }

@@ -1,11 +1,15 @@
 <div class="smenu">
     <div class="smenu-box" ng-class="{'show': smc.displayed}">
-        <div class="smenu-tab">
-            hello: {{smc.tabTitle}}
+
+        <div class="smenu-tab" ng-click="smc.toggleMenu()">
+
+                <div class="smenu-tab-title">{{smc.tabTitle}}</div>
+
+        </div>
+        <div class="smenu-content">
+            Stuff goes here
         </div>
     </div>
 </div>
-<div class="smenu-content">
-    Stuff goes here
-</div>
+
 

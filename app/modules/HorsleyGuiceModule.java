@@ -3,10 +3,13 @@ package modules;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Names;
+import controllers.UuidGenerator;
 import play.Configuration;
 import play.Environment;
 import play.Logger;
 import play.libs.akka.AkkaGuiceSupport;
+import services.UserService;
+import services.UserServiceImpl;
 
 import javax.net.ssl.SSLContext;
 import java.util.Map;
@@ -30,7 +33,8 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
     @Override
     protected void configure() {
 
-        logger.debug("Binding Play config to Guice...");
+
+        bind(UserService.class).to(UserServiceImpl.class);
 
         // Example of binding a collection of 'config' parameter  key/value (String, Integer) pairs to Java util annotations
         this.configuration.
@@ -51,27 +55,18 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
 
         String version = this.configuration.getString("app.version", "version not found");
 //        String userName_id = this.configuration.getString("security.http.header.userName.id", "n/a");
-//        String userName_regexCN = this.configuration.getString("security.http.header.userName.regexCN", "n/a");
-//        String userName_rolesDN = this.configuration.getString("security.http.header.userName.rolesDN", "n/a");
-//        String serviceName_id = this.configuration.getString("security.http.header.serviceName.id", "n/a");
-//        String serviceName_regexCN = this.configuration.getString("security.http.header.serviceName.regexCN", "n/a");
-//        String serviceName_rolesDN = this.configuration.getString("security.http.header.serviceName.rolesDN", "n/a");
-//
+
+
         bind(String.class).annotatedWith(Names.named("app.version")).toInstance(version);
 //        bind(String.class).annotatedWith(Names.named("security.http.header.userName.id")).toInstance(userName_id);
-//        bind(String.class).annotatedWith(Names.named("security.http.header.userName.regexCN")).toInstance(userName_regexCN);
-//        bind(String.class).annotatedWith(Names.named("security.http.header.userName.rolesDN")).toInstance(userName_rolesDN);
-//        bind(String.class).annotatedWith(Names.named("security.http.header.serviceName.id")).toInstance(serviceName_id);
-//        bind(String.class).annotatedWith(Names.named("security.http.header.serviceName.regexCN")).toInstance(serviceName_regexCN);
-//        bind(String.class).annotatedWith(Names.named("security.http.header.serviceName.rolesDN")).toInstance(serviceName_rolesDN);
 
 //        // Example of binding SSL config to a custom SSL context object (e.g. for connectivity to an external web service)
 //        SSLContext extSSLContext = new CustomSSLContext(configuration.getWrappedConfiguration()).createSSLContext("extSSL");
 //        bind(SSLContext.class).annotatedWith(Names.named("extSSL")).toInstance(extSSLContext);
 
         // Static Injections for services and transformers
-//        requestStaticInjection(EventTransformer.class);
-//        requestStaticInjection(EventService.class);
+        requestStaticInjection(UuidGenerator.class);
+        requestStaticInjection(UserServiceImpl.class);
 
     }
 
