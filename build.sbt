@@ -6,13 +6,14 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.8"
 
+PlayKeys.externalizeResources := false
+
 libraryDependencies ++= Seq(
-  javaJdbc,
-  javaWs,
+  jdbc,
   javaJpa,
-  "com.typesafe.slick" %% "slick" % "2.1.0",
+  evolutions,
+  "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",
   "org.postgresql" % "postgresql" % "9.3-1102-jdbc4",
-  "com.typesafe.slick" %% "slick" % "2.1.0",
   "com.theoryinpractise" % "halbuilder-core" % "4.0.3",
   "com.theoryinpractise" % "halbuilder-json" % "4.0.2",
   "com.theoryinpractise" % "halbuilder-api" % "4.0.1",
