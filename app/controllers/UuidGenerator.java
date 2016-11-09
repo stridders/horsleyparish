@@ -3,6 +3,7 @@ package controllers;
 import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
+import play.Logger;
 import play.mvc.Result;
 
 import java.util.UUID;
@@ -14,15 +15,17 @@ import static play.mvc.Results.ok;
  */
 public class UuidGenerator {
 
+    private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
+
     public Result randomUUID() {
         String uuid = UUID.randomUUID().toString();
         RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation serviceLinks = rf.newRepresentation();
+        Representation rep = rf.newRepresentation();
 
-        serviceLinks.withLink("self", Root.stripApiContext(routes.UuidGenerator.randomUUID().url()));
-        serviceLinks.withProperty("uuid",uuid);
+        rep.withLink("self", Root.stripApiContext(routes.UuidGenerator.randomUUID().url()));
+        rep.withProperty("uuid",uuid);
 
-        return ok(serviceLinks.toString(RepresentationFactory.HAL_JSON)).as("application/hal+json");
+        return ok(rep.toString(RepresentationFactory.HAL_JSON)).as("application/hal+json");
     }
 
 }

@@ -1,11 +1,16 @@
 package controllers;
 
+import com.google.inject.Inject;
 import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
+import play.Logger;
+import play.db.jpa.Transactional;
 import play.mvc.Result;
+import services.UserService;
+import services.transformers.UserTransformer;
 
-import java.util.UUID;
+import java.util.List;
 
 import static play.mvc.Results.ok;
 
@@ -14,14 +19,17 @@ import static play.mvc.Results.ok;
  */
 public class User {
 
-    public Result findUsers(String surname, String firstname, String email) {
-        String uuid = UUID.randomUUID().toString();
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation serviceLinks = rf.newRepresentation();
+    @Inject
+    private UserService userService;
 
-        serviceLinks.withLink("self", Root.stripApiContext(routes.UuidGenerator.randomUUID().url()));
-        serviceLinks.withProperty("uuid",uuid);
+    private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
-        return ok(serviceLinks.toString(RepresentationFactory.HAL_JSON)).as("application/hal+json");
+    @Transactional
+    public Result listUsers(String surname, String firstname, String email) {
+
+        List<model.User> users = userService.getUsers(surname, firstname, email);
+        String jsonRep = UserTransformer.transformUserListToHalJson(users,surname,firstname,email);
+        return ok(jsonRep).as("application/hal+json");
     }
+
 }

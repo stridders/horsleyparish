@@ -33,7 +33,7 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
     @Override
     protected void configure() {
 
-
+        // Bind service classes to their implementations
         bind(UserService.class).to(UserServiceImpl.class);
 
         // Example of binding a collection of 'config' parameter  key/value (String, Integer) pairs to Java util annotations
@@ -53,12 +53,8 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
 //        bind(String.class).annotatedWith(Names.named("config")).toInstance(this.configuration.getString("config"));
 
 
-        String version = this.configuration.getString("app.version", "version not found");
-//        String userName_id = this.configuration.getString("security.http.header.userName.id", "n/a");
-
-
-        bind(String.class).annotatedWith(Names.named("app.version")).toInstance(version);
-//        bind(String.class).annotatedWith(Names.named("security.http.header.userName.id")).toInstance(userName_id);
+//        String version = this.configuration.getString("app.version", "version not found");
+//        bind(String.class).annotatedWith(Names.named("app.version")).toInstance(version);
 
 //        // Example of binding SSL config to a custom SSL context object (e.g. for connectivity to an external web service)
 //        SSLContext extSSLContext = new CustomSSLContext(configuration.getWrappedConfiguration()).createSSLContext("extSSL");

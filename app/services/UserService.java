@@ -1,6 +1,11 @@
 package services;
 
+import model.User;
+import play.Logger;
+
+import java.util.List;
+
 public interface UserService {
 
-    void getUsers(String surname, String firstName, String email);
+    List<User> getUsers(String surname, String firstName, String email);
 }

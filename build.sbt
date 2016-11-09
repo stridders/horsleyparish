@@ -9,11 +9,12 @@ scalaVersion := "2.11.8"
 PlayKeys.externalizeResources := false
 
 libraryDependencies ++= Seq(
-  jdbc,
+  javaJdbc,
+  javaWs,
   javaJpa,
   evolutions,
   "org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",
-  "org.postgresql" % "postgresql" % "9.3-1102-jdbc4",
+  "org.postgresql" % "postgresql" % "9.4-1206-jdbc42",
   "com.theoryinpractise" % "halbuilder-core" % "4.0.3",
   "com.theoryinpractise" % "halbuilder-json" % "4.0.2",
   "com.theoryinpractise" % "halbuilder-api" % "4.0.1",

@@ -1,30 +1,20 @@
 package model;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "USER")
-@NamedQueries({
-        @NamedQuery(name="User.findBySurname", query="SELECT u FROM User u WHERE u.surname = :surname order by u.firstname")
-})
-public class User {
+public class UserJson {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    @SequenceGenerator(name = "seq", sequenceName = "user_seq")
     private Long id;
-
-    @Column(name = "SURNAME")
     private String surname;
-
-    @Column(name = "FIRSTNAME")
     private String firstname;
-
-    @Column(name = "EMAIL")
     private String email;
+
+    public UserJson(User user) {
+        this.id = user.getId();
+        this.surname = user.getSurname();
+        this.firstname = user.getFirstname();
+        this.email = user.getEmail();
+    }
 
     public Long getId() {
         return id;
