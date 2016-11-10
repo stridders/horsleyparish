@@ -5,9 +5,8 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "person")
 @NamedQueries({
-        @NamedQuery(name="User.findBySurname", query="select u from User u where u.surname = :surname order by u.firstname"),
         @NamedQuery(name="User.findAll", query="select u from User u")
 })
 public class User implements Serializable {
@@ -17,7 +16,7 @@ public class User implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    @SequenceGenerator(name = "seq", sequenceName = "user_seq")
+    @SequenceGenerator(name = "seq", sequenceName = "person_seq")
     private Long id;
 
     @Column(name = "surname")
