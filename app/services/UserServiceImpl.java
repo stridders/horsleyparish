@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
     /**
-     * Returns a list of users (from people table), optionally filtered by surname, firstname and/or email
+     * Returns a list of users (from the 'people' table), optionally filtered by
+     * surname, firstname and/or email
      * @param surname
      * @param firstName
      * @param email
@@ -49,17 +50,12 @@ public class UserServiceImpl implements UserService {
     }
 
 
-//    private static EntityManager em() {
-//        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
-//        EntityManager em = jpaApi.em();
-//        em.setFlushMode(FlushModeType.COMMIT);
-//        return (em);
-//    }
-
     private static EntityManager em() {
-        EntityManager em = JPA.em();
+        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
+        EntityManager em = jpaApi.em();
         em.setFlushMode(FlushModeType.COMMIT);
         return (em);
     }
+
 
 }

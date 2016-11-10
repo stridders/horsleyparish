@@ -8,12 +8,14 @@ public class UserJson {
     private String surname;
     private String firstname;
     private String email;
+    private String password;
 
     public UserJson(User user) {
         this.id = user.getId();
         this.surname = user.getSurname();
         this.firstname = user.getFirstname();
         this.email = user.getEmail();
+        this.password = user.getPassword();
     }
 
     public Long getId() {
@@ -46,6 +48,14 @@ public class UserJson {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

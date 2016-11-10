@@ -11,6 +11,7 @@ GET     /web                            controllers.Application.index()
 GET    /api                             controllers.Root.apiRoot()
 GET    /api/uuid                        controllers.UuidGenerator.randomUUID()
 GET    /api/users                       controllers.User.listUsers(surname ?= null, firstname ?= null, email ?= null)
+POST   /api/users/authenticate          controllers.User.authenticate()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /web/*file                      controllers.Assets.at(path="/public", file)

@@ -1,17 +1,20 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import play.Logger;
 import play.db.jpa.Transactional;
+import play.mvc.BodyParser;
 import play.mvc.Result;
 import services.UserService;
 import services.transformers.UserTransformer;
 
 import java.util.List;
 
+import static play.mvc.Controller.request;
 import static play.mvc.Results.ok;
 
 /**
@@ -31,4 +34,10 @@ public class User {
         return ok(jsonRep).as("application/hal+json");
     }
 
+    @Transactional
+    @BodyParser.Of(BodyParser.Json.class)
+    public Result authenticate() {
+        JsonNode userCredentials = request().body().asJson();
+        return ok();
+    }
 }
