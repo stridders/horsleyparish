@@ -26,7 +26,6 @@ public class User {
 
     @Transactional
     public Result listUsers(String surname, String firstname, String email) {
-
         List<model.User> users = userService.getUsers(surname, firstname, email);
         String jsonRep = UserTransformer.transformUserListToHalJson(users,surname,firstname,email);
         return ok(jsonRep).as("application/hal+json");

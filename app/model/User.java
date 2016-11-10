@@ -1,29 +1,32 @@
 package model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
 
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 @NamedQueries({
-        @NamedQuery(name="User.findBySurname", query="SELECT u FROM User u WHERE u.surname = :surname order by u.firstname")
+        @NamedQuery(name="User.findBySurname", query="select u from User u where u.surname = :surname order by u.firstname"),
+        @NamedQuery(name="User.findAll", query="select u from User u")
 })
-public class User {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     @SequenceGenerator(name = "seq", sequenceName = "user_seq")
     private Long id;
 
-    @Column(name = "SURNAME")
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "FIRSTNAME")
+    @Column(name = "firstname")
     private String firstname;
 
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     private String email;
 
     public Long getId() {

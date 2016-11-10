@@ -3,7 +3,9 @@ package services;
 import com.google.inject.Inject;
 import model.User;
 import play.Logger;
+import play.api.Play;
 import play.db.jpa.JPA;
+import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 
 import javax.persistence.EntityManager;
@@ -24,9 +26,17 @@ public class UserServiceImpl implements UserService {
     }
 
 
+//    private static EntityManager em() {
+//        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
+//        EntityManager em = jpaApi.em();
+//        em.setFlushMode(FlushModeType.COMMIT);
+//        return (em);
+//    }
+
     private static EntityManager em() {
         EntityManager em = JPA.em();
         em.setFlushMode(FlushModeType.COMMIT);
         return (em);
     }
+
 }
