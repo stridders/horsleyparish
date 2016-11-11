@@ -1,0 +1,11 @@
+<!ELEMENT dataset (
+        user*)>
+
+<!ELEMENT user EMPTY>
+<!ATTLIST user
+    id          #REQUIRED
+    surname     #IMPLIED
+    firstname   #IMPLIED
+    email       #REQUIRED
+    password    #REQUIRED
+>
