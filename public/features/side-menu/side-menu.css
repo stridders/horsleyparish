@@ -1,7 +1,8 @@
 .smenu {
-    position: absolute;
+    position: fixed;
     top: 40px;
     right: 0px;
+    z-index: 100;
 }
 .smenu-box {
     margin-right: -400px;
@@ -16,11 +17,12 @@
     display: block;
     padding: 4px 8px 0px 8px;
     height: 130px;
-    width: 100px;
+    width: 40px;
     border-radius: 10px 0px 0px 10px;
     white-space: nowrap;
     background-color: #689F38;
     margin-bottom: -130px;
+    opacity: 0.9;
 }
 .smenu-tab-title {
     font-size: 18px;
@@ -38,4 +40,5 @@
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
     margin-left: 40px;
     background: #f6f6f6;
+    opacity: 0.9;
 }
