@@ -4,26 +4,26 @@ public class UserJson {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private Long   userId;
     private String surname;
     private String firstname;
     private String email;
     private String password;
 
     public UserJson(User user) {
-        this.id = user.getId();
+        this.userId = user.getUser_id();
         this.surname = user.getSurname();
         this.firstname = user.getFirstname();
         this.email = user.getEmail();
         this.password = user.getPassword();
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getSurname() {

@@ -38,6 +38,8 @@ public class User {
     @BodyParser.Of(BodyParser.Json.class)
     public Result authenticate() {
         JsonNode userCredentials = request().body().asJson();
-        return ok();
+        String jsonRep = userService.authenticateUser(userCredentials);
+        return ok(jsonRep).as("application/hal+json");
     }
+
 }

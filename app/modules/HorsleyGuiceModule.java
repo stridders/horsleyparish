@@ -2,7 +2,13 @@ package modules;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
+import com.google.inject.Provides;
 import com.google.inject.name.Names;
+import com.jayway.jsonpath.Option;
+import com.jayway.jsonpath.spi.json.JacksonJsonNodeJsonProvider;
+import com.jayway.jsonpath.spi.json.JsonProvider;
+import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
+import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import controllers.UuidGenerator;
 import play.Configuration;
 import play.Environment;
@@ -13,6 +19,7 @@ import services.UserServiceImpl;
 
 import javax.net.ssl.SSLContext;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -37,14 +44,14 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
         bind(UserService.class).to(UserServiceImpl.class);
 
         // Example of binding a collection of 'config' parameter  key/value (String, Integer) pairs to Java util annotations
-        this.configuration.
-                entrySet().
-                stream().
-                filter(e -> e.getKey().startsWith("config")).
-                forEach(configEntry -> {
-                    logger.debug(String.format("%s=$d", configEntry.getKey(), Integer.parseInt(configEntry.getValue().render())));
-                    bindConstant().annotatedWith(Names.named(configEntry.getKey())).to(Integer.parseInt(configEntry.getValue().render()));
-                });
+//        this.configuration.
+//                entrySet().
+//                stream().
+//                filter(e -> e.getKey().startsWith("config")).
+//                forEach(configEntry -> {
+//                    logger.debug(String.format("%s=$d", configEntry.getKey(), Integer.parseInt(configEntry.getValue().render())));
+//                    bindConstant().annotatedWith(Names.named(configEntry.getKey())).to(Integer.parseInt(configEntry.getValue().render()));
+//                });
 
 //        // Example of binding a list of "config" key/value (String,String) pairs to a Map object
 //        // Uses a custom provider method, to create a complex structure (i.e. a collection rather than a single key/value)
@@ -86,5 +93,30 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
                     .collect(Collectors.toMap(k -> (K) k.getKey(), v -> (V) v.getValue()));
             return collect;
         }
+    }
+
+    @Provides
+    public com.jayway.jsonpath.Configuration.Defaults provideJsonPathConfigDefaults() {
+        com.jayway.jsonpath.Configuration.Defaults defaults = new com.jayway.jsonpath.Configuration.Defaults() {
+
+            private final JsonProvider jsonProvider = new JacksonJsonNodeJsonProvider();
+            private final MappingProvider mappingProvider = new JacksonMappingProvider();
+
+            @Override
+            public JsonProvider jsonProvider() {
+                return null;
+            }
+
+            @Override
+            public Set<Option> options() {
+                return null;
+            }
+
+            @Override
+            public MappingProvider mappingProvider() {
+                return null;
+            }
+        };
+        return defaults;
     }
 }

@@ -2,22 +2,25 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 @Table(name = "person")
 @NamedQueries({
-        @NamedQuery(name="User.findAll", query="select u from User u")
+        @NamedQuery(name="User.findAll", query="select u from User u"),
+        @NamedQuery(name="User.findByEmail", query="select u from User u where u.email = :email")
 })
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     @SequenceGenerator(name = "seq", sequenceName = "person_seq")
-    private Long id;
+    private Long user_id;
 
     @Column(name = "surname")
     private String surname;
@@ -31,12 +34,12 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    public Long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public String getSurname() {
