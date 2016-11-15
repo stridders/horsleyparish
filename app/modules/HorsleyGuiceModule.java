@@ -14,6 +14,8 @@ import play.Configuration;
 import play.Environment;
 import play.Logger;
 import play.libs.akka.AkkaGuiceSupport;
+import security.RoleBasedAuthoriser;
+import security.UserAuthenticator;
 import services.UserService;
 import services.UserServiceImpl;
 
@@ -70,6 +72,8 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
         // Static Injections for services and transformers
         requestStaticInjection(UuidGenerator.class);
         requestStaticInjection(UserServiceImpl.class);
+        requestStaticInjection(UserAuthenticator.class);
+        requestStaticInjection(RoleBasedAuthoriser.class);
 
     }
 
