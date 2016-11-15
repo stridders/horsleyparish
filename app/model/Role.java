@@ -1,13 +1,16 @@
 package model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by js on 11/11/2016.
- */
-public class Role {
+@Entity
+@Table(name = "role")
+@NamedQueries({
+
+})
+public class Role implements Serializable  {
 
     private static final Long serialVersionUID = 1L;
 

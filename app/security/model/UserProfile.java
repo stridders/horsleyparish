@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringUtils;
 import play.mvc.Http;
+import security.UserAuthenticator;
 
 import java.util.List;
 
@@ -28,11 +29,34 @@ public class UserProfile {
     @JsonProperty("userid")
     private String userid;
 
-    @JsonProperty("groups")
-    private List<String> groups;
+    @JsonProperty("roles")
+    private List<String> roles;
 
     @JsonCreator
     public UserProfile() {}
+
+    public UserProfile(String firstName,
+                       String surname,
+                       String email,
+                       String userid) {
+        this.setFirstName(firstName);
+        this.setSurname(surname);
+        this.setEmail(email);
+        this.setUserid(userid);
+    }
+
+    @JsonCreator
+    public UserProfile(String firstName,
+                       String surname,
+                       String email,
+                       String userid,
+                       List<String> roles) {
+        this.setFirstName(firstName);
+        this.setSurname(surname);
+        this.setEmail(email);
+        this.setUserid(userid);
+        this.setRoles(roles);
+    }
 
     public String getFirstName() {
         return firstName;
@@ -66,39 +90,37 @@ public class UserProfile {
         this.userid = userid;
     }
 
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
     public boolean hasRole(String role) {
-        return this.groups.contains(role);
+        return this.roles.contains(role);
     }
 
     @Override
     public String toString() {
-        return "UserProfile{" +
+        return "UserProfile {" +
                     "firstName='" + firstName + "'," +
                     "surname='" + surname + "'," +
                     "email='" + email + "'," +
                     "userid='" + userid + "'" +
+                    "roles=" + roles +
                 '}';
     }
 
-    @JsonCreator
-    public UserProfile(String firstName,
-                       String surname,
-                       String email,
-                       String userid) {
-        this.setFirstName(firstName);
-        this.setSurname(surname);
-        this.setEmail(email);
-        this.setUserid(userid);
+    public static UserProfile getUserProfileFromHttpContext() {
+        Http.Context context = Http.Context.current();
+        return (UserProfile) context.args.get(UserAuthenticator.USER_PROFILE_KEY);
     }
 
-//    public static UserProfile getUserProfileFromHttpContext() {
-//        Http.Context context = Http.Context.current();
-//        return (UserProfile) context.args.get(UserAuthenticator.USER_PROFILE_KEY);
-//    }
-//
-//    public static String getUserIP() {
-//        String ipAddress = Http.Context.current().request().remoteAddress();
-//        return StringUtils.isBlank(ipAddress) ? UNKNOWN : ipAddress;
-//    }
+    public static String getUserIP() {
+        String ipAddress = Http.Context.current().request().remoteAddress();
+        return StringUtils.isBlank(ipAddress) ? UNKNOWN : ipAddress;
+    }
 
 }

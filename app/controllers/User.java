@@ -9,6 +9,9 @@ import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.BodyParser;
 import play.mvc.Result;
+import play.mvc.Security;
+import security.RoleBasedAuthoriser;
+import security.UserAuthenticator;
 import services.UserService;
 import services.transformers.UserTransformer;
 
@@ -34,6 +37,8 @@ public class User {
         return ok(jsonRep).as("application/hal+json");
     }
 
+//    @Security.Authenticated(UserAuthenticator.class)
+//    @RoleBasedAuthoriser.RolesAllowed(RoleBasedAuthoriser.Roles.ADMIN)
     @Transactional
     @BodyParser.Of(BodyParser.Json.class)
     public Result authenticate() {

@@ -9,12 +9,13 @@
         </layout>
     </appender>
 
-    <logger name="horsley" level="debug"
-            additivity="false">
-        <appender-ref ref="STDOUT" />
-    </logger>
+    <logger name="application" level="DEBUG"/>
+    <logger name="services" level="DEBUG"/>
+    <logger name="controllers" level="DEBUG"/>
+    <logger name="modukes" level="DEBUG"/>
+    <logger name="security" level="DEBUG"/>
 
-    <root level="debug">
+    <root level="WARN">
         <appender-ref ref="STDOUT" />
     </root>
 

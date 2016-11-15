@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
+
     @Override
     public String authenticateUser(JsonNode userCredentials) {
         logger.debug("Entered authenticateUser: "+userCredentials);
