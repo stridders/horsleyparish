@@ -64,10 +64,14 @@ public class UserServiceImpl implements UserService {
         query.setParameter("email",authUser.getEmail());
         try {
             User validatedUser = query.getSingleResult();
-            List<String> roles = getUserRoles(validatedUser);
-            return userTransformer.authoriseUser(validatedUser,roles);
+            if (validatedUser.getPassword().equals(authUser.getPassword())) {
+                List<String> roles = getUserRoles(validatedUser);
+                return userTransformer.authoriseUser(validatedUser,roles);
+            } else {
+                return userTransformer.invalidateUser(userCredentials,"Invalid user credentials");
+            }
         } catch (NoResultException nre) {
-            return userTransformer.invalidateUser(userCredentials);
+            return userTransformer.invalidateUser(userCredentials,"Invalid user credentials");
         }
     }
 

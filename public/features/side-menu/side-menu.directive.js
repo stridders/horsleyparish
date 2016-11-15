@@ -21,6 +21,39 @@
                 smc.displayed = false;
                 smc.redirect = redirectToURL;
 
+                smc.links = [
+                    {
+                        heading: 'The Horses Mouth',
+                        title:   'The Horsley Monthly Magazine',
+                        image:   '/web/features/the-horses-mouth/images/ic_horses_mouth_sm.png',
+                        text:    '',
+                        link:    '/horses-mouth'
+                    },
+                    {
+                        heading: 'History',
+                        title:   'A history of Horsley Parish',
+                        image:   '/web/features/history/images/ic_history_sm.png',
+                        text:    '',
+                        link:    '/history'
+                    },
+                    {
+                        heading: 'History',
+                        title:   'A history of Horsley Parish',
+                        image:   '/web/features/history/images/ic_history_sm.png',
+                        text:    '',
+                        link:    '/history'
+                    },
+                    {
+                        heading: 'History',
+                        title:   'A history of Horsley Parish',
+                        image:   '/web/features/history/images/ic_history_sm.png',
+                        text:    '',
+                        link:    '/history'
+                    }
+
+                ];
+
+
                 function redirectToURL(link) {
                     $location.path(link);
                 }

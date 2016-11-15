@@ -1,19 +1,19 @@
 .sec-nav-btn {
     display: block;
-    overflow: hidden;
-    box-shadow: rgba(0,0,0,0.117647) 0px 1px 6px, rgba(0,0,0,0.117647) 0px 1px 4px;
-    border-radius: 15px;
-    margin: 4px 4px 4px 4px;
-    width: 160px;
+    height: 24px;
+    padding: 0px 20px 0px 20px;
 }
 .sec-nav-btn .primary-title {
-    min-height: 15px;
+    font-size: 16px;
     width: 100%;
     display: inline-block;
     vertical-align: middle;
-}
-.sec-nav-btn .primary-title p {
-    vertical-align: middle;
+    text-align: left;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    cursor: pointer;
 }
 .sec-nav-btn .primary-body {
     background-repeat: no-repeat;
@@ -28,3 +28,4 @@
     font-size: 14px;
     padding: 4px 4px 4px 4px;
 }
+
