@@ -64,12 +64,13 @@ public class UserTransformer {
         return user;
     }
 
-    public static String invalidateUser(JsonNode json) {
+    public static String invalidateUser(JsonNode json, String reason) {
         RepresentationFactory rf    = new StandardRepresentationFactory();
         Representation rep = rf.newRepresentation();
 
         rep.withLink("self", Root.stripApiContext(controllers.routes.User.authenticate().url()));
         rep.withProperty("authenticated", false);
+        rep.withProperty("reason",reason);
         rep.withProperty("userCredentials",json);
         StringWriter sw = new StringWriter();
         rep.toString(RepresentationFactory.HAL_JSON,sw);

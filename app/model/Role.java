@@ -5,14 +5,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by js on 11/11/2016.
+ */
 @Entity
 @Table(name = "role")
-@NamedQueries({
+public class Role implements Serializable {
 
-})
-public class Role implements Serializable  {
-
-    private static final Long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "role")
@@ -36,4 +36,5 @@ public class Role implements Serializable  {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

@@ -7,6 +7,7 @@ import com.jayway.jsonpath.Configuration;
 
 import controllers.User;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import play.Application;
 import play.Logger;
@@ -54,14 +55,14 @@ public class UserIntegrationTest {
     }
 
     @Test
-    public void testAuthenticateUser() {
+    public void testAuthenticateUserNoRoles() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            JsonNode json = mapper.readTree("{\"email\": \"test@test.co.uk\"}");
+            JsonNode json = mapper.readTree("{\"email\": \"foo@test.co.uk\", \"password\": \"abc123\"}");
             String contextPath = configuration.getString("play.http.context");
             Http.RequestBuilder request = new Http.RequestBuilder()
                     .method(POST)
-                    .uri(contextPath + "/api/users/authenticate")
+                    .uri(contextPath + "api/users/authenticate")
                     .bodyJson(json);
 
             Result result = route(request);
@@ -73,4 +74,68 @@ public class UserIntegrationTest {
             fail("ERROR: Json string is invalid." + ioe.getMessage() );
         }
     }
+
+    @Test
+    public void testAuthenticateUserOneRole() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            JsonNode json = mapper.readTree("{\"email\": \"bar@test.co.uk\", \"password\": \"123abc\"}");
+            String contextPath = configuration.getString("play.http.context");
+            Http.RequestBuilder request = new Http.RequestBuilder()
+                    .method(POST)
+                    .uri(contextPath + "api/users/authenticate")
+                    .bodyJson(json);
+
+            Result result = route(request);
+            String response = Helpers.contentAsString(result);
+
+            Logger.debug("Authentication result: -------> "+response);
+
+        } catch(IOException ioe) {
+            fail("ERROR: Json string is invalid." + ioe.getMessage() );
+        }
+    }
+
+    @Test
+    public void testFailPasswordAuthentication() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            JsonNode json = mapper.readTree("{\"email\": \"bar@test.co.uk\", \"password\": \"xxxxx\"}");
+            String contextPath = configuration.getString("play.http.context");
+            Http.RequestBuilder request = new Http.RequestBuilder()
+                    .method(POST)
+                    .uri(contextPath + "api/users/authenticate")
+                    .bodyJson(json);
+
+            Result result = route(request);
+            String response = Helpers.contentAsString(result);
+
+            Logger.debug("Authentication result: -------> "+response);
+
+        } catch(IOException ioe) {
+            fail("ERROR: Json string is invalid." + ioe.getMessage() );
+        }
+    }
+
+    @Test
+    public void testNoMatchingUser() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            JsonNode json = mapper.readTree("{\"email\": \"unknown@aaa.co.uk\", \"password\": \"whatever\"}");
+            String contextPath = configuration.getString("play.http.context");
+            Http.RequestBuilder request = new Http.RequestBuilder()
+                    .method(POST)
+                    .uri(contextPath + "api/users/authenticate")
+                    .bodyJson(json);
+
+            Result result = route(request);
+            String response = Helpers.contentAsString(result);
+
+            Logger.debug("Authentication result: -------> "+response);
+
+        } catch(IOException ioe) {
+            fail("ERROR: Json string is invalid." + ioe.getMessage() );
+        }
+    }
+
 }

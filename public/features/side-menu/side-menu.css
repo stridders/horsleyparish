@@ -1,6 +1,36 @@
+.hmenu {
+    position: fixed;
+    top: 10px;
+    right: 0px;
+    z-index: 100;
+}
+.hmenu-tab {
+    display: block;
+    padding: 4px 8px 0px 8px;
+    height: 70px;
+    width: 40px;
+    border-radius: 10px 0px 0px 10px;
+    border-right: solid thin #424242;
+    white-space: nowrap;
+    background-color: #424242;
+    opacity: 0.6;
+}
+.hmenu-tab:hover {
+    opacity: 0.9;
+}
+.hmenu-tab-title {
+    font-size: 18px;
+    color: white;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    transform-origin: center center;
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
 .smenu {
     position: fixed;
-    top: 40px;
+    top: 82px;
     right: 0px;
     z-index: 100;
 }
@@ -16,12 +46,16 @@
 .smenu-tab {
     display: block;
     padding: 4px 8px 0px 8px;
-    height: 130px;
+    height: 110px;
     width: 40px;
     border-radius: 10px 0px 0px 10px;
+    border-right: solid thin #424242;
     white-space: nowrap;
-    background-color: #689F38;
-    margin-bottom: -130px;
+    background-color: #33691E;
+    margin-bottom: -110px;
+    opacity: 0.6;
+}
+.smenu-tab:hover {
     opacity: 0.9;
 }
 .smenu-tab-title {
@@ -30,15 +64,16 @@
     -ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
-    transform-origin: center left;
+    transform-origin: center center;
     text-align: center;
-    padding: 0px 0px 20px 0px;
+    padding: 0px 0px 10px 20px;
 }
 .smenu-content {
     width: 400px;
-    height: 400px;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
+    min-height: 110px;
+    box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.2);
     margin-left: 40px;
-    background: #f6f6f6;
+    padding: 10px 4px 4px 4px;
+    background: #33691E;
     opacity: 0.9;
 }
