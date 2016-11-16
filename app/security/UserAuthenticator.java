@@ -19,8 +19,7 @@ public class UserAuthenticator extends Security.Authenticator {
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
-    @Inject
-    private static play.mvc.Security.Authenticator delegatedAuthenticator;
+
 
     /**
      * Gets username (equates to numeric userid) from the HTTP session and verifies it against the
@@ -34,7 +33,7 @@ public class UserAuthenticator extends Security.Authenticator {
     public String getUsername(Context ctx) {
 
         // Get username from session context (passed by UI if user is logged in)
-        String userid = delegatedAuthenticator.getUsername(ctx);
+        String userid = ctx.session().get("username");
 
         if (userid == null) {
             logger.info("UNAUTHORISED USER");

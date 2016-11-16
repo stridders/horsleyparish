@@ -72,8 +72,6 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
         // Static Injections for services and transformers
         requestStaticInjection(UuidGenerator.class);
         requestStaticInjection(UserServiceImpl.class);
-        requestStaticInjection(UserAuthenticator.class);
-        requestStaticInjection(RoleBasedAuthoriser.class);
 
     }
 

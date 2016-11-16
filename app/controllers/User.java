@@ -30,6 +30,8 @@ public class User {
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
+    @Security.Authenticated(UserAuthenticator.class)
+    @RoleBasedAuthoriser.RolesAllowed(RoleBasedAuthoriser.Roles.ADMIN)
     @Transactional
     public Result listUsers(String surname, String firstname, String email) {
         List<model.User> users = userService.getUsers(surname, firstname, email);
@@ -37,8 +39,6 @@ public class User {
         return ok(jsonRep).as("application/hal+json");
     }
 
-//    @Security.Authenticated(UserAuthenticator.class)
-//    @RoleBasedAuthoriser.RolesAllowed(RoleBasedAuthoriser.Roles.ADMIN)
     @Transactional
     @BodyParser.Of(BodyParser.Json.class)
     public Result authenticate() {

@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> getUsers(String surname, String firstName, String email) {
+        logger.debug("Entered getUsers");
         TypedQuery<User> query = em().createNamedQuery("User.findAll", User.class);
         List<User> users = query.getResultList();
         return users
@@ -79,6 +80,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<String> getUserRoles(User user) {
+        logger.debug("Entered getUserRoles: "+user);
         TypedQuery<UserRole> query = em().createNamedQuery("UserRole.findUserRoles", UserRole.class);
         query.setParameter("userId",user.getUser_id());
         List<UserRole> userRoles = query.getResultList();
