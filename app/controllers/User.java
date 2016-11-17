@@ -31,8 +31,8 @@ public class User {
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
     @Transactional
-    @Security.Authenticated(UserAuthenticator.class)
-    @RoleBasedAuthoriser.RolesAllowed(RoleBasedAuthoriser.Roles.ADMIN)
+//    @Security.Authenticated(UserAuthenticator.class)
+//    @RoleBasedAuthoriser.RolesAllowed(RoleBasedAuthoriser.Roles.ADMIN)
     public Result listUsers(String surname, String firstname, String email) {
         List<model.User> users = userService.getUsers(surname, firstname, email);
         String jsonRep = UserTransformer.transformUserListToHalJson(users,surname,firstname,email);

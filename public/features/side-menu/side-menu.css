@@ -13,10 +13,10 @@
     border-right: solid thin #424242;
     white-space: nowrap;
     background-color: #424242;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 .hmenu-tab:hover {
-    opacity: 0.9;
+    cursor: pointer;
 }
 .hmenu-tab-title {
     font-size: 18px;
@@ -49,14 +49,14 @@
     height: 110px;
     width: 40px;
     border-radius: 10px 0px 0px 10px;
-    border-right: solid thin #424242;
+    border-right: solid thin #558B2F;
     white-space: nowrap;
     background-color: #33691E;
     margin-bottom: -110px;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 .smenu-tab:hover {
-    opacity: 0.9;
+    cursor: pointer;
 }
 .smenu-tab-title {
     font-size: 18px;

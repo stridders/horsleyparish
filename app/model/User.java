@@ -73,5 +73,10 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    // Username equates to email address
+    public String getUsername() { return email; }
+
+    public void setUsername(String username) { this.email = username; }
 }
 

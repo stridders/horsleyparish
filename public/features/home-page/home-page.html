@@ -16,4 +16,20 @@
         </div>
     </div>
 
+
+    <h1>Hi {{hpc.user}}!</h1>
+    <h3>All registered users:</h3>
+    <ul>
+        <li ng-repeat="user in hpc.allUsers">
+            {{user.email}}
+            - <a href="#" ng-click="hpc.deleteUser(user.id)">Delete</a>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+
+    <p ng-if="hpc.user"><a href="#/login" class="btn btn-primary">Logout</a></p>
+    <p ng-if="!hpc.user"><a href="#/login" class="btn btn-primary">Login</a></p>
+    
 </div>
+
+

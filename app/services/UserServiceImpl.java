@@ -131,12 +131,5 @@ public class UserServiceImpl implements UserService {
         return (em);
     }
 
-//    private static EntityManager em() {
-//        EntityManager em = JPA.em();
-//        em.setFlushMode(FlushModeType.COMMIT);
-//        return (em);
-//    }
-
-
 
 }

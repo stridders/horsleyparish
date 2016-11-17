@@ -14,6 +14,7 @@
     background-position: top left;
     background-size: contain;
     cursor: pointer;
+    background-color: transparent;
 }
 .sec-nav-btn .primary-body {
     background-repeat: no-repeat;

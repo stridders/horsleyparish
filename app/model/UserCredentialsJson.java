@@ -10,15 +10,15 @@ public class UserCredentialsJson {
 
     private static final long serialVersionUID = 1L;
 
-    private String email;
+    private String username;
     private String password;
     
     public String getEmail() {
-        return email;
+        return username;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.username = email;
     }
 
     public String getPassword() {
