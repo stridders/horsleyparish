@@ -28,7 +28,7 @@ public class Application extends Controller {
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
     public Result index() {
-        UserProfile userProfile = new UserProfile("Jon", "Stride", "email@jonstride.uk", "A000001");
+        UserProfile userProfile = new UserProfile();
         return ok(index.render(webJarAssets,userProfile));
     }
 
@@ -44,7 +44,7 @@ public class Application extends Controller {
         if (stuff.equals("")) {
             return movedPermanently(request().path() + "web");
         }
-        UserProfile userProfile = new UserProfile("Jon", "Stride", "email@jonstride.uk", "A000001");
+        UserProfile userProfile = new UserProfile();
         return notFound(views.html.notFoundPage.render(webJarAssets, stuff, userProfile));
     }
 

@@ -12,6 +12,8 @@
     <logger name="application" level="debug"/>
     <logger name="controllers" level="debug"/>
     <logger name="services" level="debug"/>
+    <logger name="modules" level="DEBUG"/>
+    <logger name="security" level="debug"/>
 
     <root level="WARN">
         <appender-ref ref="STDOUT" />

@@ -3,12 +3,14 @@ package services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import model.User;
+import model.UserCredentialsJson;
 import model.UserRole;
 import play.Logger;
 import play.api.Play;
 import play.db.jpa.JPA;
 import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
+import security.model.UserProfile;
 import services.transformers.UserTransformer;
 
 import javax.persistence.EntityManager;
@@ -26,6 +28,11 @@ public class UserServiceImpl implements UserService {
     UserTransformer userTransformer;
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
+
+    private static final String NO_MATCH = "Unrecognised User [%s]";
+    private static final String INVALID_PASSWORD = "User password invalid";
+    private static final String VALID_PASSWORD = "User password validated";
+    private static final String INVALID_CREDENTIALS = "Invalid user credentials";
 
     /**
      * Returns a list of users (from the 'people' table), optionally filtered by
@@ -60,20 +67,42 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String authenticateUser(JsonNode userCredentials) {
-        logger.debug("Entered authenticateUser: "+userCredentials);
-        User authUser = UserTransformer.transformJsonToUserPOJO(userCredentials);
+        User inputCredentials = UserTransformer.transformJsonToUserPOJO(userCredentials);
         TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
-        query.setParameter("email",authUser.getEmail());
+        query.setParameter("email",inputCredentials.getEmail());
         try {
             User validatedUser = query.getSingleResult();
-            if (validatedUser.getPassword().equals(authUser.getPassword())) {
+            if (validatedUser.getPassword().equals(inputCredentials.getPassword())) {
                 List<String> roles = getUserRoles(validatedUser);
                 return userTransformer.authoriseUser(validatedUser,roles);
             } else {
-                return userTransformer.invalidateUser(userCredentials,"Invalid user credentials");
+                return userTransformer.invalidateUser(userCredentials,INVALID_CREDENTIALS);
             }
         } catch (NoResultException nre) {
-            return userTransformer.invalidateUser(userCredentials,"Invalid user credentials");
+            return userTransformer.invalidateUser(userCredentials,INVALID_CREDENTIALS);
+        }
+    }
+
+    @Override
+    public UserProfile authenticateUser(UserCredentialsJson userCredentialsJson) {
+        logger.debug("Authenticating user credentials");
+        TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
+        query.setParameter("email",userCredentialsJson.getEmail());
+        try {
+            User validatedUser = query.getSingleResult();
+            if (validatedUser.getPassword().equals(userCredentialsJson.getPassword())) {
+                logger.debug(VALID_PASSWORD);
+                List<String> roles = getUserRoles(validatedUser);
+                UserProfile userProfile = new UserProfile(validatedUser);
+                userProfile.setRoles(roles);
+                return userProfile;
+            } else {
+                logger.info(INVALID_PASSWORD);
+                return new UserProfile();
+            }
+        } catch (NoResultException nre) {
+            logger.info(String.format(NO_MATCH,userCredentialsJson.getEmail()));
+            return new UserProfile();
         }
     }
 
@@ -84,7 +113,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<String> getUserRoles(User user) {
-        logger.debug("Entered getUserRoles: "+user);
         TypedQuery<UserRole> query = em().createNamedQuery("UserRole.findUserRoles", UserRole.class);
         query.setParameter("userId",user.getUser_id());
         List<UserRole> userRoles = query.getResultList();
@@ -102,6 +130,13 @@ public class UserServiceImpl implements UserService {
         em.setFlushMode(FlushModeType.COMMIT);
         return (em);
     }
+
+//    private static EntityManager em() {
+//        EntityManager em = JPA.em();
+//        em.setFlushMode(FlushModeType.COMMIT);
+//        return (em);
+//    }
+
 
 
 }

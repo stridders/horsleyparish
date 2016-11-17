@@ -10,6 +10,7 @@ import controllers.routes;
 import model.User;
 import model.UserJson;
 import play.Logger;
+import security.model.UserProfile;
 import services.UserService;
 
 import java.io.StringWriter;
@@ -64,6 +65,28 @@ public class UserTransformer {
         return user;
     }
 
+    /**
+     * Converts a JSON user profile into a UserProfile POJO
+     * @param json
+     * @return
+     */
+    public static UserProfile transformJsonToUserProfile(JsonNode json) {
+        UserProfile userProfile = new UserProfile();
+        userProfile.setEmail(json.findPath("email").asText());
+        userProfile.setSurname(json.findPath("surname").asText());
+        userProfile.setFirstName(json.findPath("firstname").asText());
+        userProfile.setPassword(json.findPath("password").asText());
+        userProfile.setUserid(json.findPath("userId").asLong());
+        userProfile.setRoles(json.findValuesAsText("roles"));
+        return userProfile;
+    }
+
+    /**
+     * Returns an Authentication response (JSON) with an Invalid User notification
+     * @param json
+     * @param reason
+     * @return
+     */
     public static String invalidateUser(JsonNode json, String reason) {
         RepresentationFactory rf    = new StandardRepresentationFactory();
         Representation rep = rf.newRepresentation();

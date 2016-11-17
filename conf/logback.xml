@@ -12,7 +12,7 @@
     <logger name="application" level="DEBUG"/>
     <logger name="services" level="DEBUG"/>
     <logger name="controllers" level="DEBUG"/>
-    <logger name="modukes" level="DEBUG"/>
+    <logger name="modules" level="DEBUG"/>
     <logger name="security" level="DEBUG"/>
 
     <root level="WARN">

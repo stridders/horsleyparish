@@ -2,10 +2,13 @@ package security.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import model.User;
 import org.apache.commons.lang3.StringUtils;
 import play.mvc.Http;
 import security.UserAuthenticator;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -27,7 +30,10 @@ public class UserProfile {
     private String email;
 
     @JsonProperty("userid")
-    private String userid;
+    private Long userid;
+
+    @JsonProperty("password")
+    private String password;
 
     @JsonProperty("roles")
     private List<String> roles;
@@ -35,27 +41,12 @@ public class UserProfile {
     @JsonCreator
     public UserProfile() {}
 
-    public UserProfile(String firstName,
-                       String surname,
-                       String email,
-                       String userid) {
-        this.setFirstName(firstName);
-        this.setSurname(surname);
-        this.setEmail(email);
-        this.setUserid(userid);
-    }
-
-    @JsonCreator
-    public UserProfile(String firstName,
-                       String surname,
-                       String email,
-                       String userid,
-                       List<String> roles) {
-        this.setFirstName(firstName);
-        this.setSurname(surname);
-        this.setEmail(email);
-        this.setUserid(userid);
-        this.setRoles(roles);
+    public UserProfile(User user) {
+        this.setFirstName(user.getFirstname());
+        this.setSurname(user.getSurname());
+        this.setEmail(user.getEmail());
+        this.setUserid(user.getUser_id());
+        this.setPassword(user.getPassword());
     }
 
     public String getFirstName() {
@@ -82,16 +73,24 @@ public class UserProfile {
         this.email = email;
     }
 
-    public String getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 
     public List<String> getRoles() {
         return roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setRoles(List<String> roles) {
@@ -102,15 +101,13 @@ public class UserProfile {
         return this.roles.contains(role);
     }
 
-    @Override
-    public String toString() {
-        return "UserProfile {" +
-                    "firstName='" + firstName + "'," +
-                    "surname='" + surname + "'," +
-                    "email='" + email + "'," +
-                    "userid='" + userid + "'" +
-                    "roles=" + roles +
-                '}';
+    public String toJsonString() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch(IOException ioe) {
+            return null;
+        }
     }
 
     public static UserProfile getUserProfileFromHttpContext() {
