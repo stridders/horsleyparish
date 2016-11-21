@@ -1,4 +1,4 @@
-package model;
+package security;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Created by js on 16/11/2016.
  */
-public class UserCredentialsJson {
+public class OAuthCredentials {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,8 +29,4 @@ public class UserCredentialsJson {
         this.password = password;
     }
 
-    public JsonNode toJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.valueToTree(this);
-    }
 }

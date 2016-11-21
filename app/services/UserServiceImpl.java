@@ -1,15 +1,12 @@
 package services;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import model.User;
-import model.UserCredentialsJson;
+import security.OAuthCredentials;
 import model.UserRole;
 import play.Logger;
 import play.api.Play;
-import play.db.jpa.JPA;
 import play.db.jpa.JPAApi;
-import play.db.jpa.Transactional;
 import security.model.UserProfile;
 import services.transformers.UserTransformer;
 
@@ -18,7 +15,6 @@ import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.function.BooleanSupplier;
 import java.util.stream.Collectors;
 
 
@@ -65,32 +61,20 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    /**
+     * Authenticates username/password credentials.
+     * Returns a UserProfile object if user is authenticated, else returns null.
+     * @param OAuthCredentials
+     * @return
+     */
     @Override
-    public String authenticateUser(JsonNode userCredentials) {
-        User inputCredentials = UserTransformer.transformJsonToUserPOJO(userCredentials);
-        TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
-        query.setParameter("email",inputCredentials.getEmail());
-        try {
-            User validatedUser = query.getSingleResult();
-            if (validatedUser.getPassword().equals(inputCredentials.getPassword())) {
-                List<String> roles = getUserRoles(validatedUser);
-                return userTransformer.authoriseUser(validatedUser,roles);
-            } else {
-                return userTransformer.invalidateUser(userCredentials,INVALID_CREDENTIALS);
-            }
-        } catch (NoResultException nre) {
-            return userTransformer.invalidateUser(userCredentials,INVALID_CREDENTIALS);
-        }
-    }
-
-    @Override
-    public UserProfile authenticateUser(UserCredentialsJson userCredentialsJson) {
+    public UserProfile authenticateUser(OAuthCredentials OAuthCredentials) {
         logger.debug("Authenticating user credentials");
         TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
-        query.setParameter("email",userCredentialsJson.getEmail());
+        query.setParameter("email", OAuthCredentials.getEmail());
         try {
             User validatedUser = query.getSingleResult();
-            if (validatedUser.getPassword().equals(userCredentialsJson.getPassword())) {
+            if (validatedUser.getPassword().equals(OAuthCredentials.getPassword())) {
                 logger.debug(VALID_PASSWORD);
                 List<String> roles = getUserRoles(validatedUser);
                 UserProfile userProfile = new UserProfile(validatedUser);
@@ -98,13 +82,14 @@ public class UserServiceImpl implements UserService {
                 return userProfile;
             } else {
                 logger.info(INVALID_PASSWORD);
-                return new UserProfile();
+                return null;
             }
         } catch (NoResultException nre) {
-            logger.info(String.format(NO_MATCH,userCredentialsJson.getEmail()));
-            return new UserProfile();
+            logger.info(String.format(NO_MATCH, OAuthCredentials.getEmail()));
+            return null;
         }
     }
+
 
     /**
      * Returns a list of roles for a given userId

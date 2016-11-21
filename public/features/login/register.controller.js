@@ -7,7 +7,7 @@
 
     RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
     function RegisterController(UserService, $location, $rootScope, FlashService) {
-        var reg = this;
+        let reg = this;
 
         reg.register = register;
 

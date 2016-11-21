@@ -67,7 +67,7 @@ public class UserIntegrationTest {
     }
 
     @Test
-    public void testListUsersWithSecurityContext() {
+    public void testListUsersWithSecurityContextNoAdminRole() {
         Map<String, String[]> headers = new HashMap<>();
 
         String username = "bar@test.co.uk";
@@ -88,92 +88,72 @@ public class UserIntegrationTest {
         String response = Helpers.contentAsString(result);
 
         assertEquals(403,result.status());
-        Logger.debug("List users response: -------> "+response+","+result.status());
+        assertEquals("User bar@test.co.uk not authorised for GET path /api/users. Requires [ADMIN] but user has roles: [TEST_ROLE_1, TEST_ROLE_2, TEST_ROLE_3]", response);
 
     }
 
-//    @Test
-//    public void testAuthenticateUserNoRoles() {
-//        ObjectMapper mapper = new ObjectMapper();
-//        try {
-//            JsonNode json = mapper.readTree("{\"email\": \"foo@test.co.uk\", \"password\": \"abc123\"}");
-//            String contextPath = configuration.getString("play.http.context");
-//            Http.RequestBuilder request = new Http.RequestBuilder()
-//                    .method(POST)
-//                    .uri(contextPath + "api/users/authenticate")
-//                    .bodyJson(json);
-//
-//            Result result = route(request);
-//            String response = Helpers.contentAsString(result);
-//
-//            Logger.debug("Authentication result: -------> "+response);
-//
-//        } catch(IOException ioe) {
-//            fail("ERROR: Json string is invalid." + ioe.getMessage() );
-//        }
-//    }
-//
-//    @Test
-//    public void testAuthenticateUserOneRole() {
-//        ObjectMapper mapper = new ObjectMapper();
-//        try {
-//            JsonNode json = mapper.readTree("{\"email\": \"bar@test.co.uk\", \"password\": \"123abc\"}");
-//            String contextPath = configuration.getString("play.http.context");
-//            Http.RequestBuilder request = new Http.RequestBuilder()
-//                    .method(POST)
-//                    .uri(contextPath + "api/users/authenticate")
-//                    .bodyJson(json);
-//
-//            Result result = route(request);
-//            String response = Helpers.contentAsString(result);
-//
-//            Logger.debug("Authentication result: -------> "+response);
-//
-//        } catch(IOException ioe) {
-//            fail("ERROR: Json string is invalid." + ioe.getMessage() );
-//        }
-//    }
-//
-//    @Test
-//    public void testFailPasswordAuthentication() {
-//        ObjectMapper mapper = new ObjectMapper();
-//        try {
-//            JsonNode json = mapper.readTree("{\"email\": \"bar@test.co.uk\", \"password\": \"xxxxx\"}");
-//            String contextPath = configuration.getString("play.http.context");
-//            Http.RequestBuilder request = new Http.RequestBuilder()
-//                    .method(POST)
-//                    .uri(contextPath + "api/users/authenticate")
-//                    .bodyJson(json);
-//
-//            Result result = route(request);
-//            String response = Helpers.contentAsString(result);
-//
-//            Logger.debug("Authentication result: -------> "+response);
-//
-//        } catch(IOException ioe) {
-//            fail("ERROR: Json string is invalid." + ioe.getMessage() );
-//        }
-//    }
-//
-//    @Test
-//    public void testNoMatchingUser() {
-//        ObjectMapper mapper = new ObjectMapper();
-//        try {
-//            JsonNode json = mapper.readTree("{\"email\": \"unknown@aaa.co.uk\", \"password\": \"whatever\"}");
-//            String contextPath = configuration.getString("play.http.context");
-//            Http.RequestBuilder request = new Http.RequestBuilder()
-//                    .method(POST)
-//                    .uri(contextPath + "api/users/authenticate")
-//                    .bodyJson(json);
-//
-//            Result result = route(request);
-//            String response = Helpers.contentAsString(result);
-//
-//            Logger.debug("Authentication result: -------> "+response);
-//
-//        } catch(IOException ioe) {
-//            fail("ERROR: Json string is invalid." + ioe.getMessage() );
-//        }
-//    }
+    @Test
+    public void testAuthenticationWithValidCredentials() {
+        Map<String, String[]> headers = new HashMap<>();
+        String username = "bar@test.co.uk";
+        String password = "123abc";
+
+        String usernameAndPassword = username + ":" + password;
+        String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString( usernameAndPassword.getBytes() );
+
+        headers.put(UserAuthenticator.AUTH_HEADER, new String[]{authorizationHeaderValue});
+
+        String contextPath = configuration.getString("play.http.context");
+        Http.RequestBuilder request = new Http.RequestBuilder()
+                .method(GET)
+                .headers(headers)
+                .uri(contextPath + "api/authentication");
+
+        Result result = route(request);
+        assertEquals(200,result.status());
+    }
+
+    @Test
+    public void testAuthenticationWithInvalidUID() {
+        Map<String, String[]> headers = new HashMap<>();
+        String username = "unknown@google.co.uk";
+        String password = "password";
+
+        String usernameAndPassword = username + ":" + password;
+        String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString( usernameAndPassword.getBytes() );
+
+        headers.put(UserAuthenticator.AUTH_HEADER, new String[]{authorizationHeaderValue});
+
+        String contextPath = configuration.getString("play.http.context");
+        Http.RequestBuilder request = new Http.RequestBuilder()
+                .method(GET)
+                .headers(headers)
+                .uri(contextPath + "api/authentication");
+
+        Result result = route(request);
+        assertEquals(401,result.status());
+    }
+
+    @Test
+    public void testAuthenticationWithInvalidPassword() {
+        Map<String, String[]> headers = new HashMap<>();
+        String username = "bar@test.co.uk";
+        String password = "password";
+
+        String usernameAndPassword = username + ":" + password;
+        String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString( usernameAndPassword.getBytes() );
+
+        headers.put(UserAuthenticator.AUTH_HEADER, new String[]{authorizationHeaderValue});
+
+        String contextPath = configuration.getString("play.http.context");
+        Http.RequestBuilder request = new Http.RequestBuilder()
+                .method(GET)
+                .headers(headers)
+                .uri(contextPath + "api/authentication");
+
+        Result result = route(request);
+        assertEquals(401,result.status());
+    }
+
 
 }

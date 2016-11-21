@@ -3,13 +3,13 @@
 
     angular
         .module('horsley')
-        .service('AuthenticationService', AuthenticationService);
+        .factory('AuthenticationService', AuthenticationService);
 
     AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService'];
 
-    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService) {
-        var service = {};
+    function AuthenticationService($http, $cookies, $rootScope) {
 
+        var service = {};
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
@@ -17,13 +17,11 @@
         return service;
 
         function Login(username, password, callback) {
-
-
-            $http.post('/api/users/authenticate', { username: username, password: password })
-               .success(function (response) {
-                   callback(response);
-               });
-
+            SetCredentials(username, password);
+            $http.get('/api/authentication')
+                .success(function (response) {
+                    callback(response);
+                });
         }
 
         /**
@@ -48,7 +46,7 @@
         }
 
         /**
-         * Clears user credentials from globals and teh default HTTP context
+         * Clears user credentials from globals and the default HTTP context
          * @constructor
          */
         function ClearCredentials() {
@@ -141,3 +139,8 @@
     };
 
 })();
+
+
+
+
+

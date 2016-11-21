@@ -75,7 +75,6 @@ public class UserTransformer {
         userProfile.setEmail(json.findPath("email").asText());
         userProfile.setSurname(json.findPath("surname").asText());
         userProfile.setFirstName(json.findPath("firstname").asText());
-        userProfile.setPassword(json.findPath("password").asText());
         userProfile.setUserid(json.findPath("userId").asLong());
         userProfile.setRoles(json.findValuesAsText("roles"));
         return userProfile;

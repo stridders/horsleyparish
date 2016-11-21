@@ -1,13 +1,8 @@
 package security;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 
-import model.UserCredentialsJson;
-import org.apache.commons.lang3.ArrayUtils;
 import play.Logger;
-import play.db.jpa.Transactional;
 import play.libs.Json;
 import play.mvc.Http;
 import play.mvc.Http.Context;
@@ -49,42 +44,53 @@ public class UserAuthenticator extends Security.Authenticator {
     @Override
     public String getUsername(Context ctx) {
 
-        // Get username from session context (passed by UI if user is logged in)
-        UserCredentialsJson userCredentials = getUserCredentialsFromHeader(ctx);
+        String userName = null;
 
-        if (userCredentials == null) {
+        OAuthCredentials credentials = getUserCredentialsFromHeader(ctx);
+
+        if (credentials == null) {
             logger.info("UNAUTHENTICATED USER");
         } else {
             UserProfile userProfile = null;
-            String jsonProfile = ctx.session().get(USER_PROFILE_KEY);
-            if (jsonProfile == null) {
-                userProfile = userService.authenticateUser(userCredentials);
-                ctx.session().put(USER_PROFILE_KEY, userProfile.toJsonString());
+            String profile = ctx.session().get(USER_PROFILE_KEY);
+            if (profile == null) {
+                userProfile = userService.authenticateUser(credentials);
+                if (userProfile != null) {
+                    ctx.session().put(USER_PROFILE_KEY, userProfile.toString());
+                }
             } else {
-                userProfile = Json.fromJson(Json.parse(jsonProfile), UserProfile.class);
-                if (!userCredentials.getEmail().equalsIgnoreCase(userProfile.getEmail())) {
+                userProfile = Json.fromJson(Json.parse(profile), UserProfile.class);
+                if (userProfile.getEmail() == null || !userProfile.getEmail().equalsIgnoreCase(userProfile.getEmail())) {
                     userProfile = null;
                     ctx.session().remove(USER_PROFILE_KEY);
-                    logger.info(String.format(INVALID_SESSION_PROFILE, userCredentials.getEmail(), userProfile.getEmail()));
+                    logger.info(String.format(INVALID_SESSION_PROFILE, credentials.getEmail(), userProfile.getEmail()));
                 }
             }
+            userName = credentials.getEmail();
         }
-        return userCredentials.getEmail();
+        return userName;
     }
 
-    public UserCredentialsJson getUserCredentialsFromHeader (Http.Context ctx) {
+    /**
+     * Returns a OAuthCredentials object, containing a username/password extracted from the
+     * HTTP Authentication header (if present)
+     * @param ctx
+     * @return
+     */
+    public OAuthCredentials getUserCredentialsFromHeader (Http.Context ctx) {
         logger.debug("Entered getUserCredentialsFromHeader");
-        UserCredentialsJson userCredentialsJson = new UserCredentialsJson();
-        String authorisation = String.join("",ctx.request().headers().get(AUTH_HEADER));
-
-        if (authorisation != null && authorisation.startsWith("Basic")) {
-            String base64Credentials = authorisation.substring("Basic".length()).trim();
-            String credentials = new String(Base64.getDecoder().decode(base64Credentials), Charset.forName("UTF-8"));
-            final String[] values = credentials.split(":", 2);
-            userCredentialsJson.setEmail(values[0]);
-            userCredentialsJson.setPassword(values[1]);
+        OAuthCredentials credentials = new OAuthCredentials();
+        if (!ctx.request().headers().isEmpty() && ctx.request().headers().get(AUTH_HEADER) != null) {
+            String authorisation = String.join("",ctx.request().headers().get(AUTH_HEADER));
+            if (authorisation != null && authorisation.startsWith("Basic")) {
+                String base64Credentials = authorisation.substring("Basic".length()).trim();
+                String hdr = new String(Base64.getDecoder().decode(base64Credentials), Charset.forName("UTF-8"));
+                final String[] hdrValues = hdr.split(":", 2);
+                credentials.setEmail(hdrValues[0]);
+                credentials.setPassword(hdrValues[1]);
+            }
         }
-        return userCredentialsJson;
+        return credentials;
     }
 
 }

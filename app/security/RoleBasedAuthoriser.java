@@ -71,8 +71,6 @@ public class RoleBasedAuthoriser {
                 return CompletableFuture.supplyAsync(() -> forbidden(msg));
             }
 
-
-
         }
     }
 }

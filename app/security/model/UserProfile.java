@@ -16,8 +16,6 @@ import java.util.List;
  */
 public class UserProfile {
 
-    private static final long serialVersionUID = 1L;
-
     private static final String UNKNOWN = "UNKNOWN";
 
     @JsonProperty("firstName")
@@ -32,9 +30,6 @@ public class UserProfile {
     @JsonProperty("userid")
     private Long userid;
 
-    @JsonProperty("password")
-    private String password;
-
     @JsonProperty("roles")
     private List<String> roles;
 
@@ -46,7 +41,6 @@ public class UserProfile {
         this.setSurname(user.getSurname());
         this.setEmail(user.getEmail());
         this.setUserid(user.getUser_id());
-        this.setPassword(user.getPassword());
     }
 
     public String getFirstName() {
@@ -85,14 +79,6 @@ public class UserProfile {
         return roles;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
@@ -101,7 +87,8 @@ public class UserProfile {
         return this.roles.contains(role);
     }
 
-    public String toJsonString() {
+    @Override
+    public String toString() {
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.writeValueAsString(this);
