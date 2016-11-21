@@ -25,13 +25,13 @@ libraryDependencies ++= Seq(
   "org.webjars" %% "webjars-play" % "2.5.0",
   "org.webjars" % "jquery" % "2.2.4",
   "org.webjars" % "bootstrap" % "3.3.6" exclude("org.webjars", "jquery"),
-  "org.webjars" % "angularjs" % "1.5.5" exclude("org.webjars", "jquery"),
+  "org.webjars" % "angularjs" % "1.5.6" exclude("org.webjars", "jquery"),
   "org.webjars" % "angular-filter" % "0.4.9",
   "org.webjars" % "angular-ui-router" % "0.2.18",
-  "org.webjars.npm" % "angular-cookies" % "1.5.5",
   "org.webjars" % "angular-material" % "1.1.1",
-  "org.webjars.npm" % "angular-route" % "1.5.8",
+  "org.webjars.npm" % "angular-route" % "1.5.6",
   "org.webjars" % "angular-ui-bootstrap" % "1.3.2" exclude("org.webjars", "jquery"),
+  "org.webjars.npm" % "angular-cookies" % "1.5.6",
   "com.jayway.jsonpath" % "json-path" % "2.0.0"
 )
 

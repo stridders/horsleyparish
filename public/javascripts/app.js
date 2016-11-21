@@ -1,4 +1,4 @@
-var app = angular.module('horsley', ['horsley.controllers']);
+var app = angular.module('horsley', ['horsley.controllers','ngCookies']);
 
 app.config(function($routeProvider) {
 

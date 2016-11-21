@@ -3,10 +3,11 @@
 
     angular
         .module('horsley')
-        .factory('AuthenticationService', AuthenticationService);
+        .service('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'UserService'];
-    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService) {
+    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService'];
+
+    function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService) {
         var service = {};
 
         service.Login = Login;
@@ -43,7 +44,7 @@
 
             // Set the authorisation header in the HTTP context by default
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
-            $cookieStore.put('globals', $rootScope.globals);
+            $cookies.put('globals', $rootScope.globals);
         }
 
         /**
@@ -52,7 +53,7 @@
          */
         function ClearCredentials() {
             $rootScope.globals = {};
-            $cookieStore.remove('globals');
+            $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }
