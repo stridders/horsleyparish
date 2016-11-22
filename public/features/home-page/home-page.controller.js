@@ -15,12 +15,12 @@
         hpc.user = null;
         hpc.logout = logout;
 
-        if ($rootScope.globals == undefined) {
-            $rootScope.globals = {};
-        }
-        if ($rootScope.globals.currentUser == undefined) {
-            $rootScope.globals.currentUser = {};
-        }
+        // if ($rootScope.globals == undefined) {
+        //     $rootScope.globals = {};
+        // }
+        // if ($rootScope.globals.currentUser == undefined) {
+        //     $rootScope.globals.currentUser = {};
+        // }
 
         initController();
 

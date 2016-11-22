@@ -23,23 +23,11 @@
                     callback(response);
                 })
                 .error(function() {
+                    ClearCredentials();
                     callback(null);
-                })
-            ;
+                });
         }
 
-        // function Login(username, password, callback) {
-        //     SetCredentials(username, password);
-        //     $http.get('/api/authentication')
-        //         .success(function (response) {
-        //             callback(response);
-        //         })
-        //         .error(function() {
-        //             console.log("Failure -------");
-        //             callback(null);
-        //         })
-        //     ;
-        // }
 
         /**
          * Save user credentials in a global, using an OAuth2-style authentication header format

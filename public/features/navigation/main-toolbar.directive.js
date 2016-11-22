@@ -5,7 +5,7 @@
         .module('horsley')
         .directive('mainToolbar', mainToolbar);
 
-    mainToolbar.$inject = ['$location', '$routeParams'];
+    mainToolbar.$inject = ['$rootScope'];
 
     function mainToolbar() {
         return {
@@ -16,9 +16,10 @@
             controllerAs: 'mtc',
             bindToController: true,
 
-            controller: function ($scope, $location, $routeParams) {
+            controller: function ($rootScope) {
 
                 let mtc = this;
+                mtc.user = loadCurrentUser();
 
                 mtc.links = [
                     {
@@ -55,8 +56,24 @@
                         image:   '/web/images/login.png',
                         text:    '',
                         link:    '/login'
+                    },
+                    {
+                        heading: 'Logoff',
+                        title:   'Logout user:'+mtc.user,
+                        image:   '/web/images/login_green.png',
+                        text:    '',
+                        link:    '/logoff'
                     }
                 ];
+
+                function loadCurrentUser() {
+                    if ($rootScope.globals && $rootScope.globals.curentUser) {
+                        UserService.GetByUsername($rootScope.globals.currentUser.username)
+                            .then(function (user) {
+                                mtc.user = user;
+                            });
+                    }
+                }
 
             }
 
