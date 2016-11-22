@@ -14,7 +14,7 @@
             controller: function() {
                 let parallax = document.querySelectorAll(".parallax");
                 let speed = [0.9, 0.7, 0.5];
-                let initPos = [15, 30, 35];
+                let initPos = [25, 40, 40];
                 let transform = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
                 let transformProperty = getSupportedPropertyName(transform);
                 scrollImages();
