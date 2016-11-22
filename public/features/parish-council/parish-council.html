@@ -1,6 +1,13 @@
+
 <div>
     <div class="page-banner">
         <div class="text-content title">{{pcc.config.title}}</div>
     </div>
-
+    <div layout="row" style="display: flex; width: 900px; margin: 0 auto;">
+            <div flex="33">First item in column</div>
+            <div flex="33">
+                <div class="btn btn-sm btn-default" ngf-select="pcc.upload($file)">Upload minutes</div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -9,7 +9,7 @@
 	<head>
 		<title>Horsley Parish, Gloucestershire, Community website</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scala=1"/>
+		<meta name="viewport" content="width=device-width"/>
 
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
@@ -17,16 +17,20 @@
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")"/>
 
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.min.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angularjs", "angular.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-resource.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-route","angular-route.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-filter.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("0.2.18/angular-ui-router.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-cookies", "angular-cookies.js"))'></script>
-		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angularjs", "angular.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-animate", "angular-animate.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-resource.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-route","angular-route.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-filter.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("0.2.18/angular-ui-router.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-cookies", "angular-cookies.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-aria", "angular-aria.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-messages","angular-messages.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ng-file-upload.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/services.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
@@ -63,6 +67,10 @@
 		<script type="text/javascript" src='@routes.Assets.at("features/login/login.controller.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("features/login/register.controller.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("features/login/user.service.js")'></script>
+
+		<!-- Parish Council -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/parish-council/parish-council.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.controller.js")'></script>
 
 		<script>
 			var app = angular.module('horsleyParish',[]);

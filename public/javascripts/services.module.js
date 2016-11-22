@@ -1,4 +1,9 @@
-angular.module('horsley.services', ['ngRoute',
-                                    'ngCookies',
-                                    'ngResource'
+angular.module('horsley.services', [
+    'ngRoute',
+    'ngAria',
+    'ngMessages',
+    'ngMaterial',
+    'ngCookies',
+    'ngResource',
+    'ngFileUpload'
 ]);

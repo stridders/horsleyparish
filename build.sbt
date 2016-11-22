@@ -28,8 +28,12 @@ libraryDependencies ++= Seq(
   "org.webjars" % "angularjs" % "1.5.6" exclude("org.webjars", "jquery"),
   "org.webjars" % "angular-filter" % "0.4.9",
   "org.webjars" % "angular-ui-router" % "0.2.18",
+  "org.webjars.npm" % "angular-animate" % "1.5.6",
+  "org.webjars.npm" % "angular-aria" % "1.5.6",
+  "org.webjars.npm" % "angular-messages" % "1.5.6",
   "org.webjars" % "angular-material" % "1.1.1",
   "org.webjars.npm" % "angular-route" % "1.5.6",
+  "org.webjars.npm" % "ng-file-upload" % "12.2.12",
   "org.webjars" % "angular-ui-bootstrap" % "1.3.2" exclude("org.webjars", "jquery"),
   "org.webjars.npm" % "angular-cookies" % "1.5.6",
   "com.jayway.jsonpath" % "json-path" % "2.0.0"
