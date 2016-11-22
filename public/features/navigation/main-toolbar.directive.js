@@ -10,7 +10,7 @@
     function mainToolbar() {
         return {
             restrict: 'E',
-            templateUrl: 'web/features/section-navigation/main-toolbar.html',
+            templateUrl: 'web/features/navigation/main-toolbar.html',
             scope: {
             },
             controllerAs: 'mtc',
@@ -21,6 +21,13 @@
                 let mtc = this;
 
                 mtc.links = [
+                    {
+                        heading: 'Home',
+                        title:   'Hosrley Parish Home Page',
+                        image:   '/web/images/home.png',
+                        text:    '',
+                        link:    '/'
+                    },
                     {
                         heading: 'The Horses Mouth',
                         title:   'The Horsley Monthly Magazine',
@@ -34,6 +41,13 @@
                         image:   '/web/features/history/images/ic_history_sm_black.png',
                         text:    '',
                         link:    '/history'
+                    },
+                    {
+                        heading: 'Login',
+                        title:   'User login',
+                        image:   '/web/images/login.png',
+                        text:    '',
+                        link:    '/login'
                     }
                 ];
 

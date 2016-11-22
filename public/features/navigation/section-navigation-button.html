@@ -1,0 +1,7 @@
+<div class="sec-nav-btn"
+     ng-style="{'background-image': 'url({{snb.image}})'}"
+     ng-click="snb.redirect(snb.link)"
+     ng-mouseover="snb.showHdr()"
+     ng-mouseleave="snb.hideHdr()">
+</div>
+<div class="sec-nav-hdr" ng-class="snb.hdrClass">{{snb.heading}}</div>

@@ -8,7 +8,6 @@
     flex-shrink: 0;
     z-index: 100;
     width: 900px;
-    margin-bottom: 10px;
 }
 .mtbar-dropdown {
     transition: all 0.5s ease;
