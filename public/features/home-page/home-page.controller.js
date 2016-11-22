@@ -13,8 +13,6 @@
         };
         hpc.links = [];
         hpc.user = null;
-        hpc.allUsers = [];
-        hpc.deleteUser = deleteUser;
         hpc.logout = logout;
 
         if ($rootScope.globals == undefined) {
@@ -28,8 +26,6 @@
 
         function initController() {
             loadCurrentUser();
-            loadAllUsers();
-            setLinks();
         }
 
         function loadCurrentUser() {
@@ -41,43 +37,12 @@
             }
         }
 
-        function loadAllUsers() {
-            UserService.GetAll()
-                .then(function (users) {
-                    hpc.allUsers = users;
-                });
-        }
-
-        function deleteUser(id) {
-            UserService.Delete(id)
-                .then(function () {
-                    loadAllUsers();
-                });
-        }
 
         function logout() {
             UserService.ClearCredentials();
             hpc.user = undefined;
         }
 
-        function setLinks() {
-            hpc.links = [
-                {
-                    heading: 'The Horses Mouth',
-                    title:   'The Horsley Monthly Magazine',
-                    image:   '/web/features/the-horses-mouth/images/ic_horses_mouth_sm.png',
-                    text:    '',
-                    link:    '/horses-mouth'
-                },
-                {
-                    heading: 'History',
-                    title:   'A history of Horsley Parish',
-                    image:   '/web/features/history/images/ic_history_sm.png',
-                    text:    '',
-                    link:    '/history'
-                }
-            ];
-        }
     }
 
 })();

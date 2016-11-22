@@ -17,12 +17,16 @@
                 controllerAs:   'hc',
                 templateUrl :   'web/features/history/history.html'
             })
+            .when('/pc', {
+                controller:     'ParishCouncilController',
+                templateUrl:    'web/features/parish-council/parish-council.html',
+                controllerAs:   'pcc'
+            })
             .when('/login', {
                 controller:     'LoginController',
                 templateUrl:    'web/features/login/login.html',
                 controllerAs:   'lc'
             })
-
             .when('/register', {
                 controller:     'RegisterController',
                 templateUrl:    'web/features/login/register.html',

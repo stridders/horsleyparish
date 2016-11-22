@@ -36,6 +36,13 @@
                         link:    '/horses-mouth'
                     },
                     {
+                        heading: 'Parish Council',
+                        title:   'Horsley Parish Council',
+                        image:   '/web/images/pc.png',
+                        text:    '',
+                        link:    '/pc'
+                    },
+                    {
                         heading: 'History',
                         title:   'A history of Horsley Parish',
                         image:   '/web/features/history/images/ic_history_sm_black.png',
