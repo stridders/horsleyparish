@@ -1,12 +1,5 @@
-<!--<div class="sec-nav-btn" title="{{snb.title}}" ng-click="snb.redirect(snb.link)">-->
-    <!--<div class="primary-title">{{snb.heading}}</div>-->
-    <!--<div class="primary-body" ng-style="{'background-image': 'url({{snb.image}})'}">-->
-        <!--<div class="text-content">{{snb.text}}</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<div class="sec-nav-btn">
-    <div class="primary-title"
-         ng-style="{'background-image': 'url({{snb.image}})'}"
-         ng-click="snb.redirect(snb.link)">{{snb.heading}}</div>
+<div class="sec-nav-btn"
+     ng-style="{'background-image': 'url({{snb.image}})'}"
+     ng-click="snb.redirect(snb.link)"
+     ng-title="{{snb.title}}">
 </div>

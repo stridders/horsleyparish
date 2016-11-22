@@ -1,4 +1,3 @@
-angular.module('horsley.controllers', [ 'ngRoute',
-                                        'ngCookies',
-                                        'ngResource'
+angular.module('horsley.controllers', [ 'ui.router',
+                                        'ui.bootstrap'
 ]);

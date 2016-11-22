@@ -1,0 +1,9 @@
+
+.login-form {
+    width: 300px;
+    margin-top: 45px;
+}
+.login-form .text-danger {
+    margin-top: 10px;
+    text-align: center;
+}

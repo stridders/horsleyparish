@@ -8,9 +8,12 @@
     LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
 
     function LoginController($location, AuthenticationService, FlashService) {
-        let log = this;
+        let lc = this;
+        lc.errMsg = null;
 
-        log.login = login;
+        lc.login = login;
+        lc.resetErrors = resetErrors;
+        
         initController();
 
         function initController() {
@@ -18,20 +21,25 @@
         }
 
         function login() {
-            log.dataLoading = true;
-            console.log("user:"+log.username);
-            AuthenticationService.Login(log.username, log.password,
+            lc.dataLoading = true;
+            console.log("user:"+lc.username);
+            AuthenticationService.Login(lc.username, lc.password,
                 function (response) {
                     if (response) {
-                        log.dataLoading = false;
-                        console.log("----- Success ---------"+JSON.stringify(response));
-                        //$location.path("/");
+                        lc.dataLoading = false;
+                        $location.path("/");
                     } else {
-                        log.dataLoading = false;
+                        lc.dataLoading = false;
                         form.$invalid = false;
-                        console.log("----- FAILURE ---------");
+                        lc.errMsg = "Username and/or password are invalid";
                     }
                 })
+        }
+
+        function resetErrors() {
+            lc.dataLoading = false;
+            form.$invalid = false;
+            lc.errMsg = null;
         }
 
 

@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module('horsley', ['horsley.controllers']);
+    var app = angular.module('horsley', ['horsley.controllers','horsley.services']);
 
     app.config(function($routeProvider) {
 
@@ -20,7 +20,7 @@
             .when('/login', {
                 controller:     'LoginController',
                 templateUrl:    'web/features/login/login.html',
-                controllerAs:   'log'
+                controllerAs:   'lc'
             })
 
             .when('/register', {

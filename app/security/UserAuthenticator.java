@@ -34,10 +34,8 @@ public class UserAuthenticator extends Security.Authenticator {
     UserTransformer userTransformer;
 
     /**
-     * Gets username (equates to numeric userid) from the HTTP session and verifies it against the
-     * UserProfile already saved in the session.
-     * If no username found or the UserProfile doesn't match, then null is returned.
-     * The UI sets username in the HTTP session cookie once a user has logged in.
+     * Gets username and password from the HTTP session and verifies them against the database.
+     * If no username found then null is returned.
      * @param ctx
      * @return
      */
@@ -45,28 +43,17 @@ public class UserAuthenticator extends Security.Authenticator {
     public String getUsername(Context ctx) {
 
         String userName = null;
-
         OAuthCredentials credentials = getUserCredentialsFromHeader(ctx);
+        ctx.session().remove(USER_PROFILE_KEY);
 
         if (credentials == null) {
             logger.info("UNAUTHENTICATED USER");
         } else {
-            UserProfile userProfile = null;
-            String profile = ctx.session().get(USER_PROFILE_KEY);
-            if (profile == null) {
-                userProfile = userService.authenticateUser(credentials);
-                if (userProfile != null) {
-                    ctx.session().put(USER_PROFILE_KEY, userProfile.toString());
-                }
-            } else {
-                userProfile = Json.fromJson(Json.parse(profile), UserProfile.class);
-                if (userProfile.getEmail() == null || !userProfile.getEmail().equalsIgnoreCase(userProfile.getEmail())) {
-                    userProfile = null;
-                    ctx.session().remove(USER_PROFILE_KEY);
-                    logger.info(String.format(INVALID_SESSION_PROFILE, credentials.getEmail(), userProfile.getEmail()));
-                }
+            UserProfile userProfile = userService.authenticateUser(credentials);
+            if (userProfile != null) {
+                ctx.session().put(USER_PROFILE_KEY, userProfile.toString());
+                userName = userProfile.getEmail();
             }
-            userName = credentials.getEmail();
         }
         return userName;
     }
