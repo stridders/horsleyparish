@@ -3,14 +3,14 @@
 
     angular
         .module('horsley')
-        .directive('sectionNavBtn', sectionNavBtn);
+        .directive('navbarButton', navbarButton);
 
-    sectionNavBtn.$inject = ['$location'];
+    navbarButton.$inject = ['$location'];
 
-    function sectionNavBtn() {
+    function navbarButton() {
         return {
             restrict:       'E',
-            templateUrl:    'web/features/navigation/section-navigation-button.html',
+            templateUrl:    'web/features/navbar/navbar-button.html',
             scope: {
                 heading:  '@',
                 title:    '@',

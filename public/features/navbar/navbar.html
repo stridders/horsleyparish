@@ -1,0 +1,16 @@
+<div class="mtbar">
+    <div ng-repeat="link in nbc.links">
+        <navbar-button
+                heading="{{link.heading}}"
+                title="{{link.title}}"
+                image="{{link.image}}"
+                text="{{link.text}}"
+                link="{{link.link}}">
+        </navbar-button>
+    </div>
+    <div>
+        hello
+        <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+    </div>
+    User:{{nbc.user}}
+</div>

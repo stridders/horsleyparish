@@ -3,9 +3,9 @@
     angular.module('horsley')
         .controller('HomePageController', HomePageController);
 
-    HomePageController.$inject = ['UserService', '$rootScope'];
+    HomePageController.$inject = ['UserService', '$rootScope','AuthenticationService'];
 
-    function HomePageController(UserService, $rootScope) {
+    function HomePageController(UserService, $rootScope, AuthenticationService) {
         let hpc = this;
         hpc.config = {
             'title': 'Welcome to Horsley Parish',
@@ -14,6 +14,8 @@
         hpc.links = [];
         hpc.user = null;
         hpc.logout = logout;
+
+        console.log("HOME PAGE User:"+AuthenticationService.GetLoggedInUserName());
 
         // if ($rootScope.globals == undefined) {
         //     $rootScope.globals = {};
@@ -25,17 +27,17 @@
         initController();
 
         function initController() {
-            loadCurrentUser();
+            //loadCurrentUser();
         }
 
-        function loadCurrentUser() {
-            if ($rootScope.globals && $rootScope.globals.curentUser) {
-                UserService.GetByUsername($rootScope.globals.currentUser.username)
-                    .then(function (user) {
-                        hpc.user = user;
-                    });
-            }
-        }
+        // function loadCurrentUser() {
+        //     if ($rootScope.globals && $rootScope.globals.curentUser) {
+        //         UserService.GetByUsername($rootScope.globals.currentUser.username)
+        //             .then(function (user) {
+        //                 hpc.user = user;
+        //             });
+        //     }
+        // }
 
 
         function logout() {

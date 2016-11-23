@@ -5,21 +5,30 @@
         .module('horsley')
         .factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService'];
+    AuthenticationService.$inject = ['$http', '$window', '$timeout', 'UserService'];
 
-    function AuthenticationService($http, $cookies, $rootScope) {
+    function AuthenticationService($http, $window) {
 
         var service = {};
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
+        service.GetLoggedInUserName = GetLoggedInUserName;
 
         return service;
 
+        /**
+         * Sends username and password credentials to the Horsley API webservice, to authenticate a user
+         * @param username
+         * @param password
+         * @param callback
+         * @constructor
+         */
         function Login(username, password, callback) {
-            SetCredentials(username, password);
+            let currentUser = SetCredentials(username, password);
             $http.get('/api/authentication')
                 .success(function (response) {
+                    SaveLoginCredentialsToSession(currentUser);
                     callback(response);
                 })
                 .error(function() {
@@ -30,24 +39,46 @@
 
 
         /**
-         * Save user credentials in a global, using an OAuth2-style authentication header format
+         * Creates an HTTP default (OAuth2-style) authentication header and returns the
+         * user credentials as a JSON string
          * @param username
          * @param password
          * @constructor
          */
         function SetCredentials(username, password) {
-            var authdata = Base64.encode(username + ':' + password);
-
-            $rootScope.globals = {
-                currentUser: {
+            let authdata = Base64.encode(username + ':' + password);
+            let currentUser =  {
                     username: username,
                     authdata: authdata
-                }
             };
-
-            // Set the authorisation header in the HTTP context by default
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
-            $cookies.put('globals', $rootScope.globals);
+            return currentUser;
+        }
+
+        /**
+         * Save user credentials to a session cookie
+         * @param currentUser
+         * @constructor
+         */
+        function SaveLoginCredentialsToSession(currentUser) {
+            $window.localStorage.setItem("currentUser", angular.toJson(currentUser));
+            console.log("Saved user to local storage: "+ $window.localStorage.getItem("currentUser"));
+        }
+
+        /**
+         * Get userName from session cookie (if user is logged in)
+         * @returns {*}
+         * @constructor
+         */
+        function GetLoggedInUserName() {
+            let userName = null;
+            let currentUser = $window.localStorage.getItem("currentUser");
+            console.log("Got user:"+JSON.stringify(currentUser));
+            if (currentUser && currentUser.username) {
+                userName = currentUser.username;
+            }
+            console.log("User-----------"+userName);
+            return userName;
         }
 
         /**
@@ -55,8 +86,8 @@
          * @constructor
          */
         function ClearCredentials() {
-            $rootScope.globals = {};
-            $cookies.remove('globals');
+            console.log("======== CLEAR CREDS ===========");
+            $window.localStorage.removeItem("currentUser");
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }

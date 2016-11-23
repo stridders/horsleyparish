@@ -13,9 +13,9 @@
 
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
-		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome-4.6.3/css/font-awesome.css")"/>
-		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/OpenSans.css")"/>
-		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("css/font-awesome-4.6.3/css/font-awesome.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("css/OpenSans.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("css/main.css")"/>
 
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.min.js"))'></script>
@@ -31,25 +31,25 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-messages","angular-messages.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ng-file-upload.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
-		<script type="text/javascript" src='@routes.Assets.at("javascripts/controllers.module.js")'></script>
-		<script type="text/javascript" src='@routes.Assets.at("javascripts/services.module.js")'></script>
-		<script type="text/javascript" src='@routes.Assets.at("javascripts/app.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("js/services.module.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("js/app.js")'></script>
 
 		<!-- Features -->
 
 		<!-- Home-Page -->
 		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
 
-		<!-- Common -->
+		<!-- Common Services -->
 		<link rel="stylesheet" href='@routes.Assets.at("features/common/header.css")'/>
 		<script type="text/javascript" src='@routes.Assets.at("features/common/header.directive.js")'></script>
-		<script type="text/javascript" src='@routes.Assets.at("features/common/flash.service.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/flash/flash.service.js")'></script>
 
-		<!-- Section-Navigation -->
-		<link rel="stylesheet" href='@routes.Assets.at("features/navigation/section-navigation-button.css")'/>
-		<script type="text/javascript" src='@routes.Assets.at("features/navigation/section-navigation-button.directive.js")'></script>
-		<link rel="stylesheet" href='@routes.Assets.at("features/navigation/main-toolbar.css")'/>
-		<script type="text/javascript" src='@routes.Assets.at("features/navigation/main-toolbar.directive.js")'></script>
+		<!-- Navigation Bar -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/navbar/navbar-button.css")'/>
+		<link rel="stylesheet" href='@routes.Assets.at("features/navbar/navbar.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar-button.directive.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar.directive.js")'></script>
 
 		<!-- Page-Loader -->
 		<link rel="stylesheet" href='@routes.Assets.at("features/page-loader/page-loader.css")'/>
@@ -72,16 +72,11 @@
 		<link rel="stylesheet" href='@routes.Assets.at("features/parish-council/parish-council.css")'/>
 		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.controller.js")'></script>
 
-		<script>
-			var app = angular.module('horsleyParish',[]);
-			var imagesDir = "@routes.Assets.at("images")";
-			app.value("play_http_context", "@config.getString("play.http.context")");
-		</script>
-
 	</head>
 
 
 	<body>
+
 		<div id="page-wrapper">
 			<header></header>
 			<div class="main-container">
@@ -89,7 +84,7 @@
 				<div ng-include="'/web/features/common/page-footer.html'"></div>
 			</div>
 		</div>
-		<side-menu tab-title="Menu"></side-menu>
+
 	</body>
 
 

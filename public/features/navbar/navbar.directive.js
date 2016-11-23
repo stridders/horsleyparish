@@ -3,77 +3,69 @@
 
     angular
         .module('horsley')
-        .directive('mainToolbar', mainToolbar);
+        .directive('navbar', navbar);
 
-    mainToolbar.$inject = ['$rootScope'];
+    navbar.$inject = ['AuthenticationService'];
 
-    function mainToolbar() {
+    function navbar() {
         return {
             restrict: 'E',
-            templateUrl: 'web/features/navigation/main-toolbar.html',
+            templateUrl: 'web/features/navbar/navbar.html',
             scope: {
             },
-            controllerAs: 'mtc',
+            controllerAs: 'nbc',
             bindToController: true,
 
-            controller: function ($rootScope) {
+            controller: function (AuthenticationService) {
 
-                let mtc = this;
-                mtc.user = loadCurrentUser();
+                let nbc = this;
+                nbc.user = AuthenticationService.GetLoggedInUserName();
 
-                mtc.links = [
+                nbc.links = [
                     {
                         heading: 'Home',
-                        title:   'Hosrley Parish Home Page',
-                        image:   '/web/images/home.png',
+                        title:   'Horsley Parish Home Page',
+                        image:   '/web/img/home.png',
                         text:    '',
                         link:    '/'
                     },
                     {
                         heading: 'The Horses Mouth',
                         title:   'The Horsley Monthly Magazine',
-                        image:   '/web/features/the-horses-mouth/images/ic_horses_mouth_sm_black.png',
+                        image:   '/web/features/the-horses-mouth/img/ic_horses_mouth_sm_black.png',
                         text:    '',
                         link:    '/horses-mouth'
                     },
                     {
                         heading: 'Parish Council',
                         title:   'Horsley Parish Council',
-                        image:   '/web/images/pc.png',
+                        image:   '/web/img/pc.png',
                         text:    '',
                         link:    '/pc'
                     },
                     {
                         heading: 'History',
                         title:   'A history of Horsley Parish',
-                        image:   '/web/features/history/images/ic_history_sm_black.png',
+                        image:   '/web/features/history/img/ic_history_sm_black.png',
                         text:    '',
                         link:    '/history'
                     },
                     {
                         heading: 'Login',
                         title:   'User login',
-                        image:   '/web/images/login.png',
+                        image:   '/web/img/login.png',
                         text:    '',
                         link:    '/login'
                     },
                     {
                         heading: 'Logoff',
-                        title:   'Logout user:'+mtc.user,
-                        image:   '/web/images/login_green.png',
+                        title:   'Logout user:'+nbc.user,
+                        image:   '/web/img/login_green.png',
                         text:    '',
                         link:    '/logoff'
                     }
                 ];
 
-                function loadCurrentUser() {
-                    if ($rootScope.globals && $rootScope.globals.curentUser) {
-                        UserService.GetByUsername($rootScope.globals.currentUser.username)
-                            .then(function (user) {
-                                mtc.user = user;
-                            });
-                    }
-                }
 
             }
 

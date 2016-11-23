@@ -16,7 +16,7 @@
     transition-property: all;
     transition-property: transform;
     transition-duration: 0.2s;
-    background-image: url("/web/images/img-hdr-para-layer0.png");
+    background-image: url("/web/img/img-hdr-para-layer0.png");
     background-repeat: no-repeat;
     background-position: center top;
     z-index:1;
@@ -31,7 +31,7 @@
     transition-timing-function: ease-out;
     transition-property: transform;
     transition-duration: 0.2s;
-    background-image: url("/web/images/img-hdr-para-layer1.png");
+    background-image: url("/web/img/img-hdr-para-layer1.png");
     background-repeat: no-repeat;
     background-position: center top;
     z-index:2;
@@ -46,7 +46,7 @@
     transition-timing-function: ease-out;
     transition-property: transform;
     transition-duration: 0.2s;
-    background-image: url("/web/images/img-hdr-para-layer2.png");
+    background-image: url("/web/img/img-hdr-para-layer2.png");
     background-size: 125%;
     background-repeat: no-repeat;
     background-position: center top;

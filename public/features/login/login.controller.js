@@ -32,6 +32,7 @@
                         lc.dataLoading = false;
                         form.$invalid = false;
                         lc.errMsg = "Username and/or password are invalid";
+                        FlashService.Error("Username and/or password are invalid");
                     }
                 })
         }
