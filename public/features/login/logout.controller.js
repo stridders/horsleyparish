@@ -3,49 +3,15 @@
 
     angular
         .module('horsley')
-        .controller('LoginController', LoginController);
+        .controller('LogoutController', LogoutController);
 
-    LoginController.$inject = ['$state', 'AuthenticationService', 'FlashService','$rootScope'];
+    LogoutController.$inject = ['$state', 'AuthenticationService', '$rootScope'];
 
-    function LoginController($state, AuthenticationService, FlashService, $rootScope) {
-        let lc = this;
-        lc.errMsg = null;
+    function LogoutController($state, AuthenticationService, $rootScope) {
 
-        lc.login = login;
-        lc.resetErrors = resetErrors;
-        
-        initController();
-
-        function initController() {
-            AuthenticationService.ClearCredentials();
-        }
-
-        function login() {
-            lc.dataLoading = true;
-            AuthenticationService.Login(lc.username, lc.password,
-                function (response) {
-                    if (response) {
-                        lc.dataLoading = false;
-                        $rootScope.$emit('login:authenticated',response);
-                        $state.go('authenticated', {}, {reload: true});
-
-                    } else {
-                        lc.dataLoading = false;
-                        form.$invalid = false;
-                        $rootScope.$emit('login:rejected');
-                        lc.errMsg = "Username and/or password are invalid";
-                        FlashService.Error("Username and/or password are invalid");
-                    }
-                })
-        }
-
-        function resetErrors() {
-            lc.dataLoading = false;
-            form.$invalid = false;
-            lc.errMsg = null;
-        }
-
-
+        AuthenticationService.ClearCredentials();
+        $rootScope.$emit('login:closed');
+        $state.go('home', {}, {reload: true});
 
     }
 

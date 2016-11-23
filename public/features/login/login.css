@@ -7,3 +7,12 @@
     margin-top: 10px;
     text-align: center;
 }
+.reg-form {
+    width: 450px;
+    margin-top: 45px;
+}
+.reg-info {
+    font-size: 12px;
+    line-height: 1.2;
+    color: #424242;
+}

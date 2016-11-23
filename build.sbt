@@ -19,6 +19,7 @@ libraryDependencies ++= Seq(
   "com.theoryinpractise" % "halbuilder-json" % "4.0.2",
   "com.theoryinpractise" % "halbuilder-api" % "4.0.1",
   "com.theoryinpractise" % "halbuilder-standard" % "4.0.1",
+  "javax.mail" % "mail" % "1.4.1",
   "com.google.inject" % "guice" % "4.0",
   "org.specs2" %% "specs2" % "2.3.11" % "test",
   "org.scalatest" %% "scalatest" % "2.1.5" % "test",

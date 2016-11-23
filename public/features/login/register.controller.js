@@ -16,7 +16,7 @@
             UserService.Create(reg.user)
                 .then(function (response) {
                     if (response.success) {
-                        FlashService.Success('Registration successful', true);
+                        FlashService.Success('Thank-you for registering. Confirmation instructions have been emailed to you.', true);
                         $location.path('/login');
                     } else {
                         FlashService.Error(response.message);
