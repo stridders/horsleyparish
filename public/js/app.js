@@ -5,8 +5,8 @@
         .config(config)
         .run(run);
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
-    function config($routeProvider) {
+    config.$inject = ['$routeProvider', '$stateProvider'];
+    function config($routeProvider, $stateProvider) {
 
         $routeProvider
 
@@ -31,21 +31,33 @@
                 templateUrl: 'web/features/login/login.html',
                 controllerAs: 'lc'
             })
+            .when('/logout', {
+                template:   '<div></div>',
+                controller: 'LogoutController'
+            })
             .when('/register', {
                 controller: 'RegisterController',
                 templateUrl: 'web/features/login/register.html',
                 controllerAs: 'reg'
             });
 
+        $stateProvider
+
+            .state('home', {
+                url: '/',
+                controller: 'HomePageController',
+                controllerAs: 'hpc',
+                templateUrl: 'web/features/home-page/home-page.html'
+            });
+
     }
 
-    run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
+    run.$inject = ['$http','AuthenticationService'];
 
-    function run($scope, $cookies, $http) {
-        $scope.currentUser = $cookies['currentUser'];
-        console.log("App init: Cur User="+$scope.currentUser);
-        if ($scope.currentUser && $scope.currentUser.authdata) {
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + $scope.currentUser.authdata;
+    function run($http, AuthenticationService) {
+        let currentUser = AuthenticationService.GetUserContext();
+        if (currentUser && currentUser.authdata) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + currentUser.authdata;
         }
     }
 

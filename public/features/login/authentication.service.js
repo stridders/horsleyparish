@@ -5,7 +5,7 @@
         .module('horsley')
         .factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$window', '$timeout', 'UserService'];
+    AuthenticationService.$inject = ['$http', '$window'];
 
     function AuthenticationService($http, $window) {
 
@@ -13,7 +13,9 @@
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
-        service.GetLoggedInUserName = GetLoggedInUserName;
+        service.GetUserName = GetUserName;
+        service.GetUserContext = GetUserContext;
+        service.GetUserProfile = GetUserProfile;
 
         return service;
 
@@ -28,7 +30,7 @@
             let currentUser = SetCredentials(username, password);
             $http.get('/api/authentication')
                 .success(function (response) {
-                    SaveLoginCredentialsToSession(currentUser);
+                    StoreUserCredentials(currentUser, response);
                     callback(response);
                 })
                 .error(function() {
@@ -60,9 +62,9 @@
          * @param currentUser
          * @constructor
          */
-        function SaveLoginCredentialsToSession(currentUser) {
+        function StoreUserCredentials(currentUser, userProfile) {
             $window.localStorage.setItem("currentUser", angular.toJson(currentUser));
-            console.log("Saved user to local storage: "+ $window.localStorage.getItem("currentUser"));
+            $window.localStorage.setItem("userProfile", angular.toJson(userProfile));
         }
 
         /**
@@ -70,15 +72,31 @@
          * @returns {*}
          * @constructor
          */
-        function GetLoggedInUserName() {
+        function GetUserName() {
             let userName = null;
-            let currentUser = $window.localStorage.getItem("currentUser");
-            console.log("Got user:"+JSON.stringify(currentUser));
-            if (currentUser && currentUser.username) {
-                userName = currentUser.username;
+            let userProfile = JSON.parse($window.localStorage.getItem("userProfile"));
+            if (userProfile && userProfile.email) {
+                userName = userProfile.email;
             }
-            console.log("User-----------"+userName);
             return userName;
+        }
+
+        /**
+         * Returns the username and authdata for the currently logged in user
+         * @constructor
+         */
+        function GetUserContext() {
+            let currentUser =JSON.parse($window.localStorage.getItem("currentUser"));
+            return currentUser;
+        }
+
+        /**
+         * Returns the userProfile for the logged in user
+         * @constructor
+         */
+        function GetUserProfile() {
+            let userProfile =JSON.parse($window.localStorage.getItem("userProfile"));
+            return userProfile;
         }
 
         /**
@@ -86,7 +104,6 @@
          * @constructor
          */
         function ClearCredentials() {
-            console.log("======== CLEAR CREDS ===========");
             $window.localStorage.removeItem("currentUser");
             $http.defaults.headers.common.Authorization = 'Basic';
         }

@@ -3,19 +3,15 @@
     angular.module('horsley')
         .controller('HomePageController', HomePageController);
 
-    HomePageController.$inject = ['UserService', '$rootScope','AuthenticationService'];
+    HomePageController.$inject = [];
 
-    function HomePageController(UserService, $rootScope, AuthenticationService) {
+    function HomePageController() {
         let hpc = this;
         hpc.config = {
             'title': 'Welcome to Horsley Parish',
             'subtitle': 'The community website for Horsley Parish, Gloucestershire'
         };
         hpc.links = [];
-        hpc.user = null;
-        hpc.logout = logout;
-
-        console.log("HOME PAGE User:"+AuthenticationService.GetLoggedInUserName());
 
         // if ($rootScope.globals == undefined) {
         //     $rootScope.globals = {};
@@ -24,11 +20,6 @@
         //     $rootScope.globals.currentUser = {};
         // }
 
-        initController();
-
-        function initController() {
-            //loadCurrentUser();
-        }
 
         // function loadCurrentUser() {
         //     if ($rootScope.globals && $rootScope.globals.curentUser) {
@@ -40,10 +31,10 @@
         // }
 
 
-        function logout() {
-            UserService.ClearCredentials();
-            hpc.user = undefined;
-        }
+        // function logout() {
+        //     UserService.ClearCredentials();
+        //     hpc.user = undefined;
+        // }
 
     }
 
