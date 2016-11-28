@@ -1,17 +1,35 @@
 package services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import model.Document;
+import model.DocumentType;
 import model.User;
 import security.OAuthCredentials;
 import security.model.UserProfile;
 
+import java.io.IOException;
 import java.util.List;
 
-public interface UserService {
+public interface DocumentService {
 
-    List<User> getUsers(String surname, String firstName, String email);
+    /**
+     * Returns a list of all documentTypes
+     * @return
+     */
+    List<DocumentType> getDocumentTypes();
 
-    UserProfile authenticateUser(OAuthCredentials OAuthCredentials);
+    /**
+     * returns a DocumentType object for a given document type
+     * @param docType
+     * @return
+     */
+    DocumentType getDocumentType(String docType);
 
-    List<String> getUserRoles(User user);
+    /**
+     * Creates a document from a JSON object and saves it to the database.
+     * @param json
+     * @return
+     */
+    Document create(JsonNode json) throws IOException;
 
 }

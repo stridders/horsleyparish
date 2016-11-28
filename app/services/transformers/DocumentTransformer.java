@@ -6,104 +6,51 @@ import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
-import controllers.routes;
+import model.Document;
+import model.DocumentType;
 import model.User;
 import play.Logger;
 import security.model.UserProfile;
-import services.UserService;
+import services.DocumentService;
+import sun.util.calendar.CalendarDate;
 
+import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by js on 09/11/2016.
  */
-public class UserTransformer {
+public class DocumentTransformer {
+
+    private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
     /**
-     * Converts a User POJO into a HAL-JSON representation
-     * @param users
-     * @param surname
-     * @param firstname
-     * @param email
-     * @return
+     * Tranforms a JSON Node into a Document POJO
      */
-    public static String transformUserListToHalJson (List<User> users,
-                                                     String surname,
-                                                     String firstname,
-                                                     String email) {
+    public static Document transformJsonToDocument(JsonNode json,
+                                                   Map<String, DocumentType> docTypes,
+                                                   User user) throws IOException {
+        Document document = new Document();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
 
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
-
-        rep.withLink("self", Root.stripApiContext(controllers.routes.User.listUsers(surname,firstname,email).url()));
-
-        rep.withProperty("users", users);
-        StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
-        return sw.toString();
+        document.setDocumentId(json.findPath("documentId").asLong());
+        document.setDocument(json.findPath("document").binaryValue());
+        String docType = json.findPath("documentType").asText();
+        if (docType != null) {
+            document.setDocumentType(docTypes.get(docType));
+        }
+        document.setFormat(json.findPath("format").asText());
+        document.setName(json.findPath("name").asText());
+        document.setUploadDate(cal);
+        document.setUser(user);
+        return document;
     }
 
-    /**
-     * Converts a JSON node into a User POJO
-     * @param json
-     * @return
-     */
-    public static User transformJsonToUserPOJO(JsonNode json) {
-        User user = new User();
-        user.setEmail(json.findPath("email").asText());
-        user.setSurname(json.findPath("surname").asText());
-        user.setFirstname(json.findPath("firstname").asText());
-        user.setPassword(json.findPath("password").asText());
-        user.setUser_id(json.findPath("userId").asLong());
-        return user;
-    }
 
-    /**
-     * Converts a JSON user profile into a UserProfile POJO
-     * @param json
-     * @return
-     */
-    public static UserProfile transformJsonToUserProfile(JsonNode json) {
-        UserProfile userProfile = new UserProfile();
-        userProfile.setEmail(json.findPath("email").asText());
-        userProfile.setSurname(json.findPath("surname").asText());
-        userProfile.setFirstName(json.findPath("firstname").asText());
-        userProfile.setUserid(json.findPath("userId").asLong());
-        userProfile.setRoles(json.findValuesAsText("roles"));
-        return userProfile;
-    }
-
-    /**
-     * Returns an Authentication response (JSON) with an Invalid User notification
-     * @param json
-     * @param reason
-     * @return
-     */
-    public static String invalidateUser(JsonNode json, String reason) {
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
-
-        rep.withLink("self", Root.stripApiContext(controllers.routes.User.authenticate().url()));
-        rep.withProperty("authenticated", false);
-        rep.withProperty("reason",reason);
-        rep.withProperty("userCredentials",json);
-        StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
-        return sw.toString();
-    }
-
-    public static String authoriseUser(User user, List<String> roles) {
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
-
-        rep.withLink("self", Root.stripApiContext(controllers.routes.User.authenticate().url()));
-        rep.withProperty("authenticated", true);
-        rep.withProperty("userCredentials",user);
-        rep.withProperty("roles",roles);
-        StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
-        return sw.toString();
-    }
 }

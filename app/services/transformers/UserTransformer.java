@@ -8,7 +8,6 @@ import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
 import controllers.routes;
 import model.User;
-import model.UserJson;
 import play.Logger;
 import security.model.UserProfile;
 import services.UserService;
@@ -40,11 +39,7 @@ public class UserTransformer {
 
         rep.withLink("self", Root.stripApiContext(controllers.routes.User.listUsers(surname,firstname,email).url()));
 
-        List<UserJson> userJsonList = new ArrayList<>();
-        users.forEach(user -> {
-            userJsonList.add(new UserJson(user));
-        });
-        rep.withProperty("users", userJsonList);
+        rep.withProperty("users", users);
         StringWriter sw = new StringWriter();
         rep.toString(RepresentationFactory.HAL_JSON,sw);
         return sw.toString();
@@ -105,7 +100,7 @@ public class UserTransformer {
 
         rep.withLink("self", Root.stripApiContext(controllers.routes.User.authenticate().url()));
         rep.withProperty("authenticated", true);
-        rep.withProperty("userCredentials",new UserJson(user));
+        rep.withProperty("userCredentials",user);
         rep.withProperty("roles",roles);
         StringWriter sw = new StringWriter();
         rep.toString(RepresentationFactory.HAL_JSON,sw);

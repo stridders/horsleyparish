@@ -37,6 +37,7 @@ public class RoleBasedAuthoriser {
         public static final String ADMIN = "ADMIN";
         public static final String HORSES_MOUTH = "HORSES_MOUTH";
         public static final String HORSLEY_PC = "HORSLEY_PC";
+        public static final String TEST_ROLE_1 = "TEST_ROLE_1";
     }
 
     public static class AuthorisedAction extends Action<RolesAllowed> {

@@ -1,21 +1,30 @@
 # --- !Ups
 
-insert into role (role,description) values ('TEST_ROLE_1', 'Test use only');
-insert into role (role,description) values ('TEST_ROLE_2', 'Test use only');
-insert into role (role,description) values ('TEST_ROLE_3', 'Test use only');
-insert into role (role,description) values ('ADMIN', 'Administrator');
-insert into role (role,description) values ('HORSES_MOUTH', 'Can upload and manage magazine issues');
-insert into role (role,description) values ('HORSLEY_PC', 'Parish Council Administrator: Can upload and manage PC meeting agendas and minutes');
+create table  "document_type" (
+  document_type   VARCHAR(30),
+  description     VARCHAR(254),
+  role            VARCHAR(12) NOT NULL REFERENCES role(role),
+  PRIMARY KEY (document_type));
 
-insert into person (user_id, surname, firstname, email, password) values(0,'Test', 'Foo','foo@test.co.uk','abc123');
-insert into person (user_id, surname, firstname, email, password) values(1,'Test', 'Bar','bar@test.co.uk','123abc');
+create table  "document" (
+  document_id     bigint NOT NULL,
+  document_type   VARCHAR(30) REFERENCES document_type(document_type),
+  name            VARCHAR(254),
+  document        bytea NOT NULL,
+  upload_date     TIMESTAMP NOT NULL,
+  user_id         bigint NOT NULL REFERENCES person(user_id),
+  format          VARCHAR(5) NOT NULL,
+  file_size       bigint NOT NULL,
+  PRIMARY KEY (document_id));
 
-insert into user_role (user_role_id, role, user_id) values(1,'TEST_ROLE_1',1);
-insert into user_role (user_role_id, role, user_id) values(2,'TEST_ROLE_2',1);
-insert into user_role (user_role_id, role, user_id) values(3,'TEST_ROLE_3',1);
+create sequence document_seq;
 
 # --- !Downs
 
-delete from role;
-delete from person;
-delete from user_role;
+SET REFERENTIAL_INTEGRITY FALSE;
+drop table document;
+drop table document_type;
+
+SET REFERENTIAL_INTEGRITY TRUE;
+drop sequence if exists document_seq;
+

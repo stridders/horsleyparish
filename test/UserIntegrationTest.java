@@ -1,37 +1,20 @@
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.name.Names;
 import com.jayway.jsonpath.Configuration;
-
 import controllers.User;
-import model.UserJson;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import play.Application;
-import play.Logger;
-import play.db.jpa.Transactional;
 import play.mvc.Result;
-
 import org.junit.Test;
 import play.api.inject.guice.GuiceApplicationBuilder;
 import play.mvc.Http;
 import play.test.Helpers;
 import security.UserAuthenticator;
-import security.model.UserProfile;
-
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
 import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.fail;
-import static org.asynchttpclient.util.HttpConstants.Methods.POST;
 import static play.test.Helpers.GET;
 import static play.test.Helpers.route;
 
@@ -42,9 +25,6 @@ public class UserIntegrationTest {
 
     @Inject
     Application application;
-
-    @Inject
-    User userCtrly;
 
     @Inject
     Configuration.Defaults jsonPathConfig;

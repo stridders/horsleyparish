@@ -7,6 +7,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>DefaultDS</non-jta-data-source>
         <class>model.User</class>
+        <class>model.UserRole</class>
+        <class>model.Role</class>
+        <class>model.Document</class>
+        <class>model.DocumentType</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
         </properties>
@@ -16,6 +20,10 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <non-jta-data-source>InMemoryDS</non-jta-data-source>
         <class>model.User</class>
+        <class>model.UserRole</class>
+        <class>model.Role</class>
+        <class>model.Document</class>
+        <class>model.DocumentType</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
         </properties>

@@ -60,6 +60,17 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Returns a User POJO for a given user email address
+     * @param email
+     * @return
+     */
+    public User getUser(String email) {
+        logger.debug("Entered getUser");
+        TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
+        User user = query.getSingleResult();
+        return user;
+    }
 
     /**
      * Authenticates username/password credentials.
