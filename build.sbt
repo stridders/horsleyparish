@@ -40,7 +40,7 @@ libraryDependencies ++= Seq(
   "com.jayway.jsonpath" % "json-path" % "2.0.0"
 )
 
-javaOptions in Test ++= Seq("-Dlogger.resource=test-logback.xml", "-Dconfig.file=conf/test.conf")
+javaOptions in Test ++= Seq("-Dlogger.resource=logback-test.xml", "-Dconfig.file=conf/test.conf")
 
 testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
 

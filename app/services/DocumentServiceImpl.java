@@ -70,7 +70,7 @@ public class DocumentServiceImpl implements DocumentService {
      * Returns a map of documentType POJOs, keyed on documentType
      * @return
      */
-    private Map<String, DocumentType> mapDocumentTypes() {
+    public Map<String, DocumentType> mapDocumentTypes() {
         Map<String, DocumentType> docTypes = new HashMap<>();
         List<DocumentType> types = getDocumentTypes();
         types.forEach(type -> {
