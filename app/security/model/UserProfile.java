@@ -107,7 +107,7 @@ public class UserProfile {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode json = objectMapper.readTree(context.session().get(UserAuthenticator.USER_PROFILE_KEY));
-            return transformJsonToUserProfile(json);
+            return transformFrom(json);
         } catch (IOException ioe) {
             return null;
         }
@@ -123,7 +123,7 @@ public class UserProfile {
      * @param json
      * @return
      */
-    public static UserProfile transformJsonToUserProfile(JsonNode json) {
+    public static UserProfile transformFrom(JsonNode json) {
         UserProfile userProfile = new UserProfile();
         userProfile.setEmail(json.findPath("email").asText());
         userProfile.setSurname(json.findPath("surname").asText());

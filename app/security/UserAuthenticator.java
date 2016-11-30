@@ -21,9 +21,6 @@ public class UserAuthenticator extends Security.Authenticator {
 
     public static final String AUTH_HEADER = "Authorization";
     public static final String USER_PROFILE_KEY = "USER_PROFILE";
-    public static final String USERNAME_KEY = "USER_NAME";
-    private static final String INVALID_SESSION_PROFILE = "User profile found for [%s] but request received from [%s]. Authenticating user.";
-    private static final String FORMAT_ERROR = "Error parsing HTTP Session profile";
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 

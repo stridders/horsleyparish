@@ -68,6 +68,7 @@ public class UserServiceImpl implements UserService {
     public User getUser(String email) {
         logger.debug("Entered getUser");
         TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
+        query.setParameter("email", email);
         User user = query.getSingleResult();
         return user;
     }

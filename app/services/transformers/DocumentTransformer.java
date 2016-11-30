@@ -58,8 +58,8 @@ public class DocumentTransformer {
         byte[] file = serialize(filePart.getFile());
 
         Map<String,String[]> formData = form.asFormUrlEncoded();
-        String name = Arrays.asList(formData.get("name")).toString();
-        String documentType = Arrays.asList(formData.get("documentType")).toString();
+        String name = Arrays.asList(formData.get("name")).toString().replaceAll("[\\[\\]]","");
+        String documentType = Arrays.asList(formData.get("documentType")).toString().replaceAll("[\\[\\]]","");
         if (documentType != null) {
             document.setDocumentType(docTypes.get(documentType));
         }

@@ -7,18 +7,23 @@
 
     function ParishCouncilController(Upload) {
         let pcc = this;
-        pcc.upload = upload;
+        pcc.uploadMinutes = uploadMinutes;
 
         pcc.config = {
             'title': 'Horsley Parish Council',
         };
 
         // upload on file select or drop
-        function upload(file) {
+        function uploadMinutes(file) {
 
             Upload.upload({
                 url: 'document',
-                data: {file: file, documentType: 'PC', format: 'pdf', name: 'Test File'}
+                data: {
+                    file: file,
+                    documentType: 'PC_MINUTES',
+                    name: 'Test Minutes PDF file',
+                    meetingId: '1001'
+                }
             }).then(function (resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {
