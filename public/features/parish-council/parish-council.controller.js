@@ -3,9 +3,9 @@
     angular.module('horsley')
         .controller('ParishCouncilController', ParishCouncilController);
 
-    ParishCouncilController.$inject = ['$rootScope','Upload'];
+    ParishCouncilController.$inject = ['Upload'];
 
-    function ParishCouncilController($rootScope, Upload) {
+    function ParishCouncilController(Upload) {
         let pcc = this;
         pcc.upload = upload;
 
@@ -15,16 +15,18 @@
 
         // upload on file select or drop
         function upload(file) {
+
             Upload.upload({
-                url: 'upload/url',
-                data: {file: file, 'username': pcc.username}
+                url: 'document',
+                data: {file: file, documentType: 'PC', format: 'pdf', name: 'Test File'}
             }).then(function (resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {
                 console.log('Error status: ' + resp.status);
             }, function (evt) {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file);
+                pcc.file = evt.config.data.file;
             });
         };
 

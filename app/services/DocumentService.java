@@ -1,9 +1,11 @@
 package services;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import exceptionHandlers.ApplicationException;
 import model.Document;
 import model.DocumentType;
 import model.User;
+import play.mvc.Http;
 import security.OAuthCredentials;
 import security.model.UserProfile;
 
@@ -27,9 +29,9 @@ public interface DocumentService {
 
     /**
      * Creates a document from a JSON object and saves it to the database.
-     * @param json
+     * @param form
      * @return
      */
-    Document create(JsonNode json) throws IOException;
+    Document create(Http.MultipartFormData form) throws IOException, ApplicationException;
 
 }

@@ -2,6 +2,7 @@ package services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
+import exceptionHandlers.ApplicationException;
 import model.Document;
 import model.DocumentType;
 import model.User;
@@ -9,6 +10,7 @@ import model.UserRole;
 import play.Logger;
 import play.api.Play;
 import play.db.jpa.JPAApi;
+import play.mvc.Http;
 import security.OAuthCredentials;
 import security.model.UserProfile;
 import services.transformers.DocumentTransformer;
@@ -18,7 +20,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,17 +57,23 @@ public class DocumentServiceImpl implements DocumentService {
 
     /**
      * Creates, saves and returns a document POJO
-     * @param json
+     * @param form
      * @return
      */
     @Override
-    public Document create(JsonNode json) throws IOException {
+    public Document create(Http.MultipartFormData form) throws IOException, ApplicationException {
         logger.debug("Entered create (document)");
+
+        if (form == null || form.getFile("file") == null ) {
+            throw new ApplicationException(ApplicationException.DOCUMENT__MISSING_MULTIPART_DATA);
+        }
+
         Document document = new Document();
         Map<String, DocumentType> docTypes = mapDocumentTypes();
         UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
         User user = userService.getUser(userProfile.getEmail());
-        document = DocumentTransformer.transformJsonToDocument(json, docTypes, user);
+        document = DocumentTransformer.createDocument(form, docTypes, user);
+        em().persist(document);
         return document;
     }
 
@@ -85,6 +96,7 @@ public class DocumentServiceImpl implements DocumentService {
         em.setFlushMode(FlushModeType.COMMIT);
         return (em);
     }
+
 
 
 }

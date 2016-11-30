@@ -23,8 +23,8 @@
             })
             .when('/pc', {
                 controller: 'ParishCouncilController',
-                templateUrl: 'web/features/parish-council/parish-council.html',
-                controllerAs: 'pcc'
+                controllerAs: 'pcc',
+                templateUrl: 'web/features/parish-council/parish-council.html'
             })
             .when('/login', {
                 controller: 'LoginController',
