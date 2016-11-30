@@ -60,20 +60,6 @@ public class UserTransformer {
         return user;
     }
 
-    /**
-     * Converts a JSON user profile into a UserProfile POJO
-     * @param json
-     * @return
-     */
-    public static UserProfile transformJsonToUserProfile(JsonNode json) {
-        UserProfile userProfile = new UserProfile();
-        userProfile.setEmail(json.findPath("email").asText());
-        userProfile.setSurname(json.findPath("surname").asText());
-        userProfile.setFirstName(json.findPath("firstname").asText());
-        userProfile.setUserid(json.findPath("userId").asLong());
-        userProfile.setRoles(json.findValuesAsText("roles"));
-        return userProfile;
-    }
 
     /**
      * Returns an Authentication response (JSON) with an Invalid User notification
