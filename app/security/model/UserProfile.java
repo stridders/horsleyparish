@@ -2,6 +2,7 @@ package security.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
 import org.apache.commons.lang3.StringUtils;
@@ -97,14 +98,39 @@ public class UserProfile {
         }
     }
 
+    /**
+     * Returns the UserProfile stored in the current HTTP context session (if present)
+     * @return
+     */
     public static UserProfile getUserProfileFromHttpContext() {
         Http.Context context = Http.Context.current();
-        return (UserProfile) context.args.get(UserAuthenticator.USER_PROFILE_KEY);
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode json = objectMapper.readTree(context.session().get(UserAuthenticator.USER_PROFILE_KEY));
+            return transformJsonToUserProfile(json);
+        } catch (IOException ioe) {
+            return null;
+        }
     }
 
     public static String getUserIP() {
         String ipAddress = Http.Context.current().request().remoteAddress();
         return StringUtils.isBlank(ipAddress) ? UNKNOWN : ipAddress;
+    }
+
+    /**
+     * Converts a JSON node into a UserProfile POJO
+     * @param json
+     * @return
+     */
+    public static UserProfile transformJsonToUserProfile(JsonNode json) {
+        UserProfile userProfile = new UserProfile();
+        userProfile.setEmail(json.findPath("email").asText());
+        userProfile.setSurname(json.findPath("surname").asText());
+        userProfile.setFirstName(json.findPath("firstname").asText());
+        userProfile.setUserid(json.findPath("userId").asLong());
+        userProfile.setRoles(json.findValuesAsText("roles"));
+        return userProfile;
     }
 
 }

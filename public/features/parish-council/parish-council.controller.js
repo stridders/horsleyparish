@@ -16,8 +16,8 @@
         // upload on file select or drop
         function upload(file) {
             Upload.upload({
-                url: 'upload/url',
-                data: {file: file, 'username': pcc.username}
+                url: 'document',
+                data: {file: file, 'documentType': "PC", }
             }).then(function (resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
             }, function (resp) {
