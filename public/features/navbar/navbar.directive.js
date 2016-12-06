@@ -42,7 +42,7 @@
                             title:   'Horsley Parish Council',
                             image:   '/web/img/pc.png',
                             text:    '',
-                            link:    '/pc'
+                            link:    '/parish-council'
                         },
                         {
                             heading: 'History',

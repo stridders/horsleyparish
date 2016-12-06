@@ -5,5 +5,7 @@ angular.module('horsley.services', [
     'ngMaterial',
     'ngCookies',
     'ngResource',
-    'ngFileUpload'
+    'ngFileUpload',
+    'mwl.calendar',
+    'ngAnimate'
 ]);

@@ -6,6 +6,7 @@ import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
+import controllers.routes;
 import exceptionHandlers.ApplicationException;
 import model.Document;
 import model.DocumentType;
@@ -63,12 +64,33 @@ public class DocumentTransformer {
         if (documentType != null) {
             document.setDocumentType(docTypes.get(documentType));
         }
+
         document.setDocument(file);
         document.setFormat(getFileExtension(fileName));
         document.setName(name);
         document.setUploadDate(cal);
         document.setUser(user);
         return document;
+    }
+
+    /**
+     * Returns a Document upload confirmation representation
+     * @param document
+     * @return
+     */
+    public static String uploadConfirmation(Document document) {
+        RepresentationFactory rf    = new StandardRepresentationFactory();
+        Representation rep = rf.newRepresentation();
+        rep.withLink("self", Root.stripApiContext(controllers.routes.Document.create().url()));
+        rep.withProperty("documentId",document.getDocumentId());
+        rep.withProperty("documentType",document.getDocumentType().getDocumentType());
+        rep.withProperty("format",document.getFormat());
+        rep.withProperty("name",document.getName());
+        rep.withProperty("uploadDate",document.getUploadDateAsString());
+        rep.withProperty("userName",document.getUser().getEmail());
+        StringWriter sw = new StringWriter();
+        rep.toString(RepresentationFactory.HAL_JSON,sw);
+        return sw.toString();
     }
 
     /**

@@ -21,7 +21,7 @@
                 controllerAs: 'hc',
                 templateUrl: 'web/features/history/history.html'
             })
-            .when('/pc', {
+            .when('/parish-council', {
                 controller: 'ParishCouncilController',
                 controllerAs: 'pcc',
                 templateUrl: 'web/features/parish-council/parish-council.html'

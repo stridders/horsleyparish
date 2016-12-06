@@ -1,0 +1,8 @@
+.pc_btn_link {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 14px;
+}
+.pc_btn_link:hover {
+    cursor: pointer;
+}

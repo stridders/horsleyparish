@@ -9,6 +9,7 @@ import model.User;
 import model.UserRole;
 import play.Logger;
 import play.api.Play;
+import play.db.jpa.JPA;
 import play.db.jpa.JPAApi;
 import play.mvc.Http;
 import security.OAuthCredentials;
@@ -74,6 +75,7 @@ public class DocumentServiceImpl implements DocumentService {
         User user = userService.getUser(userProfile.getEmail());
         document = DocumentTransformer.createDocument(form, docTypes, user);
         em().persist(document);
+        em().flush();
         return document;
     }
 
@@ -90,13 +92,18 @@ public class DocumentServiceImpl implements DocumentService {
         return docTypes;
     }
 
+//    private static EntityManager em() {
+//        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
+//        EntityManager em = jpaApi.em();
+//        em.setFlushMode(FlushModeType.COMMIT);
+//        return (em);
+//    }
+
     private static EntityManager em() {
-        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
-        EntityManager em = jpaApi.em();
+        EntityManager em = JPA.em();
         em.setFlushMode(FlushModeType.COMMIT);
         return (em);
     }
-
 
 
 }

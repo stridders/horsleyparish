@@ -12,8 +12,8 @@ public class UserRole {
 
     @Id
     @Column(name = "user_role_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    @SequenceGenerator(name = "seq", sequenceName = "user_role_seq")
+    @SequenceGenerator(name = "user_role_user_role_id_seq", sequenceName = "user_role_user_role_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_role_user_role_id_seq")
     private Long user_role_id;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)

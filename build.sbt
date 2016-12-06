@@ -37,7 +37,8 @@ libraryDependencies ++= Seq(
   "org.webjars.npm" % "ng-file-upload" % "12.2.12",
   "org.webjars" % "angular-ui-bootstrap" % "1.3.2" exclude("org.webjars", "jquery"),
   "org.webjars.npm" % "angular-cookies" % "1.5.6",
-  "com.jayway.jsonpath" % "json-path" % "2.0.0"
+  "com.jayway.jsonpath" % "json-path" % "2.0.0",
+  "org.webjars" % "momentjs" % "2.16.0"
 )
 
 javaOptions in Test ++= Seq("-Dlogger.resource=logback-test.xml", "-Dconfig.file=conf/test.conf")

@@ -1,10 +1,10 @@
 package model;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
 
 import javax.persistence.*;
-import java.io.IOException;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @Entity
@@ -18,13 +18,13 @@ public class Document implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "document_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-    @SequenceGenerator(name = "seq", sequenceName = "document_seq")
+    @SequenceGenerator(name = "document_document_id_seq", sequenceName = "document_document_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "document_document_id_seq")
+    @Column(name="document_id", updatable=false)
     private Long documentId;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "document_type", insertable = false, updatable = false)
+    @JoinColumn(name = "document_type")
     private DocumentType documentType;
 
     @Column(name = "name")
@@ -36,8 +36,8 @@ public class Document implements Serializable {
     @Column(name = "upload_date")
     private Calendar uploadDate;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "format")
@@ -100,35 +100,11 @@ public class Document implements Serializable {
         this.format = format;
     }
 
-    /**
-     * Returns a JSON String representation of the document object, minus the document itself
-     * @return
-     */
-    public String toMetaDataString() {
-        ObjectMapper mapper = new ObjectMapper();
-        Document tempDoc = new Document();
-        tempDoc = this;
-        tempDoc.setDocument(null);
-        try {
-            return mapper.writeValueAsString(tempDoc);
-        } catch(IOException ioe) {
-            return null;
-        }
-    }
+    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
 
-    /**
-     * Returns a JSON String representation of the full document object,
-     * which includes the document object (byte[] array) itself
-     * @return
-     */
-    @Override
-    public String toString() {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.writeValueAsString(this);
-        } catch(IOException ioe) {
-            return null;
-        }
+    public String getUploadDateAsString() {
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+        return sdf.format(this.getUploadDate().getTime());
     }
 
 }

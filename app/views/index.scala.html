@@ -15,7 +15,9 @@
 		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
 		<link rel="stylesheet" href="@routes.Assets.at("css/font-awesome-4.6.3/css/font-awesome.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("css/OpenSans.css")"/>
+        <link rel="stylesheet" href="@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.css")"/>
 		<link rel="stylesheet" href="@routes.Assets.at("css/main.css")"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.min.js"))'></script>
@@ -31,7 +33,10 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-messages","angular-messages.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ng-file-upload.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
-		<script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("moment.min.js"))'></script>
+        <script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
+        <script type="text/javascript" src='@routes.Assets.at("plugins/rrule/rrule.js")'></script>
+        <script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("js/services.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("js/app.js")'></script>
 
@@ -58,6 +63,10 @@
 		<!-- Home-Page -->
 		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
 
+			<!-- Calendar -->
+		<script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
+		<link rel="stylesheet" href='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.css")'/>
+
 		<!-- History -->
 		<script type="text/javascript" src='@routes.Assets.at("features/history/history.controller.js")'></script>
 
@@ -72,6 +81,7 @@
 		<!-- Parish Council -->
 		<link rel="stylesheet" href='@routes.Assets.at("features/parish-council/parish-council.css")'/>
 		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.controller.js")'></script>
+
 
 	</head>
 

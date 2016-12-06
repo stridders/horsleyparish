@@ -22,6 +22,8 @@ import java.util.Map;
 
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
+import services.transformers.DocumentTransformer;
+
 import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.badRequest;
 import static play.mvc.Results.ok;
@@ -46,9 +48,10 @@ public class Document {
     public Result create() {
         try {
             model.Document document = documentService.create(request().body().asMultipartFormData());
-            return ok();
+            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
         } catch(Exception e) {
             String errMsg = e.getMessage();
+            logger.error("Error creating new document.",e);
             return badRequest(errMsg);
         }
     }
