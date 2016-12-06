@@ -40,6 +40,13 @@ CREATE TABLE  "document" (
   format          VARCHAR(5) NOT NULL);
 ALTER SEQUENCE document_document_id_seq OWNED BY document.document_id;
 
+CREATE SEQUENCE document_group_group_id_seq;
+CREATE TABLE  "document_group" (
+  group_id        BIGINT PRIMARY KEY DEFAULT nextval('document_group_group_id_seq'),
+  groupName       VARCHAR(50) NOT NULL,
+  document_id     BIGINT REFERENCES document(document_id));
+ALTER SEQUENCE document_group_group_id_seq OWNED BY document_group.group_id;
+
 # --- !Downs
 
 SET REFERENTIAL_INTEGRITY FALSE;
@@ -48,8 +55,11 @@ drop table user_role;
 drop table role;
 drop table document;
 drop table document_type;
+drop table document_group;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 drop sequence if exists person_user_id_seq;
 drop sequence if exists user_role_user_role_id_seq;
 drop sequence if exists document_document_id_seq;
+drop sequence if exists document_document_group_id_seq;
+

@@ -104,6 +104,7 @@
          * @constructor
          */
         function ClearCredentials() {
+            $window.localStorage.removeItem("userProfile");
             $window.localStorage.removeItem("currentUser");
             $http.defaults.headers.common.Authorization = 'Basic';
         }

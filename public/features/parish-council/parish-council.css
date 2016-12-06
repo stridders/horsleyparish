@@ -1,8 +1,23 @@
-.pc_btn_link {
+.pc-btn-link {
     display: inline-flex;
     vertical-align: middle;
     font-size: 14px;
 }
-.pc_btn_link:hover {
+.pc-btn-link:hover {
     cursor: pointer;
+}
+.pc-docs-form {
+    vertical-align: top;
+    width: 200px;
+}
+.pc-docs-form .text-danger {
+    margin-top: 10px;
+    text-align: center;
+}
+.pc-docs {
+    width: 350px;
+}
+.pc-docs-list {
+    text-align: left;
+    min-height: 600px;
 }

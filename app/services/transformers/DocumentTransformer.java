@@ -81,7 +81,7 @@ public class DocumentTransformer {
     public static String uploadConfirmation(Document document) {
         RepresentationFactory rf    = new StandardRepresentationFactory();
         Representation rep = rf.newRepresentation();
-        rep.withLink("self", Root.stripApiContext(controllers.routes.Document.create().url()));
+        rep.withLink("self", Root.stripApiContext(controllers.routes.Document.createDocument().url()));
         rep.withProperty("documentId",document.getDocumentId());
         rep.withProperty("documentType",document.getDocumentType().getDocumentType());
         rep.withProperty("format",document.getFormat());

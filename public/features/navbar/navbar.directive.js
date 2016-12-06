@@ -84,6 +84,7 @@
                 });
 
                 $rootScope.$on('login:closed', function(event) {
+                    AuthenticationService.ClearCredentials();
                     initialisation();
                 });
 

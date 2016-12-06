@@ -15,6 +15,12 @@ import java.util.List;
 public interface DocumentService {
 
     /**
+     * Returns a list of all documentTypes filtered on documentType
+     * @return
+     */
+    List<DocumentType> getDocumentTypes(String filter);
+
+    /**
      * Returns a list of all documentTypes
      * @return
      */

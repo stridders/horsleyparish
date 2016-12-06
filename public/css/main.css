@@ -46,15 +46,34 @@ body #page-wrapper {
 .primary-title {
     background-color: #689F38;
     color: white;
-    text-align: center;
+    text-align: left;
+    font-size: 16px;
+    padding: 6px 8px 6px 8px;
 }
 .primary-body {
-    background-color: #8BC34A;
-    color: #37474F;
+    background-color: #FAFAFA;
+    color: #33691E;
+    padding: 4px 4px 4px 4px;
 }
 .primary-border {
     border: solid thin #EEEEEE;
 }
+.admin-title {
+    background-color: #3F51B5;
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    padding: 6px 8px 6px 8px;
+}
+.admin-body {
+    background-color: #E8EAF6;
+    color: #33691E;
+    padding: 4px 4px 4px 4px;
+}
+.admin-border {
+    border: solid thin #EEEEEE;
+}
+
 .text-content {
     font-family: "Open Sans";
     font-style: normal;
@@ -79,6 +98,7 @@ body #page-wrapper {
 .flex-container {
     display: -webkit-flex;
     display: flex;
+    margin: 4px 6px 4px 6px;
 }
 .flex-container-row {
     -webkit-flex-direction: row;

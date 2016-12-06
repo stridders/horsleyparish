@@ -30,6 +30,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.nonNull;
+
 
 public class DocumentServiceImpl implements DocumentService {
 
@@ -40,6 +42,15 @@ public class DocumentServiceImpl implements DocumentService {
     UserService userService;
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
+
+    @Override
+    public List<DocumentType> getDocumentTypes(String filter) {
+        List<DocumentType> documentTypes = getDocumentTypes();
+        if (nonNull(documentTypes) && nonNull(filter)) {
+            documentTypes.stream().filter(dt -> dt.getDocumentType().contains(filter));
+        }
+        return documentTypes;
+    }
 
     @Override
     public List<DocumentType> getDocumentTypes() {

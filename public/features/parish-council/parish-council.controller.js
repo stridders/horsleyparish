@@ -8,6 +8,8 @@
     function ParishCouncilController(Upload, $scope, moment, calendarConfig) {
         let pcc = this;
         pcc.uploadMinutes = uploadMinutes;
+        pcc.uploadAccountDocument = uploadAccountDocument;
+
         pcc.events = [];
         pcc.calendarView = 'month';
         pcc.viewDate = moment().toDate();
@@ -26,6 +28,11 @@
                 title:      'Councillors',
                 subtitle:   'Members of the parish council',
                 pageName:   'councillors',
+            },
+            {
+                title:      'Accounts',
+                subtitle:   'Annual reports',
+                pageName:   'accounts',
             },
             {
                 title:      'Contacts',
@@ -59,11 +66,15 @@
             },
         ];
 
+        function uploadAccountDocument(file) {
+            console.log("upload account document");
+        }
+
         // upload on file select or drop
         function uploadMinutes(file) {
 
             Upload.upload({
-                url: 'document',
+                url: 'api/documents',
                 data: {
                     file: file,
                     documentType: 'PC_MINUTES',

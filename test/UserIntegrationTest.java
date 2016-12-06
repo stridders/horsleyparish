@@ -50,8 +50,8 @@ public class UserIntegrationTest {
     public void testListUsersWithSecurityContextNoAdminRole() {
         Map<String, String[]> headers = new HashMap<>();
 
-        String username = "bar@test.co.uk";
-        String password = "123abc";
+        String username = "foo@bar.co.uk";
+        String password = "foobar";
 
         String usernameAndPassword = username + ":" + password;
         String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString( usernameAndPassword.getBytes() );
@@ -68,30 +68,30 @@ public class UserIntegrationTest {
         String response = Helpers.contentAsString(result);
 
         assertEquals(403,result.status());
-        assertEquals("User bar@test.co.uk not authorised for GET path /api/users. Requires [ADMIN] but user has roles: [TEST_ROLE_1, TEST_ROLE_2, TEST_ROLE_3]", response);
+        assertEquals("User foo@bar.co.uk not authorised for GET path /api/users. Requires [ADMIN] but user has roles: []", response);
 
     }
 
-    @Test
-    public void testAuthenticationWithValidCredentials() {
-        Map<String, String[]> headers = new HashMap<>();
-        String username = "bar@test.co.uk";
-        String password = "123abc";
-
-        String usernameAndPassword = username + ":" + password;
-        String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString( usernameAndPassword.getBytes() );
-
-        headers.put(UserAuthenticator.AUTH_HEADER, new String[]{authorizationHeaderValue});
-
-        String contextPath = configuration.getString("play.http.context");
-        Http.RequestBuilder request = new Http.RequestBuilder()
-                .method(GET)
-                .headers(headers)
-                .uri(contextPath + "api/authentication");
-
-        Result result = route(request);
-        assertEquals(200,result.status());
-    }
+//    @Test
+//    public void testAuthenticationWithValidCredentials() {
+//        Map<String, String[]> headers = new HashMap<>();
+//        String username = "bar@test.co.uk";
+//        String password = "123abc";
+//
+//        String usernameAndPassword = username + ":" + password;
+//        String authorizationHeaderValue = "Basic " + java.util.Base64.getEncoder().encodeToString( usernameAndPassword.getBytes() );
+//
+//        headers.put(UserAuthenticator.AUTH_HEADER, new String[]{authorizationHeaderValue});
+//
+//        String contextPath = configuration.getString("play.http.context");
+//        Http.RequestBuilder request = new Http.RequestBuilder()
+//                .method(GET)
+//                .headers(headers)
+//                .uri(contextPath + "api/authentication");
+//
+//        Result result = route(request);
+//        assertEquals(200,result.status());
+//    }
 
     @Test
     public void testAuthenticationWithInvalidUID() {
@@ -117,7 +117,7 @@ public class UserIntegrationTest {
     @Test
     public void testAuthenticationWithInvalidPassword() {
         Map<String, String[]> headers = new HashMap<>();
-        String username = "bar@test.co.uk";
+        String username = "foo@bar.co.uk";
         String password = "password";
 
         String usernameAndPassword = username + ":" + password;

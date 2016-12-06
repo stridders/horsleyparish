@@ -5,6 +5,7 @@ import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import exceptionHandlers.ApplicationException;
+import model.DocumentType;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.BodyParser;
@@ -23,6 +24,7 @@ import java.util.Map;
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
 import services.transformers.DocumentTransformer;
+import services.transformers.DocumentTypeTransformer;
 
 import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.badRequest;
@@ -45,13 +47,26 @@ public class Document {
                                        RoleBasedAuthoriser.Roles.ADMIN,
                                        RoleBasedAuthoriser.Roles.TEST_ROLE_1})
     @BodyParser.Of(BodyParser.MultipartFormData.class)
-    public Result create() {
+    public Result createDocument() {
         try {
             model.Document document = documentService.create(request().body().asMultipartFormData());
             return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
         } catch(Exception e) {
             String errMsg = e.getMessage();
             logger.error("Error creating new document.",e);
+            return badRequest(errMsg);
+        }
+    }
+
+    @Transactional
+    public Result listDocumentTypes(String filter) {
+        try {
+            logger.debug("Getting list of document types...");
+            List<DocumentType> documentTypes = documentService.getDocumentTypes(filter);
+            return ok(DocumentTypeTransformer.transformDocumentTypeListToHalJson(documentTypes,filter)).as("application/hal+json");
+        } catch(Exception e) {
+            String errMsg = e.getMessage();
+            logger.error("Error listing document types.",e);
             return badRequest(errMsg);
         }
     }
