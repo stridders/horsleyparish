@@ -1,19 +1,15 @@
 package services.transformers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
 import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
-import controllers.routes;
+import dto.HrefDto;
+import dto.AuthenticatedUserDto;
 import model.User;
-import play.Logger;
-import security.model.UserProfile;
-import services.UserService;
 
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,7 +56,6 @@ public class UserTransformer {
         return user;
     }
 
-
     /**
      * Returns an Authentication response (JSON) with an Invalid User notification
      * @param json
@@ -68,28 +63,27 @@ public class UserTransformer {
      * @return
      */
     public static String invalidateUser(JsonNode json, String reason) {
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
-
-        rep.withLink("self", Root.stripApiContext(controllers.routes.User.authenticate().url()));
-        rep.withProperty("authenticated", false);
-        rep.withProperty("reason",reason);
-        rep.withProperty("userCredentials",json);
+        AuthenticatedUserDto dto = new AuthenticatedUserDto();
+        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.User.authenticate().url()));
+        dto.get_links().setSelf(href);
+        dto.setAuthenticated(false);
+        dto.setReason(reason);
+        dto.setCredentials(json.asText());
         StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
+        sw.write(dto.toString());
         return sw.toString();
     }
 
     public static String authoriseUser(User user, List<String> roles) {
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
-
-        rep.withLink("self", Root.stripApiContext(controllers.routes.User.authenticate().url()));
-        rep.withProperty("authenticated", true);
-        rep.withProperty("userCredentials",user);
-        rep.withProperty("roles",roles);
+        AuthenticatedUserDto dto = new AuthenticatedUserDto();
+        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.User.authenticate().url()));
+        dto.get_links().setSelf(href);
+        dto.setAuthenticated(true);
+        dto.setCredentials(user.getEmail());
+        dto.setRoles(roles);
         StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
+        sw.write(dto.toString());
         return sw.toString();
+
     }
 }

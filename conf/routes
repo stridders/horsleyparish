@@ -12,8 +12,8 @@ GET    /api                             controllers.Root.apiRoot()
 GET    /api/uuid                        controllers.UuidGenerator.randomUUID()
 GET    /api/users                       controllers.User.listUsers(surname ?= null, firstname ?= null, email ?= null)
 GET    /api/authentication              controllers.User.authenticate()
-POST   /api/documents                       controllers.Document.createDocument()
-GET    /api/document-types                  controllers.Document.listDocumentTypes(filter ?= null)
+POST   /api/documents                   controllers.Document.createDocument()
+GET    /api/document-types              controllers.Document.listDocumentTypes(filter ?= null)
 #GET    /document/:docType               controllers.Document.listByType(docType: String, sdate ?=null, edate ?= null)
 
 # Map static resources from the /public folder to the /assets URL path

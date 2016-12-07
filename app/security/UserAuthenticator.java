@@ -50,6 +50,9 @@ public class UserAuthenticator extends Security.Authenticator {
             if (userProfile != null) {
                 ctx.session().put(USER_PROFILE_KEY, userProfile.toString());
                 userName = userProfile.getEmail();
+                logger.debug("AUTHENTICATED USER");
+            } else {
+                logger.debug("Still AUTHENTICATED USER");
             }
         }
         return userName;

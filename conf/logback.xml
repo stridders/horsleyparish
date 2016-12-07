@@ -15,7 +15,7 @@
     <logger name="modules" level="DEBUG"/>
     <logger name="security" level="DEBUG"/>
 
-    <root level="WARN">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
 

@@ -7,6 +7,8 @@ import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
 import controllers.routes;
+import dto.DocumentDto;
+import dto.HrefDto;
 import exceptionHandlers.ApplicationException;
 import model.Document;
 import model.DocumentType;
@@ -79,17 +81,16 @@ public class DocumentTransformer {
      * @return
      */
     public static String uploadConfirmation(Document document) {
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
-        rep.withLink("self", Root.stripApiContext(controllers.routes.Document.createDocument().url()));
-        rep.withProperty("documentId",document.getDocumentId());
-        rep.withProperty("documentType",document.getDocumentType().getDocumentType());
-        rep.withProperty("format",document.getFormat());
-        rep.withProperty("name",document.getName());
-        rep.withProperty("uploadDate",document.getUploadDateAsString());
-        rep.withProperty("userName",document.getUser().getEmail());
+        DocumentDto dto = new DocumentDto();
+        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.createDocument().url()));
+        dto.get_links().setSelf(href);
+        dto.setDocumentType(document.getDocumentType().getDocumentType());
+        dto.setFormat(document.getFormat());
+        dto.setFileName(document.getName());
+        dto.setUploadDate(document.getUploadDateAsString());
+        dto.setUser(document.getUser().getEmail());
         StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
+        sw.write(dto.toString());
         return sw.toString();
     }
 

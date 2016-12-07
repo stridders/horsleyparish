@@ -4,9 +4,11 @@ import com.theoryinpractise.halbuilder.api.Representation;
 import com.theoryinpractise.halbuilder.api.RepresentationFactory;
 import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
-import controllers.routes;
+import dto.DocumentTypeDto;
+import dto.DocumentTypesDto;
+import dto.HrefDto;
 import model.DocumentType;
-import model.User;
+import play.Logger;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -22,26 +24,23 @@ public class DocumentTypeTransformer {
     public static String transformDocumentTypeListToHalJson (List<DocumentType> documentTypes,
                                                              String filter) {
 
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
+        DocumentTypesDto dto = new DocumentTypesDto();
+        HrefDto self = new HrefDto(Root.stripApiContext(controllers.routes.Document.listDocumentTypes(filter).url()));
 
-        rep.withLink("self", Root.stripApiContext(controllers.routes.Document.listDocumentTypes(filter).url()));
+        dto.get_links().setSelf(self);
 
-        List<Representation> repDocTypes = new ArrayList<>();
+        List<DocumentTypeDto> docTypes = new ArrayList<>();
 
         if (nonNull(documentTypes)) {
             documentTypes.forEach(dt -> {
-                Representation r = rf.newRepresentation();
-                r.withProperty("documentType",dt.getDocumentType());
-                r.withProperty("description", dt.getDescription());
-                repDocTypes.add(r);
+                DocumentTypeDto docType = new DocumentTypeDto(dt);
+                docTypes.add(docType);
             });
         }
-
-        rep.withRepresentation("documentTypes",repDocTypes);
+        dto.setDocumentTypes(docTypes);
 
         StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
+        sw.write(dto.toString());
         return sw.toString();
     }
 
