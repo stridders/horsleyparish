@@ -1,11 +1,11 @@
 package controllers;
 
-import com.theoryinpractise.halbuilder.api.Representation;
-import com.theoryinpractise.halbuilder.api.RepresentationFactory;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
+import dto.HrefDto;
+import dto.UuidDto;
 import play.Logger;
 import play.mvc.Result;
 
+import java.io.StringWriter;
 import java.util.UUID;
 
 import static play.mvc.Results.ok;
@@ -19,13 +19,15 @@ public class UuidGenerator {
 
     public Result randomUUID() {
         String uuid = UUID.randomUUID().toString();
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
 
-        rep.withLink("self", Root.stripApiContext(routes.UuidGenerator.randomUUID().url()));
-        rep.withProperty("uuid",uuid);
+        UuidDto dto = new UuidDto();
+        HrefDto href = new HrefDto(routes.UuidGenerator.randomUUID().url());
+        dto.get_links().setSelf(href);
+        dto.setUuid(uuid);
 
-        return ok(rep.toString(RepresentationFactory.HAL_JSON)).as("application/hal+json");
+        StringWriter sw = new StringWriter();
+        sw.write(dto.toString());
+        return ok(sw.toString()).as("application/hal+json");
     }
 
 }

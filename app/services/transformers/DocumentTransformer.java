@@ -1,12 +1,7 @@
 package services.transformers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
-import com.theoryinpractise.halbuilder.api.Representation;
-import com.theoryinpractise.halbuilder.api.RepresentationFactory;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
-import controllers.routes;
 import dto.DocumentDto;
 import dto.HrefDto;
 import exceptionHandlers.ApplicationException;
@@ -18,7 +13,6 @@ import play.mvc.Http;
 import security.model.UserProfile;
 import services.DocumentService;
 import sun.util.calendar.CalendarDate;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;

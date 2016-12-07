@@ -1,11 +1,6 @@
 package controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
-import com.theoryinpractise.halbuilder.api.Representation;
-import com.theoryinpractise.halbuilder.api.RepresentationFactory;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
-import org.apache.commons.lang3.ArrayUtils;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.libs.Json;
@@ -18,11 +13,7 @@ import security.UserAuthenticator;
 import security.model.UserProfile;
 import services.UserService;
 import services.transformers.UserTransformer;
-
 import java.util.List;
-
-import static play.mvc.Controller.request;
-import static play.mvc.Results.forbidden;
 import static play.mvc.Results.ok;
 import static play.mvc.Results.unauthorized;
 

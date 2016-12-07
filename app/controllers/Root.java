@@ -1,7 +1,5 @@
 package controllers;
 
-import com.theoryinpractise.halbuilder.api.*;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -12,16 +10,9 @@ import static play.mvc.Results.ok;
  */
 public class Root {
 
-    public Result apiRoot() {
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation serviceLinks = rf.newRepresentation();
-
-        serviceLinks.withLink("self", "/");
-        serviceLinks.withLink("uuid", stripApiContext(routes.UuidGenerator.randomUUID().url()));
-
-        return ok(serviceLinks.toString(RepresentationFactory.HAL_JSON)).as("application/hal+json");
-    }
-
+//    public Result apiRoot() {
+//        return ok();
+//    }
 
     public static String stripApiContext(String uri) {
         int index = uri.indexOf("/api/",1);

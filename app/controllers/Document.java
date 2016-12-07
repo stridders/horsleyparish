@@ -1,31 +1,18 @@
 package controllers;
 
 import com.google.inject.Inject;
-import com.theoryinpractise.halbuilder.api.Representation;
-import com.theoryinpractise.halbuilder.api.RepresentationFactory;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
-import exceptionHandlers.ApplicationException;
 import model.DocumentType;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.BodyParser;
-import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Security;
 import security.RoleBasedAuthoriser;
 import security.UserAuthenticator;
 import services.DocumentService;
-
-import java.io.*;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-
-import play.mvc.Http.MultipartFormData;
-import play.mvc.Http.MultipartFormData.FilePart;
 import services.transformers.DocumentTransformer;
 import services.transformers.DocumentTypeTransformer;
-
 import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.badRequest;
 import static play.mvc.Results.ok;
@@ -59,11 +46,11 @@ public class Document {
     }
 
     @Transactional
-    public Result listDocumentTypes(String filter) {
+    public Result listDocumentTypes(String doctype) {
         try {
             logger.debug("Getting list of document types...");
-            List<DocumentType> documentTypes = documentService.getDocumentTypes(filter);
-            return ok(DocumentTypeTransformer.transformDocumentTypeListToHalJson(documentTypes,filter)).as("application/hal+json");
+            List<DocumentType> documentTypes = documentService.getDocumentTypes(doctype);
+            return ok(DocumentTypeTransformer.transformDocumentTypeListToHalJson(documentTypes,doctype)).as("application/hal+json");
         } catch(Exception e) {
             String errMsg = e.getMessage();
             logger.error("Error listing document types.",e);

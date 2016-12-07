@@ -3,70 +3,88 @@
     angular.module('horsley')
         .controller('ParishCouncilController', ParishCouncilController);
 
-    ParishCouncilController.$inject = ['Upload','$scope','moment','calendarConfig'];
+    ParishCouncilController.$inject = ['Upload','$scope','moment','calendarConfig','ParishCouncilService'];
 
-    function ParishCouncilController(Upload, $scope, moment, calendarConfig) {
+    function ParishCouncilController(Upload, $scope, moment, calendarConfig, ParishCouncilService) {
         let pcc = this;
         pcc.uploadMinutes = uploadMinutes;
-        pcc.uploadAccountDocument = uploadAccountDocument;
+        pcc.accountDocUpload = accountDocUpload;
 
         pcc.events = [];
+        pcc.pages = [];
+        pcc.accounting = {};
         pcc.calendarView = 'month';
         pcc.viewDate = moment().toDate();
         pcc.cellIsOpen = true;
-
         pcc.title = "Horsley Parish Council";
         pcc.subtitle = "";
         pcc.feature = "parish-council";
-        pcc.pages = [
-            {
-                title:      'Home',
-                subtitle:   'Horsley parish council home page',
-                pageName:   'home',
-            },
-            {
-                title:      'Councillors',
-                subtitle:   'Members of the parish council',
-                pageName:   'councillors',
-            },
-            {
-                title:      'Accounts',
-                subtitle:   'Annual reports',
-                pageName:   'accounts',
-            },
-            {
-                title:      'Contacts',
-                subtitle:   'How to get in touch',
-                pageName:   'contacts',
-            },
-            {
-                title:      'About the Parish',
-                subtitle:   'What constitutes the parish?',
-                pageName:   'about',
-            },
-            {
-                title:      'Meetings',
-                subtitle:   'Meeting schedules, agendas and minutes',
-                pageName:   'meetings',
-            },
-            {
-                title:      'Planning',
-                subtitle:   'Horsley Neighbourhood Plan',
-                pageName:   'planning',
-            },
-            {
-                title:      'Publications',
-                subtitle:   'Action plans, annual reports and other public documents',
-                pageName:   'publications',
-            },
-            {
-                title:      'Services',
-                subtitle:   'A list of council assets and services',
-                pageName:   'services',
-            },
-        ];
 
-        function uploadAccountDocument(file) {
+        initialise();
+
+        function initialise() {
+            ParishCouncilService.GetDocumentTypes("PC_ACCOUNT",function (response) {
+                if (response) {
+                    pcc.accounting.docTypeOptions = response.documentTypes;
+                    pcc.accounting.upload = {
+                        docType: pcc.accounting.docTypeOptions[0],
+                    };
+                } else {
+                    let errMsg = "Unable to retieve document types from Horsley server";
+                    FlashService.Error(errMsg);
+                }
+            });
+            pcc.pages = [
+                {
+                    title:      'Home',
+                    subtitle:   'Horsley parish council home page',
+                    pageName:   'home',
+                },
+                {
+                    title:      'Councillors',
+                    subtitle:   'Members of the parish council',
+                    pageName:   'councillors',
+                },
+                {
+                    title:      'Accounts',
+                    subtitle:   'Annual reports',
+                    pageName:   'accounts',
+                    config:     {}
+                },
+                {
+                    title:      'Contacts',
+                    subtitle:   'How to get in touch',
+                    pageName:   'contacts',
+                },
+                {
+                    title:      'About the Parish',
+                    subtitle:   'What constitutes the parish?',
+                    pageName:   'about',
+                },
+                {
+                    title:      'Meetings',
+                    subtitle:   'Meeting schedules, agendas and minutes',
+                    pageName:   'meetings',
+                },
+                {
+                    title:      'Planning',
+                    subtitle:   'Horsley Neighbourhood Plan',
+                    pageName:   'planning',
+                },
+                {
+                    title:      'Publications',
+                    subtitle:   'Action plans, annual reports and other public documents',
+                    pageName:   'publications',
+                },
+                {
+                    title:      'Services',
+                    subtitle:   'A list of council assets and services',
+                    pageName:   'services',
+                },
+            ];
+        }
+
+        function accountDocUpload(file) {
             console.log("upload account document");
         }
 

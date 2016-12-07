@@ -1,15 +1,10 @@
 package services.transformers;
 
-import com.theoryinpractise.halbuilder.api.Representation;
-import com.theoryinpractise.halbuilder.api.RepresentationFactory;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
 import dto.DocumentTypeDto;
 import dto.DocumentTypesDto;
 import dto.HrefDto;
 import model.DocumentType;
-import play.Logger;
-
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +28,10 @@ public class DocumentTypeTransformer {
 
         if (nonNull(documentTypes)) {
             documentTypes.forEach(dt -> {
-                DocumentTypeDto docType = new DocumentTypeDto(dt);
-                docTypes.add(docType);
+                if (filter == null || dt.getDocumentType().toLowerCase().contains(filter.toLowerCase())) {
+                    DocumentTypeDto docType = new DocumentTypeDto(dt);
+                    docTypes.add(docType);
+                }
             });
         }
         dto.setDocumentTypes(docTypes);

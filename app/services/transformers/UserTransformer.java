@@ -1,12 +1,11 @@
 package services.transformers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.theoryinpractise.halbuilder.api.Representation;
-import com.theoryinpractise.halbuilder.api.RepresentationFactory;
-import com.theoryinpractise.halbuilder.standard.StandardRepresentationFactory;
 import controllers.Root;
 import dto.HrefDto;
 import dto.AuthenticatedUserDto;
+import dto.UserDto;
+import dto.UsersDto;
 import model.User;
 
 import java.io.StringWriter;
@@ -30,14 +29,20 @@ public class UserTransformer {
                                                      String firstname,
                                                      String email) {
 
-        RepresentationFactory rf    = new StandardRepresentationFactory();
-        Representation rep = rf.newRepresentation();
+        UsersDto dto = new UsersDto();
+        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.User.listUsers(surname,firstname,email).url()));
+        dto.get_links().setSelf(href);
 
-        rep.withLink("self", Root.stripApiContext(controllers.routes.User.listUsers(surname,firstname,email).url()));
-
-        rep.withProperty("users", users);
+        users.forEach(user -> {
+            UserDto userDto = new UserDto();
+            userDto.setEmail(user.getEmail());
+            userDto.setFirstname(user.getFirstname());
+            userDto.setSurname(user.getSurname());
+            userDto.setUserId(user.getUser_id());
+            dto.getUsers().add(userDto);
+        });
         StringWriter sw = new StringWriter();
-        rep.toString(RepresentationFactory.HAL_JSON,sw);
+        sw.write(dto.toString());
         return sw.toString();
     }
 
