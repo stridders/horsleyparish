@@ -7,8 +7,6 @@
 
     function ParishCouncilController(Upload, $scope, moment, calendarConfig, ParishCouncilService) {
         let pcc = this;
-        pcc.uploadMinutes = uploadMinutes;
-        pcc.accountDocUpload = accountDocUpload;
 
         pcc.events = [];
         pcc.pages = [];
@@ -20,10 +18,14 @@
         pcc.subtitle = "";
         pcc.feature = "parish-council";
 
+        pcc.timespanClicked = ParishCouncilService.timespanClicked;
+        pcc.uploadMinutes = ParishCouncilService.uploadMinutes;
+        pcc.accountDocUpload = ParishCouncilService.accountDocUpload;
+
         initialise();
 
         function initialise() {
-            ParishCouncilService.GetDocumentTypes("PC_ACCOUNT",function (response) {
+            ParishCouncilService.getDocumentTypes("PC_ACCOUNT",function (response) {
                 if (response) {
                     pcc.accounting.docTypeOptions = response.documentTypes;
                     pcc.accounting.upload = {
@@ -84,31 +86,7 @@
             ];
         }
 
-        function accountDocUpload(file) {
-            console.log("upload account document");
-        }
 
-        // upload on file select or drop
-        function uploadMinutes(file) {
-
-            Upload.upload({
-                url: 'api/documents',
-                data: {
-                    file: file,
-                    documentType: 'PC_MINUTES',
-                    name: 'Test Minutes PDF file',
-                    meetingId: '1001'
-                }
-            }).then(function (resp) {
-                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file);
-                pcc.file = evt.config.data.file;
-            });
-        };
 
 
         $scope.$watchGroup([
@@ -147,25 +125,6 @@
 
         });
 
-        pcc.timespanClicked = function(date, cell) {
-
-            if (pcc.calendarView === 'month') {
-                if ((pcc.cellIsOpen && moment(date).startOf('day').isSame(moment(pcc.viewDate).startOf('day'))) || cell.events.length === 0 || !cell.inMonth) {
-                    pcc.cellIsOpen = false;
-                } else {
-                    pcc.cellIsOpen = true;
-                    pcc.viewDate = date;
-                }
-            } else if (pcc.calendarView === 'year') {
-                if ((pcc.cellIsOpen && moment(date).startOf('month').isSame(moment(pcc.viewDate).startOf('month'))) || cell.events.length === 0) {
-                    pcc.cellIsOpen = false;
-                } else {
-                    pcc.cellIsOpen = true;
-                    pcc.viewDate = date;
-                }
-            }
-
-        };
 
     }
 

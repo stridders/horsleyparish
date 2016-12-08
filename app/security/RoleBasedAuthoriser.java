@@ -50,7 +50,7 @@ public class RoleBasedAuthoriser {
             String strProfile = ctx.session().get(UserAuthenticator.USER_PROFILE_KEY);
 
             UserProfile userProfile = Json.fromJson(Json.parse(strProfile), UserProfile.class);
-logger.debug("User has profile:"+userProfile.toString());
+
             boolean authorised = false;
 
             if (ArrayUtils.isEmpty(configuration.value())) {

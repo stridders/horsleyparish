@@ -3,14 +3,14 @@
 
     angular
         .module('horsley')
-        .directive('pageLoader', pageLoader);
+        .directive('pageTabs', pageTabs);
 
-    pageLoader.$inject = ['$location', '$routeParams'];
+    pageTabs.$inject = ['$location', '$routeParams'];
 
-    function pageLoader() {
+    function pageTabs() {
         return {
             restrict:       'E',
-            templateUrl:    'web/features/page-loader/page-loader.html',
+            templateUrl:    'web/features/page-tabs/page-tabs.html',
             scope: {
                 heading:    '=',
                 subheading: '=',
