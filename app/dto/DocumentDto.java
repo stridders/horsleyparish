@@ -13,6 +13,9 @@ public class DocumentDto {
     @JsonProperty("_Links")
     private SelfLinkDto _links = new SelfLinkDto();
 
+    @JsonProperty("documentId")
+    private Long documentId;
+
     @JsonProperty("documentType")
     private String documentType;
 
@@ -27,6 +30,14 @@ public class DocumentDto {
 
     @JsonProperty("user")
     private String user;
+
+    public Long getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(Long documentId) {
+        this.documentId = documentId;
+    }
 
     public SelfLinkDto get_links() {
         return _links;

@@ -3,6 +3,7 @@ package services.transformers;
 import com.fasterxml.jackson.databind.JsonNode;
 import controllers.Root;
 import dto.DocumentDto;
+import dto.DocumentsDto;
 import dto.HrefDto;
 import exceptionHandlers.ApplicationException;
 import model.Document;
@@ -67,6 +68,49 @@ public class DocumentTransformer {
         document.setUploadDate(cal);
         document.setUser(user);
         return document;
+    }
+
+    public static String transformDocumentList(List<Document> documents, String docType, String docGroup) {
+        DocumentsDto dto = new DocumentsDto();
+        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.listDocuments(docType,docGroup).url()));
+        dto.get_links().setSelf(href);
+        documents.forEach(doc -> {
+            DocumentDto documentDto = transformDocumentToDto(doc);
+            dto.getDocuments().add(documentDto);
+        });
+        StringWriter sw = new StringWriter();
+        sw.write(dto.toString());
+        return sw.toString();
+    }
+
+    /**
+     * Converts a Document DTO into a String
+     * @param document
+     * @return
+     */
+    public static String transformDocumentToString(Document document) {
+        DocumentDto dto = transformDocumentToDto(document);
+        StringWriter sw = new StringWriter();
+        sw.write(dto.toString());
+        return sw.toString();
+    }
+
+    /**
+     * Converts a Document POJO to a Document DTO
+     * @param document
+     * @return
+     */
+    public static DocumentDto transformDocumentToDto(Document document) {
+        DocumentDto dto = new DocumentDto();
+        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.getDocument(document.getDocumentId()).url()));
+        dto.get_links().setSelf(href);
+        dto.setDocumentId(document.getDocumentId());
+        dto.setDocumentType(document.getDocumentType().getDocumentType());
+        dto.setFileName(document.getName());
+        dto.setFormat(document.getFormat());
+        dto.setUploadDate(document.getUploadDateAsString());
+        dto.setUser(document.getUser().getEmail());
+        return dto;
     }
 
     /**

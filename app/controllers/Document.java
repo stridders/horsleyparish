@@ -13,6 +13,9 @@ import services.DocumentService;
 import java.util.List;
 import services.transformers.DocumentTransformer;
 import services.transformers.DocumentTypeTransformer;
+
+import javax.servlet.http.HttpServletResponse;
+
 import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.badRequest;
 import static play.mvc.Results.ok;
@@ -27,6 +30,10 @@ public class Document {
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
+    /**
+     * Create a new document
+     * @return
+     */
     @Transactional
     @Security.Authenticated(UserAuthenticator.class)
     @RoleBasedAuthoriser.RolesAllowed({RoleBasedAuthoriser.Roles.HORSES_MOUTH,
@@ -45,6 +52,36 @@ public class Document {
         }
     }
 
+    /**
+     * List documents, optionally filtered by document type and/or group
+     * @param docType
+     * @param docGroup
+     * @return
+     */
+    @Transactional
+    public Result listDocuments(String docType, String docGroup) {
+        try {
+            logger.debug("Getting list of documents...");
+            List<model.Document> documents = documentService.getDocuments(docType,docGroup);
+            return ok(DocumentTransformer.transformDocumentList(documents,docType,docGroup)).as("application/hal+json");
+        } catch(Exception e) {
+            String errMsg = e.getMessage();
+            logger.error("Error listing documents.",e);
+            return badRequest(errMsg);
+        }
+    }
+
+    @Transactional
+    public Result getDocument(Long id) {
+        model.Document document = documentService.getDocumentById(id);
+        return ok(document.getDocument()).as("applications/pdf");
+    }
+
+    /**
+     * List document types, optionally filtered by document type
+     * @param doctype
+     * @return
+     */
     @Transactional
     public Result listDocumentTypes(String doctype) {
         try {

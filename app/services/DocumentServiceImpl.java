@@ -24,10 +24,7 @@ import javax.persistence.TypedQuery;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Objects.nonNull;
@@ -91,6 +88,38 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     /**
+     * List Documents, optionally filtered by document type and/or group
+     * @param docType
+     * @param docGroup
+     * @return
+     */
+    @Override
+    public List<Document> getDocuments(String docType, String docGroup) {
+        logger.debug("Entered getDocuments");
+        if (docType == null) {
+            docType="";
+        }
+        TypedQuery<Document> query = em().createNamedQuery("Document.findDocuments", Document.class);
+        query.setParameter("docType", '%'+docType+'%');
+        List<Document> documents = query.getResultList();
+        return documents;
+    }
+
+    /**
+     * Get Document by document ID. Returns document image with metadata
+     * @param id
+     * @return
+     */
+    @Override
+    public Document getDocumentById(Long id) {
+        logger.debug("Entered getDocumentById");
+        TypedQuery<Document> query = em().createNamedQuery("Document.findByDocumentId", Document.class);
+        query.setParameter("id", id);
+        Document document = query.getSingleResult();
+        return document;
+    }
+
+    /**
      * Returns a map of documentType POJOs, keyed on documentType
      * @return
      */
@@ -103,18 +132,18 @@ public class DocumentServiceImpl implements DocumentService {
         return docTypes;
     }
 
-//    private static EntityManager em() {
-//        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
-//        EntityManager em = jpaApi.em();
-//        em.setFlushMode(FlushModeType.COMMIT);
-//        return (em);
-//    }
-
     private static EntityManager em() {
-        EntityManager em = JPA.em();
+        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
+        EntityManager em = jpaApi.em();
         em.setFlushMode(FlushModeType.COMMIT);
         return (em);
     }
+
+//    private static EntityManager em() {
+//        EntityManager em = JPA.em();
+//        em.setFlushMode(FlushModeType.COMMIT);
+//        return (em);
+//    }
 
 
 }

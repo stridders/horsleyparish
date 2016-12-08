@@ -40,4 +40,18 @@ public interface DocumentService {
      */
     Document create(Http.MultipartFormData form) throws IOException, ApplicationException;
 
+    /**
+     * List Documents, optionally filtered by document type and/or group
+     * @param docType
+     * @param docGroup
+     * @return
+     */
+    List<Document> getDocuments(String docType, String docGroup);
+
+    /**
+     * Get Document by document ID. Returns document image with metadata
+     * @param id
+     * @return
+     */
+    Document getDocumentById(Long id);
 }

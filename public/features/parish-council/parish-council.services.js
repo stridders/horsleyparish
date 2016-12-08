@@ -5,9 +5,9 @@
         .module('horsley')
         .factory('ParishCouncilService', ParishCouncilService);
 
-    ParishCouncilService.$inject = ['$http'];
+    ParishCouncilService.$inject = ['$http','Upload'];
 
-    function ParishCouncilService($http) {
+    function ParishCouncilService($http,Upload) {
 
         var service = {};
         service.getDocumentTypes = getDocumentTypes;
@@ -28,8 +28,25 @@
                 });
         }
 
-        function accountDocUpload(file) {
+        function accountDocUpload(file,metadata) {
             console.log("upload account document");
+            Upload.upload({
+                url: 'api/documents',
+                data: {
+                    file: file,
+                    documentType: metadata.docType.documentType,
+                    name: metadata.docName,
+                    group: metadata.group
+                }
+            }).then(function (resp) {
+                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function (resp) {
+                console.log('Error status: ' + resp.status);
+            }, function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file);
+                pcc.file = evt.config.data.file;
+            });
         }
 
         // upload on file select or drop

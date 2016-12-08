@@ -9,7 +9,7 @@
             <div class="admin-title">Upload New Document</div>
             <div class="admin-body pc-docs-list">
                 <div class="pc-doc-form">
-                    <form name="form" role="form">
+                    <form name="form" onsubmit="pcc.accountDocUpload" role="form">
 
                         <div class="form-group" ng-class="{ 'has-error': form.accountUploadDocName.$dirty && form.accountUploadDocName.$error.required }">
                             <label for="accountUploadDocName">Document Name/Description</label>
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <button ng-disabled="form.$invalid || pcc.dataLoading" class="btn btn-sm btn-default pc-btn-link" ngf-select="pcc.accountDocUpload($file)">
+                            <button ng-disabled="form.$invalid || pcc.dataLoading" class="btn btn-sm btn-default pc-btn-link" ngf-select="pcc.accountDocUpload($file,pcc.accounting.upload)">
                                 Upload Document <i class="material-icons">file_upload</i>
                             </button>
                         </div>

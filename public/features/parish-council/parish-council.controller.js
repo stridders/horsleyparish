@@ -3,9 +3,9 @@
     angular.module('horsley')
         .controller('ParishCouncilController', ParishCouncilController);
 
-    ParishCouncilController.$inject = ['Upload','$scope','moment','calendarConfig','ParishCouncilService'];
+    ParishCouncilController.$inject = ['$scope','moment','calendarConfig','ParishCouncilService'];
 
-    function ParishCouncilController(Upload, $scope, moment, calendarConfig, ParishCouncilService) {
+    function ParishCouncilController($scope, moment, calendarConfig, ParishCouncilService) {
         let pcc = this;
 
         pcc.events = [];

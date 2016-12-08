@@ -10,7 +10,8 @@ import java.util.Calendar;
 @Entity
 @Table(name = "document")
 @NamedQueries({
-    @NamedQuery(name="Document.findByType", query="select d from Document d where d.documentType=:docType"),
+    @NamedQuery(name="Document.findByDocumentId", query="select d from Document d where d.documentId=:id"),
+    @NamedQuery(name="Document.findDocuments", query="select d from Document d where d.documentType.documentType like :docType"),
     @NamedQuery(name="Document.findByTypeAndDateRange", query="select d from Document d where d.documentType=:docType and d.uploadDate >=:beginDate and d.uploadDate <= :endDate")
 })
 public class Document implements Serializable {

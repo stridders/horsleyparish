@@ -16,7 +16,8 @@
                 title:    '@',
                 image:    '@',
                 text:     '@',
-                link:     '@'
+                link:     '@',
+                bgcolour: '@'
             },
             controllerAs: 'snb',
             bindToController: true,
