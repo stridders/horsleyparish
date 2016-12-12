@@ -17,7 +17,6 @@
 
         return service;
 
-
         function getDocumentTypes(filter,callback) {
             $http.get('/api/document-types?doctype='+filter)
                 .success(function (response) {
@@ -36,7 +35,8 @@
                     file: file,
                     documentType: metadata.docType.documentType,
                     name: metadata.docName,
-                    group: metadata.group
+                    group: metadata.group,
+                    size: file.size
                 }
             }).then(function (resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);

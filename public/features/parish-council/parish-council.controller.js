@@ -6,6 +6,7 @@
     ParishCouncilController.$inject = ['$scope','moment','calendarConfig','ParishCouncilService'];
 
     function ParishCouncilController($scope, moment, calendarConfig, ParishCouncilService) {
+
         let pcc = this;
 
         pcc.events = [];
@@ -87,6 +88,12 @@
         }
 
 
+        pcc.setFile = function(element) {
+            var $scope = this.$scope;
+            $scope.$apply(function() {
+                $scope.filename = element.files[0];
+            });
+        };
 
 
         $scope.$watchGroup([

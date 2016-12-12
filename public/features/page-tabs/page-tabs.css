@@ -1,12 +1,13 @@
 .pl-container {
-    width: 800px;
+    width: 860px;
     align-items: center;
     justify-content: center;
 }
 .pl-tabs {
     align-items: center;
     justify-content: center;
-    margin: -20px 0px 20px 0px;
+    margin: -20px 0px 10px 0px;
+    font-size: 13px;
 }
 .nav-menu {
     -webkit-align-self: flex-start;

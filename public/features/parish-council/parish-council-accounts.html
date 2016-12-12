@@ -6,56 +6,70 @@
         </div>
 
         <div class="flex-container-row pc-docs-form admin-border">
-            <div class="admin-title">Upload New Document</div>
-            <div class="admin-body pc-docs-list">
-                <div class="pc-doc-form">
-                    <form name="form" onsubmit="pcc.accountDocUpload" role="form">
+            <!--<div class="admin-title">Upload New Document</div>-->
+            <!--<div class="admin-body pc-docs-list">-->
+                <!--<div class="pc-doc-form">-->
+                    <!--<form name="form" enctype="multipart/form-data" onsubmit="pcc.accountDocUpload" role="form">-->
 
-                        <div class="form-group" ng-class="{ 'has-error': form.accountUploadDocName.$dirty && form.accountUploadDocName.$error.required }">
-                            <label for="accountUploadDocName">Document Name/Description</label>
-                            <input type="text"
-                                   name="accountUploadDocName"
-                                   id="accountUploadDocName"
-                                   class="form-control"
-                                   ng-model="pcc.accounting.upload.docName"
-                                   required
-                                   ng-click="pcc.resetErrors()" />
-                            <span ng-show="form.accountUploadDocName.$dirty && form.accountUploadDocName.$error.required" class="help-block">Document name is required</span>
-                        </div>
+                        <!--<div class="form-group" ng-class="{ 'has-error': form.accountUploadDocName.$dirty && form.accountUploadDocName.$error.required }">-->
+                            <!--<label for="accountUploadDocName">Document Name/Description</label>-->
+                            <!--<input type="text"-->
+                                   <!--name="accountUploadDocName"-->
+                                   <!--id="accountUploadDocName"-->
+                                   <!--class="form-control"-->
+                                   <!--ng-model="pcc.accounting.upload.docName"-->
+                                   <!--required-->
+                                   <!--ng-click="pcc.resetErrors()" />-->
+                            <!--<span ng-show="form.accountUploadDocName.$dirty && form.accountUploadDocName.$error.required" class="help-block">Document name is required</span>-->
+                        <!--</div>-->
 
-                        <div class="form-group" ng-class="{ 'has-error': form.accountUploadGroup.$dirty && form.accountUploadGroup.$error.required }">
-                            <label for="accountUploadGroup">Group Name (e.g. 2016/17)</label>
-                            <input type="text"
-                                   name="accountUploadGroup"
-                                   id="accountUploadGroup"
-                                   class="form-control"
-                                   ng-model="pcc.account.upload.group"
-                                   required
-                                   ng-click="pcc.resetErrors()" />
-                            <span ng-show="form.accountUploadGroup.$dirty && form.accountUploadGroup.$error.required" class="help-block">Group name is required</span>
-                        </div>
+                        <!--<div class="form-group" ng-class="{ 'has-error': form.accountUploadGroup.$dirty && form.accountUploadGroup.$error.required }">-->
+                            <!--<label for="accountUploadGroup">Group Name (e.g. 2016/17)</label>-->
+                            <!--<input type="text"-->
+                                   <!--name="accountUploadGroup"-->
+                                   <!--id="accountUploadGroup"-->
+                                   <!--class="form-control"-->
+                                   <!--ng-model="pcc.account.upload.group"-->
+                                   <!--required-->
+                                   <!--ng-click="pcc.resetErrors()" />-->
+                            <!--<span ng-show="form.accountUploadGroup.$dirty && form.accountUploadGroup.$error.required" class="help-block">Group name is required</span>-->
+                        <!--</div>-->
 
-                        <div class="form-group" ng-class="{ 'has-error': form.accountUploadDocType.$dirty && form.accountUploadDocType.$error.required }">
-                            <label for="accountUploadDocType">Document Type</label>
-                            <select name="accountUploadDocType"
-                                    id="accountUploadDocType"
-                                    class="form-control"
-                                    ng-model="pcc.account.upload.docType"
-                                    required
-                                    ng-click="pcc.resetErrors()"
-                                    ng-options="dt as dt.description for dt in pcc.accounting.docTypeOptions track by dt.documentType"></select>
-                            <span ng-show="form.accountUploadDocType.$dirty && form.accountUploadDocType.$error.required" class="help-block">Document Type is required</span>
-                        </div>
+                        <!--<div class="form-group" ng-class="{ 'has-error': form.accountUploadDocType.$dirty && form.accountUploadDocType.$error.required }">-->
+                            <!--<label for="accountUploadDocType">Document Type</label>-->
+                            <!--<select name="accountUploadDocType"-->
+                                    <!--id="accountUploadDocType"-->
+                                    <!--class="form-control"-->
+                                    <!--ng-model="pcc.account.upload.docType"-->
+                                    <!--required-->
+                                    <!--ng-click="pcc.resetErrors()"-->
+                                    <!--ng-options="dt as dt.description for dt in pcc.accounting.docTypeOptions track by dt.documentType"></select>-->
+                            <!--<span ng-show="form.accountUploadDocType.$dirty && form.accountUploadDocType.$error.required" class="help-block">Document Type is required</span>-->
+                        <!--</div>-->
 
-                        <div class="form-actions">
-                            <button ng-disabled="form.$invalid || pcc.dataLoading" class="btn btn-sm btn-default pc-btn-link" ngf-select="pcc.accountDocUpload($file,pcc.accounting.upload)">
-                                Upload Document <i class="material-icons">file_upload</i>
-                            </button>
-                        </div>
 
-                    </form>
-                </div>
-            </div>
+
+
+                        <!--<div class="form-actions">-->
+                            <!--<button ng-disabled="form.$invalid || pcc.dataLoading" class="btn btn-sm btn-default pc-btn-link" ngf-select="pcc.accountDocUpload($file,pcc.accounting.upload)">-->
+                                <!--Upload Document <i class="material-icons">file_upload</i>-->
+                            <!--</button>-->
+
+                        <!--</div>-->
+
+                        <!--<div class="form-actions">-->
+                            <!--<input type="file" ng-model="filename" required ng-change="pcc.setFile(this)">-->
+                            <!--{{theFile.name}}-->
+                            <!--{{myForm.$valid}}-->
+
+                        <!--</div>-->
+
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div ng-include="'/web/features/file-uploader/file-uploader.html'"></div>
+
         </div>
 
         <div class="flex-container-row primary-border">
