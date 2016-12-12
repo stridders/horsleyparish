@@ -5,15 +5,15 @@
         .module('horsley')
         .factory('ParishCouncilService', ParishCouncilService);
 
-    ParishCouncilService.$inject = ['$http','Upload'];
+    ParishCouncilService.$inject = ['$http'];
 
-    function ParishCouncilService($http,Upload) {
+    function ParishCouncilService($http) {
 
         var service = {};
         service.getDocumentTypes = getDocumentTypes;
         service.timespanClicked = timespanClicked;
-        service.uploadMinutes = uploadMinutes;
-        service.accountDocUpload = accountDocUpload;
+        // service.uploadMinutes = uploadMinutes;
+        // service.accountDocUpload = accountDocUpload;
 
         return service;
 
@@ -27,49 +27,35 @@
                 });
         }
 
-        function accountDocUpload(file,metadata) {
-            console.log("upload account document");
-            Upload.upload({
-                url: 'api/documents',
-                data: {
-                    file: file,
-                    documentType: metadata.docType.documentType,
-                    name: metadata.docName,
-                    group: metadata.group,
-                    size: file.size
-                }
-            }).then(function (resp) {
-                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file);
-                pcc.file = evt.config.data.file;
-            });
-        }
+        // function accountDocUpload(file,metadata) {
+        //     console.log("upload account document");
+        //     Upload.upload({
+        //         url: 'api/documents',
+        //         data: {
+        //             file: file,
+        //             documentType: metadata.docType.documentType,
+        //             name: metadata.docName,
+        //             group: metadata.group,
+        //             // size: file.size
+        //         }
+        //     }).then(resp => {
+        //         $timeout(function() {
+        //             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        //             file.result = res.data;
+        //         });
+        //
+        //     }, function (resp) {
+        //         if (resp.status > 0) {
+        //             console.log("Error:"+resp.status + ' - ' + resp.data);
+        //         }
+        //     }, function (evt) {
+        //         file.progress = Math.min(100, parseInt(100.00 * evt.loaded / evt.total));
+        //         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        //         console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file);
+        //     });
+        // }
 
-        // upload on file select or drop
-        function uploadMinutes(file) {
 
-            Upload.upload({
-                url: 'api/documents',
-                data: {
-                    file: file,
-                    documentType: 'PC_MINUTES',
-                    name: 'Test Minutes PDF file',
-                    meetingId: '1001'
-                }
-            }).then(function (resp) {
-                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file);
-                pcc.file = evt.config.data.file;
-            });
-        };
 
         function timespanClicked(date, cell) {
             if (pcc.calendarView === 'month') {

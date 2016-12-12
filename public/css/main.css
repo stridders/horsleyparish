@@ -16,7 +16,7 @@ body #page-wrapper {
 .main-container {
     position: relative;
     margin: 0 auto;
-    height: 300px;
+    height: 100%;
     top:-195px;
     width:900px;
     display:block;
@@ -26,7 +26,8 @@ body #page-wrapper {
     z-index:4;
 }
 .main-container .main-page {
-
+    position: relative;
+    top: 25px;
 }
 .stnd-bg {
     background-color: #EBEBEB;
