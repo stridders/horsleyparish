@@ -39,6 +39,10 @@
                 controller: 'RegisterController',
                 templateUrl: 'web/features/login/register.html',
                 controllerAs: 'reg'
+            })
+            .when('/upload', {
+                controller: 'FileUploaderController',
+                templateUrl: 'web/features/file-uploader/file-uploader.html'
             });
 
         $stateProvider

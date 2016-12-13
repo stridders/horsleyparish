@@ -1,4 +1,7 @@
-.my-drop-zone {
+.upldr-table {
+    width: 700px;
+}
+.upldr-drop-zone {
     border: dotted 3px lightgray;
 }
 .nv-file-over {
@@ -7,4 +10,3 @@
 .another-file-over-class {
     border: dotted 3px green;
 }
-
