@@ -21,9 +21,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -75,6 +73,36 @@ public class DocumentServiceImpl implements DocumentService {
 
         if (form == null || form.getFile("file") == null ) {
             throw new ApplicationException(ApplicationException.DOCUMENT__MISSING_MULTIPART_DATA);
+        }
+
+        // Create path components to save the file
+        final Http.MultipartFormData.FilePart filePart = form.getFile("file");
+
+        OutputStream out = null;
+        InputStream filecontent = null;
+
+        try {
+            out = new FileOutputStream(new File("/upload" + File.separator
+                    + "test1.pdf"));
+            filecontent = (InputStream)filePart.getFile();
+
+            int read = 0;
+            final byte[] bytes = new byte[1024];
+
+            while ((read = filecontent.read(bytes)) != -1) {
+                out.write(bytes, 0, read);
+            }
+
+        } catch (FileNotFoundException fne) {
+            logger.error("Problems during file upload. Error: {0}",
+                    new Object[]{fne.getMessage()});
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+            if (filecontent != null) {
+                filecontent.close();
+            }
         }
 
         Document document = new Document();

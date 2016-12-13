@@ -10,7 +10,7 @@
         let fupc = this;
 
         fupc.uploader = new FileUploader({
-            url: 'upload.php'
+            url: 'api/documents'
         });
 
             // FILTERS
