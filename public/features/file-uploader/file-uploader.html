@@ -1,19 +1,51 @@
 <!-- 1. nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
 <div ng-controller="FileUploaderController" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
 
-    <div class="container">
-        <div class="row">
+    <div class="upl-container">
+        <div>
+            <div>
+                <div class="upl-form">
+                    <label class="control-label" for="fileName">File Name</label>
+                    <input class="upl-form-input"
+                            type="text"
+                            name="fileName"
+                            id="fileName"
+                            ng-model="fileName"/>
+                </div>
+
+                <div class="upl-form">
+                    <label class="control-label" for="fileName">File Group</label>
+                    <input class="upl-form-input"
+                           type="text"
+                           name="groupName"
+                           id="groupName"
+                           ng-model="groupName"/>
+                </div>
+
+                <div class="upl-form">
+                    <label class="control-label" for="documentType">Document Type</label>
+                    <select name="documentType"
+                        id="documentType"
+                        ng-model="documentType"
+                        ng-options="dt as dt.description for dt in docTypeOptions track by dt.documentType">
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
             <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
             Multiple
             <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
-
             Single
             <input type="file" nv-file-select="" uploader="uploader" />
         </div>
+    </div>
 
-        <div class="row ">
+    <div class="upl-container">
 
-            <div class="col-md-2">
+            <div class="flex-25">
 
                 <h3>Select files</h3>
 
@@ -33,7 +65,9 @@
 
             </div>
 
-            <div class="col-md-7" style="margin-bottom: 40px">
+            <div class="flex-15"></div>
+
+            <div class="flex-60">
 
                 <h3>Upload queue</h3>
                 <p>Queue length: {{ uploader.queue.length }}</p>
@@ -97,6 +131,5 @@
 
             </div>
 
-        </div>
     </div>
 </div>

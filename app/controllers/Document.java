@@ -5,11 +5,18 @@ import model.DocumentType;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.BodyParser;
+import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Security;
 import security.RoleBasedAuthoriser;
 import security.UserAuthenticator;
 import services.DocumentService;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import services.transformers.DocumentTransformer;
 import services.transformers.DocumentTypeTransformer;
@@ -38,18 +45,35 @@ public class Document {
     @Security.Authenticated(UserAuthenticator.class)
     @RoleBasedAuthoriser.RolesAllowed({RoleBasedAuthoriser.Roles.HORSES_MOUTH,
                                        RoleBasedAuthoriser.Roles.HORSLEY_PC,
-                                       RoleBasedAuthoriser.Roles.ADMIN,
-                                       RoleBasedAuthoriser.Roles.TEST_ROLE_1})
+                                       RoleBasedAuthoriser.Roles.ADMIN
+                                      })
     @BodyParser.Of(BodyParser.MultipartFormData.class)
     public Result createDocument() {
         try {
-            model.Document document = documentService.create(request().body().asMultipartFormData());
-            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
+//            model.Document document = documentService.create(request().body().asMultipartFormData());
+//            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
+            Http.MultipartFormData<File> body = request().body().asMultipartFormData();
+            Http.MultipartFormData.FilePart<File> filePart = body.getFile("file");
+            if (filePart != null) {
+                String fileName = filePart.getFilename();
+                String contentType = filePart.getContentType();
+                File file = filePart.getFile();
+                String filePath = "uploads/" + fileName;
+                copy(file.getAbsolutePath(), "uploads/findme.pdf");
+                return ok("File uploaded to "+file.getAbsolutePath());
+            } else {
+                logger.error("error", "Missing file");
+                return badRequest();
+            }
         } catch(Exception e) {
             String errMsg = e.getMessage();
             logger.error("Error creating new document.",e);
             return badRequest(errMsg);
         }
+    }
+
+    public static void copy(String sourcePath, String destinationPath) throws IOException {
+        Files.copy(Paths.get(sourcePath), new FileOutputStream(destinationPath));
     }
 
     /**

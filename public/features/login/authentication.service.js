@@ -16,6 +16,7 @@
         service.GetUserName = GetUserName;
         service.GetUserContext = GetUserContext;
         service.GetUserProfile = GetUserProfile;
+        service.GetSecurityHeader = GetSecurityHeader;
 
         return service;
 
@@ -55,6 +56,13 @@
             };
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
             return currentUser;
+        }
+
+        function GetSecurityHeader() {
+            let currentUser = GetUserContext();
+            let authdata = currentUser.authdata;
+            let header = {"Authorization": 'Basic ' + authdata };
+            return header;
         }
 
         /**

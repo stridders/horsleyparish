@@ -44,7 +44,7 @@ public class UserAuthenticator extends Security.Authenticator {
         ctx.session().remove(USER_PROFILE_KEY);
 
         if (credentials == null) {
-            logger.info("UNAUTHENTICATED USER");
+            logger.info("UNAUTHENTICATED USER - Missing HTTP Credentials");
         } else {
             UserProfile userProfile = userService.authenticateUser(credentials);
             if (userProfile != null) {
@@ -52,7 +52,7 @@ public class UserAuthenticator extends Security.Authenticator {
                 userName = userProfile.getEmail();
                 logger.debug("AUTHENTICATED USER");
             } else {
-                logger.debug("Still AUTHENTICATED USER");
+                logger.debug("UNAUTHENTICATED USER - Invalid HTTP Credentials");
             }
         }
         return userName;

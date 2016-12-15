@@ -17,15 +17,7 @@
 
         return service;
 
-        function getDocumentTypes(filter,callback) {
-            $http.get('/api/document-types?doctype='+filter)
-                .success(function (response) {
-                    callback(response);
-                })
-                .error(function() {
-                    callback(null);
-                });
-        }
+
 
         // function accountDocUpload(file,metadata) {
         //     console.log("upload account document");

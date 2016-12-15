@@ -106,12 +106,12 @@ public class DocumentServiceImpl implements DocumentService {
         }
 
         Document document = new Document();
-        Map<String, DocumentType> docTypes = mapDocumentTypes();
-        UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
-        User user = userService.getUser(userProfile.getEmail());
-        document = DocumentTransformer.createDocument(form, docTypes, user);
-        em().persist(document);
-        em().flush();
+//        Map<String, DocumentType> docTypes = mapDocumentTypes();
+//        UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
+//        User user = userService.getUser(userProfile.getEmail());
+//        document = DocumentTransformer.createDocument(form, docTypes, user);
+//        em().persist(document);
+//        em().flush();
         return document;
     }
 
