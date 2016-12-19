@@ -26,17 +26,17 @@
         initialise();
 
         function initialise() {
-            ParishCouncilService.getDocumentTypes("PC_ACCOUNT",function (response) {
-                if (response) {
-                    pcc.accounting.docTypeOptions = response.documentTypes;
-                    pcc.accounting.upload = {
-                        docType: pcc.accounting.docTypeOptions[0],
-                    };
-                } else {
-                    let errMsg = "Unable to retieve document types from Horsley server";
-                    FlashService.Error(errMsg);
-                }
-            });
+            // ParishCouncilService.getDocumentTypes("PC_ACCOUNT",function (response) {
+            //     if (response) {
+            //         pcc.accounting.docTypeOptions = response.documentTypes;
+            //         pcc.accounting.upload = {
+            //             docType: pcc.accounting.docTypeOptions[0],
+            //         };
+            //     } else {
+            //         let errMsg = "Unable to retieve document types from Horsley server";
+            //         FlashService.Error(errMsg);
+            //     }
+            // });
             pcc.pages = [
                 {
                     title:      'Home',

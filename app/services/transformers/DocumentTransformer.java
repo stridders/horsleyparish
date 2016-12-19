@@ -1,17 +1,20 @@
 package services.transformers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.google.inject.Inject;
 import controllers.Root;
 import dto.DocumentDto;
 import dto.DocumentsDto;
 import dto.HrefDto;
 import exceptionHandlers.ApplicationException;
 import model.Document;
+import model.DocumentGroup;
 import model.DocumentType;
 import model.User;
 import play.Logger;
 import play.mvc.Http;
 import security.model.UserProfile;
+import services.DocumentGroupService;
 import services.DocumentService;
 import sun.util.calendar.CalendarDate;
 import java.io.ByteArrayOutputStream;
@@ -25,13 +28,13 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Integer.valueOf;
+import static java.util.Objects.nonNull;
+
 /**
  * Created by js on 09/11/2016.
  */
 public class DocumentTransformer {
-
-    private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
-
 
     /**
      * Returns a Document PJO, built from MultipartFormData
@@ -44,32 +47,68 @@ public class DocumentTransformer {
      */
     public static Document createDocument(Http.MultipartFormData form,
                                              Map<String, DocumentType> docTypes,
-                                             User user)
+                                             User user,
+                                             String filePath)
                                             throws IOException, ApplicationException {
         Document document = new Document();
+        DocumentGroup documentGroup = new DocumentGroup();
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String name;
+        String documentType;
+
         Calendar cal = Calendar.getInstance();
 
         Http.MultipartFormData.FilePart filePart = form.getFile("file");
         String fileName = filePart.getFilename();
-        byte[] file = serialize(filePart.getFile());
 
         Map<String,String[]> formData = form.asFormUrlEncoded();
-        String name = Arrays.asList(formData.get("name")).toString().replaceAll("[\\[\\]]","");
-        String documentType = Arrays.asList(formData.get("documentType")).toString().replaceAll("[\\[\\]]","");
-        if (documentType != null) {
-            document.setDocumentType(docTypes.get(documentType));
-        }
 
-        document.setDocument(file);
+        document.setName(getFileName(fileName));
+        if (nonNull(formData.get("fileTitle"))) {
+            String fileTitle = Arrays.asList(formData.get("fileTitle")).toString().replaceAll("[\\[\\]]", "");
+            if (!fileTitle.equals("null")) {
+                document.setName(fileTitle);
+            }
+        }
+        document.setDocumentType(docTypes.get("MISC"));
+        if (nonNull(formData.get("docType"))) {
+            documentType = Arrays.asList(formData.get("docType")).toString().replaceAll("[\\[\\]]","");
+            if (!documentType.equals("null")) {
+                document.setDocumentType(docTypes.get(documentType));
+            }
+        }
+        document.setSize(null);
+        if (nonNull(formData.get("fileSize"))) {
+            String size = Arrays.asList(formData.get("fileSize")).toString().replaceAll("[\\[\\]]","");
+            if (!size.equals("null")) {
+                document.setSize(valueOf(size));
+            }
+        }
+        document.setDocumentPath(filePath);
         document.setFormat(getFileExtension(fileName));
-        document.setName(name);
         document.setUploadDate(cal);
         document.setUser(user);
+
+        if (nonNull(formData.get("fileGroup"))) {
+            String fileGroup = Arrays.asList(formData.get("fileGroup")).toString().replaceAll("[\\[\\]]","");
+            if (!fileGroup.equals("null")) {
+                documentGroup = new DocumentGroup();
+                documentGroup.getDocuments().add(document);
+                documentGroup.setGroupName(fileGroup);
+                document.setDocumentGroup(documentGroup);
+            }
+        }
+
         return document;
     }
 
+    /**
+     * Returns a JSON representation of a collection of documents
+     * @param documents
+     * @param docType
+     * @param docGroup
+     * @return
+     */
     public static String transformDocumentList(List<Document> documents, String docType, String docGroup) {
         DocumentsDto dto = new DocumentsDto();
         HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.listDocuments(docType,docGroup).url()));
@@ -78,18 +117,6 @@ public class DocumentTransformer {
             DocumentDto documentDto = transformDocumentToDto(doc);
             dto.getDocuments().add(documentDto);
         });
-        StringWriter sw = new StringWriter();
-        sw.write(dto.toString());
-        return sw.toString();
-    }
-
-    /**
-     * Converts a Document DTO into a String
-     * @param document
-     * @return
-     */
-    public static String transformDocumentToString(Document document) {
-        DocumentDto dto = transformDocumentToDto(document);
         StringWriter sw = new StringWriter();
         sw.write(dto.toString());
         return sw.toString();
@@ -110,6 +137,7 @@ public class DocumentTransformer {
         dto.setFormat(document.getFormat());
         dto.setUploadDate(document.getUploadDateAsString());
         dto.setUser(document.getUser().getEmail());
+        dto.setDocumentPath(document.getDocumentPath());
         return dto;
     }
 
@@ -119,14 +147,9 @@ public class DocumentTransformer {
      * @return
      */
     public static String uploadConfirmation(Document document) {
-        DocumentDto dto = new DocumentDto();
+        DocumentDto dto = transformDocumentToDto(document);
         HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.createDocument().url()));
         dto.get_links().setSelf(href);
-        dto.setDocumentType(document.getDocumentType().getDocumentType());
-        dto.setFormat(document.getFormat());
-        dto.setFileName(document.getName());
-        dto.setUploadDate(document.getUploadDateAsString());
-        dto.setUser(document.getUser().getEmail());
         StringWriter sw = new StringWriter();
         sw.write(dto.toString());
         return sw.toString();
@@ -163,5 +186,20 @@ public class DocumentTransformer {
         }
     }
 
+    /**
+     * Returns a file name without the file extension (e.g. without '.pdf')
+     * @param fileName
+     * @return
+     * @throws ApplicationException
+     */
+    public static String getFileName(String fileName) throws ApplicationException {
+        int i = fileName.lastIndexOf('.');
+        if (i > 0) {
+            String extension = fileName.substring(0,i-1);
+            return extension.toLowerCase();
+        } else {
+            throw new ApplicationException(ApplicationException.DOCUMENT__MISSING_FILE_EXTENSION);
+        }
+    }
 
 }

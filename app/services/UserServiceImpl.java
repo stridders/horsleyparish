@@ -23,6 +23,9 @@ public class UserServiceImpl implements UserService {
     @Inject
     UserTransformer userTransformer;
 
+    @Inject
+    services.EntityManager entityManager;
+
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
     private static final String NO_MATCH = "Unrecognised User [%s]";
@@ -41,7 +44,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUsers(String surname, String firstName, String email) {
         logger.debug("Entered getUsers");
-        TypedQuery<User> query = em().createNamedQuery("User.findAll", User.class);
+        TypedQuery<User> query = entityManager.em().createNamedQuery("User.findAll", User.class);
         List<User> users = query.getResultList();
         return users
                 .stream().filter(user -> {
@@ -67,7 +70,7 @@ public class UserServiceImpl implements UserService {
      */
     public User getUser(String email) {
         logger.debug("Entered getUser");
-        TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
+        TypedQuery<User> query = entityManager.em().createNamedQuery("User.findByEmail", User.class);
         query.setParameter("email", email);
         User user = query.getSingleResult();
         return user;
@@ -82,7 +85,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserProfile authenticateUser(OAuthCredentials OAuthCredentials) {
         logger.debug("Authenticating user credentials");
-        TypedQuery<User> query = em().createNamedQuery("User.findByEmail", User.class);
+        TypedQuery<User> query = entityManager.em().createNamedQuery("User.findByEmail", User.class);
         query.setParameter("email", OAuthCredentials.getEmail());
         try {
             User validatedUser = query.getSingleResult();
@@ -110,7 +113,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<String> getUserRoles(User user) {
-        TypedQuery<UserRole> query = em().createNamedQuery("UserRole.findUserRoles", UserRole.class);
+        TypedQuery<UserRole> query = entityManager.em().createNamedQuery("UserRole.findUserRoles", UserRole.class);
         query.setParameter("userId",user.getUser_id());
         List<UserRole> userRoles = query.getResultList();
         return userRoles.stream()
@@ -118,14 +121,6 @@ public class UserServiceImpl implements UserService {
                     return ur.getRole().getRole();
                 })
                 .collect(Collectors.toList());
-    }
-
-
-    private static EntityManager em() {
-        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
-        EntityManager em = jpaApi.em();
-        em.setFlushMode(FlushModeType.COMMIT);
-        return (em);
     }
 
 

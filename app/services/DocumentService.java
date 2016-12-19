@@ -9,6 +9,7 @@ import play.mvc.Http;
 import security.OAuthCredentials;
 import security.model.UserProfile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -35,10 +36,10 @@ public interface DocumentService {
 
     /**
      * Creates a document from a JSON object and saves it to the database.
-     * @param form
+     * @param body
      * @return
      */
-    Document create(Http.MultipartFormData form) throws IOException, ApplicationException;
+    Document create(Http.MultipartFormData<File> body) throws IOException, ApplicationException;
 
     /**
      * List Documents, optionally filtered by document type and/or group

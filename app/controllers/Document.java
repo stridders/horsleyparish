@@ -50,31 +50,16 @@ public class Document {
     @BodyParser.Of(BodyParser.MultipartFormData.class)
     public Result createDocument() {
         try {
-//            model.Document document = documentService.create(request().body().asMultipartFormData());
-//            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
             Http.MultipartFormData<File> body = request().body().asMultipartFormData();
-            Http.MultipartFormData.FilePart<File> filePart = body.getFile("file");
-            if (filePart != null) {
-                String fileName = filePart.getFilename();
-                String contentType = filePart.getContentType();
-                File file = filePart.getFile();
-                String filePath = "uploads/" + fileName;
-                copy(file.getAbsolutePath(), "uploads/findme.pdf");
-                return ok("File uploaded to "+file.getAbsolutePath());
-            } else {
-                logger.error("error", "Missing file");
-                return badRequest();
-            }
+            model.Document document = documentService.create(body);
+            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
         } catch(Exception e) {
-            String errMsg = e.getMessage();
+            String errMsg = "Error creating new document."+ e.getMessage();
             logger.error("Error creating new document.",e);
             return badRequest(errMsg);
         }
     }
 
-    public static void copy(String sourcePath, String destinationPath) throws IOException {
-        Files.copy(Paths.get(sourcePath), new FileOutputStream(destinationPath));
-    }
 
     /**
      * List documents, optionally filtered by document type and/or group
@@ -98,7 +83,7 @@ public class Document {
     @Transactional
     public Result getDocument(Long id) {
         model.Document document = documentService.getDocumentById(id);
-        return ok(document.getDocument()).as("applications/pdf");
+        return ok(document.toString()).as("applications/pdf");
     }
 
     /**

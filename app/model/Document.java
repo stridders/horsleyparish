@@ -28,11 +28,15 @@ public class Document implements Serializable {
     @JoinColumn(name = "document_type")
     private DocumentType documentType;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "document_group")
+    private DocumentGroup documentGroup;
+
     @Column(name = "name")
     private String name;
 
-    @Column(name = "document")
-    private byte[] document;
+    @Column(name = "document_path")
+    private String documentPath;
 
     @Column(name = "upload_date")
     private Calendar uploadDate;
@@ -44,6 +48,8 @@ public class Document implements Serializable {
     @Column(name = "format")
     private String format;
 
+    @Column(name = "size")
+    private Integer size;
 
     public Long getDocumentId() {
         return documentId;
@@ -61,6 +67,14 @@ public class Document implements Serializable {
         this.documentType = documentType;
     }
 
+    public DocumentGroup getDocumentGroup() {
+        return documentGroup;
+    }
+
+    public void setDocumentGroup(DocumentGroup documentGroup) {
+        this.documentGroup = documentGroup;
+    }
+
     public String getName() {
         return name;
     }
@@ -69,12 +83,12 @@ public class Document implements Serializable {
         this.name = name;
     }
 
-    public byte[] getDocument() {
-        return document;
+    public String getDocumentPath() {
+        return documentPath;
     }
 
-    public void setDocument(byte[] document) {
-        this.document = document;
+    public void setDocumentPath(String documentPath) {
+        this.documentPath = documentPath;
     }
 
     public Calendar getUploadDate() {
@@ -102,6 +116,14 @@ public class Document implements Serializable {
     }
 
     public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
 
     public String getUploadDateAsString() {
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);

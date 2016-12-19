@@ -24,28 +24,30 @@ ALTER SEQUENCE user_role_user_role_id_seq OWNED BY user_role.user_role_id;
 
 
 CREATE TABLE  "document_type" (
-  document_type   VARCHAR(50) PRIMARY KEY,
-  description     VARCHAR(254),
-  role            VARCHAR(20) NOT NULL REFERENCES role(role));
+  document_type    VARCHAR(50) PRIMARY KEY,
+  description      VARCHAR(254),
+  role             VARCHAR(20) NOT NULL REFERENCES role(role));
+
+
+CREATE SEQUENCE document_group_group_id_seq;
+CREATE TABLE  "document_group" (
+  group_id        BIGINT PRIMARY KEY DEFAULT nextval('document_group_group_id_seq'),
+  groupName       VARCHAR(50) NOT NULL);
+  ALTER SEQUENCE document_group_group_id_seq OWNED BY document_group.group_id;
 
 
 CREATE SEQUENCE document_document_id_seq;
 CREATE TABLE  "document" (
   document_id     BIGINT PRIMARY KEY DEFAULT nextval('document_document_id_seq'),
   document_type   VARCHAR(50) REFERENCES document_type(document_type),
+  document_group  BIGINT REFERENCES document_group(group_id),
   name            VARCHAR(254) NOT NULL,
-  document        bytea,
+  document_path   VARCHAR(254) NOT NULL,
   upload_date     TIMESTAMP NOT NULL,
   user_id         bigint NOT NULL REFERENCES person(user_id),
+  size            int,
   format          VARCHAR(5) NOT NULL);
 ALTER SEQUENCE document_document_id_seq OWNED BY document.document_id;
-
-CREATE SEQUENCE document_group_group_id_seq;
-CREATE TABLE  "document_group" (
-  group_id        BIGINT PRIMARY KEY DEFAULT nextval('document_group_group_id_seq'),
-  groupName       VARCHAR(50) NOT NULL,
-  document_id     BIGINT REFERENCES document(document_id));
-ALTER SEQUENCE document_group_group_id_seq OWNED BY document_group.group_id;
 
 # --- !Downs
 

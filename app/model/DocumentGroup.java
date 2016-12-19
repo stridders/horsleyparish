@@ -2,11 +2,14 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "document_group")
 @NamedQueries({
         @NamedQuery(name="DocumentGroup.findAll", query="select dg from DocumentGroup dg"),
+        @NamedQuery(name="DocumentGroup.findByGroupName", query="select dg from DocumentGroup dg where dg.groupName = :groupName"),
 })
 public class DocumentGroup implements Serializable {
 
@@ -19,9 +22,12 @@ public class DocumentGroup implements Serializable {
     @Column(name = "group_name")
     private String groupName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "documentId", insertable = false, updatable = false)
-    private Document document;
+    @OneToMany(mappedBy = "documentGroup")
+    private List<Document> documents;
+
+    public DocumentGroup() {
+        this.documents = new ArrayList<>();
+    }
 
     public String getDocumentGroupId() {
         return documentGroupId;
@@ -39,12 +45,13 @@ public class DocumentGroup implements Serializable {
         this.groupName = groupName;
     }
 
-    public Document getDocument() {
-        return document;
+    public List<Document> getDocuments() {
+        return documents;
     }
 
-    public void setDocument(Document document) {
-        this.document = document;
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
+
 
 }

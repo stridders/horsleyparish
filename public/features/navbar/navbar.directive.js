@@ -22,6 +22,7 @@
 
                 function initialisation() {
                     nbc.user = AuthenticationService.GetUserName();
+                    let userRoles = AuthenticationService.GetUserRoles();
                     nbc.links = [
                         {
                             heading: 'Home',
@@ -66,6 +67,17 @@
                                 link:    '/logout',
                                 bgcolour:  '#FFFFFF'
                             });
+                        if (userRoles.length > 0) {
+                            nbc.links.push(
+                                {
+                                    heading: 'Upload',
+                                    title:   'Upload Files(s)',
+                                    image:   '/web/img/upload.png',
+                                    text:    '',
+                                    link:    '/upload',
+                                    bgcolour:  '#E54800'
+                                });
+                        }
                     } else {
                         nbc.links.push(
                             {

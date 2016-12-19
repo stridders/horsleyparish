@@ -17,6 +17,7 @@
         service.GetUserContext = GetUserContext;
         service.GetUserProfile = GetUserProfile;
         service.GetSecurityHeader = GetSecurityHeader;
+        service.GetUserRoles = GetUserRoles;
 
         return service;
 
@@ -87,6 +88,20 @@
                 userName = userProfile.email;
             }
             return userName;
+        }
+
+        /**
+         * Get userRoles from session cookie (if user is logged in)
+         * @returns {*}
+         * @constructor
+         */
+        function GetUserRoles() {
+            let userRoles = [];
+            let userProfile = JSON.parse($window.localStorage.getItem("userProfile"));
+            if (userProfile && userProfile.roles) {
+                userRoles = userProfile.roles;
+            }
+            return userRoles;
         }
 
         /**

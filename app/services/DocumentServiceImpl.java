@@ -1,31 +1,28 @@
 package services;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import exceptionHandlers.ApplicationException;
 import model.Document;
+import model.DocumentGroup;
 import model.DocumentType;
 import model.User;
-import model.UserRole;
 import play.Logger;
-import play.api.Play;
-import play.db.jpa.JPA;
-import play.db.jpa.JPAApi;
 import play.mvc.Http;
-import security.OAuthCredentials;
 import security.model.UserProfile;
 import services.transformers.DocumentTransformer;
 import services.transformers.UserTransformer;
 
-import javax.persistence.EntityManager;
-import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.io.*;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Objects.nonNull;
+
 
 
 public class DocumentServiceImpl implements DocumentService {
@@ -34,7 +31,13 @@ public class DocumentServiceImpl implements DocumentService {
     UserTransformer documentTransformer;
 
     @Inject
+    services.EntityManager entityManager;
+
+    @Inject
     UserService userService;
+
+    @Inject
+    DocumentGroupService documentGroupService;
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
@@ -49,14 +52,14 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public List<DocumentType> getDocumentTypes() {
-        TypedQuery<DocumentType> query = em().createNamedQuery("DocumentType.findAll", DocumentType.class);
+        TypedQuery<DocumentType> query = entityManager.em().createNamedQuery("DocumentType.findAll", DocumentType.class);
         List<DocumentType> documentTypes = query.getResultList();
         return documentTypes;
     }
 
     @Override
     public DocumentType getDocumentType(String docType) {
-        TypedQuery<DocumentType> query = em().createNamedQuery("DocumentType.findType", DocumentType.class);
+        TypedQuery<DocumentType> query = entityManager.em().createNamedQuery("DocumentType.findType", DocumentType.class);
         query.setParameter("docType", docType);
         DocumentType documentType = query.getSingleResult();
         return documentType;
@@ -64,55 +67,52 @@ public class DocumentServiceImpl implements DocumentService {
 
     /**
      * Creates, saves and returns a document POJO
-     * @param form
+     * @param body
      * @return
      */
     @Override
-    public Document create(Http.MultipartFormData form) throws IOException, ApplicationException {
+    public Document create(Http.MultipartFormData<File> body) throws IOException, ApplicationException {
         logger.debug("Entered create (document)");
 
-        if (form == null || form.getFile("file") == null ) {
-            throw new ApplicationException(ApplicationException.DOCUMENT__MISSING_MULTIPART_DATA);
+        Http.MultipartFormData.FilePart<File> filePart = body.getFile("file");
+        if (filePart != null) {
+            String fileName = filePart.getFilename();
+            String contentType = filePart.getContentType();
+            File file = filePart.getFile();
+            String filePath = "public/uploads/" + fileName;
+            copy(file.getAbsolutePath(), filePath);
+            Document document = new Document();
+            Map<String, DocumentType> docTypes = mapDocumentTypes();
+            UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
+            User user = userService.getUser(userProfile.getEmail());
+            document = DocumentTransformer.createDocument(body, docTypes, user, filePath);
+            try {
+                DocumentGroup documentGroup = documentGroupService.getDocumentGroup(document.getDocumentGroup().getGroupName());
+                if (nonNull(documentGroup)) {
+                    document.setDocumentGroup(documentGroup);
+                    documentGroup.getDocuments().add(document);
+                }
+            } catch(NoResultException nre) {
+                // No action required. New document group will be created
+            }
+            entityManager.em().persist(document);
+            entityManager.em().flush();
+            return document;
+        } else {
+            logger.error("error", "Missing file");
+            throw new ApplicationException("Unable to find file in request body");
         }
 
-        // Create path components to save the file
-        final Http.MultipartFormData.FilePart filePart = form.getFile("file");
+    }
 
-        OutputStream out = null;
-        InputStream filecontent = null;
-
-        try {
-            out = new FileOutputStream(new File("/upload" + File.separator
-                    + "test1.pdf"));
-            filecontent = (InputStream)filePart.getFile();
-
-            int read = 0;
-            final byte[] bytes = new byte[1024];
-
-            while ((read = filecontent.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
-            }
-
-        } catch (FileNotFoundException fne) {
-            logger.error("Problems during file upload. Error: {0}",
-                    new Object[]{fne.getMessage()});
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-            if (filecontent != null) {
-                filecontent.close();
-            }
-        }
-
-        Document document = new Document();
-//        Map<String, DocumentType> docTypes = mapDocumentTypes();
-//        UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
-//        User user = userService.getUser(userProfile.getEmail());
-//        document = DocumentTransformer.createDocument(form, docTypes, user);
-//        em().persist(document);
-//        em().flush();
-        return document;
+    /**
+     * Copy a file from one location to another
+     * @param sourcePath
+     * @param destinationPath
+     * @throws IOException
+     */
+    public static void copy(String sourcePath, String destinationPath) throws IOException {
+        Files.copy(Paths.get(sourcePath), new FileOutputStream(destinationPath));
     }
 
     /**
@@ -127,7 +127,7 @@ public class DocumentServiceImpl implements DocumentService {
         if (docType == null) {
             docType="";
         }
-        TypedQuery<Document> query = em().createNamedQuery("Document.findDocuments", Document.class);
+        TypedQuery<Document> query = entityManager.em().createNamedQuery("Document.findDocuments", Document.class);
         query.setParameter("docType", '%'+docType+'%');
         List<Document> documents = query.getResultList();
         return documents;
@@ -141,7 +141,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document getDocumentById(Long id) {
         logger.debug("Entered getDocumentById");
-        TypedQuery<Document> query = em().createNamedQuery("Document.findByDocumentId", Document.class);
+        TypedQuery<Document> query = entityManager.em().createNamedQuery("Document.findByDocumentId", Document.class);
         query.setParameter("id", id);
         Document document = query.getSingleResult();
         return document;
@@ -160,18 +160,6 @@ public class DocumentServiceImpl implements DocumentService {
         return docTypes;
     }
 
-    private static EntityManager em() {
-        JPAApi jpaApi = Play.current().injector().instanceOf(JPAApi.class);
-        EntityManager em = jpaApi.em();
-        em.setFlushMode(FlushModeType.COMMIT);
-        return (em);
-    }
-
-//    private static EntityManager em() {
-//        EntityManager em = JPA.em();
-//        em.setFlushMode(FlushModeType.COMMIT);
-//        return (em);
-//    }
 
 
 }

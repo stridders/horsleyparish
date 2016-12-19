@@ -25,6 +25,7 @@ insert into document_type (document_type,description,role) values ('PC_PUB_ANNUA
 insert into document_type (document_type,description,role) values ('PC_PUB_GOVERNANCE_&_POLICIES', 'Governance and Policies','HORSLEY_PC');
 insert into document_type (document_type,description,role) values ('PC_PUB_RISK_ASSEMENT', 'Risk Assements/Health & Safety','HORSLEY_PC');
 insert into document_type (document_type,description,role) values ('PC_PLANNING', 'Plans & Projects','HORSLEY_PC');
+insert into document_type (document_type,description,role) values ('MISC', 'Miscellaneous Documents','ADMIN');
 
 # --- !Downs
 

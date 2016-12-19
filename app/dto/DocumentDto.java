@@ -19,6 +19,9 @@ public class DocumentDto {
     @JsonProperty("documentType")
     private String documentType;
 
+    @JsonProperty("documentPath")
+    private String documentPath;
+
     @JsonProperty("format")
     private String format;
 
@@ -27,6 +30,9 @@ public class DocumentDto {
 
     @JsonProperty("uploadDate")
     private String uploadDate;
+
+    @JsonProperty("fileSize")
+    private Integer fileSize;
 
     @JsonProperty("user")
     private String user;
@@ -55,6 +61,14 @@ public class DocumentDto {
         this.documentType = documentType;
     }
 
+    public String getDocumentPath() {
+        return documentPath;
+    }
+
+    public void setDocumentPath(String documentPath) {
+        this.documentPath = documentPath;
+    }
+
     public String getFormat() {
         return format;
     }
@@ -77,6 +91,14 @@ public class DocumentDto {
 
     public void setUploadDate(String uploadDate) {
         this.uploadDate = uploadDate;
+    }
+
+    public Integer getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(Integer fileSize) {
+        this.fileSize = fileSize;
     }
 
     public String getUser() {

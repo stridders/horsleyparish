@@ -10,7 +10,7 @@
     function ParishCouncilService($http) {
 
         var service = {};
-        service.getDocumentTypes = getDocumentTypes;
+        //service.getDocumentTypes = getDocumentTypes;
         service.timespanClicked = timespanClicked;
         // service.uploadMinutes = uploadMinutes;
         // service.accountDocUpload = accountDocUpload;

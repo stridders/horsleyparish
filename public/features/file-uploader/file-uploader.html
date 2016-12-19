@@ -1,33 +1,33 @@
 <!-- 1. nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
-<div ng-controller="FileUploaderController" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+<div ng-controller="FileUploaderController as upl" nv-file-drop="" uploader="upl.uploader" filters="queueLimit, customFilter">
 
     <div class="upl-container">
         <div>
             <div>
                 <div class="upl-form">
-                    <label class="control-label" for="fileName">File Name</label>
-                    <input class="upl-form-input"
-                            type="text"
-                            name="fileName"
-                            id="fileName"
-                            ng-model="fileName"/>
-                </div>
-
-                <div class="upl-form">
-                    <label class="control-label" for="fileName">File Group</label>
+                    <label class="control-label" for="fileTitle">Title</label>
                     <input class="upl-form-input"
                            type="text"
-                           name="groupName"
-                           id="groupName"
-                           ng-model="groupName"/>
+                           name="fileTitle"
+                           id="fileTitle"
+                           ng-model="upl.formData.fileTitle"/>
                 </div>
 
                 <div class="upl-form">
-                    <label class="control-label" for="documentType">Document Type</label>
-                    <select name="documentType"
-                        id="documentType"
-                        ng-model="documentType"
-                        ng-options="dt as dt.description for dt in docTypeOptions track by dt.documentType">
+                    <label class="control-label" for="fileGroup">Group</label>
+                    <input class="upl-form-input"
+                           type="text"
+                           name="fileGroup"
+                           id="fileGroup"
+                           ng-model="upl.formData.fileGroup"/>
+                </div>
+
+                <div class="upl-form">
+                    <label class="control-label" for="docType">Document Type</label>
+                    <select name="docType"
+                            id="docType"
+                            ng-model="upl.formData.docType"
+                            ng-options="dt as dt.description for dt in upl.docTypeOptions track by dt.documentType">
                     </select>
                 </div>
 
@@ -37,99 +37,96 @@
         <div>
             <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
             Multiple
-            <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+            <input type="file" nv-file-select="" accept=".pdf" uploader="upl.uploader" multiple  /><br/>
             Single
-            <input type="file" nv-file-select="" uploader="uploader" />
+            <input type="file" nv-file-select="" accept=".pdf" uploader="upl.uploader" />
         </div>
     </div>
 
     <div class="upl-container">
 
-            <div class="flex-25">
+        <div class="flex-25">
 
-                <h3>Select files</h3>
+            <h3>Select files</h3>
 
-                <div ng-show="uploader.isHTML5">
-                    <!-- 3. nv-file-over uploader="link" over-class="className" -->
-                    <div class="well upldr-drop-zone" nv-file-over="" uploader="uploader">
-                        Base drop zone
-                    </div>
-
-                    <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
-                    <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
-                        <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well my-drop-zone">
-                            Another drop zone with its own settings
-                        </div>
+            <div ng-show="upl.uploader.isHTML5">
+                <div nv-file-drop="" uploader="upl.uploader" options="{autoUpload: true}">
+                    <div nv-file-over=""
+                         uploader="upl.uploader"
+                         over-class="another-file-over-class"
+                         class="well my-drop-zone">
+                        Another drop zone with its own settings
                     </div>
                 </div>
-
             </div>
 
-            <div class="flex-15"></div>
+        </div>
 
-            <div class="flex-60">
+        <div class="flex-15"></div>
 
-                <h3>Upload queue</h3>
-                <p>Queue length: {{ uploader.queue.length }}</p>
+        <div class="flex-60">
 
-                <table class="table upldr-table">
-                    <thead>
-                    <tr>
-                        <th width="50%">Name</th>
-                        <th ng-show="uploader.isHTML5">Size</th>
-                        <th ng-show="uploader.isHTML5">Progress</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="item in uploader.queue">
-                        <td><strong>{{ item.file.name }}</strong></td>
-                        <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                        <td ng-show="uploader.isHTML5">
-                            <div class="progress" style="margin-bottom: 0;">
-                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                            <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                            <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                        </td>
-                        <td nowrap>
-                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                <span class="glyphicon glyphicon-upload"></span> Upload
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                            </button>
-                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                                <span class="glyphicon glyphicon-trash"></span> Remove
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <h3>Upload queue</h3>
+            <p>Queue length: {{ upl.uploader.queue.length }}</p>
 
+            <table class="table upldr-table">
+                <thead>
+                <tr>
+                    <th width="50%">Name</th>
+                    <th ng-show="upl.uploader.isHTML5">Size</th>
+                    <th ng-show="upl.uploader.isHTML5">Progress</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in upl.uploader.queue">
+                    <td><strong>{{ item.file.name }}</strong></td>
+                    <td ng-show="upl.uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                    <td ng-show="upl.uploader.isHTML5">
+                        <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    </td>
+                    <td nowrap>
+                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                            <span class="glyphicon glyphicon-upload"></span> Upload
+                        </button>
+                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                            <span class="glyphicon glyphicon-trash"></span> Remove
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
                 <div>
-                    <div>
-                        Queue progress:
-                        <div class="progress" style="">
-                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
-                        </div>
+                    Queue progress:
+                    <div class="progress" style="">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': upl.uploader.progress + '%' }"></div>
                     </div>
-                    <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-                        <span class="glyphicon glyphicon-upload"></span> Upload all
-                    </button>
-                    <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
-                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
-                    </button>
-                    <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                        <span class="glyphicon glyphicon-trash"></span> Remove all
-                    </button>
                 </div>
-
+                <button type="button" class="btn btn-success btn-s" ng-click="upl.uploader.uploadAll()" ng-disabled="!upl.uploader.getNotUploadedItems().length">
+                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                </button>
+                <button type="button" class="btn btn-warning btn-s" ng-click="upl.uploader.cancelAll()" ng-disabled="!upl.uploader.isUploading">
+                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                </button>
+                <button type="button" class="btn btn-danger btn-s" ng-click="upl.uploader.clearQueue()" ng-disabled="!upl.uploader.queue.length">
+                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                </button>
             </div>
+
+        </div>
 
     </div>
 </div>
