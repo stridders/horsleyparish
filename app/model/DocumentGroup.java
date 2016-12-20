@@ -16,24 +16,26 @@ public class DocumentGroup implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @SequenceGenerator(name = "document_group_group_id_seq", sequenceName = "document_group_group_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "document_group_group_id_seq")
     @Column(name = "document_group_id")
-    private String documentGroupId;
+    private Long documentGroupId;
 
     @Column(name = "group_name")
     private String groupName;
 
-    @OneToMany(mappedBy = "documentGroup")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "documentGroup")
     private List<Document> documents;
 
     public DocumentGroup() {
         this.documents = new ArrayList<>();
     }
 
-    public String getDocumentGroupId() {
+    public Long getDocumentGroupId() {
         return documentGroupId;
     }
 
-    public void setDocumentGroupId(String documentGroupId) {
+    public void setDocumentGroupId(Long documentGroupId) {
         this.documentGroupId = documentGroupId;
     }
 

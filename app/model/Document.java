@@ -28,7 +28,7 @@ public class Document implements Serializable {
     @JoinColumn(name = "document_type")
     private DocumentType documentType;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "document_group")
     private DocumentGroup documentGroup;
 

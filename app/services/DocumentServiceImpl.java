@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 
@@ -89,13 +90,13 @@ public class DocumentServiceImpl implements DocumentService {
             try {
                 DocumentGroup documentGroup = documentGroupService.getDocumentGroup(document.getDocumentGroup().getGroupName());
                 if (nonNull(documentGroup)) {
-                    document.setDocumentGroup(documentGroup);
                     documentGroup.getDocuments().add(document);
+                    document.setDocumentGroup(documentGroup);
                 }
             } catch(NoResultException nre) {
-                // No action required. New document group will be created
+                // do nothing
             }
-            entityManager.em().persist(document);
+            entityManager.em().merge(document);
             entityManager.em().flush();
             return document;
         } else {
