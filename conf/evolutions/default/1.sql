@@ -32,17 +32,18 @@ CREATE TABLE  "document_type" (
 CREATE SEQUENCE document_group_group_id_seq;
 CREATE TABLE  "document_group" (
   group_id        BIGINT PRIMARY KEY DEFAULT nextval('document_group_group_id_seq'),
+  document_type   VARCHAR(50) NOT NULL REFERENCES document_type(document_type),
   group_name      VARCHAR(50) NOT NULL);
-  ALTER SEQUENCE document_group_group_id_seq OWNED BY document_group.group_id;
+ALTER SEQUENCE document_group_group_id_seq OWNED BY document_group.group_id;
 
 
 CREATE SEQUENCE document_document_id_seq;
 CREATE TABLE  "document" (
   document_id     BIGINT PRIMARY KEY DEFAULT nextval('document_document_id_seq'),
-  document_type   VARCHAR(50) REFERENCES document_type(document_type),
-  document_group  BIGINT REFERENCES document_group(group_id),
+  document_type   VARCHAR(50) NOT NULL REFERENCES document_type(document_type),
   name            VARCHAR(254) NOT NULL,
   document_path   VARCHAR(254) NOT NULL,
+  group_id        BIGINT REFERENCES document_group(group_id),
   upload_date     TIMESTAMP NOT NULL,
   user_id         bigint NOT NULL REFERENCES person(user_id),
   size            int,

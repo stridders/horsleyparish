@@ -18,6 +18,7 @@
         service.GetUserProfile = GetUserProfile;
         service.GetSecurityHeader = GetSecurityHeader;
         service.GetUserRoles = GetUserRoles;
+        service.UserHasRole = UserHasRole;
 
         return service;
 
@@ -102,6 +103,17 @@
                 userRoles = userProfile.roles;
             }
             return userRoles;
+        }
+
+        /**
+         * Determines if a user has a specific role or not
+         * @param role
+         * @returns {*}
+         * @constructor
+         */
+        function UserHasRole(role) {
+            let userRoles = this.GetUserRoles.toString();
+            return userRoles.indexOf(role) > -1 || userRoles.indexOf("ADMIN");
         }
 
         /**

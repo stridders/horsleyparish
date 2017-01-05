@@ -45,17 +45,12 @@ public class DocumentTransformer {
      * @throws IOException
      * @throws ApplicationException
      */
-    public static Document createDocument(Http.MultipartFormData form,
-                                             Map<String, DocumentType> docTypes,
-                                             User user,
-                                             String filePath)
-                                            throws IOException, ApplicationException {
+    public static Document createPOJO(Http.MultipartFormData form,
+                                 Map<String, DocumentType> docTypes,
+                                 User user)
+                                throws IOException, ApplicationException {
         Document document = new Document();
-        DocumentGroup documentGroup = new DocumentGroup();
-
-        String name;
         String documentType;
-
         Calendar cal = Calendar.getInstance();
 
         Http.MultipartFormData.FilePart filePart = form.getFile("file");
@@ -84,20 +79,11 @@ public class DocumentTransformer {
                 document.setSize(valueOf(size));
             }
         }
-        document.setDocumentPath(filePath);
         document.setFormat(getFileExtension(fileName));
+        String filePath = "public/uploads/" + document.getName()+"."+document.getFormat();
+        document.setDocumentPath(filePath);
         document.setUploadDate(cal);
         document.setUser(user);
-
-        if (nonNull(formData.get("fileGroup"))) {
-            String fileGroup = Arrays.asList(formData.get("fileGroup")).toString().replaceAll("[\\[\\]]","");
-            if (!fileGroup.equals("null")) {
-                documentGroup = new DocumentGroup();
-                documentGroup.getDocuments().add(document);
-                documentGroup.setGroupName(fileGroup);
-                document.setDocumentGroup(documentGroup);
-            }
-        }
 
         return document;
     }
@@ -133,11 +119,12 @@ public class DocumentTransformer {
         dto.get_links().setSelf(href);
         dto.setDocumentId(document.getDocumentId());
         dto.setDocumentType(document.getDocumentType().getDocumentType());
+        dto.setFileSize(document.getSize());
         dto.setFileName(document.getName());
         dto.setFormat(document.getFormat());
         dto.setUploadDate(document.getUploadDateAsString());
         dto.setUser(document.getUser().getEmail());
-        dto.setDocumentPath(document.getDocumentPath());
+        dto.setDocumentPath(document.getDocumentPath().replace("public","web"));
         return dto;
     }
 
@@ -155,20 +142,6 @@ public class DocumentTransformer {
         return sw.toString();
     }
 
-    /**
-     * Converts a Java Object into a Byte Array
-     * @param obj
-     * @return
-     * @throws IOException
-     */
-    public static byte[] serialize(Object obj) throws IOException {
-        try(ByteArrayOutputStream b = new ByteArrayOutputStream()){
-            try(ObjectOutputStream o = new ObjectOutputStream(b)){
-                o.writeObject(obj);
-            }
-            return b.toByteArray();
-        }
-    }
 
     /**
      * Returns the file extension (i.e. file format) from a file name

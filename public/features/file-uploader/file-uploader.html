@@ -1,68 +1,77 @@
 <!-- 1. nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
 <div ng-controller="FileUploaderController as upl" nv-file-drop="" uploader="upl.uploader" filters="queueLimit, customFilter">
 
-    <div class="upl-container">
-        <div>
-            <div>
-                <div class="upl-form">
-                    <label class="control-label" for="fileTitle">Title</label>
-                    <input class="upl-form-input"
-                           type="text"
-                           name="fileTitle"
-                           id="fileTitle"
-                           ng-model="upl.formData.fileTitle"/>
-                </div>
-
-                <div class="upl-form">
-                    <label class="control-label" for="fileGroup">Group</label>
-                    <input class="upl-form-input"
-                           type="text"
-                           name="fileGroup"
-                           id="fileGroup"
-                           ng-model="upl.formData.fileGroup"/>
-                </div>
-
-                <div class="upl-form">
-                    <label class="control-label" for="docType">Document Type</label>
-                    <select name="docType"
-                            id="docType"
-                            ng-model="upl.formData.docType"
-                            ng-options="dt as dt.description for dt in upl.docTypeOptions track by dt.documentType">
-                    </select>
-                </div>
-
-            </div>
-        </div>
-
-        <div>
-            <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
-            Multiple
-            <input type="file" nv-file-select="" accept=".pdf" uploader="upl.uploader" multiple  /><br/>
-            Single
-            <input type="file" nv-file-select="" accept=".pdf" uploader="upl.uploader" />
-        </div>
+    <div class="page-banner">
+        <div class="text-content title">File Upload Facility</div>
     </div>
-
     <div class="upl-container">
+        <!--<div>-->
+            <!--<div>-->
+                <!--<div class="upl-form">-->
+                    <!--<label class="control-label" for="fileTitle">Title</label>-->
+                    <!--<input class="upl-form-input"-->
+                           <!--type="text"-->
+                           <!--name="fileTitle"-->
+                           <!--id="fileTitle"-->
+                           <!--ng-model="upl.formData.fileTitle"/>-->
+                <!--</div>-->
 
-        <div class="flex-25">
+                <!--<div class="upl-form">-->
+                    <!--<label class="control-label" for="fileGroup">Group</label>-->
+                    <!--<input class="upl-form-input"-->
+                           <!--type="text"-->
+                           <!--name="fileGroup"-->
+                           <!--id="fileGroup"-->
+                           <!--ng-model="upl.formData.fileGroup"/>-->
+                <!--</div>-->
 
-            <h3>Select files</h3>
+                <!--<div class="upl-form">-->
+                    <!--<label class="control-label" for="docType">Document Type</label>-->
+                    <!--<select name="docType"-->
+                            <!--id="docType"-->
+                            <!--ng-model="upl.formData.docType"-->
+                            <!--ng-options="dt.documentType as dt.description for dt in upl.docTypeOptions track by dt.documentType">-->
+                    <!--</select>-->
+                <!--</div>-->
 
-            <div ng-show="upl.uploader.isHTML5">
-                <div nv-file-drop="" uploader="upl.uploader" options="{autoUpload: true}">
-                    <div nv-file-over=""
-                         uploader="upl.uploader"
-                         over-class="another-file-over-class"
-                         class="well my-drop-zone">
-                        Another drop zone with its own settings
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <div class="upl-ui">
+                <div class="upl-btn">
+                    <label for="file-upload">Click to select file</label>
+                    <input id="file-upload" type="file" nv-file-select="" accept=".pdf" uploader="upl.uploader" multiple  />
+                </div>
+                <div ng-show="upl.uploader.isHTML5">
+                    <div nv-file-drop="" uploader="upl.uploader" options="{autoUpload: true}">
+                        <div nv-file-over=""
+                             uploader="upl.uploader"
+                             over-class="upl-drop-zone-over"
+                             class="well upl-drop-zone">
+                            or drag and <br>
+                            drop files here
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <div class="upl-hlp">
+                <b>To upload one or more files:</b><br><br>
+                <ul>
+                    <li>Click the button (left) or drag and drop a file onto the drop zone.</li>
+                    <li>Fill in the document details</li>
+                    <li>Click <i>upload</i></li>
+                    <li>Files will disappear from the queue once they've been uploaded.</li>
+                </ul>
+            </div>
 
-        <div class="flex-15"></div>
+        <!--</div>-->
+    </div>
+
+    <div class="upl-container stnd-bg"
+         style="height: 300px"
+         ng-if="upl.uploader.queue.length > -1">
 
         <div class="flex-60">
 
@@ -72,7 +81,7 @@
             <table class="table upldr-table">
                 <thead>
                 <tr>
-                    <th width="50%">Name</th>
+                    <th>Name</th>
                     <th ng-show="upl.uploader.isHTML5">Size</th>
                     <th ng-show="upl.uploader.isHTML5">Progress</th>
                     <th>Status</th>
@@ -81,7 +90,13 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in upl.uploader.queue">
-                    <td><strong>{{ item.file.name }}</strong></td>
+                    <td>
+                        <input class="upl-form-input"
+                               type="text"
+                               name="fileTitle{{$index}}"
+                               id="fileTitle{{$index}}"
+                               ng-model="item.formData[0].fileTitle"/>
+                    </td>
                     <td ng-show="upl.uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
                     <td ng-show="upl.uploader.isHTML5">
                         <div class="progress" style="margin-bottom: 0;">

@@ -19,7 +19,7 @@
         let autoUpload = false;
         let maxFileSize = 2;
         let acceptFileTypes = "|jpg|png|jpeg|bmp|gif|pdf|";
-        let maxQueueSize = 10;
+        upl.maxQueueSize = 10;
         upl.formData = {
             fileTitle: null,
             docType: null,
@@ -32,13 +32,14 @@
             headers: AuthenticationService.GetSecurityHeader(),
             formData: [upl.formData],
             url: 'api/documents',
+            removeAfterUpload: true,
             autoUpload: autoUpload
         });
 
         initialise();
 
         function initialise() {
-            FileUploadService.getDocumentTypes("PC_ACCOUNT",function (response) {
+            FileUploadService.getDocumentTypes(null,"ADMIN",function (response) {
                 if (response) {
                     upl.docTypeOptions = response.documentTypes;
                 } else {
@@ -46,7 +47,7 @@
                     FlashService.Error(errMsg);
                 }
             });
-            FileUploadService.initialiseSyncFilter(upl.uploader,maxQueueSize,acceptFileTypes);
+            FileUploadService.initialiseSyncFilter(upl.uploader,upl.maxQueueSize,acceptFileTypes);
             FileUploadService.initialiseAsyncFilter(upl.uploader, 1e3);
             FileUploadService.configureCallbacks(upl.uploader,upl.formData);
         }

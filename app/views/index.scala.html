@@ -36,7 +36,8 @@
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("moment.min.js"))'></script>
         <script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
         <script type="text/javascript" src='@routes.Assets.at("plugins/rrule/rrule.js")'></script>
-        <script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
+
+		<script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("js/services.module.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("js/app.js")'></script>
 
@@ -68,9 +69,14 @@
 		<!-- Home-Page -->
 		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
 
-			<!-- Calendar -->
+		<!-- Calendar -->
 		<script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
 		<link rel="stylesheet" href='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.css")'/>
+
+		<!-- The Horses Mouth -->
+		<script type="text/javascript" src='@routes.Assets.at("features/the-horses-mouth/horses-mouth.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/the-horses-mouth/horses-mouth.service.js")'></script>
+		<link rel="stylesheet" href='@routes.Assets.at("features/the-horses-mouth/horses-mouth.css")'/>
 
 		<!-- History -->
 		<script type="text/javascript" src='@routes.Assets.at("features/history/history.controller.js")'></script>
@@ -88,6 +94,12 @@
 		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.controller.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.services.js")'></script>
 
+		<!-- Animated bird -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/animated-bird/animated-bird.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/animated-bird/animated-bird.directive.js")'></script>
+
+		<!-- Community Shop -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/community-shop/community-shop.css")'/>
 
 	</head>
 
@@ -97,6 +109,7 @@
 		<div id="page-wrapper">
 			<header></header>
 			<div class="main-container">
+				<div class="main-page-hdr"></div>
 				<ng-view class="main-page"></ng-view>
 				<div ng-include="'/web/features/common/page-footer.html'"></div>
 			</div>

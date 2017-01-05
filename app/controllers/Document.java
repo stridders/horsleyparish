@@ -11,13 +11,9 @@ import play.mvc.Security;
 import security.RoleBasedAuthoriser;
 import security.UserAuthenticator;
 import services.DocumentService;
-
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
+import services.DocumentTypeService;
 import services.transformers.DocumentTransformer;
 import services.transformers.DocumentTypeTransformer;
 
@@ -34,6 +30,9 @@ public class Document {
 
     @Inject
     DocumentService documentService;
+
+    @Inject
+    DocumentTypeService documentTypeService;
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
@@ -71,7 +70,7 @@ public class Document {
     public Result listDocuments(String docType, String docGroup) {
         try {
             logger.debug("Getting list of documents...");
-            List<model.Document> documents = documentService.getDocuments(docType,docGroup);
+            List<model.Document> documents = documentService.getAll(docType,docGroup);
             return ok(DocumentTransformer.transformDocumentList(documents,docType,docGroup)).as("application/hal+json");
         } catch(Exception e) {
             String errMsg = e.getMessage();
@@ -82,21 +81,22 @@ public class Document {
 
     @Transactional
     public Result getDocument(Long id) {
-        model.Document document = documentService.getDocumentById(id);
+        model.Document document = documentService.get(id);
         return ok(document.toString()).as("applications/pdf");
     }
 
     /**
      * List document types, optionally filtered by document type
      * @param doctype
+     * @param role
      * @return
      */
     @Transactional
-    public Result listDocumentTypes(String doctype) {
+    public Result listDocumentTypes(String doctype, String role) {
         try {
             logger.debug("Getting list of document types...");
-            List<DocumentType> documentTypes = documentService.getDocumentTypes(doctype);
-            return ok(DocumentTypeTransformer.transformDocumentTypeListToHalJson(documentTypes,doctype)).as("application/hal+json");
+            List<DocumentType> documentTypes = documentTypeService.getAll(doctype,role);
+            return ok(DocumentTypeTransformer.convertToJson(documentTypes,doctype,role)).as("application/hal+json");
         } catch(Exception e) {
             String errMsg = e.getMessage();
             logger.error("Error listing document types.",e);

@@ -20,6 +20,8 @@ import services.DocumentGroupService;
 import services.DocumentGroupServiceImpl;
 import services.DocumentService;
 import services.DocumentServiceImpl;
+import services.DocumentTypeService;
+import services.DocumentTypeServiceImpl;
 import services.UserService;
 import services.UserServiceImpl;
 
@@ -49,6 +51,7 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
         // Bind service classes to their implementations
         bind(UserService.class).to(UserServiceImpl.class);
         bind(DocumentService.class).to(DocumentServiceImpl.class);
+        bind(DocumentTypeService.class).to(DocumentTypeServiceImpl.class);
         bind(DocumentGroupService.class).to(DocumentGroupServiceImpl.class);
 
         // Example of binding a collection of 'config' parameter  key/value (String, Integer) pairs to Java util annotations

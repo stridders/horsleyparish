@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import javax.persistence.*;
@@ -24,12 +25,12 @@ public class Document implements Serializable {
     @Column(name="document_id", updatable=false)
     private Long documentId;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "document_type")
     private DocumentType documentType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "document_group")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "group_id")
     private DocumentGroup documentGroup;
 
     @Column(name = "name")
@@ -115,7 +116,7 @@ public class Document implements Serializable {
         this.format = format;
     }
 
-    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
+    public static final String DATE_FORMAT_NOW = "yyyy-MM-dd'T'HH:mm'Z'";
 
     public Integer getSize() {
         return size;

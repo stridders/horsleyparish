@@ -35,6 +35,9 @@ public class DocumentServiceImpl implements DocumentService {
     services.EntityManager entityManager;
 
     @Inject
+    DocumentTypeService documentTypeService;
+
+    @Inject
     UserService userService;
 
     @Inject
@@ -42,32 +45,9 @@ public class DocumentServiceImpl implements DocumentService {
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
-    @Override
-    public List<DocumentType> getDocumentTypes(String filter) {
-        List<DocumentType> documentTypes = getDocumentTypes();
-        if (nonNull(documentTypes) && nonNull(filter)) {
-            documentTypes.stream().filter(dt -> dt.getDocumentType().contains(filter));
-        }
-        return documentTypes;
-    }
-
-    @Override
-    public List<DocumentType> getDocumentTypes() {
-        TypedQuery<DocumentType> query = entityManager.em().createNamedQuery("DocumentType.findAll", DocumentType.class);
-        List<DocumentType> documentTypes = query.getResultList();
-        return documentTypes;
-    }
-
-    @Override
-    public DocumentType getDocumentType(String docType) {
-        TypedQuery<DocumentType> query = entityManager.em().createNamedQuery("DocumentType.findType", DocumentType.class);
-        query.setParameter("docType", docType);
-        DocumentType documentType = query.getSingleResult();
-        return documentType;
-    }
-
     /**
-     * Creates, saves and returns a document POJO
+     * Creates, saves and returns a document POJO.
+     * Also creates or updates a documentGroup POJO, as required.
      * @param body
      * @return
      */
@@ -80,23 +60,18 @@ public class DocumentServiceImpl implements DocumentService {
             String fileName = filePart.getFilename();
             String contentType = filePart.getContentType();
             File file = filePart.getFile();
-            String filePath = "public/uploads/" + fileName;
-            copy(file.getAbsolutePath(), filePath);
+
             Document document = new Document();
             Map<String, DocumentType> docTypes = mapDocumentTypes();
             UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
             User user = userService.getUser(userProfile.getEmail());
-            document = DocumentTransformer.createDocument(body, docTypes, user, filePath);
-            try {
-                DocumentGroup documentGroup = documentGroupService.getDocumentGroup(document.getDocumentGroup().getGroupName());
-                if (nonNull(documentGroup)) {
-                    documentGroup.getDocuments().add(document);
-                    document.setDocumentGroup(documentGroup);
-                }
-            } catch(NoResultException nre) {
-                // do nothing
+            document = DocumentTransformer.createPOJO(body, docTypes, user);
+            copy(file.getAbsolutePath(), document.getDocumentPath());
+            DocumentGroup documentGroup = documentGroupService.getOrCreate(document,body);
+            if (documentGroup != null) {
+                document.setDocumentGroup(documentGroup);
             }
-            entityManager.em().merge(document);
+            entityManager.em().persist(document);
             entityManager.em().flush();
             return document;
         } else {
@@ -123,7 +98,7 @@ public class DocumentServiceImpl implements DocumentService {
      * @return
      */
     @Override
-    public List<Document> getDocuments(String docType, String docGroup) {
+    public List<Document> getAll(String docType, String docGroup) {
         logger.debug("Entered getDocuments");
         if (docType == null) {
             docType="";
@@ -140,7 +115,7 @@ public class DocumentServiceImpl implements DocumentService {
      * @return
      */
     @Override
-    public Document getDocumentById(Long id) {
+    public Document get(Long id) {
         logger.debug("Entered getDocumentById");
         TypedQuery<Document> query = entityManager.em().createNamedQuery("Document.findByDocumentId", Document.class);
         query.setParameter("id", id);
@@ -152,15 +127,14 @@ public class DocumentServiceImpl implements DocumentService {
      * Returns a map of documentType POJOs, keyed on documentType
      * @return
      */
+    @Override
     public Map<String, DocumentType> mapDocumentTypes() {
         Map<String, DocumentType> docTypes = new HashMap<>();
-        List<DocumentType> types = getDocumentTypes();
+        List<DocumentType> types = documentTypeService.getAll();
         types.forEach(type -> {
             docTypes.put(type.getDocumentType(),type);
         });
         return docTypes;
     }
-
-
 
 }

@@ -1,23 +1,48 @@
 .upldr-table {
     width:                      700px;
 }
-.upldr-drop-zone {
-    border:                     dotted 3px lightgray;
+.upl-drop-zone {
+    background-color: transparent;
 }
-.nv-file-over {
-    border: dotted 3px red;
+.upl-drop-zone-over {
+    border: dotted 3px #FF7B00;
 }
-.another-file-over-class {
-    border:                     dotted 3px green;
+.upl-ui {
+    min-width: 160px;
+    min-height: 24px;
 }
-
+.upl-btn {
+    position: relative;
+    top: 0px;
+    left: 60px;
+}
+.upl-btn label {
+    background-color: #857868;
+    width: 160px;
+    height: 24px;
+    cursor: pointer;
+    border: thin solid;
+    border-color:  #BDAB95  #7D6F5E  #7D6F5E  #BDAB95;
+    border-radius: 4px;
+    padding: 0px 12px 4px 12px;
+    color: white;
+    text-align: center;
+}
+.upl-btn input {
+    display: none;
+}
+.upl-hlp {
+    margin-right: 50px;
+    width: 400px;
+    text-align: left;
+}
 .upl-container {
     display:                    -webkit-flex; /* Safari */
     display:                    flex;
     -webkit-justify-content:    space-around; /* Safari */
     justify-content:            space-around;
-    -webkit-align-items:        baseline; /* Safari */
-    align-items:                baseline;
+    -webkit-align-items:        flex-start; /* Safari */
+    align-items:                flex-start;
     -webkit-flex-direction:     row; /* Safari */
     flex-direction:             row;
 }

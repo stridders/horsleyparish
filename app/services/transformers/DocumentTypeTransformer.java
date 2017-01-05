@@ -16,11 +16,12 @@ import static java.util.Objects.nonNull;
  */
 public class DocumentTypeTransformer {
 
-    public static String transformDocumentTypeListToHalJson (List<DocumentType> documentTypes,
-                                                             String filter) {
+    public static String convertToJson (List<DocumentType> documentTypes,
+                                        String type,
+                                        String role) {
 
         DocumentTypesDto dto = new DocumentTypesDto();
-        HrefDto self = new HrefDto(Root.stripApiContext(controllers.routes.Document.listDocumentTypes(filter).url()));
+        HrefDto self = new HrefDto(Root.stripApiContext(controllers.routes.Document.listDocumentTypes(type,role).url()));
 
         dto.get_links().setSelf(self);
 
@@ -28,10 +29,8 @@ public class DocumentTypeTransformer {
 
         if (nonNull(documentTypes)) {
             documentTypes.forEach(dt -> {
-                if (filter == null || dt.getDocumentType().toLowerCase().contains(filter.toLowerCase())) {
-                    DocumentTypeDto docType = new DocumentTypeDto(dt);
-                    docTypes.add(docType);
-                }
+                DocumentTypeDto docType = new DocumentTypeDto(dt);
+                docTypes.add(docType);
             });
         }
         dto.setDocumentTypes(docTypes);

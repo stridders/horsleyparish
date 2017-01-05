@@ -52,3 +52,6 @@
     background-position: center top;
     z-index:3;
 }
+.bird {
+    z-index: 4;
+}

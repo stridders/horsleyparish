@@ -9,7 +9,8 @@ import java.util.List;
 @Table(name = "document_group")
 @NamedQueries({
         @NamedQuery(name="DocumentGroup.findAll", query="select dg from DocumentGroup dg"),
-        @NamedQuery(name="DocumentGroup.findByGroupName", query="select dg from DocumentGroup dg where dg.groupName = :groupName"),
+        @NamedQuery(name="DocumentGroup.findByGroupAndType", query="select dg from DocumentGroup dg where dg.groupName = :groupName AND dg.documentType.documentType = :documentType"),
+        @NamedQuery(name="DocumentGroup.findByType", query="select dg from DocumentGroup dg where dg.documentType = :documentType"),
 })
 public class DocumentGroup implements Serializable {
 
@@ -18,25 +19,25 @@ public class DocumentGroup implements Serializable {
     @Id
     @SequenceGenerator(name = "document_group_group_id_seq", sequenceName = "document_group_group_id_seq", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "document_group_group_id_seq")
-    @Column(name = "document_group_id")
-    private Long documentGroupId;
+    @Column(name = "group_id")
+    private Long groupId;
 
     @Column(name = "group_name")
     private String groupName;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "documentGroup")
-    private List<Document> documents;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "document_type")
+    private DocumentType documentType;
 
-    public DocumentGroup() {
-        this.documents = new ArrayList<>();
+    @OneToMany(mappedBy="documentGroup")
+    private List<Document> documents = new ArrayList<>();
+
+    public Long getGroupId() {
+        return groupId;
     }
 
-    public Long getDocumentGroupId() {
-        return documentGroupId;
-    }
-
-    public void setDocumentGroupId(Long documentGroupId) {
-        this.documentGroupId = documentGroupId;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
 
     public String getGroupName() {
@@ -45,6 +46,14 @@ public class DocumentGroup implements Serializable {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
+    }
+
+    public DocumentType getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(DocumentType documentType) {
+        this.documentType = documentType;
     }
 
     public List<Document> getDocuments() {

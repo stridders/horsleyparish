@@ -18,8 +18,8 @@
         return service;
 
 
-        function getDocumentTypes(filter,callback) {
-            $http.get('/api/document-types?doctype='+filter)
+        function getDocumentTypes(doctype,role,callback) {
+            $http.get('/api/document-types?doctype='+doctype+'&role='+role)
                 .success(function (response) {
                     callback(response);
                 })
@@ -66,15 +66,15 @@
                 let errMsg = "Unable to add document to queue. Most likely cause is the document type is invalid";
                 FlashService.Error(errMsg);
             };
-            // uploader.onAfterAddingFile = function (fileItem) {
-            //     console.info('onAfterAddingFile', fileItem);
-            // };
+            uploader.onAfterAddingFile = function (fileItem) {
+                let fileTitle = fileItem.file.name;
+                fileItem.formData[0].fileTitle = fileTitle.replace(/\.[^.$]+$/, '');
+            };
             // uploader.onAfterAddingAll = function (addedFileItems) {
             //     console.info('onAfterAddingAll', addedFileItems);
             // };
             uploader.onBeforeUploadItem = function (item) {
-                formData.fileSize = item.file.size;
-                item.formData[0] = formData;
+                item.formData[0].fileSize = item.file.size;
             };
             // uploader.onProgressItem = function (fileItem, progress) {
             //     console.info('onProgressItem', fileItem, progress);

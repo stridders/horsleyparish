@@ -33,6 +33,14 @@
                             bgcolour:  '#4E342E'
                         },
                         {
+                            heading: 'Community Shop',
+                            title:   'Horsley Community Shop',
+                            image:   '/web/img/ico-shop.png',
+                            text:    '',
+                            link:    '/community-shop',
+                            bgcolour:  '#FFFFFF'
+                        },
+                        {
                             heading: 'The Horses Mouth',
                             title:   'The Horsley Monthly Magazine',
                             image:   '/web/features/the-horses-mouth/img/ic_horses_mouth_sm_black.png',

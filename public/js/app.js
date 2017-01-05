@@ -16,10 +16,18 @@
                 templateUrl: 'web/features/home-page/home-page.html'
 
             })
+            .when('/community-shop', {
+                templateUrl: 'web/features/community-shop/shop.html'
+            })
             .when('/history', {
                 controller: 'HistoryController',
                 controllerAs: 'hc',
                 templateUrl: 'web/features/history/history.html'
+            })
+            .when('/horses-mouth', {
+                controller: 'HorsesMouthController',
+                controllerAs: 'hmc',
+                templateUrl: 'web/features/the-horses-mouth/horses-mouth.html'
             })
             .when('/parish-council', {
                 controller: 'ParishCouncilController',

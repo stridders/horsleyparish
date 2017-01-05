@@ -17,20 +17,32 @@ body #page-wrapper {
     position: relative;
     margin: 0 auto;
     height: 100%;
+    width:900px;
+    display:block;
+    z-index:4;
+}
+.main-container .main-page-hdr {
+    position: relative;
+    margin: 0 auto;
+    height: 30px;
     top:-195px;
     width:900px;
     display:block;
     background-image: url('/web/img/img-hdr-para-layer3.png');
     background-position: center top;
     background-repeat: no-repeat;
+    margin-bottom: -205px;
     z-index:4;
 }
 .main-container .main-page {
+    display:block;
     position: relative;
-    top: 25px;
+    min-height: 300px;
+    background-color: white;
+    z-index:5;
 }
 .stnd-bg {
-    background-color: #EBEBEB;
+    background-color: #FFFFFF;
 }
 .footer {
     display: block;
@@ -89,6 +101,7 @@ body #page-wrapper {
 .page-banner {
     padding: 20px 0px 10px 0px;
     height: 120px;
+    margin-bottom: -20px;
 
 }
 .title {
