@@ -24,6 +24,11 @@
                 controllerAs: 'hc',
                 templateUrl: 'web/features/history/history.html'
             })
+            .when('/village-hall', {
+                controller: 'VillageHallController',
+                controllerAs: 'vhc',
+                templateUrl: 'web/features/village-hall/village-hall.html'
+            })
             .when('/horses-mouth', {
                 controller: 'HorsesMouthController',
                 controllerAs: 'hmc',

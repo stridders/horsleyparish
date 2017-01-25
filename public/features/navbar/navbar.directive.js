@@ -41,6 +41,14 @@
                             bgcolour:  '#FFFFFF'
                         },
                         {
+                            heading: 'Village Hall',
+                            title:   'Horsley Village Hall',
+                            image:   '/web/img/ico-village-hall.png',
+                            text:    '',
+                            link:    '/village-hall',
+                            bgcolour:  '#00796B'
+                        },
+                        {
                             heading: 'The Horses Mouth',
                             title:   'The Horsley Monthly Magazine',
                             image:   '/web/features/the-horses-mouth/img/ic_horses_mouth_sm_black.png',

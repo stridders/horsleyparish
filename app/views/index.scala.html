@@ -34,7 +34,8 @@
 		<script type="text/javascript" src='@routes.Assets.at("js/angular-file-upload.min.js")'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
 		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("moment.min.js"))'></script>
-        <script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("fullcalendar","fullcalendar.min.js"))'></script>
+		<script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
         <script type="text/javascript" src='@routes.Assets.at("plugins/rrule/rrule.js")'></script>
 
 		<script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
@@ -71,15 +72,20 @@
 
 		<!-- Calendar -->
 		<script type="text/javascript" src='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/calendar/calendar.services.js")'></script>
 		<link rel="stylesheet" href='@routes.Assets.at("plugins/calendar/angular-bootstrap-calendar.css")'/>
 
 		<!-- The Horses Mouth -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/the-horses-mouth/horses-mouth.css")'/>
 		<script type="text/javascript" src='@routes.Assets.at("features/the-horses-mouth/horses-mouth.controller.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("features/the-horses-mouth/horses-mouth.service.js")'></script>
-		<link rel="stylesheet" href='@routes.Assets.at("features/the-horses-mouth/horses-mouth.css")'/>
 
 		<!-- History -->
 		<script type="text/javascript" src='@routes.Assets.at("features/history/history.controller.js")'></script>
+
+		<!-- Village Hall -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/village-hall/village-hall.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/village-hall/village-hall.controller.js")'></script>
 
 		<!-- Login -->
 		<link rel="stylesheet" href='@routes.Assets.at("features/login/login.css")'/>
