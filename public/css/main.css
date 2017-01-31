@@ -150,6 +150,13 @@ body #page-wrapper {
     justify-content: center;
     -webkit-justify-content: center;
 }
+.flex-list  {
+    align-items: flex-start;
+    text-align: left;
+}
+.flex-list div  {
+    padding: 0px 30px 8px 30px;
+}
 .flex-cols div {
     padding: 10px 10px 10px 10px;
     align-items: center;
