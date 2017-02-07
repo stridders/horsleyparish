@@ -12,15 +12,7 @@
     </div>
     <div style="width: 550px;">
         <h1 class="text-center">{{ pcc.calendarTitle }}</h1>
-        <ng-include src="'web/plugins/calendar/calendarControls.html'"></ng-include>
-        <mwl-calendar
-                events="pcc.events"
-                view="pcc.calendarView"
-                view-date="pcc.viewDate"
-                cell-is-open="pcc.cellIsOpen"
-                cell-auto-open-disabled="true"
-                view-title="pcc.calendarTitle"
-                on-timespan-click="pcc.timespanClicked(calendarDate, calendarCell)">
-        </mwl-calendar>
+
+
     </div>
 </div>
