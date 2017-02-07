@@ -29,6 +29,7 @@
                     pageName = pl.feature + "-" + pl.currentPage + ".html";
                 } else {
                     pageName = pl.feature + "-" + pl.pages[0].pageName + ".html";
+                    pl.currentPage = pl.pages[0].pageName;
                 }
                 pl.pageURL = "/web/features/"+pl.feature+"/" + pageName;
                 pl.goto = goto;

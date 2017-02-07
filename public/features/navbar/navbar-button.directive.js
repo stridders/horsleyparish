@@ -30,7 +30,7 @@
                 snb.hideHdr = hideHdr;
 
                 function redirectToURL(link) {
-                    $location.path(link);
+                    $location.path(link).search({});
                 }
 
                 function showHdr() {

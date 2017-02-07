@@ -50,7 +50,6 @@
             'vhc.viewDate'
         ], function() {
             vhc.events = [];
-            console.log("Watched it change");
             // Use the rrule library to generate recurring events: https://github.com/jkbrzt/rrule
             let rule = new RRule({
                 freq: RRule.WEEKLY,
