@@ -3,40 +3,68 @@
     angular.module('horsley')
         .controller('ParishCouncilController', ParishCouncilController);
 
-    ParishCouncilController.$inject = ['$scope','moment','calendarConfig','ParishCouncilService'];
+    ParishCouncilController.$inject = [
+        'FlashService',
+        'FileUploader',
+        'AuthenticationService',
+        'FileUploadService',
+        'ParishCouncilService',
+        '$scope'
+    ];
 
-    function ParishCouncilController($scope, moment, calendarConfig, ParishCouncilService) {
+    function ParishCouncilController(FlashService,
+                                     FileUploader,
+                                     AuthenticationService,
+                                     FileUploadService,
+                                     ParishCouncilService,
+                                     $scope) {
 
         let pcc = this;
 
-        pcc.events = [];
         pcc.pages = [];
-        pcc.accounting = {};
-        pcc.calendarView = 'month';
-        pcc.viewDate = moment().toDate();
-        pcc.cellIsOpen = true;
         pcc.title = "Horsley Parish Council";
         pcc.subtitle = "";
         pcc.feature = "parish-council";
+        let autoUpload = false;
+        let acceptFileTypes = "|pdf|doc|docx";
+        pcc.maxQueueSize = 10;
+        pcc.minutesLinks = {documents:[]};
+        pcc.formData = {
+            fileTitle: null,
+            docType: "PC_MEET_MINUTES",
+            fileGroup: "Minutes",
+            fileSize: null
+        };
+        pcc.filteredDocs = [];
+        pcc.currentPage = 0;
+        pcc.pageSize = 4;
 
-        pcc.timespanClicked = ParishCouncilService.timespanClicked;
-        pcc.uploadMinutes = ParishCouncilService.uploadMinutes;
-        pcc.accountDocUpload = ParishCouncilService.accountDocUpload;
+        pcc.setPage = function (pageNo) {
+            pcc.currentPage = pageNo;
+        };
+
+        pcc.pageChanged = function() {
+        };
+
+        pcc.uploader = new FileUploader({
+            headers: AuthenticationService.GetSecurityHeader(),
+            formData: [pcc.formData],
+            url: 'api/documents',
+            removeAfterUpload: true,
+            autoUpload: autoUpload
+        });
 
         initialise();
 
+        $scope.$watch('pcc.currentPage + pcc.pageSize', function() {
+            let begin = ((pcc.currentPage - 1) * pcc.pageSize)
+                , end = begin + pcc.pageSize;
+
+            pcc.filteredDocs = pcc.minutesLinks.documents.slice(begin, end);
+        });
+
         function initialise() {
-            // ParishCouncilService.getDocumentTypes("PC_ACCOUNT",function (response) {
-            //     if (response) {
-            //         pcc.accounting.docTypeOptions = response.documentTypes;
-            //         pcc.accounting.upload = {
-            //             docType: pcc.accounting.docTypeOptions[0],
-            //         };
-            //     } else {
-            //         let errMsg = "Unable to retieve document types from Horsley server";
-            //         FlashService.Error(errMsg);
-            //     }
-            // });
+
             pcc.pages = [
                 {
                     title:      'Home',
@@ -49,42 +77,26 @@
                     pageName:   'councillors',
                 },
                 {
-                    title:      'Accounts',
-                    subtitle:   'Annual reports',
-                    pageName:   'accounts',
-                    config:     {}
-                },
-                {
-                    title:      'Contacts',
-                    subtitle:   'How to get in touch',
-                    pageName:   'contacts',
-                },
-                {
-                    title:      'About the Parish',
-                    subtitle:   'What constitutes the parish?',
-                    pageName:   'about',
-                },
-                {
                     title:      'Meetings',
                     subtitle:   'Meeting schedules, agendas and minutes',
                     pageName:   'meetings',
                 },
-                {
-                    title:      'Planning',
-                    subtitle:   'Horsley Neighbourhood Plan',
-                    pageName:   'planning',
-                },
-                {
-                    title:      'Publications',
-                    subtitle:   'Action plans, annual reports and other public documents',
-                    pageName:   'publications',
-                },
-                {
-                    title:      'Services',
-                    subtitle:   'A list of council assets and services',
-                    pageName:   'services',
-                },
             ];
+            FileUploadService.initialiseSyncFilter(pcc.uploader,pcc.maxQueueSize,acceptFileTypes);
+            FileUploadService.initialiseAsyncFilter(pcc.uploader, 1e3);
+            FileUploadService.configureCallbacks(pcc.uploader,pcc.formData);
+            pcc.showUploader = AuthenticationService.UserHasRole("HORSLEY_PC");
+
+            ParishCouncilService.getMinutesLinks(function (response) {
+                if (response) {
+                    pcc.minutesLinks = response;
+                    pcc.filteredDocs = pcc.minutesLinks.documents.slice(0, pcc.pageSize);
+                    pcc.totalItems = pcc.minutesLinks.documents.length;
+                } else {
+                    let errMsg = "Unable to retrieve meeting minutes from Horsley server";
+                    FlashService.Error(errMsg);
+                }
+            });
         }
 
 
@@ -96,41 +108,7 @@
         };
 
 
-        $scope.$watchGroup([
-            'pcc.calendarView',
-            'pcc.viewDate'
-        ], function() {
 
-            // Use the rrule library to generate recurring events: https://github.com/jkbrzt/rrule
-            let rule = new RRule({
-                freq: RRule.WEEKLY,
-                interval: 1,
-                byweekday: [RRule.MO],
-                dtstart: moment(pcc.viewDate).startOf(pcc.calendarView).toDate(),
-                until: moment(pcc.viewDate).endOf(pcc.calendarView).toDate()
-            });
-
-            pcc.events = [{
-                title: 'Recurs monthly',
-                color: calendarConfig.colorTypes.warning,
-                startsAt: moment().toDate(),
-                recursOn: 'month'
-            }, {
-                title: 'Recurs yearly',
-                color: calendarConfig.colorTypes.info,
-                startsAt: moment().toDate(),
-                recursOn: 'year'
-            }];
-
-            rule.all().forEach(function(date) {
-                pcc.events.push({
-                    title: 'Recurs weekly on mondays',
-                    color: calendarConfig.colorTypes.success,
-                    startsAt: new Date(date)
-                });
-            });
-
-        });
 
 
     }

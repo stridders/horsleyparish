@@ -13,3 +13,11 @@
     -webkit-align-self: flex-start;
     align-self: flex-start;
 }
+.active {
+    font-weight: bold;
+    color: black;
+}
+.inactive a {
+    font-weight: normal;
+    color: #0f0f0f;
+}

@@ -62,8 +62,11 @@
 
         function GetSecurityHeader() {
             let currentUser = GetUserContext();
-            let authdata = currentUser.authdata;
-            let header = {"Authorization": 'Basic ' + authdata };
+            let header = {};
+            if (currentUser != null) {
+                let authdata = currentUser.authdata;
+                header = {"Authorization": 'Basic ' + authdata };
+            }
             return header;
         }
 

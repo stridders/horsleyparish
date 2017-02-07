@@ -8,7 +8,7 @@
     <div class="flex-container flex-container-row">
         <div>
             <ul class="nav nav-tabs pl-tabs">
-                <li ng-repeat="page in pl.pages" ng-class="page.pageName === pl.currentPage? true: 'active'">
+                <li ng-repeat="page in pl.pages" ng-class="(page.pageName === pl.currentPage) ? 'active' : 'inactive'">
                     <a ng-click="pl.goto(page)" title="{{page.subtitle}}">{{page.title}}</a>
                 </li>
             </ul>

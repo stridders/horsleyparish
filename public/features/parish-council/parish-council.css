@@ -21,3 +21,23 @@
     text-align: left;
     min-height: 600px;
 }
+.pc-col-name {
+    width: 200px;
+}
+.pc-col-job {
+    width: 120px;
+}
+.pc-col-rep {
+    width: 150px;
+}
+.pc-top {
+    vertical-align: top;
+}
+.pc-post-img img {
+    position: relative;
+    top: -40px;
+    left: -80px;
+    height: 250px;
+    margin-bottom: -40px;
+}
+

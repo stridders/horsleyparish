@@ -63,6 +63,7 @@
             FileUploadService.initialiseAsyncFilter(hmc.uploader, 1e3);
             FileUploadService.configureCallbacks(hmc.uploader,hmc.formData);
             hmc.showUploader = AuthenticationService.UserHasRole("HORSES_MOUTH");
+
             HorsesMouthService.getMagazineLinks(function (response) {
                 if (response) {
                     hmc.magazineLinks = response;
@@ -73,6 +74,7 @@
                     FlashService.Error(errMsg);
                 }
             });
+
         }
 
 
