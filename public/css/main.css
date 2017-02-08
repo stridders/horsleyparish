@@ -157,6 +157,12 @@ body #page-wrapper {
 .flex-list div  {
     padding: 0px 30px 8px 30px;
 }
+.flex-cols-top {
+    align-items: flex-start;
+}
+.flex-cols-top div {
+    padding: 10px 10px 10px 10px;
+}
 .flex-cols div {
     padding: 10px 10px 10px 10px;
     align-items: center;

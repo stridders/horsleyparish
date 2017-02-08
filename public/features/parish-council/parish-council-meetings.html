@@ -1,20 +1,14 @@
-<div>
-    <div><img src="/web/features/parish-council/img/minutes.png"></div>
-
-    <div layout="row" style="display: flex; width: 900px; margin: 0 auto;">
-            <div flex="33"></div>
-            <div flex="33">
-
-                <div class="btn-sm pc_btn_link" ngf-select="pcc.uploadMinutes($file)">
-                    Upload Minutes <i class="material-icons">file_upload</i>
-                </div>
-
-            </div>
-        </div>
+<div ng-controller="ParishCouncilController as pcc" class="text-content flex-container flex-container-row flex-cols-top pc-idocs">
+    <div>
+        <iframe
+            src="https://docs.google.com/document/d/1fC8ATCh6ZMpp4J67yc-g2f4dMVl3JCohphciQalyJMw/pub?embedded=true&anticache=" +
+            Math.round(Math.random() * 10000000);></iframe>
     </div>
-    <div style="width: 550px;">
-        <h1 class="text-center">{{ pcc.calendarTitle }}</h1>
-
-
+    <div>date:{{pcc.antiCache}}</div>
+    <div>
+        <a href ="https://drive.google.com/drive/folders/0B5mg3C3GfH8dTGoyQTNKTXpKamc?usp=sharing">
+            <img src="/web/features/parish-council/img/minutes.png">
+        </a>
     </div>
 </div>
+

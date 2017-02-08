@@ -24,6 +24,7 @@
         pcc.pages = [];
         pcc.title = "Horsley Parish Council";
         pcc.subtitle = "";
+        pcc.antiCache = "D."+Date.now();
         pcc.feature = "parish-council";
         let autoUpload = false;
         let acceptFileTypes = "|pdf|doc|docx";
@@ -77,9 +78,15 @@
                     pageName:   'councillors',
                 },
                 {
+                    title:      'Parish Council Boundaries',
+                    subtitle:   'Map of Horsley Parish',
+                    pageName:   'map'
+                },
+                {
                     title:      'Meetings',
                     subtitle:   'Meeting schedules, agendas and minutes',
                     pageName:   'meetings',
+                    noCache:    'true'
                 },
             ];
             FileUploadService.initialiseSyncFilter(pcc.uploader,pcc.maxQueueSize,acceptFileTypes);

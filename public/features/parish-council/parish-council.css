@@ -40,4 +40,23 @@
     height: 250px;
     margin-bottom: -40px;
 }
-
+.pc-idocs div {
+    vertical-align: top;
+}
+.pc-idocs iframe {
+    position: relative;
+    border: none;
+    display: block;
+    width: 640px;
+    height: 900px;
+}
+.pc-idocs img {
+    padding-top: 80px;
+}
+.pc-map iframe {
+    position: relative;
+    border: none;
+    display: block;
+    width: 640px;
+    height: 480px;
+}
