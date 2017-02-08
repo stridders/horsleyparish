@@ -20,7 +20,7 @@ libraryDependencies ++= Seq(
   "org.specs2" %% "specs2" % "2.3.11" % "test",
   "org.scalatest" %% "scalatest" % "2.1.5" % "test",
   "org.webjars" %% "webjars-play" % "2.5.0",
-  "org.webjars" % "jquery" % "3.1.1",
+  "org.webjars.npm" % "jquery" % "2.2.4",
   "org.webjars" % "bootstrap" % "3.3.6" exclude("org.webjars", "jquery"),
   "org.webjars" % "angularjs" % "1.5.6" exclude("org.webjars", "jquery"),
   "org.webjars" % "angular-filter" % "0.4.9",
