@@ -50,13 +50,21 @@
     width: 640px;
     height: 900px;
 }
-.pc-idocs img {
-    padding-top: 80px;
-}
 .pc-map iframe {
     position: relative;
     border: none;
     display: block;
     width: 640px;
     height: 480px;
+}
+.pc-minutes-txt {
+    vertical-align: top;
+}
+.pc-meeting-title {
+    position: relative;
+}
+.pc-meeting-title img {
+    position: absolute;
+    top: 0px;
+    padding-left: 100px;
 }
