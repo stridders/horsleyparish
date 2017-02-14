@@ -21,3 +21,7 @@
     font-weight: normal;
     color: #0f0f0f;
 }
+.pl-title {
+    background-repeat: no-repeat;
+    background-position: top center;
+}

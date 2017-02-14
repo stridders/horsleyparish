@@ -22,8 +22,9 @@
         let pcc = this;
 
         pcc.pages = [];
-        pcc.title = "Horsley Parish Council";
+        pcc.title = "";
         pcc.subtitle = "";
+        pcc.titleBkg = "/web/features/parish-council/img/horsley_PC_logo_small.png";
         pcc.antiCache = Math.floor((Math.random()*1000000)+1);
         pcc.feature = "parish-council";
 

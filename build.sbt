@@ -33,7 +33,8 @@ libraryDependencies ++= Seq(
   "org.webjars" % "angular-ui-bootstrap" % "1.3.2" exclude("org.webjars", "jquery"),
   "org.webjars.npm" % "angular-cookies" % "1.5.6",
   "com.jayway.jsonpath" % "json-path" % "2.0.0",
-  "org.webjars.npm" % "angular-ui-calendar" % "1.0.2"
+  "org.webjars.npm" % "angular-ui-calendar" % "1.0.2",
+  "org.webjars" % "momentjs" % "2.17.1"
 )
 
 javaOptions in Test ++= Seq("-Dlogger.resource=logback-test.xml", "-Dconfig.file=conf/test.conf")

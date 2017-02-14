@@ -14,6 +14,7 @@
             scope: {
                 heading:    '=',
                 subheading: '=',
+                background: '=',
                 feature:    '=',
                 pages:      '=',
             },
