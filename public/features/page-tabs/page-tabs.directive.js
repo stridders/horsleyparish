@@ -40,11 +40,7 @@
                  * @param path
                  */
                 function goto(page) {
-                    if (page.noCache) {
-                        $location.path(pl.feature).search('page',page.pageName).search('tmp',Math.round(Math.random() * 10000000));
-                    } else {
-                        $location.path(pl.feature).search('page',page.pageName).search('tmp',null);
-                    }
+                    $location.path(pl.feature).search('page',page.pageName);
                 }
 
             }
