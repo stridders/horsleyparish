@@ -22,7 +22,7 @@ libraryDependencies ++= Seq(
   "org.webjars" %% "webjars-play" % "2.5.0",
   "org.webjars.npm" % "jquery" % "2.2.4",
   "org.webjars" % "bootstrap" % "3.3.6" exclude("org.webjars", "jquery"),
-  "org.webjars" % "angularjs" % "1.5.6" exclude("org.webjars", "jquery"),
+  "org.webjars" % "angularjs" % "1.5.9" exclude("org.webjars", "jquery"),
   "org.webjars" % "angular-filter" % "0.4.9",
   "org.webjars" % "angular-ui-router" % "0.2.18",
   "org.webjars.npm" % "angular-animate" % "1.5.6",
