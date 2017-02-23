@@ -7,6 +7,7 @@ dist
 /.idea
 /*.iml
 /out
+target
 /.idea_modules
 /.classpath
 /.project
