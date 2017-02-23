@@ -1,0 +1,70 @@
+.pc-btn-link {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 14px;
+}
+.pc-btn-link:hover {
+    cursor: pointer;
+}
+.pc-docs-form {
+    vertical-align: top;
+    width: 200px;
+}
+.pc-docs-form .text-danger {
+    margin-top: 10px;
+    text-align: center;
+}
+.pc-docs {
+    width: 350px;
+}
+.pc-docs-list {
+    text-align: left;
+    min-height: 600px;
+}
+.pc-col-name {
+    width: 200px;
+}
+.pc-col-job {
+    width: 120px;
+}
+.pc-col-rep {
+    width: 150px;
+}
+.pc-top {
+    vertical-align: top;
+}
+.pc-post-img img {
+    position: relative;
+    top: -40px;
+    left: -80px;
+    height: 250px;
+    margin-bottom: -40px;
+}
+.pc-idocs div {
+    vertical-align: top;
+}
+.pc-idocs iframe {
+    position: relative;
+    border: none;
+    display: block;
+    width: 640px;
+    height: 900px;
+}
+.pc-map iframe {
+    position: relative;
+    border: none;
+    display: block;
+    width: 640px;
+    height: 480px;
+}
+.pc-minutes-txt {
+    vertical-align: top;
+}
+.pc-meeting-title {
+    position: relative;
+}
+.pc-meeting-title img {
+    position: absolute;
+    top: 0px;
+    padding-left: 100px;
+}

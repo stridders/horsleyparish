@@ -1,2 +1,1 @@
-web: ./activator -Dhttp.port=${PORT} run
-#web: target/universal/stage/bin/play-getting-started -Dhttp.port=${PORT}
+web: target/universal/stage/bin/horsleyparish -Dhttp.port=${PORT}

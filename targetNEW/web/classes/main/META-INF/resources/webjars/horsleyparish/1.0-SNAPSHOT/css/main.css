@@ -1,0 +1,227 @@
+
+body {
+    font-family: "Open Sans";
+}
+
+body #page-wrapper {
+    position: relative;
+}
+
+.pace-done #page-wrapper {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.main-container {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    width:900px;
+    display:block;
+    z-index:4;
+}
+.main-container .main-page-hdr {
+    position: relative;
+    margin: 0 auto;
+    height: 30px;
+    top:-195px;
+    width:900px;
+    display:block;
+    background-image: url('/web/img/img-hdr-para-layer3.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: -205px;
+    z-index:4;
+}
+.main-container .main-page {
+    display:block;
+    position: relative;
+    min-height: 300px;
+    background-color: white;
+    z-index:5;
+}
+.stnd-bg {
+    background-color: #FFFFFF;
+}
+.footer {
+    display: block;
+    margin-top: 80px;
+    background-color: white;
+    height: 300px;
+}
+.footer-container {
+    margin: 0 auto;
+    height: 100%;
+    width: 900px;
+    padding: 0;
+    border-top: solid thin #37474F;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.primary-title {
+    background-color: #F57F17;
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    padding: 6px 8px 6px 8px;
+}
+.primary-body {
+    background-color: white;
+    color: #004D40;
+    padding: 4px 4px 4px 4px;
+}
+.primary-border {
+    border: solid thin #EEEEEE;
+}
+.admin-title {
+    background-color: #FF5722;
+    color: white;
+    text-align: left;
+    font-size: 16px;
+    padding: 6px 8px 6px 8px;
+}
+.admin-body {
+    background-color: #FAFAFA;
+    color: #33691E;
+    padding: 4px 4px 4px 4px;
+}
+.admin-border {
+    border: solid thin #EEEEEE;
+}
+
+.text-content {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 100;
+    color: #37474F;
+}
+.page-banner {
+    padding: 20px 0px 10px 0px;
+    height: 120px;
+    margin-bottom: -20px;
+
+}
+.title {
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: -4px;
+}
+.subtitle {
+    font-size: 14px;
+    text-align: center;
+}
+.bg-main {
+    background-image: url("/web/img/horsley_from_a46.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-width: 900px;
+    min-height: 349px;
+}
+.bg-main-text {
+    align-self: center;
+    color: black;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 0px 10px 40px;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    margin: 4px 6px 4px 6px;
+}
+.flex-container-row {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+.flex-container-column {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+.flex-list  {
+    align-items: flex-start;
+    text-align: left;
+}
+.flex-list div  {
+    padding: 0px 30px 8px 30px;
+}
+.flex-cols-top {
+    align-items: flex-start;
+}
+.flex-cols-top div {
+    padding: 10px 10px 10px 10px;
+}
+.flex-cols div {
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+}
+.col-pad-20 {
+    width: 20px;
+}
+.text-block {
+    width: 900px;
+    padding: 6px 20px 6px 20px;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+.text-red-900 {
+    color: #B71C1C;
+}
+.flx-table-row {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-wrap: no-wrap;
+    -webkit-flex-wrap: no-wrap;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.flx-wrapper {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+}
+.flx-column {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    vertical-align: top;
+}
