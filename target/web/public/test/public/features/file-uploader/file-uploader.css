@@ -1,0 +1,71 @@
+.upldr-table {
+    width:                      700px;
+}
+.upl-drop-zone {
+    background-color: transparent;
+}
+.upl-drop-zone-over {
+    border: dotted 3px #FF7B00;
+}
+.upl-ui {
+    min-width: 160px;
+    min-height: 24px;
+}
+.upl-btn {
+    position: relative;
+    top: 0px;
+    left: 60px;
+}
+.upl-btn label {
+    background-color: #857868;
+    width: 160px;
+    height: 24px;
+    cursor: pointer;
+    border: thin solid;
+    border-color:  #BDAB95  #7D6F5E  #7D6F5E  #BDAB95;
+    border-radius: 4px;
+    padding: 0px 12px 4px 12px;
+    color: white;
+    text-align: center;
+}
+.upl-btn input {
+    display: none;
+}
+.upl-hlp {
+    margin-right: 50px;
+    width: 400px;
+    text-align: left;
+}
+.upl-container {
+    display:                    -webkit-flex; /* Safari */
+    display:                    flex;
+    -webkit-justify-content:    space-around; /* Safari */
+    justify-content:            space-around;
+    -webkit-align-items:        flex-start; /* Safari */
+    align-items:                flex-start;
+    -webkit-flex-direction:     row; /* Safari */
+    flex-direction:             row;
+}
+.upl-form {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.upl-form label {
+    width: 120px;
+    min-width: 120px;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+.upl-form input {
+    margin: 0;
+    padding: 0;
+    width: 260px;
+}
+.upl-form select {
+    margin: 0;
+    padding: 0;
+    width: 260px;
+}

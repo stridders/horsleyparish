@@ -1,0 +1,118 @@
+@import security.model.UserProfile
+@import play.api.Play.current
+
+@(webJarAssets: WebJarAssets, userProfile: UserProfile)
+@config= @{play.Play.application().configuration() }
+
+<!DOCTYPE html>
+<html ng-app="horsley" >
+	<head>
+		<title>Horsley Parish, Gloucestershire, Community website</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width"/>
+
+		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
+		<link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
+		<link rel="stylesheet" href="@routes.Assets.at("css/font-awesome-4.6.3/css/font-awesome.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("css/OpenSans.css")"/>
+		<link rel="stylesheet" href="@routes.Assets.at("css/main.css")"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("jquery.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angularjs", "angular.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-animate", "angular-animate.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-resource.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-route","angular-route.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-filter.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("0.2.18/angular-ui-router.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("ui-bootstrap-tpls.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-cookies", "angular-cookies.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-aria", "angular-aria.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.fullPath("angular-messages","angular-messages.min.js"))'></script>
+		<script type="text/javascript" src='@routes.Assets.at("js/angular-file-upload.min.js")'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))'></script>
+		<script type="text/javascript" src='@routes.WebJarAssets.at(webJarAssets.locate("moment.min.js"))'></script>
+
+		<script type="text/javascript" src='@routes.Assets.at("js/controllers.module.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("js/services.module.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("js/app.js")'></script>
+
+		<!-- Features -->
+
+		<!-- Home-Page -->
+		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
+
+		<!-- File-Uploader -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/file-uploader/file-uploader.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/file-uploader/file-uploader.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/file-uploader/file-uploader.service.js")'></script>
+
+		<!-- Common Services -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/common/header.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/common/header.directive.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/flash/flash.service.js")'></script>
+
+		<!-- Navigation Bar -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/navbar/navbar-button.css")'/>
+		<link rel="stylesheet" href='@routes.Assets.at("features/navbar/navbar.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar-button.directive.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar.directive.js")'></script>
+
+		<!-- Page-Tabs -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/page-tabs/page-tabs.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/page-tabs/page-tabs.directive.js")'></script>
+
+		<!-- Home-Page -->
+		<script type="text/javascript" src='@routes.Assets.at("features/home-page/home-page.controller.js")'></script>
+
+		<!-- The Horses Mouth -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/the-horses-mouth/horses-mouth.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/the-horses-mouth/horses-mouth.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/the-horses-mouth/horses-mouth.service.js")'></script>
+
+		<!-- History -->
+		<script type="text/javascript" src='@routes.Assets.at("features/history/history.controller.js")'></script>
+
+		<!-- Village Hall -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/village-hall/village-hall.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/village-hall/village-hall.controller.js")'></script>
+
+		<!-- Login -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/login/login.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/login/authentication.service.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/login/login.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/login/logout.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/login/register.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/login/user.service.js")'></script>
+
+		<!-- Parish Council -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/parish-council/parish-council.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.controller.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/parish-council/parish-council.services.js")'></script>
+
+		<!-- Animated bird -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/animated-bird/animated-bird.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/animated-bird/animated-bird.directive.js")'></script>
+
+		<!-- Community Shop -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/community-shop/community-shop.css")'/>
+
+	</head>
+
+
+	<body>
+
+		<div id="page-wrapper">
+			<header></header>
+			<div class="main-container">
+				<div class="main-page-hdr"></div>
+				<ng-view class="main-page"></ng-view>
+				<div ng-include="'/web/features/common/page-footer.html'"></div>
+			</div>
+		</div>
+
+	</body>
+
+
+</html>

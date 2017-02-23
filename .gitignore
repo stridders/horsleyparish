@@ -4,7 +4,6 @@ project/target
 tmp
 .history
 dist
-target
 /.idea
 /*.iml
 /out

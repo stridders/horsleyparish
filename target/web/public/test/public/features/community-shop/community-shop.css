@@ -1,0 +1,82 @@
+.cs-main-bg {
+    background-image: url("/web/features/community-shop/img/bg-shop.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.cs-page-banner {
+    width: 600px;
+    background-image: url("/web/features/community-shop/img/bg-title.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+    top: -60px;
+    padding: 20px 0px 10px 0px;
+    height: 120px;
+    margin-bottom: -20px;
+}
+.cs-page-banner p {
+    position: relative;
+    top: 90px;
+    font-family: "Comic Sans MS";
+    font-size: 16px;
+    text-align: justify;
+    color: #00838F;
+}
+.cs-main-para {
+    margin-top: -30px;
+    margin-bottom: 20px;
+    font-family: "Comic Sans MS";
+    font-size: 14px;
+    text-align: left;
+    color: #000000;
+    padding: 0px 20px 0px 20px;
+}
+.cs-main-para div {
+    min-width: 250px;
+    padding: 0px 20px 0px 20px;
+}
+.cs-award {
+    position: relative;
+    left: 50px;
+}
+.cs-award a {
+    color: #550000;
+    text-align: center;
+}
+.cs-shop {
+    min-width: 900px;
+    min-height: 427px;
+    vertical-align: top;
+}
+.cs-shop div {
+    align-self: flex-start;
+}
+.cs-shop img {
+    padding: 0px 20px 0px 20px;
+}
+.cs-shop .text-content {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 100;
+    color: #37474F;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    min-width: 250px;
+}
+.cs-blackboard {
+    background-image: url("/web/features/community-shop/img/bg-blackboard.jpg");
+    background-repeat: no-repeat;
+    font-family: Chalkduster;
+    font-weight: 100;
+    color: #FFF9C4;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    min-width: 250px;
+    min-height: 303px;
+    margin-right: 20px;
+}
+.cs-blackboard h2 {
+    color: #FF6E40;
+}
