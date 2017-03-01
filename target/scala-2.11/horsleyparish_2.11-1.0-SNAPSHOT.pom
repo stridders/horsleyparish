@@ -202,7 +202,7 @@
         <repository>
             <id>typesafereleases</id>
             <name>typesafe-releases</name>
-            <url>https://repo.typesafe.com/typesafe/releases/</url>
+            <url>http://repo.typesafe.com/typesafe/releases/</url>
             <layout>default</layout>
         </repository>
     </repositories>
