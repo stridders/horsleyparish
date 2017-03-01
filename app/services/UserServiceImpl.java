@@ -21,9 +21,6 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     @Inject
-    UserTransformer userTransformer;
-
-    @Inject
     services.EntityManager entityManager;
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());

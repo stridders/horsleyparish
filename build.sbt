@@ -1,6 +1,6 @@
 name := """horsleyparish"""
-
 version := "1.0-SNAPSHOT"
+PlayKeys.externalizeResources := false
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 

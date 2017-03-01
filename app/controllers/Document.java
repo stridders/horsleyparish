@@ -66,7 +66,7 @@ public class Document {
      * @param docGroup
      * @return
      */
-    @Transactional
+    @Transactional(readOnly = true)
     public Result listDocuments(String docType, String docGroup) {
         try {
             logger.debug("Getting list of documents...");
@@ -79,7 +79,7 @@ public class Document {
         }
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public Result getDocument(Long id) {
         model.Document document = documentService.get(id);
         return ok(document.toString()).as("applications/pdf");
@@ -91,7 +91,7 @@ public class Document {
      * @param role
      * @return
      */
-    @Transactional
+    @Transactional(readOnly = true)
     public Result listDocumentTypes(String doctype, String role) {
         try {
             logger.debug("Getting list of document types...");
