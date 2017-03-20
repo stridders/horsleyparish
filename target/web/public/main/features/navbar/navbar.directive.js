@@ -37,7 +37,7 @@
                             title:   'Horsley Community Shop',
                             image:   '/web/img/ico-shop.png',
                             text:    '',
-                            link:    '/community-shop',
+                            link:    '/horsley-community-shop',
                             bgcolour:  '#FFFFFF'
                         },
                         {

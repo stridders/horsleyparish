@@ -16,8 +16,8 @@
                 templateUrl: 'web/features/home-page/home-page.html'
 
             })
-            .when('/community-shop', {
-                templateUrl: 'web/features/community-shop/shop.html'
+            .when('/horsley-community-shop', {
+                templateUrl: 'web/features/horsley-community-shop/shop.html'
             })
             .when('/history', {
                 controller: 'HistoryController',
