@@ -24,7 +24,7 @@
         pcc.pages = [];
         pcc.title = "";
         pcc.subtitle = "";
-        pcc.titleBkg = "/web/features/parish-council/img/horsley_PC_logo_small.png";
+        pcc.titleBkg = "/glos/features/parish-council/img/horsley_PC_logo_small.png";
         pcc.antiCache = Math.floor((Math.random()*1000000)+1);
         pcc.feature = "parish-council";
 
@@ -53,6 +53,11 @@
                     subtitle:   'Meeting schedules, agendas and minutes',
                     pageName:   'meetings',
                     noCache:    'true'
+                },
+                {
+                    title:      'Planning',
+                    subtitle:   'Local Planning Applications, News and Issues',
+                    pageName:   'Planning'
                 },
             ];
 

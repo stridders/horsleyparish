@@ -13,35 +13,35 @@
             .when('/', {
                 controller: 'HomePageController',
                 controllerAs: 'hpc',
-                templateUrl: 'web/features/home-page/home-page.html'
+                templateUrl: 'glos/features/home-page/home-page.html'
 
             })
             .when('/horsley-community-shop', {
-                templateUrl: 'web/features/horsley-community-shop/shop.html'
+                templateUrl: 'glos/features/horsley-community-shop/shop.html'
             })
             .when('/history', {
                 controller: 'HistoryController',
                 controllerAs: 'hc',
-                templateUrl: 'web/features/history/history.html'
+                templateUrl: 'glos/features/history/history.html'
             })
             .when('/village-hall', {
                 controller: 'VillageHallController',
                 controllerAs: 'vhc',
-                templateUrl: 'web/features/village-hall/village-hall.html'
+                templateUrl: 'glos/features/village-hall/village-hall.html'
             })
             .when('/horses-mouth', {
                 controller: 'HorsesMouthController',
                 controllerAs: 'hmc',
-                templateUrl: 'web/features/the-horses-mouth/horses-mouth.html'
+                templateUrl: 'glos/features/the-horses-mouth/horses-mouth.html'
             })
             .when('/parish-council', {
                 controller: 'ParishCouncilController',
                 controllerAs: 'pcc',
-                templateUrl: 'web/features/parish-council/parish-council.html'
+                templateUrl: 'glos/features/parish-council/parish-council.html'
             })
             .when('/login', {
                 controller: 'LoginController',
-                templateUrl: 'web/features/login/login.html',
+                templateUrl: 'glos/features/login/login.html',
                 controllerAs: 'lc'
             })
             .when('/logout', {
@@ -50,12 +50,12 @@
             })
             .when('/register', {
                 controller: 'RegisterController',
-                templateUrl: 'web/features/login/register.html',
+                templateUrl: 'glos/features/login/register.html',
                 controllerAs: 'reg'
             })
             .when('/upload', {
                 controller: 'FileUploaderController',
-                templateUrl: 'web/features/file-uploader/file-uploader.html'
+                templateUrl: 'glos/features/file-uploader/file-uploader.html'
             });
 
         $stateProvider
@@ -64,7 +64,7 @@
                 url: '/',
                 controller: 'HomePageController',
                 controllerAs: 'hpc',
-                templateUrl: 'web/features/home-page/home-page.html'
+                templateUrl: 'glos/features/home-page/home-page.html'
             });
 
     }

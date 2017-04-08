@@ -68,3 +68,14 @@
     top: 0px;
     padding-left: 100px;
 }
+.pc-file-list {
+    width: 600px;
+    margin: 0 auto;
+}
+.pc-file-list tbody tr {
+    height: 40px;
+}
+.pc-file-list a {
+    text-decoration: none;
+    color: #0f0f0f;
+}

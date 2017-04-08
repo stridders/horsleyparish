@@ -22,6 +22,7 @@
         let hmc = this;
         let autoUpload = false;
         let acceptFileTypes = "|pdf|";
+        hmc.showUploader = false;
         hmc.maxQueueSize = 10;
         hmc.magazineLinks = {documents:[]};
         hmc.formData = {

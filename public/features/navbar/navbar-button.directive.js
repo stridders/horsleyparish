@@ -10,7 +10,7 @@
     function navbarButton() {
         return {
             restrict:       'E',
-            templateUrl:    'web/features/navbar/navbar-button.html',
+            templateUrl:    'glos/features/navbar/navbar-button.html',
             scope: {
                 heading:  '@',
                 title:    '@',

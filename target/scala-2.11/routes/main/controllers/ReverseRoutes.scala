@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
-// @DATE:Fri Feb 24 18:04:28 GMT 2017
+// @DATE:Sat Apr 08 08:14:11 BST 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -27,7 +27,7 @@ package controllers {
         // @LINE:22
         case (file)  =>
           implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
-          Call("GET", _prefix + { _defaultPrefix } + "web/" + implicitly[PathBindable[String]].unbind("file", file))
+          Call("GET", _prefix + { _defaultPrefix } + "glos/" + implicitly[PathBindable[String]].unbind("file", file))
       
       }
     
@@ -99,7 +99,7 @@ package controllers {
     // @LINE:9
     def index(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "web")
+      Call("GET", _prefix + { _defaultPrefix } + "glos")
     }
   
   }

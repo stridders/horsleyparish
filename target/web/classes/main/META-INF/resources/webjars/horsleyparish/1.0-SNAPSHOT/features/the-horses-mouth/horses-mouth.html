@@ -1,6 +1,5 @@
 <!-- 1. nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
 <div nv-file-drop="" uploader="hmc.uploader" filters="queueLimit, customFilter">
-
     <div class="hm-uploader">
         <div ng-if="!hmc.uploader.isHTML5" class="hm-title">
             <div>News and Events in the Parish of Horsley</div>
@@ -145,7 +144,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="doc in hmc.filteredDocs">
-                <td flex="20"><a href="{{doc.documentPath}}"><img src="/web/img/ico-pdf.png"></a></td>
+                <td flex="20"><a href="{{doc.documentPath}}"><img src="/glos/img/ico-pdf.png"></a></td>
                 <td flex="50"><a href="{{doc.documentPath}}">{{doc.fileName}}</a></td>
                 <td flex="20">{{doc.fileSize/100000 | number:2 }}MB</td>
                 <td flex="10">{{doc.uploadDate | date}}</td>

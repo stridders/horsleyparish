@@ -102,7 +102,7 @@
         function GetUserRoles() {
             let userRoles = [];
             let userProfile = JSON.parse($window.localStorage.getItem("userProfile"));
-            if (userProfile && userProfile.roles) {
+            if (userProfile && userProfile.email && userProfile.roles) {
                 userRoles = userProfile.roles;
             }
             return userRoles;
@@ -115,8 +115,12 @@
          * @constructor
          */
         function UserHasRole(role) {
-            let userRoles = this.GetUserRoles.toString();
-            return userRoles.indexOf(role) > -1 || userRoles.indexOf("ADMIN");
+            let userRoles = this.GetUserRoles().toString();
+            if (userRoles.indexOf(role) > -1 || userRoles.indexOf("ADMIN") > -1) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         /**

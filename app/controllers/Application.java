@@ -37,12 +37,12 @@ public class Application extends Controller {
     }
 
     public Result redirect() {
-        return redirect("/web");
+        return redirect("/glos");
     }
 
     public Result anything(String stuff) {
         if (stuff.equals("")) {
-            return movedPermanently(request().path() + "web");
+            return movedPermanently(request().path() + "glos");
         }
         UserProfile userProfile = new UserProfile();
         return notFound(views.html.notFoundPage.render(webJarAssets, stuff, userProfile));

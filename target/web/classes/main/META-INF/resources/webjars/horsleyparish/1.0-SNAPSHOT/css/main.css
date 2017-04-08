@@ -28,7 +28,7 @@ body #page-wrapper {
     top:-195px;
     width:900px;
     display:block;
-    background-image: url('/web/img/img-hdr-para-layer3.png');
+    background-image: url('/glos/img/img-hdr-para-layer3.png');
     background-position: center top;
     background-repeat: no-repeat;
     margin-bottom: -205px;
@@ -114,7 +114,7 @@ body #page-wrapper {
     text-align: center;
 }
 .bg-main {
-    background-image: url("/web/img/horsley_from_A46.png");
+    background-image: url("/glos/img/horsley_from_A46.png");
     background-repeat: no-repeat;
     background-position: top center;
     min-width: 900px;

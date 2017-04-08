@@ -10,7 +10,7 @@
     function animatedBird() {
         return {
             restrict:       'E',
-            templateUrl:    'web/features/animated-bird/animated-bird.html',
+            templateUrl:    'glos/features/animated-bird/animated-bird.html',
             controllerAs: 'ab',
             bindToController: true,
 

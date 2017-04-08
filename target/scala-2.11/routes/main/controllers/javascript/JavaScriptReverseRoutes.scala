@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
-// @DATE:Fri Feb 24 18:04:28 GMT 2017
+// @DATE:Sat Apr 08 08:14:11 BST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -29,7 +29,7 @@ package controllers.javascript {
         function(file1) {
         
           if (true) {
-            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "web/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file1)})
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "glos/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file1)})
           }
         
         }
@@ -131,7 +131,7 @@ package controllers.javascript {
       "controllers.Application.index",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "web"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "glos"})
         }
       """
     )

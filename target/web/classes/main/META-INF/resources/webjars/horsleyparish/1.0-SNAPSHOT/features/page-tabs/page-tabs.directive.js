@@ -10,7 +10,7 @@
     function pageTabs() {
         return {
             restrict:       'E',
-            templateUrl:    'web/features/page-tabs/page-tabs.html',
+            templateUrl:    'glos/features/page-tabs/page-tabs.html',
             scope: {
                 heading:    '=',
                 subheading: '=',
@@ -32,7 +32,7 @@
                     pageName = pl.feature + "-" + pl.pages[0].pageName + ".html";
                     pl.currentPage = pl.pages[0].pageName;
                 }
-                pl.pageURL = "/web/features/"+pl.feature+"/" + pageName;
+                pl.pageURL = "/glos/features/"+pl.feature+"/" + pageName;
                 pl.goto = goto;
 
                 /**

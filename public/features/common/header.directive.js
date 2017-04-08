@@ -10,7 +10,7 @@
     function header() {
         return {
             restrict:       'E',
-            templateUrl:    'web/features/common/header.html',
+            templateUrl:    'glos/features/common/header.html',
             controller: function() {
                 let parallax = document.querySelectorAll(".parallax");
                 let speed = [0.9, 0.7, 0.5];

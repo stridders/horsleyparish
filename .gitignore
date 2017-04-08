@@ -12,4 +12,5 @@ dist
 /.project
 /RUNNING_PID
 /.settings
+public/uploads/*
 .DS_Store

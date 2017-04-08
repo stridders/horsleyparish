@@ -6,7 +6,7 @@
 GET     /*somePath/                     controllers.Application.untrail(somePath : String)
 GET     /                               controllers.Application.redirect()
 
-GET     /web                            controllers.Application.index()
+GET     /glos                           controllers.Application.index()
 
 #GET    /api                             controllers.Root.apiRoot()
 GET    /api/uuid                        controllers.UuidGenerator.randomUUID()
@@ -19,7 +19,7 @@ GET    /api/document-types              controllers.Document.listDocumentTypes(d
 #GET    /document/:docType               controllers.Document.listByType(docType: String, sdate ?=null, edate ?= null)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /web/*file                      controllers.Assets.at(path="/public", file)
+GET     /glos/*file                      controllers.Assets.at(path="/public", file)
 GET     /assets/*file                   controllers.Assets.at(path="/public", file)
 GET     /webjars/*file                  controllers.WebJarAssets.at(file)
 GET     /version                        controllers.Application.version()

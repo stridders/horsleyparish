@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
-// @DATE:Fri Feb 24 18:04:28 GMT 2017
+// @DATE:Sat Apr 08 08:14:11 BST 2017
 
 package router
 
@@ -60,7 +60,7 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """""" + "$" + """somePath<.+>/""", """controllers.Application.untrail(somePath:String)"""),
     ("""GET""", this.prefix, """controllers.Application.redirect()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """web""", """controllers.Application.index()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """glos""", """controllers.Application.index()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/uuid""", """controllers.UuidGenerator.randomUUID()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/users""", """controllers.User.listUsers(surname:String ?= null, firstname:String ?= null, email:String ?= null)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/authentication""", """controllers.User.authenticate()"""),
@@ -68,7 +68,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/documents""", """controllers.Document.listDocuments(doctype:String ?= null, docgroup:String ?= null)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/documents/""" + "$" + """id<[^/]+>""", """controllers.Document.getDocument(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/document-types""", """controllers.Document.listDocumentTypes(doctype:String ?= null, role:String ?= null)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """web/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """glos/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """webjars/""" + "$" + """file<.+>""", """controllers.WebJarAssets.at(file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """version""", """controllers.Application.version()"""),
@@ -116,7 +116,7 @@ class Routes(
 
   // @LINE:9
   private[this] lazy val controllers_Application_index2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("web")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("glos")))
   )
   private[this] lazy val controllers_Application_index2_invoker = createInvoker(
     Application_5.index(),
@@ -127,7 +127,7 @@ class Routes(
       Nil,
       "GET",
       """""",
-      this.prefix + """web"""
+      this.prefix + """glos"""
     )
   )
 
@@ -252,7 +252,7 @@ class Routes(
 
   // @LINE:22
   private[this] lazy val controllers_Assets_at10_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("web/"), DynamicPart("file", """.+""",false)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("glos/"), DynamicPart("file", """.+""",false)))
   )
   private[this] lazy val controllers_Assets_at10_invoker = createInvoker(
     Assets_3.at(fakeValue[String], fakeValue[String]),
@@ -263,7 +263,7 @@ class Routes(
       Seq(classOf[String], classOf[String]),
       "GET",
       """ Map static resources from the /public folder to the /assets URL path""",
-      this.prefix + """web/""" + "$" + """file<.+>"""
+      this.prefix + """glos/""" + "$" + """file<.+>"""
     )
   )
 

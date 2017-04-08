@@ -8,10 +8,10 @@ or Mac), and is also easy to deploy to Cloud-based services like Heroku.
 There are three main components to the application:
 
 ### The [horsleyparish](horsleyparish.co.uk) Web Site
-This is written in AngularJS and JavaScript. The majority of the web site code can be found in the /public folder in the source repository.
+This is written in AngularJS and JavaScript. The majority of the website code can be found in the /public folder in the source repository.
 
 ### A RESTful Web Service
-This is written in Scala and Java. It sits between the website and the database, and is the conduit through which all database data flows. It enables the web site to be de-coupled from the
+This is written in Scala and Java. It sits between the website and the database, and is the conduit through which all database data flows. It enables the website to be de-coupled from the
 database technology, making it easier to integrate and change services in the future.
 
  ### A [PostgreSQL](https://www.postgresql.org/) database
