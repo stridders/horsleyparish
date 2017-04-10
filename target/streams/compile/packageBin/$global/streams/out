@@ -184,8 +184,6 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/horsley-community-shop/img/bg-blackboard.jpg[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$10.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$10.class[0m
-[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/docs/Barton End chronology 1 copy.pdf[0m
-[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/docs/Barton End chronology 1 copy.pdf[0m
 [0m[[0mdebug[0m] [0m	views/html/index_Scope0$index_Scope1$.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/views/html/index_Scope0$index_Scope1$.class[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/css/font-awesome-4.6.3/less/animated.less[0m
@@ -786,6 +784,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/old/Horsley.php/PAGES[0m
 [0m[[0mdebug[0m] [0m	services/transformers/DocumentTransformer.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/services/transformers/DocumentTransformer.class[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/docs/INSPECTORS APPEAL DECISION.pdf[0m
+[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/docs/INSPECTORS APPEAL DECISION.pdf[0m
 [0m[[0mdebug[0m] [0m	modules/HorsleyGuiceModule$1.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/modules/HorsleyGuiceModule$1.class[0m
 [0m[[0mdebug[0m] [0m	dto/UserDto.class[0m
