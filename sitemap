@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/horsley-community-shop</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/village-hall</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/horses-mouth</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/parish-council</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/parish-council?page=councillors</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/parish-council?page=map</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/parish-council?page=meetings</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/parish-council?page=Planning</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://horsleyparish.co.uk/glos#/history</loc>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>
