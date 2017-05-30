@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
-// @DATE:Sat Apr 08 08:14:11 BST 2017
+// @SOURCE:/Users/jstride/Documents/workspace/repository/horsleyparish/conf/routes
+// @DATE:Tue May 30 17:35:53 BST 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }

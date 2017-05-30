@@ -1,0 +1,9 @@
+.uc-table {
+}
+.uc-tab-row {
+    max-height: 60px;
+}
+.uc-insert-row {
+    background-color: #dff0d8;
+    max-height: 60px;
+}

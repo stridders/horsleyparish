@@ -1,0 +1,65 @@
+.cs-header {
+    position: relative;
+    top: -10px;
+    z-index: 5;
+}
+.cs-title {
+    width: 600px;
+    background-image: url("/glos/features/horsley-community-shop/img/bg-title.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding: 20px 0px 10px 0px;
+    height: 120px;
+    margin-bottom: -20px;
+}
+.cs-txt {
+    color: #005a66;
+    font-family: arial,verdana;
+    font-size: 22px;
+    margin: 4px 4px 4px 12px;
+}
+.cs-txt h2 {
+    color: #364d1d;
+    font-weight: bold;
+    margin-bottom: -15px;
+}
+.cs-txt h3 {
+    color: #a66300;
+    font-size: 18px;
+    text-space: 5px;
+    font-weight: bold;
+}
+.cs-img {
+    border: solid 2px #364d1d;
+    margin: 4px 2px 4px 2px;
+}
+.display_archive {
+    margin: 4px 4px 4px 10px;
+    color: #243313;
+    font-family: arial,verdana;
+    font-size: 16px;
+}
+.campaign {
+    line-height: 125%; margin: 5px;
+}
+.campaign a {
+    color: #007c8c;
+}
+.cs-bg {
+    /*background-color: #486626;*/
+    background-image: url("/glos/features/horsley-community-shop/img/veg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top left;
+    display: block;
+    height: 500px;
+}
+.cs-page-bg {
+    background-image: url("/glos/features/horsley-community-shop/img/bg-1.png");
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: top left;
+    position: relative;
+    top:-30px;
+}

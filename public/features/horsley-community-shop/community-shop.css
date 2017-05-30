@@ -55,3 +55,10 @@
     display: block;
     height: 500px;
 }
+.cs-page-bg {
+    background-image: url("/glos/features/horsley-community-shop/img/bg-1.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    position: relative;
+    top:-30px;
+}
