@@ -83,7 +83,7 @@
                                 link:    '/logout',
                                 bgcolour:  '#FFFFFF'
                             });
-                        if (userRoles.length > 0) {
+                        if (userRoles.length > 0 && userRoles.indexOf("ADMIN") > -1) {
                             nbc.links.push(
                                 {
                                     heading: 'Upload',
@@ -92,7 +92,16 @@
                                     text:    '',
                                     link:    '/upload',
                                     bgcolour:  '#E54800'
-                                });
+                                },
+                                {
+                                    heading: 'User Admin',
+                                    title:   'Manager User Accounts',
+                                    image:   '/glos/img/users.png',
+                                    text:    '',
+                                    link:    '/admin-users',
+                                    bgcolour:  '#E54800'
+                                }
+                            );
                         }
                     } else {
                         nbc.links.push(

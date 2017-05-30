@@ -62,70 +62,75 @@ Seq[Any](format.raw/*4.56*/("""
 		<script type="text/javascript" src='"""),_display_(/*37.40*/routes/*37.46*/.Assets.at("js/angular-file-upload.min.js")),format.raw/*37.89*/("""'></script>
 		<script type="text/javascript" src='"""),_display_(/*38.40*/routes/*38.46*/.WebJarAssets.at(webJarAssets.locate("angular-material.min.js"))),format.raw/*38.110*/("""'></script>
 		<script type="text/javascript" src='"""),_display_(/*39.40*/routes/*39.46*/.WebJarAssets.at(webJarAssets.locate("moment.min.js"))),format.raw/*39.100*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*40.40*/routes/*40.46*/.WebJarAssets.at(webJarAssets.locate("postscribe.min.js"))),format.raw/*40.104*/("""'></script>
 
-		<script type="text/javascript" src='"""),_display_(/*41.40*/routes/*41.46*/.Assets.at("js/controllers.module.js")),format.raw/*41.84*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*42.40*/routes/*42.46*/.Assets.at("js/services.module.js")),format.raw/*42.81*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*43.40*/routes/*43.46*/.Assets.at("js/app.js")),format.raw/*43.69*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*42.40*/routes/*42.46*/.Assets.at("js/controllers.module.js")),format.raw/*42.84*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*43.40*/routes/*43.46*/.Assets.at("js/services.module.js")),format.raw/*43.81*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*44.40*/routes/*44.46*/.Assets.at("js/app.js")),format.raw/*44.69*/("""'></script>
 
 		<!-- Features -->
 
 		<!-- Home-Page -->
-		<script type="text/javascript" src='"""),_display_(/*48.40*/routes/*48.46*/.Assets.at("features/home-page/home-page.controller.js")),format.raw/*48.102*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*49.40*/routes/*49.46*/.Assets.at("features/home-page/home-page.controller.js")),format.raw/*49.102*/("""'></script>
 
 		<!-- File-Uploader -->
-		<link rel="stylesheet" href='"""),_display_(/*51.33*/routes/*51.39*/.Assets.at("features/file-uploader/file-uploader.css")),format.raw/*51.93*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*52.40*/routes/*52.46*/.Assets.at("features/file-uploader/file-uploader.controller.js")),format.raw/*52.110*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*53.40*/routes/*53.46*/.Assets.at("features/file-uploader/file-uploader.service.js")),format.raw/*53.107*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*52.33*/routes/*52.39*/.Assets.at("features/file-uploader/file-uploader.css")),format.raw/*52.93*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*53.40*/routes/*53.46*/.Assets.at("features/file-uploader/file-uploader.controller.js")),format.raw/*53.110*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*54.40*/routes/*54.46*/.Assets.at("features/file-uploader/file-uploader.service.js")),format.raw/*54.107*/("""'></script>
 
 		<!-- Common Services -->
-		<link rel="stylesheet" href='"""),_display_(/*56.33*/routes/*56.39*/.Assets.at("features/common/header.css")),format.raw/*56.79*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*57.40*/routes/*57.46*/.Assets.at("features/common/header.directive.js")),format.raw/*57.95*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*58.40*/routes/*58.46*/.Assets.at("features/flash/flash.service.js")),format.raw/*58.91*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*57.33*/routes/*57.39*/.Assets.at("features/common/header.css")),format.raw/*57.79*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*58.40*/routes/*58.46*/.Assets.at("features/common/header.directive.js")),format.raw/*58.95*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*59.40*/routes/*59.46*/.Assets.at("features/flash/flash.service.js")),format.raw/*59.91*/("""'></script>
 
 		<!-- Navigation Bar -->
-		<link rel="stylesheet" href='"""),_display_(/*61.33*/routes/*61.39*/.Assets.at("features/navbar/navbar-button.css")),format.raw/*61.86*/("""'/>
-		<link rel="stylesheet" href='"""),_display_(/*62.33*/routes/*62.39*/.Assets.at("features/navbar/navbar.css")),format.raw/*62.79*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*63.40*/routes/*63.46*/.Assets.at("features/navbar/navbar-button.directive.js")),format.raw/*63.102*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*64.40*/routes/*64.46*/.Assets.at("features/navbar/navbar.directive.js")),format.raw/*64.95*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*62.33*/routes/*62.39*/.Assets.at("features/navbar/navbar-button.css")),format.raw/*62.86*/("""'/>
+		<link rel="stylesheet" href='"""),_display_(/*63.33*/routes/*63.39*/.Assets.at("features/navbar/navbar.css")),format.raw/*63.79*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*64.40*/routes/*64.46*/.Assets.at("features/navbar/navbar-button.directive.js")),format.raw/*64.102*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*65.40*/routes/*65.46*/.Assets.at("features/navbar/navbar.directive.js")),format.raw/*65.95*/("""'></script>
 
 		<!-- Page-Tabs -->
-		<link rel="stylesheet" href='"""),_display_(/*67.33*/routes/*67.39*/.Assets.at("features/page-tabs/page-tabs.css")),format.raw/*67.85*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*68.40*/routes/*68.46*/.Assets.at("features/page-tabs/page-tabs.directive.js")),format.raw/*68.101*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*68.33*/routes/*68.39*/.Assets.at("features/page-tabs/page-tabs.css")),format.raw/*68.85*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*69.40*/routes/*69.46*/.Assets.at("features/page-tabs/page-tabs.directive.js")),format.raw/*69.101*/("""'></script>
 
 		<!-- Home-Page -->
-		<script type="text/javascript" src='"""),_display_(/*71.40*/routes/*71.46*/.Assets.at("features/home-page/home-page.controller.js")),format.raw/*71.102*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*72.40*/routes/*72.46*/.Assets.at("features/home-page/home-page.controller.js")),format.raw/*72.102*/("""'></script>
 
 		<!-- The Horses Mouth -->
-		<link rel="stylesheet" href='"""),_display_(/*74.33*/routes/*74.39*/.Assets.at("features/the-horses-mouth/horses-mouth.css")),format.raw/*74.95*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*75.40*/routes/*75.46*/.Assets.at("features/the-horses-mouth/horses-mouth.controller.js")),format.raw/*75.112*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*76.40*/routes/*76.46*/.Assets.at("features/the-horses-mouth/horses-mouth.service.js")),format.raw/*76.109*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*75.33*/routes/*75.39*/.Assets.at("features/the-horses-mouth/horses-mouth.css")),format.raw/*75.95*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*76.40*/routes/*76.46*/.Assets.at("features/the-horses-mouth/horses-mouth.controller.js")),format.raw/*76.112*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*77.40*/routes/*77.46*/.Assets.at("features/the-horses-mouth/horses-mouth.service.js")),format.raw/*77.109*/("""'></script>
 
 		<!-- History -->
-		<script type="text/javascript" src='"""),_display_(/*79.40*/routes/*79.46*/.Assets.at("features/history/history.controller.js")),format.raw/*79.98*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*80.40*/routes/*80.46*/.Assets.at("features/history/history.controller.js")),format.raw/*80.98*/("""'></script>
 
 		<!-- Village Hall -->
-		<link rel="stylesheet" href='"""),_display_(/*82.33*/routes/*82.39*/.Assets.at("features/village-hall/village-hall.css")),format.raw/*82.91*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*83.40*/routes/*83.46*/.Assets.at("features/village-hall/village-hall.controller.js")),format.raw/*83.108*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*83.33*/routes/*83.39*/.Assets.at("features/village-hall/village-hall.css")),format.raw/*83.91*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*84.40*/routes/*84.46*/.Assets.at("features/village-hall/village-hall.controller.js")),format.raw/*84.108*/("""'></script>
 
 		<!-- Login -->
-		<link rel="stylesheet" href='"""),_display_(/*86.33*/routes/*86.39*/.Assets.at("features/login/login.css")),format.raw/*86.77*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*87.40*/routes/*87.46*/.Assets.at("features/login/authentication.service.js")),format.raw/*87.100*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*88.40*/routes/*88.46*/.Assets.at("features/login/login.controller.js")),format.raw/*88.94*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*89.40*/routes/*89.46*/.Assets.at("features/login/logout.controller.js")),format.raw/*89.95*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*90.40*/routes/*90.46*/.Assets.at("features/login/register.controller.js")),format.raw/*90.97*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*91.40*/routes/*91.46*/.Assets.at("features/login/user.service.js")),format.raw/*91.90*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*87.33*/routes/*87.39*/.Assets.at("features/login/login.css")),format.raw/*87.77*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*88.40*/routes/*88.46*/.Assets.at("features/login/authentication.service.js")),format.raw/*88.100*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*89.40*/routes/*89.46*/.Assets.at("features/login/login.controller.js")),format.raw/*89.94*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*90.40*/routes/*90.46*/.Assets.at("features/login/logout.controller.js")),format.raw/*90.95*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*91.40*/routes/*91.46*/.Assets.at("features/login/register.controller.js")),format.raw/*91.97*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*92.40*/routes/*92.46*/.Assets.at("features/login/user.service.js")),format.raw/*92.90*/("""'></script>
 
 		<!-- Parish Council -->
-		<link rel="stylesheet" href='"""),_display_(/*94.33*/routes/*94.39*/.Assets.at("features/parish-council/parish-council.css")),format.raw/*94.95*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*95.40*/routes/*95.46*/.Assets.at("features/parish-council/parish-council.controller.js")),format.raw/*95.112*/("""'></script>
-		<script type="text/javascript" src='"""),_display_(/*96.40*/routes/*96.46*/.Assets.at("features/parish-council/parish-council.services.js")),format.raw/*96.110*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*95.33*/routes/*95.39*/.Assets.at("features/parish-council/parish-council.css")),format.raw/*95.95*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*96.40*/routes/*96.46*/.Assets.at("features/parish-council/parish-council.controller.js")),format.raw/*96.112*/("""'></script>
+		<script type="text/javascript" src='"""),_display_(/*97.40*/routes/*97.46*/.Assets.at("features/parish-council/parish-council.services.js")),format.raw/*97.110*/("""'></script>
 
 		<!-- Animated bird -->
-		<link rel="stylesheet" href='"""),_display_(/*99.33*/routes/*99.39*/.Assets.at("features/animated-bird/animated-bird.css")),format.raw/*99.93*/("""'/>
-		<script type="text/javascript" src='"""),_display_(/*100.40*/routes/*100.46*/.Assets.at("features/animated-bird/animated-bird.directive.js")),format.raw/*100.109*/("""'></script>
+		<link rel="stylesheet" href='"""),_display_(/*100.33*/routes/*100.39*/.Assets.at("features/animated-bird/animated-bird.css")),format.raw/*100.93*/("""'/>
+		<script type="text/javascript" src='"""),_display_(/*101.40*/routes/*101.46*/.Assets.at("features/animated-bird/animated-bird.directive.js")),format.raw/*101.109*/("""'></script>
 
 		<!-- Community Shop -->
-		<link rel="stylesheet" href='"""),_display_(/*103.33*/routes/*103.39*/.Assets.at("features/horsley-community-shop/community-shop.css")),format.raw/*103.103*/("""'/>
+		<link rel="stylesheet" href='"""),_display_(/*104.33*/routes/*104.39*/.Assets.at("features/horsley-community-shop/community-shop.css")),format.raw/*104.103*/("""'/>
+
+		<!-- User Admin -->
+		<link rel="stylesheet" href='"""),_display_(/*107.33*/routes/*107.39*/.Assets.at("admin/users/users.css")),format.raw/*107.74*/("""'/>
+
 
 	</head>
 
@@ -165,11 +170,11 @@ Seq[Any](format.raw/*4.56*/("""
 object index extends index_Scope0.index_Scope1.index
               /*
                   -- GENERATED --
-                  DATE: Fri Apr 21 13:46:02 BST 2017
+                  DATE: Mon May 29 11:09:50 BST 2017
                   SOURCE: /Users/js/Documents/workspace/repositories/HorsleyParish/app/views/index.scala.html
-                  HASH: f0ae2ff8ddd68f4cdbe7dc19cf28d95741057d95
-                  MATRIX: 636->67|768->123|781->129|857->121|885->174|913->176|1434->670|1449->676|1533->738|1595->773|1610->779|1696->843|1758->878|1773->884|1851->941|1914->977|1929->983|1980->1013|2043->1049|2058->1055|2105->1081|2265->1214|2280->1220|2356->1274|2434->1325|2449->1331|2528->1388|2606->1439|2621->1445|2713->1515|2791->1566|2806->1572|2912->1656|2990->1707|3005->1713|3091->1777|3169->1828|3184->1834|3285->1913|3363->1964|3378->1970|3462->2032|3540->2083|3555->2089|3649->2161|3727->2212|3742->2218|3829->2283|3907->2334|3922->2340|4028->2424|4106->2475|4121->2481|4221->2559|4299->2610|4314->2616|4421->2701|4499->2752|4514->2758|4578->2801|4656->2852|4671->2858|4757->2922|4835->2973|4850->2979|4926->3033|5005->3085|5020->3091|5079->3129|5157->3180|5172->3186|5228->3221|5306->3272|5321->3278|5365->3301|5486->3395|5501->3401|5579->3457|5676->3527|5691->3533|5766->3587|5836->3630|5851->3636|5937->3700|6015->3751|6030->3757|6113->3818|6212->3890|6227->3896|6288->3936|6358->3979|6373->3985|6443->4034|6521->4085|6536->4091|6602->4136|6700->4207|6715->4213|6783->4260|6846->4296|6861->4302|6922->4342|6992->4385|7007->4391|7085->4447|7163->4498|7178->4504|7248->4553|7341->4619|7356->4625|7423->4671|7493->4714|7508->4720|7585->4775|7685->4848|7700->4854|7778->4910|7878->4983|7893->4989|7970->5045|8040->5088|8055->5094|8143->5160|8221->5211|8236->5217|8321->5280|8419->5351|8434->5357|8507->5409|8603->5478|8618->5484|8691->5536|8761->5579|8776->5585|8860->5647|8949->5709|8964->5715|9023->5753|9093->5796|9108->5802|9184->5856|9262->5907|9277->5913|9346->5961|9424->6012|9439->6018|9509->6067|9587->6118|9602->6124|9674->6175|9752->6226|9767->6232|9832->6276|9930->6347|9945->6353|10022->6409|10092->6452|10107->6458|10195->6524|10273->6575|10288->6581|10374->6645|10471->6715|10486->6721|10561->6775|10632->6818|10648->6824|10734->6887|10833->6958|10849->6964|10936->7028
-                  LINES: 24->4|28->5|28->5|29->4|30->5|32->7|43->18|43->18|43->18|44->19|44->19|44->19|45->20|45->20|45->20|46->21|46->21|46->21|47->22|47->22|47->22|50->25|50->25|50->25|51->26|51->26|51->26|52->27|52->27|52->27|53->28|53->28|53->28|54->29|54->29|54->29|55->30|55->30|55->30|56->31|56->31|56->31|57->32|57->32|57->32|58->33|58->33|58->33|59->34|59->34|59->34|60->35|60->35|60->35|61->36|61->36|61->36|62->37|62->37|62->37|63->38|63->38|63->38|64->39|64->39|64->39|66->41|66->41|66->41|67->42|67->42|67->42|68->43|68->43|68->43|73->48|73->48|73->48|76->51|76->51|76->51|77->52|77->52|77->52|78->53|78->53|78->53|81->56|81->56|81->56|82->57|82->57|82->57|83->58|83->58|83->58|86->61|86->61|86->61|87->62|87->62|87->62|88->63|88->63|88->63|89->64|89->64|89->64|92->67|92->67|92->67|93->68|93->68|93->68|96->71|96->71|96->71|99->74|99->74|99->74|100->75|100->75|100->75|101->76|101->76|101->76|104->79|104->79|104->79|107->82|107->82|107->82|108->83|108->83|108->83|111->86|111->86|111->86|112->87|112->87|112->87|113->88|113->88|113->88|114->89|114->89|114->89|115->90|115->90|115->90|116->91|116->91|116->91|119->94|119->94|119->94|120->95|120->95|120->95|121->96|121->96|121->96|124->99|124->99|124->99|125->100|125->100|125->100|128->103|128->103|128->103
+                  HASH: 64cf37d7a639fef7fed39eda6775b3dc58beb824
+                  MATRIX: 636->67|768->123|781->129|857->121|885->174|913->176|1434->670|1449->676|1533->738|1595->773|1610->779|1696->843|1758->878|1773->884|1851->941|1914->977|1929->983|1980->1013|2043->1049|2058->1055|2105->1081|2265->1214|2280->1220|2356->1274|2434->1325|2449->1331|2528->1388|2606->1439|2621->1445|2713->1515|2791->1566|2806->1572|2912->1656|2990->1707|3005->1713|3091->1777|3169->1828|3184->1834|3285->1913|3363->1964|3378->1970|3462->2032|3540->2083|3555->2089|3649->2161|3727->2212|3742->2218|3829->2283|3907->2334|3922->2340|4028->2424|4106->2475|4121->2481|4221->2559|4299->2610|4314->2616|4421->2701|4499->2752|4514->2758|4578->2801|4656->2852|4671->2858|4757->2922|4835->2973|4850->2979|4926->3033|5004->3084|5019->3090|5099->3148|5178->3200|5193->3206|5252->3244|5330->3295|5345->3301|5401->3336|5479->3387|5494->3393|5538->3416|5659->3510|5674->3516|5752->3572|5849->3642|5864->3648|5939->3702|6009->3745|6024->3751|6110->3815|6188->3866|6203->3872|6286->3933|6385->4005|6400->4011|6461->4051|6531->4094|6546->4100|6616->4149|6694->4200|6709->4206|6775->4251|6873->4322|6888->4328|6956->4375|7019->4411|7034->4417|7095->4457|7165->4500|7180->4506|7258->4562|7336->4613|7351->4619|7421->4668|7514->4734|7529->4740|7596->4786|7666->4829|7681->4835|7758->4890|7858->4963|7873->4969|7951->5025|8051->5098|8066->5104|8143->5160|8213->5203|8228->5209|8316->5275|8394->5326|8409->5332|8494->5395|8592->5466|8607->5472|8680->5524|8776->5593|8791->5599|8864->5651|8934->5694|8949->5700|9033->5762|9122->5824|9137->5830|9196->5868|9266->5911|9281->5917|9357->5971|9435->6022|9450->6028|9519->6076|9597->6127|9612->6133|9682->6182|9760->6233|9775->6239|9847->6290|9925->6341|9940->6347|10005->6391|10103->6462|10118->6468|10195->6524|10265->6567|10280->6573|10368->6639|10446->6690|10461->6696|10547->6760|10645->6830|10661->6836|10737->6890|10808->6933|10824->6939|10910->7002|11009->7073|11025->7079|11112->7143|11199->7202|11215->7208|11272->7243
+                  LINES: 24->4|28->5|28->5|29->4|30->5|32->7|43->18|43->18|43->18|44->19|44->19|44->19|45->20|45->20|45->20|46->21|46->21|46->21|47->22|47->22|47->22|50->25|50->25|50->25|51->26|51->26|51->26|52->27|52->27|52->27|53->28|53->28|53->28|54->29|54->29|54->29|55->30|55->30|55->30|56->31|56->31|56->31|57->32|57->32|57->32|58->33|58->33|58->33|59->34|59->34|59->34|60->35|60->35|60->35|61->36|61->36|61->36|62->37|62->37|62->37|63->38|63->38|63->38|64->39|64->39|64->39|65->40|65->40|65->40|67->42|67->42|67->42|68->43|68->43|68->43|69->44|69->44|69->44|74->49|74->49|74->49|77->52|77->52|77->52|78->53|78->53|78->53|79->54|79->54|79->54|82->57|82->57|82->57|83->58|83->58|83->58|84->59|84->59|84->59|87->62|87->62|87->62|88->63|88->63|88->63|89->64|89->64|89->64|90->65|90->65|90->65|93->68|93->68|93->68|94->69|94->69|94->69|97->72|97->72|97->72|100->75|100->75|100->75|101->76|101->76|101->76|102->77|102->77|102->77|105->80|105->80|105->80|108->83|108->83|108->83|109->84|109->84|109->84|112->87|112->87|112->87|113->88|113->88|113->88|114->89|114->89|114->89|115->90|115->90|115->90|116->91|116->91|116->91|117->92|117->92|117->92|120->95|120->95|120->95|121->96|121->96|121->96|122->97|122->97|122->97|125->100|125->100|125->100|126->101|126->101|126->101|129->104|129->104|129->104|132->107|132->107|132->107
                   -- GENERATED --
               */
           

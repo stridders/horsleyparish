@@ -1,0 +1,20 @@
+(function() {
+
+    angular.module('horsley')
+        .controller('UsersController', UsersController);
+
+    UsersController.$inject = [
+        'FlashService',
+        '$scope'
+    ];
+
+    function UsersController(FlashService,
+                                   $scope) {
+
+        let uc = this;
+
+
+
+    }
+
+})();

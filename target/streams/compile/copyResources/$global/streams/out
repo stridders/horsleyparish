@@ -1,12 +1,12 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/application.conf,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/logback-test.xml,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/logback-test.xml)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/logback.xml,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/logback.xml)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/META-INF,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/META-INF)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/test.conf,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/test.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions/default,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions/default)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions/default/1.sql,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions/default/1.sql)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions/default/2.sql,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions/default/2.sql)[0m
-[0m[[0mdebug[0m] [0m	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/META-INF/persistence.xml,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/META-INF/persistence.xml)[0m
+[debug] Copy resource mappings: 
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/application.conf,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/application.conf)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/logback-test.xml,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/logback-test.xml)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/logback.xml,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/logback.xml)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/META-INF,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/META-INF)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/routes)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/test.conf,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/test.conf)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions/default,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions/default)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions/default/1.sql,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions/default/1.sql)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/evolutions/default/2.sql,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/evolutions/default/2.sql)
+[debug] 	(/Users/js/Documents/workspace/repositories/HorsleyParish/conf/META-INF/persistence.xml,/Users/js/Documents/workspace/repositories/HorsleyParish/target/scala-2.11/classes/META-INF/persistence.xml)

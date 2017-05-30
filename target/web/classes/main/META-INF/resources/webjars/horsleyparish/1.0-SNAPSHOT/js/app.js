@@ -56,6 +56,10 @@
             .when('/upload', {
                 controller: 'FileUploaderController',
                 templateUrl: 'glos/features/file-uploader/file-uploader.html'
+            })
+            .when('/admin-users', {
+                controller: 'UsersController',
+                templateUrl: 'glos/admin/users/users.html'
             });
 
         $stateProvider
