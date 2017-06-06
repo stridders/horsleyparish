@@ -4,7 +4,7 @@
 		module="horsleyparish$sources_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170628073654"
+		publication="20170606085623"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
