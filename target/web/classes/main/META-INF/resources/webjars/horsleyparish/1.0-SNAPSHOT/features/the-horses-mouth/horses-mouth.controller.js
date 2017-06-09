@@ -68,7 +68,12 @@
             HorsesMouthService.getMagazineLinks(function (response) {
                 if (response) {
                     hmc.magazineLinks = response;
-                    hmc.filteredDocs = hmc.magazineLinks.documents.slice(0, hmc.pageSize);
+                    hmc.filteredDocs = hmc.magazineLinks.documents
+                        .slice(0, hmc.pageSize)
+                        .sort(function(a,b){
+                            return a.fileName > b.fileName;
+                        }
+                    );
                     hmc.totalItems = hmc.magazineLinks.documents.length;
                 } else {
                     let errMsg = "Unable to retrieve magazines from Horsley server";
