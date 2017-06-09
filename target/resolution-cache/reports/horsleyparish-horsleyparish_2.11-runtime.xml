@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170606085618"/>
+		date="20170609123514"/>
 	<dependencies>
 		<module organisation="org.webjars.bower" name="postscribe">
 			<revision name="1.4.0" status="release" pubdate="20160105183825" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="128">

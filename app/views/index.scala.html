@@ -59,16 +59,18 @@
 		<script type="text/javascript" src='@routes.Assets.at("features/file-uploader/file-uploader.controller.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("features/file-uploader/file-uploader.service.js")'></script>
 
-		<!-- Common Services -->
-		<link rel="stylesheet" href='@routes.Assets.at("features/common/header.css")'/>
-		<script type="text/javascript" src='@routes.Assets.at("features/common/header.directive.js")'></script>
-		<script type="text/javascript" src='@routes.Assets.at("features/flash/flash.service.js")'></script>
-
-		<!-- Navigation Bar -->
+			<!-- Navigation Bar -->
 		<link rel="stylesheet" href='@routes.Assets.at("features/navbar/navbar-button.css")'/>
 		<link rel="stylesheet" href='@routes.Assets.at("features/navbar/navbar.css")'/>
 		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar-button.directive.js")'></script>
 		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar.directive.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/navbar/navbar.service.js")'></script>
+
+		<!-- Common Services -->
+		<link rel="stylesheet" href='@routes.Assets.at("features/common/header.css")'/>
+		<script type="text/javascript" src='@routes.Assets.at("features/common/header.directive.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/common/footer.directive.js")'></script>
+		<script type="text/javascript" src='@routes.Assets.at("features/flash/flash.service.js")'></script>
 
 		<!-- Page-Tabs -->
 		<link rel="stylesheet" href='@routes.Assets.at("features/page-tabs/page-tabs.css")'/>
@@ -125,8 +127,8 @@
 			<div class="main-container">
 				<div class="main-page-hdr"></div>
 				<ng-view class="main-page"></ng-view>
-				<div ng-include="'/glos/features/common/page-footer.html'"></div>
 			</div>
+			<footer></footer>
 		</div>
 
 	</body>

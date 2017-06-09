@@ -197,6 +197,11 @@
             <artifactId>momentjs</artifactId>
             <version>2.17.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>postscribe</artifactId>
+            <version>1.4.0</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>

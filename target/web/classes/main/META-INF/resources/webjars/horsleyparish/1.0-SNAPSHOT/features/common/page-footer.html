@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" ng-controller="navbar as nbc">
     <div class="footer-container">
         Please feel free to <a href="mailto:horsleywebsite@jonstride.uk">email us</a> if
         you have any enquiries about this website, or would like to add your own content.<br><br>
@@ -6,4 +6,7 @@
         HorsleyParish.co.uk was developed in Horsley and is supported by local volunteers.<br>
         Sponsored by Horsley Parish Council.   Copyright 2017. All rights reserved.<br>
     </div>
+</div>
+<div ng-repeat="link in nbc.links">
+    here->{{link}}
 </div>

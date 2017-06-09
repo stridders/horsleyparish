@@ -124,7 +124,7 @@ public class DocumentTransformer {
         dto.setFormat(document.getFormat());
         dto.setUploadDate(document.getUploadDateAsString());
         dto.setUser(document.getUser().getEmail());
-        dto.setDocumentPath(document.getDocumentPath().replace("public","web"));
+        dto.setDocumentPath(document.getDocumentPath().replace("public","glos"));
         return dto;
     }
 
