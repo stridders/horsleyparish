@@ -79,11 +79,12 @@
     text-decoration: none;
     color: #0f0f0f;
 }
-.pc-iframe-900 {
+.pc-iframe {
     position: relative;
     left: 40px;
     border: none;
     display: block;
     width: 900px;
     min-height: 600px;
+    margin-bottom: -80px;
 }
