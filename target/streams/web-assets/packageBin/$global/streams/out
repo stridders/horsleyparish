@@ -116,6 +116,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_en-fk.js.gz[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_so-so.js.gz[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_so-so.js.gz[0m
+[0m[[0mdebug[0m] [0m	public/features/parish-council/parish-council-agenda.html[0m
+[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/parish-council-agenda.html[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_bg-bg.js[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_bg-bg.js[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_en-ai.js.gz[0m
@@ -1268,8 +1270,6 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/css/font-awesome-4.6.3/less/animated.less[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_bn-bd.js[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_bn-bd.js[0m
-[0m[[0mdebug[0m] [0m	public/features/parish-council/parish-council-meetings.html[0m
-[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/parish-council-meetings.html[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_guz-ke.js[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_guz-ke.js[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_tr.js.gz[0m
@@ -2334,6 +2334,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/css/bootstrap-3.3.7/bootstrap-theme.min.css[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_kkj.js[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_kkj.js[0m
+[0m[[0mdebug[0m] [0m	public/features/parish-council/parish-council-dates.html[0m
+[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/parish-council-dates.html[0m
 [0m[[0mdebug[0m] [0m	public/lib/angular-aria/LICENSE.md[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angular-aria/LICENSE.md[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_lv.js.gz[0m
@@ -2868,6 +2870,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_en-001.js[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_rwk-tz.js.gz[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_rwk-tz.js.gz[0m
+[0m[[0mdebug[0m] [0m	public/features/parish-council/parish-council-minutes.html[0m
+[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/parish-council-minutes.html[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_seh-mz.js.gz[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_seh-mz.js.gz[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_rm-ch.js.gz[0m
@@ -3680,6 +3684,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/page-tabs/page-tabs.directive.js[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_fr-tg.js.gz[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_fr-tg.js.gz[0m
+[0m[[0mdebug[0m] [0m	public/features/parish-council/parish-council-about.html[0m
+[0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/public/features/parish-council/parish-council-about.html[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_jgo-cm.js.gz[0m
 [0m[[0mdebug[0m] [0m	  /Users/js/Documents/workspace/repositories/HorsleyParish/target/web/web-modules/main/webjars/lib/angularjs/i18n/angular-locale_jgo-cm.js.gz[0m
 [0m[[0mdebug[0m] [0m	public/lib/angularjs/i18n/angular-locale_zh-hans-cn.js.gz[0m
