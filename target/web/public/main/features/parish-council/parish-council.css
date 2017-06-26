@@ -59,6 +59,7 @@
 }
 .pc-minutes-txt {
     vertical-align: top;
+    z-index: 2;
 }
 .pc-meeting-title {
     position: relative;

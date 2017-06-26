@@ -34,9 +34,14 @@
 
             pcc.pages = [
                 {
-                    title:      'Home',
+                    title:      'Notes',
+                    subtitle:   'News and Updates',
+                    pageName:   'home'
+                },
+                {
+                    title:      'About',
                     subtitle:   'Horsley parish council home page',
-                    pageName:   'home',
+                    pageName:   'about',
                 },
                 {
                     title:      'Councillors',
@@ -44,20 +49,30 @@
                     pageName:   'councillors',
                 },
                 {
-                    title:      'Parish Council Boundaries',
-                    subtitle:   'Map of Horsley Parish',
-                    pageName:   'map'
+                    title:      'Dates',
+                    subtitle:   'Meeting Dates',
+                    pageName:   'dates',
                 },
                 {
-                    title:      'Meetings',
-                    subtitle:   'Meeting schedules, agendas and minutes',
-                    pageName:   'meetings',
+                    title:      'Agenda',
+                    subtitle:   'Next Meeting Date and Agenda',
+                    pageName:   'agenda',
                     noCache:    'true'
+                },
+                {
+                    title:      'Minutes',
+                    subtitle:   'Links to Minute and Agenda Documents',
+                    pageName:   'minutes',
                 },
                 {
                     title:      'Planning',
                     subtitle:   'Local Planning Applications, News and Issues',
                     pageName:   'Planning'
+                },
+                {
+                    title:      'Map',
+                    subtitle:   'Map of Horsley Parish Boundaries',
+                    pageName:   'map'
                 },
             ];
 
