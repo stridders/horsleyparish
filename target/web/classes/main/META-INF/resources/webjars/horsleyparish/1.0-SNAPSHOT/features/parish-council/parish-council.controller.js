@@ -5,18 +5,12 @@
 
     ParishCouncilController.$inject = [
         'FlashService',
-        'FileUploader',
-        'AuthenticationService',
-        'FileUploadService',
-        'ParishCouncilService',
+        'GoogleDriveService',
         '$scope'
     ];
 
     function ParishCouncilController(FlashService,
-                                     FileUploader,
-                                     AuthenticationService,
-                                     FileUploadService,
-                                     ParishCouncilService,
+                                     GoogleDriveService,
                                      $scope) {
 
         let pcc = this;
@@ -76,6 +70,25 @@
                 },
             ];
 
+            getFileList("0B5mg3C3GfH8dam1zc05RTUFyaFE");
+
+        }
+
+        function getFileList(id) {
+
+            GoogleDriveService.getFileList(id, function (response) {
+                if (response) {
+                    pcc.files = response
+                        .sort(function(a,b){
+                                return a.name > b.name;
+                            }
+                        );
+
+                } else {
+                    let errMsg = "Unable to retrieve file list from Google Drive folder";
+                    FlashService.Error(errMsg);
+                }
+            });
         }
 
     }

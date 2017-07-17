@@ -33,7 +33,10 @@ libraryDependencies ++= Seq(
   "com.jayway.jsonpath" % "json-path" % "2.0.0",
   "org.webjars.npm" % "angular-ui-calendar" % "1.0.2",
   "org.webjars" % "momentjs" % "2.17.1",
-  "org.webjars.bower" % "postscribe" % "1.4.0"
+  "org.webjars.bower" % "postscribe" % "1.4.0",
+  "com.google.apis" % "google-api-services-drive" % "v3-rev76-1.22.0",
+  "com.google.oauth-client" % "google-oauth-client-jetty" % "1.22.0",
+  "com.google.api-client" % "google-api-client" % "1.22.0"
 )
 
 javaOptions in Test ++= Seq("-Dlogger.resource=logback-test.xml", "-Dconfig.file=conf/test.conf")

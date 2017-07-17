@@ -89,3 +89,44 @@
     min-height: 600px;
     margin-bottom: -80px;
 }
+.flex-container {
+}
+.flex-item {
+    padding: 5px;
+}
+.pc-notes {
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url("/glos/features/parish-council/img/playground1.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding-top: 50px;
+    min-height: 400px;
+    width: 900px;
+}
+.pc-post-it p {
+    display: block;
+    background-image: url("/glos/features/parish-council/img/pin.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 140px;
+    height: 35px;
+    position: relative;
+    top: -160px;
+}
+.pc-post-it a {
+    background-color: #FEEA71;
+    display: block;
+    font-family: "Bradley Hand";
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 3px 3px 1px #4d4d4d;
+    text-align: center;
+    vertical-align: middle;
+    text-wrap: normal;
+    color: #4f504f;
+    text-wrap: normal;
+    width: 140px;
+    height: 140px;
+    padding: 20px 4px 4px 4px;
+}

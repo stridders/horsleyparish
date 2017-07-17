@@ -16,14 +16,7 @@ import play.Logger;
 import play.libs.akka.AkkaGuiceSupport;
 import security.RoleBasedAuthoriser;
 import security.UserAuthenticator;
-import services.DocumentGroupService;
-import services.DocumentGroupServiceImpl;
-import services.DocumentService;
-import services.DocumentServiceImpl;
-import services.DocumentTypeService;
-import services.DocumentTypeServiceImpl;
-import services.UserService;
-import services.UserServiceImpl;
+import services.*;
 
 import javax.net.ssl.SSLContext;
 import java.util.Map;
@@ -53,6 +46,7 @@ public class HorsleyGuiceModule extends AbstractModule implements AkkaGuiceSuppo
         bind(DocumentService.class).to(DocumentServiceImpl.class);
         bind(DocumentTypeService.class).to(DocumentTypeServiceImpl.class);
         bind(DocumentGroupService.class).to(DocumentGroupServiceImpl.class);
+        bind(GoogleDriveService.class).to(GoogleDriveServiceImpl.class);
 
         // Example of binding a collection of 'config' parameter  key/value (String, Integer) pairs to Java util annotations
 //        this.configuration.

@@ -1,5 +1,6 @@
-<div class="text-content flex-container flex-container-row">
-    <iframe class="pc-iframe" style="height:600px;"
-            src="https://docs.google.com/document/d/1cE2rdxOehthj--n-Pel8JIfKHR6KHU-ML_QRsUdmEnQ/pub?embedded=true">
-    </iframe>
+<div class="flex-container wrap pc-notes" >
+    <div flex class="flex-item pc-post-it" ng-repeat="file in pl.scope.files">
+        <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+        <p></p>
+    </div>
 </div>

@@ -17,6 +17,7 @@
                 background: '=',
                 feature:    '=',
                 pages:      '=',
+                scope:      '=',
             },
             controllerAs: 'pl',
             bindToController: true,
@@ -24,6 +25,7 @@
             controller: function($scope, $location, $routeParams) {
 
                 let pl = this;
+                pl.scope = this.scope;
                 pl.currentPage = $routeParams.page;
                 let pageName;
                 if (pl.currentPage) {

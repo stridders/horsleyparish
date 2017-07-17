@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
-// @DATE:Tue May 30 21:10:52 BST 2017
+// @SOURCE:/Users/jstride/Documents/workspace/repository/horsleyparish/conf/routes
+// @DATE:Tue Jul 04 20:24:50 BST 2017
 
 package router
 
@@ -16,41 +16,45 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  Application_5: controllers.Application,
+  Application_6: controllers.Application,
   // @LINE:12
-  UuidGenerator_0: controllers.UuidGenerator,
-  // @LINE:13
-  User_2: controllers.User,
+  Google_0: controllers.Google,
   // @LINE:15
-  Document_1: controllers.Document,
-  // @LINE:22
-  Assets_3: controllers.Assets,
-  // @LINE:24
-  WebJarAssets_4: controllers.WebJarAssets,
+  UuidGenerator_1: controllers.UuidGenerator,
+  // @LINE:16
+  User_3: controllers.User,
+  // @LINE:18
+  Document_2: controllers.Document,
+  // @LINE:25
+  Assets_4: controllers.Assets,
+  // @LINE:27
+  WebJarAssets_5: controllers.WebJarAssets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    Application_5: controllers.Application,
+    Application_6: controllers.Application,
     // @LINE:12
-    UuidGenerator_0: controllers.UuidGenerator,
-    // @LINE:13
-    User_2: controllers.User,
+    Google_0: controllers.Google,
     // @LINE:15
-    Document_1: controllers.Document,
-    // @LINE:22
-    Assets_3: controllers.Assets,
-    // @LINE:24
-    WebJarAssets_4: controllers.WebJarAssets
-  ) = this(errorHandler, Application_5, UuidGenerator_0, User_2, Document_1, Assets_3, WebJarAssets_4, "/")
+    UuidGenerator_1: controllers.UuidGenerator,
+    // @LINE:16
+    User_3: controllers.User,
+    // @LINE:18
+    Document_2: controllers.Document,
+    // @LINE:25
+    Assets_4: controllers.Assets,
+    // @LINE:27
+    WebJarAssets_5: controllers.WebJarAssets
+  ) = this(errorHandler, Application_6, Google_0, UuidGenerator_1, User_3, Document_2, Assets_4, WebJarAssets_5, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, Application_5, UuidGenerator_0, User_2, Document_1, Assets_3, WebJarAssets_4, prefix)
+    new Routes(errorHandler, Application_6, Google_0, UuidGenerator_1, User_3, Document_2, Assets_4, WebJarAssets_5, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -61,6 +65,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """""" + "$" + """somePath<.+>/""", """controllers.Application.untrail(somePath:String)"""),
     ("""GET""", this.prefix, """controllers.Application.redirect()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """glos""", """controllers.Application.index()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/google/list""", """controllers.Google.listDocuments(folder:String ?= null)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/google/file/""" + "$" + """id<[^/]+>""", """controllers.Google.getFile(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/uuid""", """controllers.UuidGenerator.randomUUID()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/users""", """controllers.User.listUsers(surname:String ?= null, firstname:String ?= null, email:String ?= null)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/authentication""", """controllers.User.authenticate()"""),
@@ -85,7 +91,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), DynamicPart("somePath", """.+""",false), StaticPart("/")))
   )
   private[this] lazy val controllers_Application_untrail0_invoker = createInvoker(
-    Application_5.untrail(fakeValue[String]),
+    Application_6.untrail(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Application",
@@ -102,7 +108,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_Application_redirect1_invoker = createInvoker(
-    Application_5.redirect(),
+    Application_6.redirect(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Application",
@@ -119,7 +125,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("glos")))
   )
   private[this] lazy val controllers_Application_index2_invoker = createInvoker(
-    Application_5.index(),
+    Application_6.index(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Application",
@@ -132,28 +138,62 @@ class Routes(
   )
 
   // @LINE:12
-  private[this] lazy val controllers_UuidGenerator_randomUUID3_route = Route("GET",
+  private[this] lazy val controllers_Google_listDocuments3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/google/list")))
+  )
+  private[this] lazy val controllers_Google_listDocuments3_invoker = createInvoker(
+    Google_0.listDocuments(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Google",
+      "listDocuments",
+      Seq(classOf[String]),
+      "GET",
+      """GET    /api                           controllers.Root.apiRoot()""",
+      this.prefix + """api/google/list"""
+    )
+  )
+
+  // @LINE:13
+  private[this] lazy val controllers_Google_getFile4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/google/file/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_Google_getFile4_invoker = createInvoker(
+    Google_0.getFile(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Google",
+      "getFile",
+      Seq(classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """api/google/file/""" + "$" + """id<[^/]+>"""
+    )
+  )
+
+  // @LINE:15
+  private[this] lazy val controllers_UuidGenerator_randomUUID5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/uuid")))
   )
-  private[this] lazy val controllers_UuidGenerator_randomUUID3_invoker = createInvoker(
-    UuidGenerator_0.randomUUID(),
+  private[this] lazy val controllers_UuidGenerator_randomUUID5_invoker = createInvoker(
+    UuidGenerator_1.randomUUID(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UuidGenerator",
       "randomUUID",
       Nil,
       "GET",
-      """GET    /api                             controllers.Root.apiRoot()""",
+      """""",
       this.prefix + """api/uuid"""
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_User_listUsers4_route = Route("GET",
+  // @LINE:16
+  private[this] lazy val controllers_User_listUsers6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/users")))
   )
-  private[this] lazy val controllers_User_listUsers4_invoker = createInvoker(
-    User_2.listUsers(fakeValue[String], fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_User_listUsers6_invoker = createInvoker(
+    User_3.listUsers(fakeValue[String], fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.User",
@@ -165,12 +205,12 @@ class Routes(
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_User_authenticate5_route = Route("GET",
+  // @LINE:17
+  private[this] lazy val controllers_User_authenticate7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/authentication")))
   )
-  private[this] lazy val controllers_User_authenticate5_invoker = createInvoker(
-    User_2.authenticate(),
+  private[this] lazy val controllers_User_authenticate7_invoker = createInvoker(
+    User_3.authenticate(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.User",
@@ -182,12 +222,12 @@ class Routes(
     )
   )
 
-  // @LINE:15
-  private[this] lazy val controllers_Document_createDocument6_route = Route("POST",
+  // @LINE:18
+  private[this] lazy val controllers_Document_createDocument8_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/documents")))
   )
-  private[this] lazy val controllers_Document_createDocument6_invoker = createInvoker(
-    Document_1.createDocument(),
+  private[this] lazy val controllers_Document_createDocument8_invoker = createInvoker(
+    Document_2.createDocument(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Document",
@@ -199,12 +239,12 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_Document_listDocuments7_route = Route("GET",
+  // @LINE:19
+  private[this] lazy val controllers_Document_listDocuments9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/documents")))
   )
-  private[this] lazy val controllers_Document_listDocuments7_invoker = createInvoker(
-    Document_1.listDocuments(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Document_listDocuments9_invoker = createInvoker(
+    Document_2.listDocuments(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Document",
@@ -216,12 +256,12 @@ class Routes(
     )
   )
 
-  // @LINE:17
-  private[this] lazy val controllers_Document_getDocument8_route = Route("GET",
+  // @LINE:20
+  private[this] lazy val controllers_Document_getDocument10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/documents/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_Document_getDocument8_invoker = createInvoker(
-    Document_1.getDocument(fakeValue[Long]),
+  private[this] lazy val controllers_Document_getDocument10_invoker = createInvoker(
+    Document_2.getDocument(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Document",
@@ -233,12 +273,12 @@ class Routes(
     )
   )
 
-  // @LINE:18
-  private[this] lazy val controllers_Document_listDocumentTypes9_route = Route("GET",
+  // @LINE:21
+  private[this] lazy val controllers_Document_listDocumentTypes11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/document-types")))
   )
-  private[this] lazy val controllers_Document_listDocumentTypes9_invoker = createInvoker(
-    Document_1.listDocumentTypes(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Document_listDocumentTypes11_invoker = createInvoker(
+    Document_2.listDocumentTypes(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Document",
@@ -250,12 +290,12 @@ class Routes(
     )
   )
 
-  // @LINE:22
-  private[this] lazy val controllers_Assets_at10_route = Route("GET",
+  // @LINE:25
+  private[this] lazy val controllers_Assets_at12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("glos/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at10_invoker = createInvoker(
-    Assets_3.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_at12_invoker = createInvoker(
+    Assets_4.at(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -267,12 +307,12 @@ class Routes(
     )
   )
 
-  // @LINE:23
-  private[this] lazy val controllers_Assets_at11_route = Route("GET",
+  // @LINE:26
+  private[this] lazy val controllers_Assets_at13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at11_invoker = createInvoker(
-    Assets_3.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_at13_invoker = createInvoker(
+    Assets_4.at(fakeValue[String], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -284,12 +324,12 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_WebJarAssets_at12_route = Route("GET",
+  // @LINE:27
+  private[this] lazy val controllers_WebJarAssets_at14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("webjars/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_WebJarAssets_at12_invoker = createInvoker(
-    WebJarAssets_4.at(fakeValue[String]),
+  private[this] lazy val controllers_WebJarAssets_at14_invoker = createInvoker(
+    WebJarAssets_5.at(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.WebJarAssets",
@@ -301,12 +341,12 @@ class Routes(
     )
   )
 
-  // @LINE:25
-  private[this] lazy val controllers_Application_version13_route = Route("GET",
+  // @LINE:28
+  private[this] lazy val controllers_Application_version15_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("version")))
   )
-  private[this] lazy val controllers_Application_version13_invoker = createInvoker(
-    Application_5.version(),
+  private[this] lazy val controllers_Application_version15_invoker = createInvoker(
+    Application_6.version(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Application",
@@ -318,12 +358,12 @@ class Routes(
     )
   )
 
-  // @LINE:28
-  private[this] lazy val controllers_Application_anything14_route = Route("GET",
+  // @LINE:31
+  private[this] lazy val controllers_Application_anything16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), DynamicPart("stuff", """.*""",false)))
   )
-  private[this] lazy val controllers_Application_anything14_invoker = createInvoker(
-    Application_5.anything(fakeValue[String]),
+  private[this] lazy val controllers_Application_anything16_invoker = createInvoker(
+    Application_6.anything(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Application",
@@ -341,91 +381,103 @@ class Routes(
     // @LINE:6
     case controllers_Application_untrail0_route(params) =>
       call(params.fromPath[String]("somePath", None)) { (somePath) =>
-        controllers_Application_untrail0_invoker.call(Application_5.untrail(somePath))
+        controllers_Application_untrail0_invoker.call(Application_6.untrail(somePath))
       }
   
     // @LINE:7
     case controllers_Application_redirect1_route(params) =>
       call { 
-        controllers_Application_redirect1_invoker.call(Application_5.redirect())
+        controllers_Application_redirect1_invoker.call(Application_6.redirect())
       }
   
     // @LINE:9
     case controllers_Application_index2_route(params) =>
       call { 
-        controllers_Application_index2_invoker.call(Application_5.index())
+        controllers_Application_index2_invoker.call(Application_6.index())
       }
   
     // @LINE:12
-    case controllers_UuidGenerator_randomUUID3_route(params) =>
-      call { 
-        controllers_UuidGenerator_randomUUID3_invoker.call(UuidGenerator_0.randomUUID())
+    case controllers_Google_listDocuments3_route(params) =>
+      call(params.fromQuery[String]("folder", Some(null))) { (folder) =>
+        controllers_Google_listDocuments3_invoker.call(Google_0.listDocuments(folder))
       }
   
     // @LINE:13
-    case controllers_User_listUsers4_route(params) =>
-      call(params.fromQuery[String]("surname", Some(null)), params.fromQuery[String]("firstname", Some(null)), params.fromQuery[String]("email", Some(null))) { (surname, firstname, email) =>
-        controllers_User_listUsers4_invoker.call(User_2.listUsers(surname, firstname, email))
-      }
-  
-    // @LINE:14
-    case controllers_User_authenticate5_route(params) =>
-      call { 
-        controllers_User_authenticate5_invoker.call(User_2.authenticate())
+    case controllers_Google_getFile4_route(params) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_Google_getFile4_invoker.call(Google_0.getFile(id))
       }
   
     // @LINE:15
-    case controllers_Document_createDocument6_route(params) =>
+    case controllers_UuidGenerator_randomUUID5_route(params) =>
       call { 
-        controllers_Document_createDocument6_invoker.call(Document_1.createDocument())
+        controllers_UuidGenerator_randomUUID5_invoker.call(UuidGenerator_1.randomUUID())
       }
   
     // @LINE:16
-    case controllers_Document_listDocuments7_route(params) =>
-      call(params.fromQuery[String]("doctype", Some(null)), params.fromQuery[String]("docgroup", Some(null))) { (doctype, docgroup) =>
-        controllers_Document_listDocuments7_invoker.call(Document_1.listDocuments(doctype, docgroup))
+    case controllers_User_listUsers6_route(params) =>
+      call(params.fromQuery[String]("surname", Some(null)), params.fromQuery[String]("firstname", Some(null)), params.fromQuery[String]("email", Some(null))) { (surname, firstname, email) =>
+        controllers_User_listUsers6_invoker.call(User_3.listUsers(surname, firstname, email))
       }
   
     // @LINE:17
-    case controllers_Document_getDocument8_route(params) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_Document_getDocument8_invoker.call(Document_1.getDocument(id))
+    case controllers_User_authenticate7_route(params) =>
+      call { 
+        controllers_User_authenticate7_invoker.call(User_3.authenticate())
       }
   
     // @LINE:18
-    case controllers_Document_listDocumentTypes9_route(params) =>
+    case controllers_Document_createDocument8_route(params) =>
+      call { 
+        controllers_Document_createDocument8_invoker.call(Document_2.createDocument())
+      }
+  
+    // @LINE:19
+    case controllers_Document_listDocuments9_route(params) =>
+      call(params.fromQuery[String]("doctype", Some(null)), params.fromQuery[String]("docgroup", Some(null))) { (doctype, docgroup) =>
+        controllers_Document_listDocuments9_invoker.call(Document_2.listDocuments(doctype, docgroup))
+      }
+  
+    // @LINE:20
+    case controllers_Document_getDocument10_route(params) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_Document_getDocument10_invoker.call(Document_2.getDocument(id))
+      }
+  
+    // @LINE:21
+    case controllers_Document_listDocumentTypes11_route(params) =>
       call(params.fromQuery[String]("doctype", Some(null)), params.fromQuery[String]("role", Some(null))) { (doctype, role) =>
-        controllers_Document_listDocumentTypes9_invoker.call(Document_1.listDocumentTypes(doctype, role))
-      }
-  
-    // @LINE:22
-    case controllers_Assets_at10_route(params) =>
-      call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at10_invoker.call(Assets_3.at(path, file))
-      }
-  
-    // @LINE:23
-    case controllers_Assets_at11_route(params) =>
-      call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at11_invoker.call(Assets_3.at(path, file))
-      }
-  
-    // @LINE:24
-    case controllers_WebJarAssets_at12_route(params) =>
-      call(params.fromPath[String]("file", None)) { (file) =>
-        controllers_WebJarAssets_at12_invoker.call(WebJarAssets_4.at(file))
+        controllers_Document_listDocumentTypes11_invoker.call(Document_2.listDocumentTypes(doctype, role))
       }
   
     // @LINE:25
-    case controllers_Application_version13_route(params) =>
-      call { 
-        controllers_Application_version13_invoker.call(Application_5.version())
+    case controllers_Assets_at12_route(params) =>
+      call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
+        controllers_Assets_at12_invoker.call(Assets_4.at(path, file))
+      }
+  
+    // @LINE:26
+    case controllers_Assets_at13_route(params) =>
+      call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
+        controllers_Assets_at13_invoker.call(Assets_4.at(path, file))
+      }
+  
+    // @LINE:27
+    case controllers_WebJarAssets_at14_route(params) =>
+      call(params.fromPath[String]("file", None)) { (file) =>
+        controllers_WebJarAssets_at14_invoker.call(WebJarAssets_5.at(file))
       }
   
     // @LINE:28
-    case controllers_Application_anything14_route(params) =>
+    case controllers_Application_version15_route(params) =>
+      call { 
+        controllers_Application_version15_invoker.call(Application_6.version())
+      }
+  
+    // @LINE:31
+    case controllers_Application_anything16_route(params) =>
       call(params.fromPath[String]("stuff", None)) { (stuff) =>
-        controllers_Application_anything14_invoker.call(Application_5.anything(stuff))
+        controllers_Application_anything16_invoker.call(Application_6.anything(stuff))
       }
   }
 }

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
-// @DATE:Tue May 30 21:10:52 BST 2017
+// @SOURCE:/Users/jstride/Documents/workspace/repository/horsleyparish/conf/routes
+// @DATE:Tue Jul 04 20:24:50 BST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -14,7 +14,7 @@ import _root_.controllers.Assets.Asset
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:22
+  // @LINE:25
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -22,7 +22,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:22
+    // @LINE:25
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -38,7 +38,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:27
   class ReverseWebJarAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -46,7 +46,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:27
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.WebJarAssets.at",
       """
@@ -59,6 +59,36 @@ package controllers.javascript {
   }
 
   // @LINE:12
+  class ReverseGoogle(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:13
+    def getFile: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Google.getFile",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/google/file/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id0))})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def listDocuments: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Google.listDocuments",
+      """
+        function(folder0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/google/list" + _qS([(folder0 == null ? null : (""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("folder", folder0))])})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:15
   class ReverseUuidGenerator(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -66,7 +96,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:15
     def randomUUID: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UuidGenerator.randomUUID",
       """
@@ -96,7 +126,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:25
+    // @LINE:28
     def version: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.version",
       """
@@ -106,7 +136,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:28
+    // @LINE:31
     def anything: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.anything",
       """
@@ -138,7 +168,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:13
+  // @LINE:16
   class ReverseUser(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -146,7 +176,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:13
+    // @LINE:16
     def listUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.listUsers",
       """
@@ -156,7 +186,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:17
     def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.authenticate",
       """
@@ -168,7 +198,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:15
+  // @LINE:18
   class ReverseDocument(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -176,7 +206,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:16
+    // @LINE:19
     def listDocuments: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Document.listDocuments",
       """
@@ -186,7 +216,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:18
     def createDocument: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Document.createDocument",
       """
@@ -196,7 +226,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:21
     def listDocumentTypes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Document.listDocumentTypes",
       """
@@ -206,7 +236,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:20
     def getDocument: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Document.getDocument",
       """

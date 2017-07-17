@@ -202,12 +202,27 @@
             <artifactId>postscribe</artifactId>
             <version>1.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-drive</artifactId>
+            <version>v3-rev76-1.22.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.oauth-client</groupId>
+            <artifactId>google-oauth-client-jetty</artifactId>
+            <version>1.22.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.22.0</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
             <id>typesafereleases</id>
             <name>typesafe-releases</name>
-            <url>http://repo.typesafe.com/typesafe/releases/</url>
+            <url>https://repo.typesafe.com/typesafe/releases/</url>
             <layout>default</layout>
         </repository>
     </repositories>
