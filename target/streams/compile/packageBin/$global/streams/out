@@ -252,6 +252,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/css/font-awesome-4.6.3/fonts/fontawesome-webfont.eot[0m
 [0m[[0mdebug[0m] [0m	router/Routes.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/router/Routes.class[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/google-drive/google-drive.service.js[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/google-drive/google-drive.service.js[0m
 [0m[[0mdebug[0m] [0m	router[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/router[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/horsley1.jpg[0m
@@ -276,6 +278,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/plugins[0m
 [0m[[0mdebug[0m] [0m	controllers/javascript/ReverseAssets.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/controllers/javascript/ReverseAssets.class[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/pin.jpeg[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/parish-council/img/pin.jpeg[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/horsley-community-shop/img/bg-1.png[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/horsley-community-shop/img/bg-1.png[0m
 [0m[[0mdebug[0m] [0m	controllers/Document.class[0m
@@ -480,6 +484,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/img/pc.png[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/the-horses-mouth/img/Thumbs.db[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/the-horses-mouth/img/Thumbs.db[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/corkboard.jpg[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/parish-council/img/corkboard.jpg[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/css/font-awesome-4.6.3/css/font-awesome.css[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/css/font-awesome-4.6.3/css/font-awesome.css[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/village-hall/img/vh_dancing.jpg[0m
@@ -498,6 +504,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/img/img-hdr-para-layer3.png[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/css/bootstrap-3.3.7/bootstrap.css[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/css/bootstrap-3.3.7/bootstrap.css[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/google-drive[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/google-drive[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$2.class[0m
 [0m[[0mdebug[0m] [0m	views/html/notFoundPage.class[0m
@@ -722,6 +730,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/the-horses-mouth/horses-mouth.controller.js[0m
 [0m[[0mdebug[0m] [0m	router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/noticeboard.jpeg[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/parish-council/img/noticeboard.jpeg[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/docs/Email Kate Kate Holly Simkiss 1.pdf[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/parish-council/docs/Email Kate Kate Holly Simkiss 1.pdf[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/village-hall/village-hall.css[0m
@@ -778,6 +788,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/model/Document.class[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/admin[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/admin[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/pin.png[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/parish-council/img/pin.png[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/login/login.controller.js[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/login/login.controller.js[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/playing-fields.jpg[0m
@@ -790,6 +802,8 @@
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/img/horsley_from_A46.png[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/css/font-awesome-4.6.3/scss/_bordered-pulled.scss[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/css/font-awesome-4.6.3/scss/_bordered-pulled.scss[0m
+[0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/parish-council/img/playground1.jpg[0m
+[0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/public/features/parish-council/img/playground1.jpg[0m
 [0m[[0mdebug[0m] [0m	controllers/routes$javascript.class[0m
 [0m[[0mdebug[0m] [0m	  /Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/controllers/routes$javascript.class[0m
 [0m[[0mdebug[0m] [0m	META-INF/resources/webjars/horsleyparish/1.0-SNAPSHOT/features/the-horses-mouth/horses-mouth.css[0m
