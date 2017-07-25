@@ -90,23 +90,27 @@
     margin-bottom: -80px;
 }
 .flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-align-content: flex-end;
+    align-content: flex-end;
 }
 .flex-item {
     padding: 5px;
 }
-.pc-notes {
-    flex-wrap: wrap;
-    justify-content: center;
-    background-image: url("/glos/features/parish-council/img/playground1.jpg");
-    background-repeat: no-repeat;
-    background-position: top center;
-    padding-top: 50px;
-    min-height: 400px;
-    width: 900px;
-}
 .pc-post-it p {
     display: block;
-    background-image: url("/glos/features/parish-council/img/pin.png");
+    background-image: url("/glos/features/parish-council/img/postit_green.png");
     background-repeat: no-repeat;
     background-position: top center;
     width: 140px;
@@ -115,7 +119,7 @@
     top: -160px;
 }
 .pc-post-it a {
-    background-color: #FEEA71;
+    background-color: #ABC3B3;
     display: block;
     font-family: "Bradley Hand";
     font-weight: bold;

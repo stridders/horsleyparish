@@ -28,13 +28,13 @@
 
             pcc.pages = [
                 {
-                    title:      'Notes',
+                    title:      'Notices',
                     subtitle:   'News and Updates',
-                    pageName:   'home'
+                    pageName:   'notices'
                 },
                 {
                     title:      'About',
-                    subtitle:   'Horsley parish council home page',
+                    subtitle:   'About parish councils',
                     pageName:   'about',
                 },
                 {
