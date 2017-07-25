@@ -218,12 +218,4 @@
             <version>1.22.0</version>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>typesafereleases</id>
-            <name>typesafe-releases</name>
-            <url>https://repo.typesafe.com/typesafe/releases/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
 </project>

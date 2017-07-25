@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170725181034"/>
+		date="20170725185803"/>
 	<dependencies>
 		<module organisation="com.google.oauth-client" name="google-oauth-client-jetty">
 			<revision name="1.22.0" status="release" pubdate="20160502234806" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="135">

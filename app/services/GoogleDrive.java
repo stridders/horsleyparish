@@ -14,6 +14,7 @@ import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import play.Logger;
 import play.api.Play;
+import scala.Option;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -46,15 +47,19 @@ public class GoogleDrive {
             JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
             HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 
-            java.io.File file = Play.getFile("certs/HorsleyParish-5ed0ba3ea4b3.pem", Play.current());
-            InputStream fileStream = new FileInputStream(file);
+            Option<InputStream> fileStream = play.api.Play.resourceAsStream("HorsleyParish-5ed0ba3ea4b3.pem",Play.current());
 
-            GoogleCredential credential = GoogleCredential.fromStream(fileStream)
-                .createScoped(Collections.singleton(DriveScopes.DRIVE));
+            if (fileStream.nonEmpty()) {
+                GoogleCredential credential = GoogleCredential.fromStream(fileStream.get())
+                        .createScoped(Collections.singleton(DriveScopes.DRIVE));
 
-            drive = new Drive.Builder(httpTransport, JSON_FACTORY, credential)
-                    .setApplicationName("HorsleyParishService")
-                    .build();
+                drive = new Drive.Builder(httpTransport, JSON_FACTORY, credential)
+                        .setApplicationName("HorsleyParishService")
+                        .build();
+            } else {
+                String msg = "PEM file not found";
+                logger.error(msg);
+            }
 
         } catch (Exception e) {
             String msg = "Exception while configuring GoogleNetHttpTransport";
