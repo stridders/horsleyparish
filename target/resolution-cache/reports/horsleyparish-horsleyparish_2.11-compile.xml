@@ -7,8 +7,20 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170912172353"/>
+		date="20170912181514"/>
 	<dependencies>
+		<module organisation="org.webjars.bower" name="pdfjs-bower">
+			<revision name="1.0.233" status="release" pubdate="20150828104352" resolver="public" artresolver="public" homepage="http://webjars.org" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="141">
+				<license name="BSD-2-Clause" url="https://spdx.org/licenses/BSD-2-Clause#licenseText"/>
+				<metadata-artifact status="successful" details="" size="1377" time="235" location="/Users/jstride/.ivy2/cache/org.webjars.bower/pdfjs-bower/ivy-1.0.233.xml" searched="true" original-local-location="/Users/jstride/.ivy2/cache/org.webjars.bower/pdfjs-bower/ivy-1.0.233.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/bower/pdfjs-bower/1.0.233/pdfjs-bower-1.0.233.pom"/>
+				<caller organisation="horsleyparish" name="horsleyparish_2.11" conf="compile" rev="1.0.233" rev-constraint-default="1.0.233" rev-constraint-dynamic="1.0.233" callerrev="1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="pdfjs-bower" type="jar" ext="jar" status="successful" details="" size="501079" time="323" location="/Users/jstride/.ivy2/cache/org.webjars.bower/pdfjs-bower/jars/pdfjs-bower-1.0.233.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/webjars/bower/pdfjs-bower/1.0.233/pdfjs-bower-1.0.233.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.webjars" name="d3js">
 			<revision name="4.10.2" status="release" pubdate="20170905154103" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="140">
 				<license name="The BSD 3-Clause License" url="http://opensource.org/licenses/BSD-3-Clause"/>

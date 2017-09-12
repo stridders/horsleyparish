@@ -40,7 +40,7 @@
                                 {
                                     heading: 'Chart',
                                     title:   'Bubble Chart',
-                                    image:   '',
+                                    image:   'Test Page',
                                     text:    '',
                                     link:    '/bubble-chart',
                                     bgcolour:  '#E54800'

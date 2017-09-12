@@ -79,6 +79,7 @@ bootstrap/js/bootstrap.js:1448365024000:META-INF/resources/webjars/bootstrap/3.3
 angularjs/i18n/angular-locale_de-ch.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_de-ch.js
 angularjs/i18n/angular-locale_es-co.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_es-co.js.gz
 bootstrap/less/mixins.less.gz:1448622382000:META-INF/resources/webjars/bootstrap/3.3.6/less/mixins.less.gz
+pdfjs-bower/package.json:1440751408000:META-INF/resources/webjars/pdfjs-bower/1.0.233/package.json
 angularjs/i18n/angular-locale_ksb-tz.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ksb-tz.js
 d3js/README.md:1487496654000:META-INF/resources/webjars/d3js/4.10.2/README.md
 angularjs/i18n/angular-locale_sv-se.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_sv-se.js
@@ -213,6 +214,7 @@ angularjs/i18n/angular-locale_nl-cw.js:1480017706000:META-INF/resources/webjars/
 angularjs/i18n/angular-locale_en-sg.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_en-sg.js
 angularjs/i18n/angular-locale_lv-lv.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_lv-lv.js.gz
 angularjs/i18n/angular-locale_hy-am.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_hy-am.js.gz
+pdfjs-bower/dist/pdf.worker.js:1440751408000:META-INF/resources/webjars/pdfjs-bower/1.0.233/dist/pdf.worker.js
 postscribe/testem.yml:1452019060000:META-INF/resources/webjars/postscribe/1.4.0/testem.yml
 momentjs/locale/ml.js:1480804894000:META-INF/resources/webjars/momentjs/2.17.1/locale/ml.js
 angularjs/i18n/angular-locale_fr-ml.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_fr-ml.js.gz
@@ -805,6 +807,7 @@ angularjs/i18n/angular-locale_ar-er.js:1480017706000:META-INF/resources/webjars/
 angularjs/i18n/angular-locale_ebu-ke.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ebu-ke.js
 angularjs/i18n/angular-locale_lag.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_lag.js
 angularjs/i18n/angular-locale_fr-sc.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_fr-sc.js
+pdfjs-bower/README.md:1440751408000:META-INF/resources/webjars/pdfjs-bower/1.0.233/README.md
 jquery/src/core/access.js:1463986036000:META-INF/resources/webjars/jquery/2.2.4/src/core/access.js
 angularjs/i18n/angular-locale_rw.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_rw.js
 angularjs/i18n/angular-locale_uk-ua.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_uk-ua.js
@@ -1119,6 +1122,7 @@ jquery/src/core/ready.js:1463986036000:META-INF/resources/webjars/jquery/2.2.4/s
 angularjs/i18n/angular-locale_ff-gn.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ff-gn.js
 angularjs/i18n/angular-locale_en-gh.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_en-gh.js.gz
 angularjs/i18n/angular-locale_fr-cg.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_fr-cg.js
+pdfjs-bower/bower.json:1440751408000:META-INF/resources/webjars/pdfjs-bower/1.0.233/bower.json
 jquery/src/var/arr.js:1463986036000:META-INF/resources/webjars/jquery/2.2.4/src/var/arr.js
 bootstrap/less/mixins/grid.less:1448365024000:META-INF/resources/webjars/bootstrap/3.3.6/less/mixins/grid.less
 angularjs/i18n/angular-locale_ne-in.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ne-in.js
@@ -1806,6 +1810,7 @@ angular-material/layouts/angular-material.layouts.min.css.gz:1474876056000:META-
 angularjs/i18n/angular-locale_ar-sy.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ar-sy.js
 jquery/AUTHORS.txt:1463986036000:META-INF/resources/webjars/jquery/2.2.4/AUTHORS.txt
 angularjs/i18n/angular-locale_sw-ug.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_sw-ug.js.gz
+pdfjs-bower/dist/compatibility.js:1440751408000:META-INF/resources/webjars/pdfjs-bower/1.0.233/dist/compatibility.js
 bootstrap/less/buttons.less.gz:1448622382000:META-INF/resources/webjars/bootstrap/3.3.6/less/buttons.less.gz
 angularjs/i18n/angular-locale_ca-es-valencia.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ca-es-valencia.js
 angularjs/i18n/angular-locale_ar-km.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ar-km.js
@@ -2100,6 +2105,7 @@ angularjs/i18n/angular-locale_en-gm.js.gz:1480578572000:META-INF/resources/webja
 angularjs/i18n/angular-locale_az-cyrl-az.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_az-cyrl-az.js
 angularjs/i18n/angular-locale_om-ke.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_om-ke.js
 angularjs/i18n/angular-locale_en-gh.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_en-gh.js
+pdfjs-bower/dist/pdf.js:1440751408000:META-INF/resources/webjars/pdfjs-bower/1.0.233/dist/pdf.js
 angularjs/i18n/angular-locale_el.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_el.js.gz
 angularjs/i18n/angular-locale_bm-ml.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_bm-ml.js
 momentjs/locale/et.js:1480804894000:META-INF/resources/webjars/momentjs/2.17.1/locale/et.js

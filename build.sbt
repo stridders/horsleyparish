@@ -37,7 +37,8 @@ libraryDependencies ++= Seq(
   "com.google.apis" % "google-api-services-drive" % "v3-rev76-1.22.0",
   "com.google.oauth-client" % "google-oauth-client-jetty" % "1.22.0",
   "com.google.api-client" % "google-api-client" % "1.22.0",
-  "org.webjars" % "d3js" % "4.10.2"
+  "org.webjars" % "d3js" % "4.10.2",
+  "org.webjars.bower" % "pdfjs-bower" % "1.0.233"
 )
 
 javaOptions in Test ++= Seq("-Dlogger.resource=logback-test.xml", "-Dconfig.file=conf/test.conf")
