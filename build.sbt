@@ -36,7 +36,8 @@ libraryDependencies ++= Seq(
   "org.webjars.bower" % "postscribe" % "1.4.0",
   "com.google.apis" % "google-api-services-drive" % "v3-rev76-1.22.0",
   "com.google.oauth-client" % "google-oauth-client-jetty" % "1.22.0",
-  "com.google.api-client" % "google-api-client" % "1.22.0"
+  "com.google.api-client" % "google-api-client" % "1.22.0",
+  "org.webjars" % "d3js" % "4.10.2"
 )
 
 javaOptions in Test ++= Seq("-Dlogger.resource=logback-test.xml", "-Dconfig.file=conf/test.conf")

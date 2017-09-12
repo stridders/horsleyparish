@@ -60,6 +60,10 @@
             .when('/admin-users', {
                 controller: 'UsersController',
                 templateUrl: 'glos/admin/users/users.html'
+            })
+            .when('/bubble-chart', {
+                controller: 'BubbleChartController',
+                templateUrl: 'glos/features/bubble-chart/bubble-chart.html'
             });
 
         $stateProvider

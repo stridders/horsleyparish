@@ -7,8 +7,20 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170725185803"/>
+		date="20170912172353"/>
 	<dependencies>
+		<module organisation="org.webjars" name="d3js">
+			<revision name="4.10.2" status="release" pubdate="20170905154103" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://webjars.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="140">
+				<license name="The BSD 3-Clause License" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="3809" time="0" location="/Users/jstride/.ivy2/cache/org.webjars/d3js/ivy-4.10.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/webjars/d3js/4.10.2/d3js-4.10.2.pom"/>
+				<caller organisation="horsleyparish" name="horsleyparish_2.11" conf="compile, runtime" rev="4.10.2" rev-constraint-default="4.10.2" rev-constraint-dynamic="4.10.2" callerrev="1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="d3js" type="jar" ext="jar" status="no" details="" size="244862" time="0" location="/Users/jstride/.ivy2/cache/org.webjars/d3js/jars/d3js-4.10.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/webjars/d3js/4.10.2/d3js-4.10.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="com.google.oauth-client" name="google-oauth-client-jetty">
 			<revision name="1.22.0" status="release" pubdate="20160502234806" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="135">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>

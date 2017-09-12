@@ -38,6 +38,14 @@
                         if (userRoles.length > 0 && userRoles.indexOf("ADMIN") > -1) {
                             nbc.links.push(
                                 {
+                                    heading: 'Chart',
+                                    title:   'Bubble Chart',
+                                    image:   '',
+                                    text:    '',
+                                    link:    '/bubble-chart',
+                                    bgcolour:  '#E54800'
+                                },
+                                {
                                     heading: 'Upload',
                                     title:   'Upload Files(s)',
                                     image:   '/glos/img/upload.png',

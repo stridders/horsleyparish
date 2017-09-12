@@ -80,6 +80,7 @@ angularjs/i18n/angular-locale_de-ch.js:1480017706000:META-INF/resources/webjars/
 angularjs/i18n/angular-locale_es-co.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_es-co.js.gz
 bootstrap/less/mixins.less.gz:1448622382000:META-INF/resources/webjars/bootstrap/3.3.6/less/mixins.less.gz
 angularjs/i18n/angular-locale_ksb-tz.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ksb-tz.js
+d3js/README.md:1487496654000:META-INF/resources/webjars/d3js/4.10.2/README.md
 angularjs/i18n/angular-locale_sv-se.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_sv-se.js
 bootstrap/js/collapse.js.gz:1448622382000:META-INF/resources/webjars/bootstrap/3.3.6/js/collapse.js.gz
 jquery/dist/jquery.min.js:1463986036000:META-INF/resources/webjars/jquery/2.2.4/dist/jquery.min.js
@@ -267,6 +268,7 @@ angularjs/i18n/angular-locale_en-mu.js:1480017706000:META-INF/resources/webjars/
 jquery/src/manipulation/var/rscriptType.js:1463986036000:META-INF/resources/webjars/jquery/2.2.4/src/manipulation/var/rscriptType.js
 angularjs/i18n/angular-locale_az-latn-az.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_az-latn-az.js.gz
 angularjs/i18n/angular-locale_pt.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_pt.js
+d3js/API.md:1494850770000:META-INF/resources/webjars/d3js/4.10.2/API.md
 angularjs/i18n/angular-locale_cgg-ug.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_cgg-ug.js
 angularjs/i18n/angular-locale_en-kn.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_en-kn.js.gz
 jquery/src/callbacks.js:1463986036000:META-INF/resources/webjars/jquery/2.2.4/src/callbacks.js
@@ -762,6 +764,7 @@ angularjs/i18n/angular-locale_ps.js:1480017706000:META-INF/resources/webjars/ang
 angularjs/i18n/angular-locale_tig-er.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_tig-er.js
 momentjs/locale/ss.js:1480804894000:META-INF/resources/webjars/momentjs/2.17.1/locale/ss.js
 angularjs/i18n/angular-locale_nus.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_nus.js
+d3js/webjars-requirejs.js:1504597160000:META-INF/resources/webjars/d3js/4.10.2/webjars-requirejs.js
 angularjs/angular-route.min.js.gz:1480578570000:META-INF/resources/webjars/angularjs/1.5.9/angular-route.min.js.gz
 angularjs/i18n/angular-locale_asa.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_asa.js.gz
 angularjs/i18n/angular-locale_ckb-latn-iq.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ckb-latn-iq.js.gz
@@ -771,6 +774,7 @@ angularjs/i18n/angular-locale_ml.js.gz:1480578572000:META-INF/resources/webjars/
 angular-cookies/package.json:1464936554000:META-INF/resources/webjars/angular-cookies/1.5.6/package.json
 angularjs/i18n/angular-locale_rw-rw.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_rw-rw.js.gz
 bootstrap/less/bootstrap.less:1448365024000:META-INF/resources/webjars/bootstrap/3.3.6/less/bootstrap.less
+d3js/LICENSE:1490349924000:META-INF/resources/webjars/d3js/4.10.2/LICENSE
 angularjs/i18n/angular-locale_es-ni.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_es-ni.js
 angular-ui-calendar/.npmignore:1447822010000:META-INF/resources/webjars/angular-ui-calendar/1.0.2/.npmignore
 bootstrap/less/media.less:1448365024000:META-INF/resources/webjars/bootstrap/3.3.6/less/media.less
@@ -1751,6 +1755,7 @@ jquery/external/sizzle/LICENSE.txt:1463986036000:META-INF/resources/webjars/jque
 angularjs/i18n/angular-locale_rm.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_rm.js.gz
 angularjs/i18n/angular-locale_ak.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ak.js
 postscribe/.editorconfig:1452019060000:META-INF/resources/webjars/postscribe/1.4.0/.editorconfig
+d3js/d3.min.js:1504437956000:META-INF/resources/webjars/d3js/4.10.2/d3.min.js
 angularjs/i18n/angular-locale_eu.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_eu.js.gz
 angularjs/i18n/angular-locale_ewo-cm.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ewo-cm.js.gz
 angularjs/i18n/angular-locale_bm.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_bm.js
@@ -1938,6 +1943,7 @@ angularjs/i18n/angular-locale_en-dg.js.gz:1480578572000:META-INF/resources/webja
 angularjs/i18n/angular-locale_is.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_is.js
 angularjs/i18n/angular-locale_bez-tz.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_bez-tz.js
 angularjs/i18n/angular-locale_ar-ss.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_ar-ss.js.gz
+d3js/CHANGES.md:1487496654000:META-INF/resources/webjars/d3js/4.10.2/CHANGES.md
 angularjs/i18n/angular-locale_vi.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_vi.js.gz
 angularjs/i18n/angular-locale_zh-cn.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_zh-cn.js
 angularjs/i18n/angular-locale_tn.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_tn.js
@@ -1946,6 +1952,7 @@ angularjs/i18n/angular-locale_eo-001.js.gz:1480578572000:META-INF/resources/webj
 angularjs/i18n/angular-locale_pt-st.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_pt-st.js.gz
 angularjs/i18n/angular-locale_de-be.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_de-be.js.gz
 angularjs/i18n/angular-locale_fi-fi.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_fi-fi.js
+d3js/d3.js:1504437952000:META-INF/resources/webjars/d3js/4.10.2/d3.js
 angularjs/i18n/angular-locale_en-cx.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_en-cx.js.gz
 angularjs/i18n/angular-locale_yo-ng.js.gz:1480578572000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_yo-ng.js.gz
 angularjs/i18n/angular-locale_dje.js:1480017706000:META-INF/resources/webjars/angularjs/1.5.9/i18n/angular-locale_dje.js
