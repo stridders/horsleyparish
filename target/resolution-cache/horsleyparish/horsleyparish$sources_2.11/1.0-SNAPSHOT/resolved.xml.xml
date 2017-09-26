@@ -4,7 +4,7 @@
 		module="horsleyparish$sources_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170912181518"
+		publication="20170926181709"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -302,9 +302,6 @@
 		</dependency>
 		<dependency org="com.typesafe.play" name="play-java-ws_2.11" rev="2.5.4" transitive="false" conf="compile->default,compile,runtime,default(compile),master;runtime->default,compile,runtime,default(compile),master;test->default,compile,runtime,default(compile),master;compile-internal->default,compile,runtime,default(compile),master;runtime-internal->default,compile,runtime,default(compile),master;test-internal->default,compile,runtime,default(compile),master">
 			<artifact name="play-java-ws_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-		</dependency>
-		<dependency org="org.webjars.bower" name="pdfjs-bower" rev="1.0.233" transitive="false" conf="compile->default,compile,runtime,default(compile),master;runtime->default,compile,runtime,default(compile),master;test->default,compile,runtime,default(compile),master;compile-internal->default,compile,runtime,default(compile),master;runtime-internal->default,compile,runtime,default(compile),master;test-internal->default,compile,runtime,default(compile),master">
-			<artifact name="pdfjs-bower" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 		</dependency>
 		<dependency org="com.typesafe.play" name="play-java-jdbc_2.11" rev="2.5.4" transitive="false" conf="compile->default,master(*),compile,runtime(*),runtime,default(compile),compile(*),master;runtime->default,master(*),compile,runtime(*),runtime,default(compile),compile(*),master;test->default,master(*),compile,runtime(*),runtime,default(compile),compile(*),master;compile-internal->default,master(*),compile,runtime(*),runtime,default(compile),compile(*),master;runtime-internal->default,master(*),compile,runtime(*),runtime,default(compile),compile(*),master;test-internal->default,master(*),compile,runtime(*),runtime,default(compile),compile(*),master">
 			<artifact name="play-java-jdbc_2.11" type="src" ext="jar" conf="sources" e:classifier="sources"/>

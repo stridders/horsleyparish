@@ -24,6 +24,7 @@
         // The workerSrc property shall be specified.
         PDFJS.workerSrc = 'http://mozilla.github.io/pdf.js/build/pdf.worker.js';
 
+        console.log('Gettintg PDF loader...');
         // Asynchronous download of PDF
         var loadingTask = PDFJS.getDocument(url);
         loadingTask.then(function(pdf) {
@@ -31,17 +32,17 @@
 
             // Fetch the first page
             var pageNumber = 1;
-            pdf.getPage(pageNumber).then(function(page) {
+            pdf.getPage(pageNumber).then(page => {
                 console.log('Page loaded');
 
                 var scale = 1.5;
                 var viewport = page.getViewport(scale);
 
                 // Prepare canvas using PDF page dimensions
-                bcc.canvas = document.getElementById('the-canvas');
-                var context = bcc.canvas.getContext('2d');
-                bcc.canvas.height = viewport.height;
-                bcc.canvas.width = viewport.width;
+                var canvas = document.getElementById('the-canvas');
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
 
                 // Render PDF page into canvas context
                 var renderContext = {
