@@ -4,7 +4,7 @@
 		module="horsleyparish_2.11"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170926182018"
+		publication="20170926192359"
 	>
 		<description>
 		horsleyparish
@@ -78,6 +78,5 @@
 		<dependency org="com.google.oauth-client" name="google-oauth-client-jetty" rev="1.22.0" conf="compile->default(compile)"/>
 		<dependency org="com.google.api-client" name="google-api-client" rev="1.22.0" conf="compile->default(compile)"/>
 		<dependency org="org.webjars" name="d3js" rev="4.10.2" conf="compile->default(compile)"/>
-		<dependency org="org.webjars.bower" name="pdfjs-bower" rev="1.0.233" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
