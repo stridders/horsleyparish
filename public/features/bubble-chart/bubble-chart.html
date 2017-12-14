@@ -1,4 +1,4 @@
-<div ng-controller="BubbleChartController as bcc">
+<div>
 
     <div class="chart-example" id="chart"><svg></svg></div>
 
@@ -10,12 +10,11 @@
                 throw error;
             }
             var chart = bubbleChart().width(600).height(400);
+            chart.title("Hello");
             d3.select('#chart').data(data).call(chart);
         });
     </script>
 
-    <h1>PDF.js 'Hello, world!' example</h1>
-
-    <canvas id="the-canvas"></canvas>
+    <canvas id="the-canvas" class="pdf-canvas" title="Click to view in new window"></canvas>
 
 </div>
