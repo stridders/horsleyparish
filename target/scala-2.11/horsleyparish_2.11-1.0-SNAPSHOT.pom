@@ -217,5 +217,18 @@
             <artifactId>google-api-client</artifactId>
             <version>1.22.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>d3js</artifactId>
+            <version>4.10.2</version>
+        </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>typesafereleases</id>
+            <name>typesafe-releases</name>
+            <url>http://repo.typesafe.com/typesafe/releases/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
 </project>
