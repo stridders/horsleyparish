@@ -1,0 +1,7 @@
+<div class="flex-container" >
+    <div ng-if="pl.scope.files.length > 0" flex class="flex-item pc-post-it" ng-repeat="file in pl.scope.documents">
+        <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+        <p></p>
+    </div>
+    <div ng-if="pl.scope.files.length === 0">No rerports or documents to display at present.</div>
+</div>

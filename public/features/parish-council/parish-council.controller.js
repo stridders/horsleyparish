@@ -59,6 +59,11 @@
                     pageName:   'minutes',
                 },
                 {
+                    title:      'Reports and Documents',
+                    subtitle:   'View Parish Council Reports and Documents',
+                    pageName:   'documents'
+                },
+                {
                     title:      'Planning',
                     subtitle:   'Local Planning Applications, News and Issues',
                     pageName:   'Planning'
@@ -70,25 +75,23 @@
                 },
             ];
 
-            getFileList("0B5mg3C3GfH8dam1zc05RTUFyaFE");
-
+            getFileList("0B5mg3C3GfH8dam1zc05RTUFyaFE", "files");
+            getFileList("1WuXsxBENQWrnoBq2dZbg3QJm_OiscMMn", "documents");
         }
 
-        function getFileList(id) {
-
+        function getFileList(id,variableName) {
             GoogleDriveService.getFileList(id, function (response) {
                 if (response) {
-                    pcc.files = response
+                    pcc[variableName] = response
                         .sort(function(a,b){
                                 return a.name > b.name;
                             }
                         );
-
                 } else {
                     let errMsg = "Unable to retrieve file list from Google Drive folder";
                     FlashService.Error(errMsg);
                 }
-            });
+            })
         }
 
     }
