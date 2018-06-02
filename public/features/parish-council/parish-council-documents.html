@@ -7,7 +7,7 @@
                 <p>Click a report to view it on-line using Google docs.</p>
             </div>
             <div ng-if="pcc.reports.length > 0" ng-repeat="file in pcc.reports">
-                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+                <a ng-if="file.mimeType !== 'application/vnd.google-apps.folder'" href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
             </div>
             <div ng-if="pcc.reports.length === 0">No reports to display at present.</div>
         </div>
