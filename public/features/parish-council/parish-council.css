@@ -134,3 +134,18 @@
     height: 140px;
     padding: 20px 4px 4px 4px;
 }
+.pc-report-list {
+    padding-left: 50px;
+}
+.pc-report-list p {
+    font-size: 14px;
+    color: #58735d;
+}
+.pc-report-list a {
+    font-size: 16px;
+    color: black;
+}
+.pc-report-list h4 {
+    color: #304231;
+    font-weight: bold;
+}

@@ -26,7 +26,7 @@ libraryDependencies ++= Seq(
   "org.webjars.npm" % "angular-animate" % "1.5.6",
   "org.webjars.npm" % "angular-aria" % "1.5.6",
   "org.webjars.npm" % "angular-messages" % "1.5.6",
-  "org.webjars" % "angular-material" % "1.1.1",
+  "org.webjars" % "angular-material" % "1.1.5",
   "org.webjars.npm" % "angular-route" % "1.5.6",
   "org.webjars" % "angular-ui-bootstrap" % "1.3.2" exclude("org.webjars", "jquery"),
   "org.webjars.npm" % "angular-cookies" % "1.5.6",

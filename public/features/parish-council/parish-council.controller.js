@@ -21,6 +21,9 @@
         pcc.titleBkg = "/glos/features/parish-council/img/horsley_PC_logo_small.png";
         pcc.antiCache = Math.floor((Math.random()*1000000)+1);
         pcc.feature = "parish-council";
+        pcc.showFR2017 = false;
+        pcc.showFR2018 = false;
+        pcc.showFR2019 = false;
 
         initialise();
 
@@ -76,7 +79,8 @@
             ];
 
             getFileList("0B5mg3C3GfH8dam1zc05RTUFyaFE", "files");
-            getFileList("1WuXsxBENQWrnoBq2dZbg3QJm_OiscMMn", "documents");
+            getFileList("1WuXsxBENQWrnoBq2dZbg3QJm_OiscMMn", "reports");
+            getFileList("1Yu4VbOK7ujk9c7qxb5dEL2SeyCR36Ckp", "documents");
         }
 
         function getFileList(id,variableName) {
@@ -94,6 +98,26 @@
             })
         }
 
+        pcc.toggle_showFR2017 = function() {
+            pcc.showFR2017 = !pcc.showFR2017;
+            if (pcc.showFR2017) {
+                getFileList("1Kl6PJCOdvjRYwhHXbz1PZyWnXV5SbKeO", "FR2017");
+            }
+        };
+
+        pcc.toggle_showFR2018 = function() {
+            pcc.showFR2018 = !pcc.showFR2018;
+            if (pcc.showFR2018) {
+                getFileList("1QxWWeMvJ5xhAUyLaKl9BVmeuAsmwCnEv", "FR2018");
+            }
+        };
+
+        pcc.toggle_showFR2019 = function() {
+            pcc.showFR2019 = !pcc.showFR2019;
+            if (pcc.showFR2019) {
+                getFileList("1YLsVvXVfx6RLFfAaeZYD0LF2nJWzQPaE", "FR2019");
+            }
+        };
     }
 
 
