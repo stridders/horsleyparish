@@ -82,6 +82,8 @@
             getFileList("0B5mg3C3GfH8dam1zc05RTUFyaFE", "files");
             getFileList("1WuXsxBENQWrnoBq2dZbg3QJm_OiscMMn", "reports");
             getFileList("1Yu4VbOK7ujk9c7qxb5dEL2SeyCR36Ckp", "documents");
+            getFileList("0B5mg3C3GfH8dTGoyQTNKTXpKamc", "minutes");
+
         }
 
         function getFileList(id,variableName) {
