@@ -1,0 +1,13 @@
+[debug] Copy resource mappings: 
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/application.conf,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/application.conf)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/evolutions,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/evolutions)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/HorsleyParish-5ed0ba3ea4b3.pem,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/HorsleyParish-5ed0ba3ea4b3.pem)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/logback-test.xml,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/logback-test.xml)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/logback.xml,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/logback.xml)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/META-INF,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/META-INF)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/routes,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/routes)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/test.conf,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/test.conf)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/evolutions/default,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/evolutions/default)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/evolutions/default/1.sql,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/evolutions/default/1.sql)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/evolutions/default/2.sql,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/evolutions/default/2.sql)
+[debug] 	(/Users/jstride/Documents/workspace/repository/horsleyparish/conf/META-INF/persistence.xml,/Users/jstride/Documents/workspace/repository/horsleyparish/target/scala-2.11/classes/META-INF/persistence.xml)

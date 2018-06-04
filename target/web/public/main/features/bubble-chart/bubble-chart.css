@@ -1,0 +1,23 @@
+.pdf-canvas {
+    position: relative;
+    width:  140px;
+    height: 200px;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .125);
+    -ms-transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    transform: rotate(7deg);
+    transition: 0.5s ease;
+}
+.pdf-canvas:hover {
+    width: 420px;
+    height: 600px;
+    margin-left: -150px;
+    margin-top: -200px;
+    -webkit-box-shadow: inset 0 20px 20px rgba(0, 0, 0, .5);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, .5);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: 0.5s ease;
+}

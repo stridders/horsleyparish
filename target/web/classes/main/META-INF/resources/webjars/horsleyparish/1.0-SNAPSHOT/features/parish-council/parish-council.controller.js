@@ -21,6 +21,7 @@
         pcc.titleBkg = "/glos/features/parish-council/img/horsley_PC_logo_small.png";
         pcc.antiCache = Math.floor((Math.random()*1000000)+1);
         pcc.feature = "parish-council";
+        pcc.showFR2016 = false;
         pcc.showFR2017 = false;
         pcc.showFR2018 = false;
         pcc.showFR2019 = false;
@@ -98,6 +99,13 @@
             })
         }
 
+        pcc.toggle_showFR2016 = function() {
+            pcc.showFR2016 = !pcc.showFR2016;
+            if (pcc.showFR2016) {
+                getFileList("1OVZ5x30flDGaFaiFLIgooK7WhUYtjQ8y", "FR2016");
+            }
+        };
+
         pcc.toggle_showFR2017 = function() {
             pcc.showFR2017 = !pcc.showFR2017;
             if (pcc.showFR2017) {
@@ -118,6 +126,7 @@
                 getFileList("1YLsVvXVfx6RLFfAaeZYD0LF2nJWzQPaE", "FR2019");
             }
         };
+
     }
 
 
