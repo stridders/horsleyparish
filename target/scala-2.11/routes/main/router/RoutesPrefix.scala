@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/jstride/Documents/workspace/repository/horsleyparish/conf/routes
-// @DATE:Mon Jun 04 20:27:20 BST 2018
+// @SOURCE:/Users/js/Documents/workspace/repositories/HorsleyParish/conf/routes
+// @DATE:Wed Jun 06 07:44:49 BST 2018
 
 
 package router {

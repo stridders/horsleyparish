@@ -46,6 +46,23 @@ body #page-wrapper {
 .stnd-bg {
     background-color: #FFFFFF;
 }
+.bg-quick-links {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+.bg-quick-links p {
+    text-align: center;
+    font-size: 16px;
+    color: grey;
+    margin-bottom: -4px;
+}
+.bg-quick-links a {
+    text-align: center;
+    font-size: 18px;
+    color: #205229;
+    text-decoration: none;
+}
 .footer {
     display: block;
     margin-top: 80px;

@@ -9,11 +9,17 @@
     </div>
     <div class="flex-container flex-container-row">
         <div class="bg-main-text">
-            This site is currently under construction, so you should see quite a few
-            changes over the next few weeks/months. It's sponsored by Horsley Parish Council
-            and replaces the old Horsley website that crashed and burned in 2016.<br>
-            We hope to bring you a lot more dynamic and interactive content, so please
-            bear with us while we continue to develop and introduce new features.
+            The Parish of Horsley is in Stroud District in Gloucestershire. The parish is a dispersed settlement
+            in the Cotswold AONB and includes 16 small hamlets over an area of almost 6 square miles. It consists
+            of some 300 properties and has a population of around 750. Horsley Village has a church, a primary
+            school, a pub, a village hall, a pavilion which houses the community shop and a playing field and play
+            area.
         </div>
+    </div>
+    <div class="bg-quick-links">
+        <p>Quick Links:</p>
+        <p ng-repeat="link in hpc.links">
+            <a href="glos#{{link.link}}">{{link.heading}}</a> <br>
+        </p>
     </div>
 

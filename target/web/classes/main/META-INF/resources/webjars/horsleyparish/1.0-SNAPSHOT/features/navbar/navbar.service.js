@@ -41,7 +41,15 @@
                     bgcolour: '#00796B'
                 },
                 {
-                    heading: 'The Horses Mouth',
+                    heading: 'Church and Cemetery',
+                    title: 'St.Martin\'s Church and Cemetery',
+                    image: '/glos/img/ico_church.png',
+                    text: '',
+                    link: '/church-and-cemetery',
+                    bgcolour: '#26a63b'
+                },
+                {
+                    heading: 'The Horse\'s Mouth',
                     title: 'The Horsley Monthly Magazine',
                     image: '/glos/features/the-horses-mouth/img/ic_horses_mouth_sm_black.png',
                     text: '',

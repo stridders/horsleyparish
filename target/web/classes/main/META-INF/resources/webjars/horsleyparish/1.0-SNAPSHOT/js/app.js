@@ -29,6 +29,11 @@
                 controllerAs: 'vhc',
                 templateUrl: 'glos/features/village-hall/village-hall.html'
             })
+            .when('/church-and-cemetery', {
+                controller: 'ChurchAndCemeteryController',
+                controllerAs: 'ccc',
+                templateUrl: 'glos/features/church-and-cemetery/church-and-cemetery.html'
+            })
             .when('/horses-mouth', {
                 controller: 'HorsesMouthController',
                 controllerAs: 'hmc',
