@@ -83,6 +83,7 @@
             getFileList("1WuXsxBENQWrnoBq2dZbg3QJm_OiscMMn", "reports");
             getFileList("1Yu4VbOK7ujk9c7qxb5dEL2SeyCR36Ckp", "documents");
             getFileList("0B5mg3C3GfH8dTGoyQTNKTXpKamc", "minutes");
+            getFileList("1qpNsCUKS54geU-sy43QVDiW12CBvz9O0", "np_docs");
 
         }
 
@@ -94,6 +95,7 @@
                                 return a.name > b.name;
                             }
                         );
+                    pcc[variableName].size = (Math.floor(response.length/4)*280) + "px";
                 } else {
                     let errMsg = "Unable to retrieve file list from Google Drive folder";
                     FlashService.Error(errMsg);
