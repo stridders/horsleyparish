@@ -106,6 +106,13 @@
     min-height: 600px;
     margin-bottom: -80px;
 }
+.pc-iframe-planning {
+    position: relative;
+    border: none;
+    display: block;
+    width: 900px;
+    margin-left: -30px;
+}
 .flex-container {
     display: -webkit-flex;
     display: flex;

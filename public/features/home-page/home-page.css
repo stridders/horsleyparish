@@ -1,0 +1,17 @@
+.hpc-iframe {
+    position: relative;
+    left: 40px;
+    border: none;
+    display: block;
+    width: 600px;
+    min-height: 600px;
+    margin-bottom: -80px;
+}
+.hpc-iframe-planning {
+    position: relative;
+    border: none;
+    display: block;
+    width: 600px;
+    height: 900px;
+    margin-left: -30px;
+}

@@ -1,0 +1,34 @@
+
+.ac-main {
+    align-self: center;
+    color: #fdfff2;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 130px 10px 10px 40px;
+    background-color: #000000;
+    background-image: url('/glos/features/about/img/horsley_from_A46.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+.ac-main iframe {
+    margin-top: 120px;
+    padding-top: 20px;
+    width: 280px;
+    height: 140px;
+    border:0;
+}
+.ac-main-normal-txt {
+    color: #dddfd4;
+    font-size: 14px;
+    width: 800px;
+}
+.ac-main-normal-txt a {
+    color: yellow;
+}
+.ac-main-normal-txt p {
+    padding-right: 10px;
+}
+.ac-links {
+    display: block;
+    padding: 4px 4px 4px 4px;
+}

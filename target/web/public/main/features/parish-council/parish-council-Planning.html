@@ -1,21 +1,33 @@
-<div ng-cloak>
+<div ng-cloak ng-controller="ParishCouncilController as pcc">
     <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Neighbourhood Plan">
+                <md-content class="md-padding">
+                    <div layout="row">
+                        <h4>Local Neighbourhood Plan Documents</h4>
+                    </div>
+                    <div>
+                        <iframe class="pc-iframe-planning" style="height:{{pcc.np_docs.size}};" scrolling="yes" title="here"
+                                src="https://drive.google.com/embeddedfolderview?id=1qpNsCUKS54geU-sy43QVDiW12CBvz9O0#grid" style="width:100%; border:0;">
+                        </iframe>
+                    </div>
+                    <div layout="row">
+                        <p>Click an image (above) to view a document in Google viewer, or if you prefer to download
+                            a document direct to your PC, then click on a link below.</p>
+                    </div>
+                    <div>
+                        <div ng-if="pcc.np_docs && pcc.np_docs.length > 0" ng-repeat="file in pcc.np_docs | orderBy: '-name'">
+                            <a ng-if="file.mimeType !== 'application/vnd.google-apps.folder'" href="https://docs.google.com/uc?export=download&id={{file.id}}">
+                                {{file.name}}
+                            </a>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
             <md-tab label="Notice">
                 <md-content class="md-padding">
                     <div class="text-content flex-container flex-container-row">
                         <iframe class="pc-iframe"  style="height:1700px;" src="https://docs.google.com/document/d/e/2PACX-1vQVMsWfHeeE_3z5fgSXpmoLTPt16PvuH-4Bv1lRr7rmjqv_nnlRuFZD9xAjYEOkFf7oSQ_ehBvHFz9e/pub?embedded=true"></iframe>
-                    </div>
-                </md-content>
-            <md-tab label="Neighbourhood Plan">
-                <md-content class="md-padding">
-                    <h3>Local Neighbourhood Plan Documents</h3>
-                    <div layout="row" ng-controller="ParishCouncilController as pcc">
-                        <div flex class="pc-report-list">
-                            <iframe class="pc-iframe" style="height:1200px" scrolling="yes" title="here"
-                                    src="https://drive.google.com/embeddedfolderview?id=1qpNsCUKS54geU-sy43QVDiW12CBvz9O0#grid" style="width:100%; border:0;">
-                            </iframe>
-                        </div>
                     </div>
                 </md-content>
             </md-tab>

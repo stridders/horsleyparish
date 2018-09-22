@@ -24,6 +24,11 @@
                 controllerAs: 'hc',
                 templateUrl: 'glos/features/history/history.html'
             })
+            .when('/about', {
+                controller: 'AboutController',
+                controllerAs: 'ac',
+                templateUrl: 'glos/features/about/about.html'
+            })
             .when('/village-hall', {
                 controller: 'VillageHallController',
                 controllerAs: 'vhc',
@@ -58,18 +63,11 @@
                 templateUrl: 'glos/features/login/register.html',
                 controllerAs: 'reg'
             })
-            .when('/upload', {
-                controller: 'FileUploaderController',
-                templateUrl: 'glos/features/file-uploader/file-uploader.html'
-            })
             .when('/admin-users', {
                 controller: 'UsersController',
                 templateUrl: 'glos/admin/users/users.html'
             })
-            .when('/bubble-chart', {
-                controller: 'BubbleChartController',
-                templateUrl: 'glos/features/bubble-chart/bubble-chart.html'
-            });
+
 
         $stateProvider
 

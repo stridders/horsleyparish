@@ -32,6 +32,11 @@
 
             pcc.pages = [
                 {
+                    title:      'Planning',
+                    subtitle:   'Horsley Neighbourhood Plan, Applications and Related Notices',
+                    pageName:   'Planning'
+                },
+                {
                     title:      'Notices',
                     subtitle:   'News and Updates',
                     pageName:   'notices'
@@ -66,11 +71,6 @@
                     title:      'Reports and Documents',
                     subtitle:   'View Parish Council Reports and Documents',
                     pageName:   'documents'
-                },
-                {
-                    title:      'Planning',
-                    subtitle:   'Local Planning Applications, News and Issues',
-                    pageName:   'Planning'
                 },
                 {
                     title:      'Map',

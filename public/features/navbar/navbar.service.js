@@ -25,6 +25,13 @@
                     bgcolour: '#4E342E'
                 },
                 {
+                    heading: 'About',
+                    title: 'About Horsley',
+                    image: '/glos/img/about.png',
+                    text: '',
+                    link: '/about',
+                    bgcolour: '#0e1aff'
+                },                {
                     heading: 'Community Shop',
                     title: 'Horsley Community Shop',
                     image: '/glos/img/ico-shop.png',

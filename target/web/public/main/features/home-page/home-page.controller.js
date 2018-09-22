@@ -13,7 +13,7 @@
         };
 
         hpc.links = NavbarService.getDefaultLinks();
-
+        hpc.show_form = true;
     }
 
 })();
