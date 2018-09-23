@@ -22,6 +22,14 @@
                             </a>
                         </div>
                     </div>
+                    <div><br>Supplementary Documents:</div>
+                    <div>
+                        <div style="padding-left: 20px;" ng-if="pcc.np_sup_docs && pcc.np_sup_docs.length > 0" ng-repeat="file in pcc.np_sup_docs | orderBy: '-name'">
+                            <a ng-if="file.mimeType !== 'application/vnd.google-apps.folder'" href="https://docs.google.com/uc?export=download&id={{file.id}}">
+                                {{file.name}}
+                            </a>
+                        </div>
+                    </div>
                 </md-content>
             </md-tab>
             <md-tab label="Notice">

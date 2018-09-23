@@ -137,9 +137,16 @@ body #page-wrapper {
     text-align: center;
 }
 .bg-main-text {
-    align-self: center;
+    text-align: left;
     color: black;
-    font-size: 16px;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 10px 0px 10px 40px;
+}
+.bg-main-text-gr {
+    color: #12852b;
+    text-align: left;
+    font-size: 13px;
     font-weight: normal;
     padding: 10px 0px 10px 40px;
 }
@@ -147,7 +154,6 @@ body #page-wrapper {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    width: 900px;
 }
 .page-columns div {
     padding: 0px 10px 0px 10px;
@@ -155,7 +161,7 @@ body #page-wrapper {
 .np-reg-form {
     display: block;
     width: 340px;
-    height: 730px;
+    height: 650px;
     border: thin solid darkgrey;
 }
 .flex-container {
