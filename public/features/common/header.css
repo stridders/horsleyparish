@@ -40,14 +40,14 @@
         .parallax-0 {
             display: block;
             width: 100%;
-            height: 30px;
+            height: 90px;
             position:absolute;
-            top:25px;
+            top:15px;
             transition-timing-function: ease-out;
             transition-property: all;
             transition-property: transform;
             transition-duration: 0.2s;
-            background-image: url("/glos/img/img-hdr-para-layer0.png");
+            background-image: url("/glos/img/img-hdr-para-layer0_p.png");
             background-repeat: no-repeat;
             background-position: center top;
             z-index:1;
@@ -57,12 +57,12 @@
             width: 100%;
             height: 100px;
             position:absolute;
-            top:40px;
+            top:10px;
             transition-property: all;
             transition-timing-function: ease-out;
             transition-property: transform;
             transition-duration: 0.2s;
-            background-image: url("/glos/img/img-hdr-para-layer1.png");
+            background-image: url("/glos/img/img-hdr-para-layer1_p.png");
             background-repeat: no-repeat;
             background-position: center top;
             z-index:2;
@@ -77,8 +77,8 @@
             transition-timing-function: ease-out;
             transition-property: transform;
             transition-duration: 0.2s;
-            background-image: url("/glos/img/img-hdr-para-layer2.png");
-            background-size: 125%;
+            background-image: url("/glos/img/img-hdr-para-layer2_p.png");
+            background-size: 100%;
             background-repeat: no-repeat;
             background-position: center top;
             z-index:3;

@@ -132,7 +132,7 @@
 
 	<body>
 
-		<div id="page-wrapper">
+		<div id="page-wrapper" ng-cloak>
 			<header></header>
 			<div class="main-container">
 				<div class="main-page-hdr"></div>
@@ -141,6 +141,11 @@
 			<footer></footer>
 		</div>
 
+		<script type="text/javascript">
+			$(window).on('beforeunload', function(){
+				$(window).scrollTop(0);
+			});
+		</script>
 	</body>
 
 

@@ -1,20 +1,32 @@
-
-.ac-main {
-    align-self: center;
-    color: #fdfff2;
-    font-size: 22px;
-    font-weight: normal;
-    padding: 130px 10px 10px 40px;
-    background-color: #000000;
-    background-image: url('/glos/features/about/img/horsley_from_A46.png');
-    background-position: center top;
+.ac_page_top {
+    position: relative;
+    top: -20px;
+    background-image: url("/glos/features/about/img/bg_page_top_b.png");
     background-repeat: no-repeat;
+    background-position: center top;
+    min-height: 30px;
+    padding-top: 20px;
+}
+.ac-main {
+    background-image: url("/glos/features/about/img/earth.png");
+    color: #fdfff2;
+    font-size: 16px;
+    font-weight: normal;
+}
+.ac-main .page-banner {
+    background-image: url("/glos/features/about/img/soil.png");
+    height: 120px;
+}
+.ac-main .title {
+    color: white;
+}
+.ac-main .subtitle {
+    color: yellow;
 }
 .ac-main iframe {
-    margin-top: 120px;
-    padding-top: 20px;
-    width: 280px;
-    height: 140px;
+    padding: 20px 0px 0px 40px;
+    width: 340px;
+    height: 180px;
     border:0;
 }
 .ac-main-normal-txt {

@@ -26,11 +26,11 @@ body #page-wrapper {
 .main-container .main-page-hdr {
     position: relative;
     margin: 0 auto;
-    height: 30px;
+    height: 70px;
     top:-195px;
     width:900px;
     display:block;
-    background-image: url('/glos/img/img-hdr-para-layer3.png');
+    background-image: url('/glos/img/img-hdr-para-layer3_gr.png');
     background-position: center top;
     background-repeat: no-repeat;
     margin-bottom: -205px;
@@ -163,6 +163,15 @@ body #page-wrapper {
     width: 340px;
     height: 650px;
     border: thin solid darkgrey;
+}
+.page-grass-top {
+    position: relative;
+    top: -20px;
+    background-image: url("/glos/img/bg_page_top.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    min-height: 30px;
+    padding-top: 20px;
 }
 .flex-container {
     display: -webkit-flex;

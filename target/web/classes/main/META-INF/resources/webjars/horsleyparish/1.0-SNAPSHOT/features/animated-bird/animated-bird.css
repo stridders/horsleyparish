@@ -3,38 +3,37 @@
     height: 20px;
     opacity: 0;
 }
-@-webkit-keyframes slide {
-    0% {
-        left: -50px;
-        top: 40px;
-        opacity: 1;
-    }
-    100% {
-        left: 1200px;
-        top: 5px;
-        height: 10%;
-        width: 10%;
-        opacity: 0.3;
+#slide {
+    display: none;
+}
+@media screen and (min-width: 40em) {
+    @supports ((perspective: 1px) and (not (-webkit-overflow-scrolling: touch))) {
+        @-webkit-keyframes slide {
+            0% {
+                left: -450px;
+                top: 40px;
+                opacity: 1;
+                -moz-opacity: 1;
+            }
+            100% {
+                left: 450px;
+                top: 5px;
+                height: 10%;
+                width: 10%;
+                opacity: 0.3;
+                -moz-opacity: 0;
+            }
+        }
+        #slide {
+            display: block;
+            -moz-animation: slide 40s;
+            -moz-animation-delay: 4s;
+            -moz-opacity: 0;
+            animation: slide 40s;
+            animation-delay: 4s;
+            position: relative;
+            opacity: 0;
+        }
     }
 }
 
-@keyframes slide {
-    0% {
-        left: -50px;
-        top: 40px;
-        opacity: 1;
-    }
-    100% {
-        left: 1200px;
-        top: 5px;
-        height: 10%;
-        width: 10%;
-        opacity: 0.3;
-    }
-}
-#slide {
-    animation: slide 40s;
-    animation-delay: 0s;
-    position: relative;
-    opacity: 0;
-}

@@ -1,54 +1,56 @@
-<br>
-<div class="flex-container flex-container-row">
-    <div>Quick Links: &nbsp</div>
-    <div ng-repeat="link in hpc.links">
-        <span ng-if="$index>0">&nbsp;|&nbsp;</span>
-        <a href="glos#{{link.link}}">{{link.heading}}</a>
-    </div>
-</div>
-
-
-<div class="page-banner">
-    <div class="text-content title">{{hpc.config.title}}</div>
-    <div class="text-content subtitle">{{hpc.config.subtitle}}</div>
-</div>
-<div class="page-columns">
-    <div>
-        <div class="page-columns">
-            <div>
-                <img src="/glos/img/horsleyNP.png" width="180" style="padding-bottom: 20px;"/>
-            </div>
-            <div class="bg-main-text-gr"><p>
-                <b>The Horsley Neighbourhood Plan was launched at the Horsley Village Fete on 15 September 2018.
-                    It defines development proposals for the village and the 16 surrounding hamlets for the next
-                    20 years. A 6-week consultation period now begins.</b>
-            </p>
-            </div>
-        </div>
-        <div class="bg-main-text-gr">
-            A full copy of the draft plan can be viewed on this website <i>(click link below)</i>.
-            A number of hamlet meetings will take place during October when villagers will have the
-            opportunity to give their views.
-            <p style="padding: 30px 0px 0px 110px">
-                <a href="/glos#/parish-council?page=Planning" class="btn btn-default">View the Neighbourhood Plan documents</a>
-            </p>
-            <br>
-        </div>
-        <div class="bg-main-text">
-            <h4>Learn about the proposals, join in the debate and have your say as to how the villages of
-                Horsley parish will develop over the next two decades.
-            </h4>
-            <p>
-                The Parish Council is keen to share the proposals and hear views about them from those who
-                live and work in Horsley Parish (Gloucestershire). They encourage residents to subscribe
-                to the newsletter (see form on the right), although every effort will be made to include
-                people who are not on email.
-            </p>
-
+<div class="page-grass-top">
+    <div class="flex-container flex-container-row">
+        <div>Quick Links: &nbsp</div>
+        <div ng-repeat="link in hpc.links">
+            <span ng-if="$index>0">&nbsp;|&nbsp;</span>
+            <a href="glos#{{link.link}}">{{link.heading}}</a>
         </div>
     </div>
 
-    <div class="np-reg-form">
-        <div ng-include="'/glos/features/home-page/np.registration.html'"></div>
+
+
+    <div class="page-banner">
+        <div class="text-content title">{{hpc.config.title}}</div>
+        <div class="text-content subtitle">{{hpc.config.subtitle}}</div>
+    </div>
+    <div class="page-columns">
+        <div>
+            <div class="page-columns">
+                <div>
+                    <img src="/glos/img/horsleyNP.png" width="180" style="padding-bottom: 20px;"/>
+                </div>
+                <div class="bg-main-text-gr"><p>
+                    <b>The Horsley Neighbourhood Plan was launched at the Horsley Village Fete on 15 September 2018.
+                        It defines development proposals for the village and the 16 surrounding hamlets for the next
+                        20 years. A 6-week consultation period now begins.</b>
+                </p>
+                </div>
+            </div>
+            <div class="bg-main-text-gr">
+                A full copy of the draft plan can be viewed on this website <i>(click link below)</i>.
+                A number of hamlet meetings will take place during October when villagers will have the
+                opportunity to give their views.
+                <p style="padding: 30px 0px 0px 110px">
+                    <a href="/glos#/parish-council?page=Planning" class="btn btn-default">View the Neighbourhood Plan documents</a>
+                </p>
+                <br>
+            </div>
+            <div class="bg-main-text">
+                <h4>Learn about the proposals, join in the debate and have your say as to how the villages of
+                    Horsley parish will develop over the next two decades.
+                </h4>
+                <p>
+                    The Parish Council is keen to share the proposals and hear views about them from those who
+                    live and work in Horsley Parish (Gloucestershire). They encourage residents to subscribe
+                    to the newsletter (see form on the right), although every effort will be made to include
+                    people who are not on email.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="np-reg-form">
+            <div ng-include="'/glos/features/home-page/np.registration.html'"></div>
+        </div>
     </div>
 </div>

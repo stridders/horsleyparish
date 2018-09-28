@@ -1,5 +1,11 @@
-
-<img id="slide" src="/glos/features/animated-bird/img/animatedBird.gif"
-     class="bird-LR"
-     width="25px"
-     height="20px">
+<div ng-repeat="bird in ab.birds">
+    <img id="slide" src="/glos/features/animated-bird/img/animatedBird.gif"
+         class="bird-LR"
+         width="25px"
+         height="20px"
+         style="-moz-animation-iteration-count: {{bird.iterations}};
+                animation-iteration-count: {{bird.iterations}};
+                top: {{bird.top}};
+                animation-delay: {{bird.delay}};
+                -moz-animation-delay: {{bird.delay}};">
+</div>

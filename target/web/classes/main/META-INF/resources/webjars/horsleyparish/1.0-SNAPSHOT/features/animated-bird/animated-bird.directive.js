@@ -16,10 +16,33 @@
 
             controller: function() {
                 let ab = this;
-                ab.xpos = 10;
-                ab.ypos = 60;
-
-
+                ab.birds = [
+                    {
+                        top: 40,
+                        iterations: 1,
+                        delay: '2s'
+                    },
+                    {
+                        top: 20,
+                        iterations: 3,
+                        delay: '0s'
+                    },
+                    {
+                        top: 25,
+                        iterations: 4,
+                        delay: '0.4s'
+                    },
+                    {
+                        top: 18,
+                        iterations: 1,
+                        delay: '14s'
+                    },
+                    {
+                        top: 22,
+                        iterations: 1,
+                        delay: '10s'
+                    }
+                ];
 
             }
 
