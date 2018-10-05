@@ -4,14 +4,27 @@
             <md-tab label="Neighbourhood Plan">
                 <md-content class="md-padding">
                     <div layout="row">
-                        <h4>Local Neighbourhood Plan Documents</h4>
+                        <div flex><h4>Local Neighbourhood Plan Documents</h4></div>
+                        <div flex>
+                            <span>
+                                <a href="mailto:neighbourhood.plan@horsley.co.uk?subject=Feedback/Comments">
+                                    <button type="button" mdbBtn class="btn-email waves-light" mdbWavesEffect><i class="fa fa-envelope left"></i> Send us your comments </button>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="https://mailchi.mp/9c2bb723064a/hnpnewsletter">
+                                    <button type="button" mdbBtn class="btn-comm waves-light" mdbWavesEffect><i class="fa fa-flag-o left"></i> Register your interest </button>
+                                </a>
+                            </span>
+                        </div>
+
                     </div>
                     <div>
                         <iframe class="pc-iframe-planning" style="height:{{pcc.np_docs.size}};" scrolling="yes" title="here"
                                 src="https://drive.google.com/embeddedfolderview?id=1qpNsCUKS54geU-sy43QVDiW12CBvz9O0#grid" style="width:100%; border:0;">
                         </iframe>
                     </div>
-                    <div layout="row">
+                    <div>
                         <p>Click an image (above) to view a document in Google viewer, or if you prefer to download
                             a document direct to your PC, then click on a link below.</p>
                     </div>

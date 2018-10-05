@@ -3,16 +3,16 @@
     display: block;
     width: 900px;
     height: 207px;
-    top: -110px;
+    top: -160px;
     background-image: url("/glos/features/the-horses-mouth/img/hm_title.png");
     background-repeat: no-repeat;
     background-position: top center;
-    color: #BF360C;
+    color: #83bf10;
     font-weight: bold;
     font-size: 24px;
     text-align: center;
     padding-top: 160px;
-    margin-bottom: -120px;
+    margin-bottom: -160px;
 }
 .hm-drag-drop {
     font-size: 12px;
