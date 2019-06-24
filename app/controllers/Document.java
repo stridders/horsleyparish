@@ -8,16 +8,14 @@ import play.mvc.BodyParser;
 import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Security;
-import security.RoleBasedAuthoriser;
 import security.UserAuthenticator;
 import services.DocumentService;
-import java.io.File;
-import java.util.List;
 import services.DocumentTypeService;
 import services.transformers.DocumentTransformer;
 import services.transformers.DocumentTypeTransformer;
 
-import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.util.List;
 
 import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.badRequest;
@@ -42,10 +40,6 @@ public class Document {
      */
     @Transactional
     @Security.Authenticated(UserAuthenticator.class)
-    @RoleBasedAuthoriser.RolesAllowed({RoleBasedAuthoriser.Roles.HORSES_MOUTH,
-                                       RoleBasedAuthoriser.Roles.HORSLEY_PC,
-                                       RoleBasedAuthoriser.Roles.ADMIN
-                                      })
     @BodyParser.Of(BodyParser.MultipartFormData.class)
     public Result createDocument() {
         try {

@@ -2,16 +2,11 @@ package services;
 
 import com.google.inject.Inject;
 import model.User;
-import security.OAuthCredentials;
 import model.UserRole;
 import play.Logger;
-import play.api.Play;
-import play.db.jpa.JPAApi;
+import security.OAuthCredentials;
 import security.model.UserProfile;
-import services.transformers.UserTransformer;
 
-import javax.persistence.EntityManager;
-import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;

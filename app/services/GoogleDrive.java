@@ -13,10 +13,10 @@ import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import play.Logger;
-import play.api.Play;
+import play.api.Environment;
 import scala.Option;
 
-import java.io.FileInputStream;
+import javax.inject.Inject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 /**
  * A basic class for downloading files with google drive API.
@@ -37,6 +36,9 @@ public class GoogleDrive {
     Drive drive;
 
 
+    @Inject
+    Environment environment;
+
     /**
      * Initialize initials attributes
      */
@@ -47,7 +49,7 @@ public class GoogleDrive {
             JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
             HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 
-            Option<InputStream> fileStream = play.api.Play.resourceAsStream("HorsleyParish-5ed0ba3ea4b3.pem",Play.current());
+            Option<InputStream> fileStream = environment.resourceAsStream("HorsleyParish-5ed0ba3ea4b3.pem");
 
             if (fileStream.nonEmpty()) {
                 GoogleCredential credential = GoogleCredential.fromStream(fileStream.get())

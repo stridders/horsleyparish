@@ -10,9 +10,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.io.File;
 
-import static java.util.Objects.nonNull;
-import static org.springframework.util.Assert.notNull;
-
 
 /**
  * Created by js on 19/12/2016.

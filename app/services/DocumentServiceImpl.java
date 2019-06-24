@@ -10,26 +10,20 @@ import play.Logger;
 import play.mvc.Http;
 import security.model.UserProfile;
 import services.transformers.DocumentTransformer;
-import services.transformers.UserTransformer;
 
-import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
 
 
 public class DocumentServiceImpl implements DocumentService {
-
-    @Inject
-    UserTransformer documentTransformer;
 
     @Inject
     services.EntityManager entityManager;

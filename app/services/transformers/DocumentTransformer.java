@@ -1,28 +1,17 @@
 package services.transformers;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.google.inject.Inject;
 import controllers.Root;
 import dto.DocumentDto;
 import dto.DocumentsDto;
 import dto.HrefDto;
 import exceptionHandlers.ApplicationException;
 import model.Document;
-import model.DocumentGroup;
 import model.DocumentType;
 import model.User;
-import play.Logger;
 import play.mvc.Http;
-import security.model.UserProfile;
-import services.DocumentGroupService;
-import services.DocumentService;
-import sun.util.calendar.CalendarDate;
-import java.io.ByteArrayOutputStream;
+
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.StringWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;

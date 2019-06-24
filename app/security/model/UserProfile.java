@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
-import org.apache.commons.lang3.StringUtils;
 import play.mvc.Http;
 import security.UserAuthenticator;
 
@@ -113,10 +112,6 @@ public class UserProfile {
         }
     }
 
-    public static String getUserIP() {
-        String ipAddress = Http.Context.current().request().remoteAddress();
-        return StringUtils.isBlank(ipAddress) ? UNKNOWN : ipAddress;
-    }
 
     /**
      * Converts a JSON node into a UserProfile POJO

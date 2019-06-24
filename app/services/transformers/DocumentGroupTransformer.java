@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
 
 /**
  * Created by js on 20/12/2016.

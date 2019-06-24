@@ -1,8 +1,5 @@
 @import security.model.UserProfile
-@import play.api.Play.current
-
-@(webJarAssets: WebJarAssets, path: String, userProfile: UserProfile)
-@config= @{play.Play.application().configuration() }
+@import play.api.Play
 
 <!DOCTYPE html>
   <html ng-app="HorsleyParish">
@@ -10,8 +7,7 @@
       <title>Horsley Parish, Gloucestershire, Community website</title>
       <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scala=1"/>
-      <link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
-      <link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap-theme.css"))'>
+      <link rel='stylesheet' href='@routes.Assets.at("../../public/css/bootstrap.min.css")'>
       <link rel="stylesheet" href="@routes.Assets.at("css/font-awesome-4.6.3/css/font-awesome.css")"/>
       <link rel="stylesheet" href="@routes.Assets.at("css/OpenSans.css")"/>
       <link rel="stylesheet" href="@routes.Assets.at("css/main.css")"/>

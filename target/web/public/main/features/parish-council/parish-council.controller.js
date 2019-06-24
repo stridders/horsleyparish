@@ -132,6 +132,13 @@
             }
         };
 
+        pcc.toggle_showFR2020 = function() {
+            pcc.showFR2020 = !pcc.showFR2020;
+            if (pcc.showFR2020) {
+                getFileList("17kFIVE7mLl7JT3Glj-T0H0oOGltRi7dJ", "FR2020");
+            }
+        };
+
     }
 
 

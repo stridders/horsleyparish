@@ -1,0 +1,6 @@
+[info] /Users/js/Documents/workspace/repositories/HorsleyParish/app/controllers/Document.java: Some input files use or override a deprecated API.
+[info] /Users/js/Documents/workspace/repositories/HorsleyParish/app/controllers/Document.java: Recompile with -Xlint:deprecation for details.
+[info] /Users/js/Documents/workspace/repositories/HorsleyParish/app/controllers/Document.java: Some input files use or override a deprecated API.
+[info] /Users/js/Documents/workspace/repositories/HorsleyParish/app/controllers/Document.java: Recompile with -Xlint:deprecation for details.
+[info] /Users/js/Documents/workspace/repositories/HorsleyParish/app/services/transformers/DocumentTransformer.java: /Users/js/Documents/workspace/repositories/HorsleyParish/app/services/transformers/DocumentTransformer.java uses unchecked or unsafe operations.
+[info] /Users/js/Documents/workspace/repositories/HorsleyParish/app/services/transformers/DocumentTransformer.java: Recompile with -Xlint:unchecked for details.
