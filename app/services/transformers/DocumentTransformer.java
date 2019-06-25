@@ -6,19 +6,10 @@ import dto.DocumentsDto;
 import dto.HrefDto;
 import exceptionHandlers.ApplicationException;
 import model.Document;
-import model.DocumentType;
-import model.User;
-import play.mvc.Http;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
-
-import static java.lang.Integer.valueOf;
-import static java.util.Objects.nonNull;
 
 /**
  * Created by js on 09/11/2016.
@@ -34,48 +25,48 @@ public class DocumentTransformer {
      * @throws IOException
      * @throws ApplicationException
      */
-    public static Document createPOJO(Http.MultipartFormData form,
-                                 Map<String, DocumentType> docTypes,
-                                 User user)
-                                throws IOException, ApplicationException {
-        Document document = new Document();
-        String documentType;
-        Calendar cal = Calendar.getInstance();
-
-        Http.MultipartFormData.FilePart filePart = form.getFile("file");
-        String fileName = filePart.getFilename();
-
-        Map<String,String[]> formData = form.asFormUrlEncoded();
-
-        document.setName(getFileName(fileName));
-        if (nonNull(formData.get("fileTitle"))) {
-            String fileTitle = Arrays.asList(formData.get("fileTitle")).toString().replaceAll("[\\[\\]]", "");
-            if (!fileTitle.equals("null")) {
-                document.setName(fileTitle);
-            }
-        }
-        document.setDocumentType(docTypes.get("MISC"));
-        if (nonNull(formData.get("docType"))) {
-            documentType = Arrays.asList(formData.get("docType")).toString().replaceAll("[\\[\\]]","");
-            if (!documentType.equals("null")) {
-                document.setDocumentType(docTypes.get(documentType));
-            }
-        }
-        document.setSize(null);
-        if (nonNull(formData.get("fileSize"))) {
-            String size = Arrays.asList(formData.get("fileSize")).toString().replaceAll("[\\[\\]]","");
-            if (!size.equals("null")) {
-                document.setSize(valueOf(size));
-            }
-        }
-        document.setFormat(getFileExtension(fileName));
-        String filePath = "public/uploads/" + document.getName()+"."+document.getFormat();
-        document.setDocumentPath(filePath);
-        document.setUploadDate(cal);
-        document.setUser(user);
-
-        return document;
-    }
+//    public static Document createPOJO(Http.MultipartFormData form,
+//                                 Map<String, DocumentType> docTypes,
+//                                 User user)
+//                                throws IOException, ApplicationException {
+//        Document document = new Document();
+//        String documentType;
+//        Calendar cal = Calendar.getInstance();
+//
+//        Http.MultipartFormData.FilePart filePart = form.getFile("file");
+//        String fileName = filePart.getFilename();
+//
+//        Map<String,String[]> formData = form.asFormUrlEncoded();
+//
+//        document.setName(getFileName(fileName));
+//        if (nonNull(formData.get("fileTitle"))) {
+//            String fileTitle = Arrays.asList(formData.get("fileTitle")).toString().replaceAll("[\\[\\]]", "");
+//            if (!fileTitle.equals("null")) {
+//                document.setName(fileTitle);
+//            }
+//        }
+//        document.setDocumentType(docTypes.get("MISC"));
+//        if (nonNull(formData.get("docType"))) {
+//            documentType = Arrays.asList(formData.get("docType")).toString().replaceAll("[\\[\\]]","");
+//            if (!documentType.equals("null")) {
+//                document.setDocumentType(docTypes.get(documentType));
+//            }
+//        }
+//        document.setSize(null);
+//        if (nonNull(formData.get("fileSize"))) {
+//            String size = Arrays.asList(formData.get("fileSize")).toString().replaceAll("[\\[\\]]","");
+//            if (!size.equals("null")) {
+//                document.setSize(valueOf(size));
+//            }
+//        }
+//        document.setFormat(getFileExtension(fileName));
+//        String filePath = "public/uploads/" + document.getName()+"."+document.getFormat();
+//        document.setDocumentPath(filePath);
+//        document.setUploadDate(cal);
+//        document.setUser(user);
+//
+//        return document;
+//    }
 
     /**
      * Returns a JSON representation of a collection of documents
@@ -122,14 +113,14 @@ public class DocumentTransformer {
      * @param document
      * @return
      */
-    public static String uploadConfirmation(Document document) {
-        DocumentDto dto = transformDocumentToDto(document);
-        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.createDocument().url()));
-        dto.get_links().setSelf(href);
-        StringWriter sw = new StringWriter();
-        sw.write(dto.toString());
-        return sw.toString();
-    }
+//    public static String uploadConfirmation(Document document) {
+//        DocumentDto dto = transformDocumentToDto(document);
+//        HrefDto href = new HrefDto(Root.stripApiContext(controllers.routes.Document.createDocument().url()));
+//        dto.get_links().setSelf(href);
+//        StringWriter sw = new StringWriter();
+//        sw.write(dto.toString());
+//        return sw.toString();
+//    }
 
 
     /**

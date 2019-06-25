@@ -14,7 +14,7 @@ GET    /api/google/file/:id            controllers.Google.getFile(id: String)
 
 GET    /api/uuid                       controllers.UuidGenerator.randomUUID()
 
-POST   /api/documents                  controllers.Document.createDocument()
+#POST   /api/documents                  controllers.Document.createDocument()
 GET    /api/documents                  controllers.Document.listDocuments(doctype ?= null, docgroup ?= null)
 GET    /api/documents/:id              controllers.Document.getDocument(id: Long)
 GET    /api/document-types              controllers.Document.listDocumentTypes(doctype ?= null, role ?= null)

@@ -4,20 +4,14 @@ import com.google.inject.Inject;
 import model.DocumentType;
 import play.Logger;
 import play.db.jpa.Transactional;
-import play.mvc.BodyParser;
-import play.mvc.Http;
 import play.mvc.Result;
-import play.mvc.Security;
-import security.UserAuthenticator;
 import services.DocumentService;
 import services.DocumentTypeService;
 import services.transformers.DocumentTransformer;
 import services.transformers.DocumentTypeTransformer;
 
-import java.io.File;
 import java.util.List;
 
-import static play.mvc.Http.Context.Implicit.request;
 import static play.mvc.Results.badRequest;
 import static play.mvc.Results.ok;
 
@@ -38,20 +32,20 @@ public class Document {
      * Create a new document
      * @return
      */
-    @Transactional
-    @Security.Authenticated(UserAuthenticator.class)
-    @BodyParser.Of(BodyParser.MultipartFormData.class)
-    public Result createDocument() {
-        try {
-            Http.MultipartFormData<File> body = request().body().asMultipartFormData();
-            model.Document document = documentService.create(body);
-            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
-        } catch(Exception e) {
-            String errMsg = "Error creating new document."+ e.getMessage();
-            logger.error("Error creating new document.",e);
-            return badRequest(errMsg);
-        }
-    }
+//    @Transactional
+//    @Security.Authenticated(UserAuthenticator.class)
+//    @BodyParser.Of(BodyParser.MultipartFormData.class)
+//    public Result createDocument() {
+//        try {
+//            Http.MultipartFormData<File> body = request().body().asMultipartFormData();
+//            model.Document document = documentService.create(body);
+//            return ok(DocumentTransformer.uploadConfirmation(document)).as("application/hal+json");
+//        } catch(Exception e) {
+//            String errMsg = "Error creating new document."+ e.getMessage();
+//            logger.error("Error creating new document.",e);
+//            return badRequest(errMsg);
+//        }
+//    }
 
 
     /**

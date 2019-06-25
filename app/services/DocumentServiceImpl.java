@@ -3,13 +3,9 @@ package services;
 import com.google.inject.Inject;
 import exceptionHandlers.ApplicationException;
 import model.Document;
-import model.DocumentGroup;
 import model.DocumentType;
-import model.User;
 import play.Logger;
 import play.mvc.Http;
-import security.model.UserProfile;
-import services.transformers.DocumentTransformer;
 
 import javax.persistence.TypedQuery;
 import java.io.File;
@@ -48,30 +44,30 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public Document create(Http.MultipartFormData<File> body) throws IOException, ApplicationException {
         logger.debug("Entered create (document)");
-
-        Http.MultipartFormData.FilePart<File> filePart = body.getFile("file");
-        if (filePart != null) {
-            String fileName = filePart.getFilename();
-            String contentType = filePart.getContentType();
-            File file = filePart.getFile();
-
-            Document document = new Document();
-            Map<String, DocumentType> docTypes = mapDocumentTypes();
-            UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
-            User user = userService.getUser(userProfile.getEmail());
-            document = DocumentTransformer.createPOJO(body, docTypes, user);
-            copy(file.getAbsolutePath(), document.getDocumentPath());
-            DocumentGroup documentGroup = documentGroupService.getOrCreate(document,body);
-            if (documentGroup != null) {
-                document.setDocumentGroup(documentGroup);
-            }
-            entityManager.em().persist(document);
-            entityManager.em().flush();
-            return document;
-        } else {
-            logger.error("error", "Missing file");
-            throw new ApplicationException("Unable to find file in request body");
-        }
+        throw new ApplicationException("Create document feature has been disabled");
+//        Http.MultipartFormData.FilePart<File> filePart = body.getFile("file");
+//        if (filePart != null) {
+//            String fileName = filePart.getFilename();
+//            String contentType = filePart.getContentType();
+//            File file = filePart.getFile();
+//
+//            Document document = new Document();
+//            Map<String, DocumentType> docTypes = mapDocumentTypes();
+//            UserProfile userProfile = UserProfile.getUserProfileFromHttpContext();
+//            User user = userService.getUser(userProfile.getEmail());
+//            document = DocumentTransformer.createPOJO(body, docTypes, user);
+//            copy(file.getAbsolutePath(), document.getDocumentPath());
+//            DocumentGroup documentGroup = documentGroupService.getOrCreate(document,body);
+//            if (documentGroup != null) {
+//                document.setDocumentGroup(documentGroup);
+//            }
+//            entityManager.em().persist(document);
+//            entityManager.em().flush();
+//            return document;
+//        } else {
+//            logger.error("error", "Missing file");
+//            throw new ApplicationException("Unable to find file in request body");
+//        }
 
     }
 

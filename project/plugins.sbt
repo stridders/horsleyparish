@@ -4,7 +4,6 @@ logLevel := Level.Warn
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.7.0")
 addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.2.2")
 
-//addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.1.0")
 
 // Web Plugins
 //addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")

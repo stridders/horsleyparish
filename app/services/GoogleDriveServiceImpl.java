@@ -2,13 +2,12 @@ package services;
 
 import com.google.api.services.drive.model.File;
 import exceptionHandlers.ApplicationException;
+import play.Environment;
 import play.Logger;
 
+import javax.inject.Inject;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-
-import static play.mvc.Results.redirect;
 
 /**
  * Created by jstride on 27/06/2017.
@@ -17,10 +16,13 @@ public class GoogleDriveServiceImpl implements GoogleDriveService {
 
     private Logger.ALogger logger = Logger.of(this.getClass().getCanonicalName());
 
+    @Inject
+    Environment environment;
+
     @Override
     public List<File> getFileList(String folder) throws ApplicationException {
         logger.debug("Entered getFileList");
-        GoogleDrive googleDrive = new GoogleDrive();
+        GoogleDrive googleDrive = new GoogleDrive(environment);
         try {
             return googleDrive.retrieveAllFiles(folder);
         } catch(IOException ioe) {
@@ -33,7 +35,7 @@ public class GoogleDriveServiceImpl implements GoogleDriveService {
     @Override
     public String getFile(String fileId) throws ApplicationException {
         logger.debug("Entered getFile for fileId {}",fileId);
-        GoogleDrive googleDrive = new GoogleDrive();
+        GoogleDrive googleDrive = new GoogleDrive(environment);
         logger.debug("Initialised googleDrive instance");
         try {
             return googleDrive.downloadTextFile(fileId);

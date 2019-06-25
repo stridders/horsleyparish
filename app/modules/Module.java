@@ -1,7 +1,10 @@
 package modules;
 
 import com.google.inject.AbstractModule;
+import com.typesafe.config.Config;
 import controllers.UuidGenerator;
+import play.Environment;
+import play.libs.akka.AkkaGuiceSupport;
 import services.DocumentGroupService;
 import services.DocumentGroupServiceImpl;
 import services.DocumentService;
@@ -17,11 +20,18 @@ import services.UserServiceImpl;
 /**
  * Created by js on 23/06/2016.
  */
-public class Module extends AbstractModule  {
+public class Module extends AbstractModule implements AkkaGuiceSupport {
+
+    Environment environment;
+    Config config;
+
+    public Module(Environment environment, Config config) {
+        this.environment = environment;
+        this.config = config;
+    }
 
     @Override
     protected void configure() {
-
         // Bind service classes to their implementations
         bind(UserService.class).to(UserServiceImpl.class);
         bind(DocumentService.class).to(DocumentServiceImpl.class);
@@ -30,7 +40,6 @@ public class Module extends AbstractModule  {
         bind(GoogleDriveService.class).to(GoogleDriveServiceImpl.class);
         requestStaticInjection(UuidGenerator.class);
         requestStaticInjection(UserServiceImpl.class);
-
     }
 
 }
