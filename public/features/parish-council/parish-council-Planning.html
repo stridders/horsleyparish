@@ -12,8 +12,7 @@
                         </iframe>
                     </div>
                     <div>
-                        <p>Click an image (above) to view a document in Google viewer, or if you prefer to download
-                            a document direct to your PC, then click on a link below.</p>
+                        <b>Full list of documents:</b>
                     </div>
                     <div>
                         <div ng-if="pcc.np_docs && pcc.np_docs.length > 0" ng-repeat="file in pcc.np_docs | orderBy: '-name'">
@@ -21,8 +20,9 @@
                                 {{file.name}}
                             </a>
                         </div>
+                        <a href="https://drive.google.com/open?id=1CWyjXnd0OGnRIK8XVoS0vjED9TcWwJsv">HNDP 31 OCT 2019 - High Resolution (101 MB).pdf</a>
                     </div>
-                    <div><br>Supplementary Documents:</div>
+                    <div><br>Supplementary:</div>
                     <div>
                         <div style="padding-left: 20px;" ng-if="pcc.np_sup_docs && pcc.np_sup_docs.length > 0" ng-repeat="file in pcc.np_sup_docs | orderBy: '-name'">
                             <a ng-if="file.mimeType !== 'application/vnd.google-apps.folder'" href="https://docs.google.com/uc?export=download&id={{file.id}}">
