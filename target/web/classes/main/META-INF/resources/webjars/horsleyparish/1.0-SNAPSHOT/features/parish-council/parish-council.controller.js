@@ -96,7 +96,7 @@
                                 return a.name > b.name;
                             }
                         );
-                    pcc[variableName].size = (Math.floor(response.length/4)*280) + "px";
+                    pcc[variableName].size = (Math.ceil(response.length/4)*280) + "px";
                 } else {
                     let errMsg = "Unable to retrieve file list from Google Drive folder";
                     FlashService.Error(errMsg);
