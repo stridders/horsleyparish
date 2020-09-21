@@ -3,7 +3,7 @@
         <div>Quick Links: &nbsp</div>
         <div ng-repeat="link in hpc.links">
             <span ng-if="$index>0">&nbsp;|&nbsp;</span>
-            <a href="glos#{{link.link}}">{{link.heading}}</a>
+            <a href="glos#{{link.link}}" title="Link to {{link.heading}} web page">{{link.heading}}</a>
         </div>
     </div>
 

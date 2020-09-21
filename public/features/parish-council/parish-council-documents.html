@@ -34,31 +34,36 @@
 
             <h4><a ng-click="pcc.toggle_showFR2020()">2019-20</a></h4>
             <div ng-if="pcc.showFR2020 && pcc.FR2020.length > 0" ng-repeat="file in pcc.FR2020">
-                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+                <a href="https://drive.google.com/file/d/{{file.id}}/view"
+                title="Link to view document [{{file.name}}], stored in the cloud">{{file.name}}</a>
             </div>
             <div ng-if="pcc.showFR2020 && pcc.FR2020.length === 0">No 2019-20 documents to display at present.</div>
 
             <h4><a ng-click="pcc.toggle_showFR2019()">2018-19</a></h4>
             <div ng-if="pcc.showFR2019 && pcc.FR2019.length > 0" ng-repeat="file in pcc.FR2019">
-                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+                <a href="https://drive.google.com/file/d/{{file.id}}/view"
+                   title="Link to view document [{{file.name}}], stored in the cloud">{{file.name}}>{{file.name}}</a>
             </div>
             <div ng-if="pcc.showFR2019 && pcc.FR2019.length === 0">No 2018-19 documents to display at present.</div>
 
             <h4><a ng-click="pcc.toggle_showFR2018()">2017-18</a></h4>
             <div ng-if="pcc.showFR2018 && pcc.FR2018.length > 0" ng-repeat="file in pcc.FR2018">
-                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+                <a href="https://drive.google.com/file/d/{{file.id}}/view"
+                   title="Link to view document [{{file.name}}], stored in the cloud">{{file.name}}</a>
             </div>
             <div ng-if="pcc.showFR2018 && pcc.FR2018.length === 0">No 2017-18 documents to display at present.</div>
 
             <h4><a ng-click="pcc.toggle_showFR2017()">2016-17</a></h4>
             <div ng-if="pcc.showFR2017 && pcc.FR2017.length > 0" ng-repeat="file in pcc.FR2017">
-                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+                <a href="https://drive.google.com/file/d/{{file.id}}/view"
+                   title="Link to view document [{{file.name}}], stored in the cloud">{{file.name}}</a>
             </div>
             <div ng-if="pcc.showFR2017 && pcc.FR2017.length === 0">No 2016-17 documents to display at present.</div>
 
             <h4><a ng-click="pcc.toggle_showFR2016()">2015-16</a></h4>
             <div ng-if="pcc.showFR2016 && pcc.FR2016.length > 0" ng-repeat="file in pcc.FR2016">
-                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+                <a href="https://drive.google.com/file/d/{{file.id}}/view"
+                   title="Link to view document [{{file.name}}], stored in the cloud">{{file.name}}</a>
             </div>
             <div ng-if="pcc.showFR2016 && pcc.FR2016.length === 0">No 2015-16 documents to display at present.</div>
 
