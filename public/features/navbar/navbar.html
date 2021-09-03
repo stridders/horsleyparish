@@ -3,7 +3,7 @@
     <div ng-repeat="link in nbc.links">
         <navbar-button
                 heading="{{link.heading}}"
-                title="{{link.title}}"
+                title="Link to {{link.title}} page"
                 image="{{link.image}}"
                 text="{{link.text}}"
                 link="{{link.link}}"
@@ -11,7 +11,7 @@
         </navbar-button>
     </div>
     <div class="nav-hlp">
-        <a href="glos/features/support/help.html">Problems viewing this Page?</a>
+        <a href="glos/features/support/help.html" title="Link to support page, to help resolve problems viewing this web site">Problems viewing this Page?</a>
     </div>
     <div>
         <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
