@@ -26,6 +26,12 @@
             <div>
                 <p>Click a year to view financial reports for the period</p>
             </div>
+            <h4><a ng-click="pcc.toggle_showFR2022()">2021-22</a></h4>
+            <div ng-if="pcc.showFR2022 && pcc.FR2022.length > 0" ng-repeat="file in pcc.FR2022">
+                <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>
+            </div>
+            <div ng-if="pcc.showFR2022 && pcc.FR2022.length === 0">No 2021-22 documents to display at present.</div>
+
             <h4><a ng-click="pcc.toggle_showFR2021()">2020-21</a></h4>
             <div ng-if="pcc.showFR2021 && pcc.FR2021.length > 0" ng-repeat="file in pcc.FR2021">
                 <a href="https://drive.google.com/file/d/{{file.id}}/view">{{file.name}}</a>

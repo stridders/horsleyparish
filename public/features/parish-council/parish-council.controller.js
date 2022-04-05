@@ -146,6 +146,13 @@
             }
         };
 
+        pcc.toggle_showFR2022 = function() {
+            pcc.showFR2022 = !pcc.showFR2022;
+            if (pcc.showFR2022) {
+                getFileList("1-Iw5njCuTJLzDGTxXI1tvVYUtU6pUh6p", "FR2022");
+            }
+        };
+
     }
 
 
