@@ -57,13 +57,13 @@
                     pageName:   'dates',
                 },
                 {
-                    title:      'Agenda',
+                    title:      'Next Agenda',
                     subtitle:   'Next Meeting Date and Agenda',
                     pageName:   'agenda',
                     noCache:    'true'
                 },
                 {
-                    title:      'Minutes',
+                    title:      'Previous Meetings',
                     subtitle:   'Links to Minute and Agenda Documents',
                     pageName:   'minutes',
                 },
@@ -85,7 +85,6 @@
             getFileList("0B5mg3C3GfH8dTGoyQTNKTXpKamc", "minutes");
             getFileList("1qpNsCUKS54geU-sy43QVDiW12CBvz9O0", "np_docs");
             getFileList("1LHFB-WKvfC8unhrQEK9Cy1N8vunNQ7W6", "np_sup_docs");
-
         }
 
         function getFileList(id,variableName) {
@@ -150,6 +149,13 @@
             pcc.showFR2022 = !pcc.showFR2022;
             if (pcc.showFR2022) {
                 getFileList("1-Iw5njCuTJLzDGTxXI1tvVYUtU6pUh6p", "FR2022");
+            }
+        };
+
+        pcc.toggle_showFR2023 = function() {
+            pcc.showFR2023 = !pcc.showFR2023;
+            if (pcc.showFR2023) {
+                getFileList("1zuoQDTDfCD7xd3qTFpQYtT9brh49yrn9", "FR2023");
             }
         };
 

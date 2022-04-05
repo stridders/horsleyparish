@@ -1,7 +1,7 @@
 <div ng-controller="ParishCouncilController as pcc" class="text-content flex-container flex-container-row flex-cols-top pc-idocs">
     <div class="pc-minutes-txt">
         <p>Click a document to view the minutes on-line using Google docs</p>
-        <div ng-if="pcc.minutes && pcc.minutes.length > 0" ng-repeat="file in pcc.minutes | orderBy: '-name'">
+        <div ng-if="pcc.minutes" ng-repeat="file in pcc.minutes | orderBy: '-name'">
             <a ng-if="file.mimeType !== 'application/vnd.google-apps.folder'" href="https://drive.google.com/file/d/{{file.id}}/view"
             title="Link to view a word document [{{file.name}}] stored in the Cloud">
                 <span>
