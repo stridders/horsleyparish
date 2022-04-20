@@ -52,18 +52,12 @@
                     pageName:   'councillors',
                 },
                 {
-                    title:      'Dates',
+                    title:      'Meeting Dates',
                     subtitle:   'Meeting Dates',
                     pageName:   'dates',
                 },
                 {
-                    title:      'Agenda',
-                    subtitle:   'Next Meeting Date and Agenda',
-                    pageName:   'agenda',
-                    noCache:    'true'
-                },
-                {
-                    title:      'Minutes',
+                    title:      'Minutes & Agendas',
                     subtitle:   'Links to Minute and Agenda Documents',
                     pageName:   'minutes',
                 },
@@ -85,7 +79,6 @@
             getFileList("0B5mg3C3GfH8dTGoyQTNKTXpKamc", "minutes");
             getFileList("1qpNsCUKS54geU-sy43QVDiW12CBvz9O0", "np_docs");
             getFileList("1LHFB-WKvfC8unhrQEK9Cy1N8vunNQ7W6", "np_sup_docs");
-
         }
 
         function getFileList(id,variableName) {
@@ -136,6 +129,27 @@
             pcc.showFR2020 = !pcc.showFR2020;
             if (pcc.showFR2020) {
                 getFileList("17kFIVE7mLl7JT3Glj-T0H0oOGltRi7dJ", "FR2020");
+            }
+        };
+
+        pcc.toggle_showFR2021 = function() {
+            pcc.showFR2021 = !pcc.showFR2021;
+            if (pcc.showFR2021) {
+                getFileList("1D_RmYu3GO1I9Fj4kzE0sb7unuX2HaTgq", "FR2021");
+            }
+        };
+
+        pcc.toggle_showFR2022 = function() {
+            pcc.showFR2022 = !pcc.showFR2022;
+            if (pcc.showFR2022) {
+                getFileList("1-Iw5njCuTJLzDGTxXI1tvVYUtU6pUh6p", "FR2022");
+            }
+        };
+
+        pcc.toggle_showFR2023 = function() {
+            pcc.showFR2023 = !pcc.showFR2023;
+            if (pcc.showFR2023) {
+                getFileList("1zuoQDTDfCD7xd3qTFpQYtT9brh49yrn9", "FR2023");
             }
         };
 
