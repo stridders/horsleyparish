@@ -89,4 +89,14 @@ name := """horsleyparish""
 ```
 If you modify the application name in the Procfile, make sure you update the application name in build.sbt. If the names do not match, the web process will fail to start on Heroku.
 
-
+### Troubleshooting:
+If the app won't start, check the logs:
+```
+heroku logs
+```
+If the SECRET_KEY_BASE is missing (and for some reason it's stopped picking
+this up from the heroku environment variables set through the
+web UI) then generate a new key:
+```
+heroku config:set SECRET_KEY_BASE=$(rake secret)
+```
