@@ -52,18 +52,12 @@
                     pageName:   'councillors',
                 },
                 {
-                    title:      'Dates',
+                    title:      'Meeting Dates',
                     subtitle:   'Meeting Dates',
                     pageName:   'dates',
                 },
                 {
-                    title:      'Next Agenda',
-                    subtitle:   'Next Meeting Date and Agenda',
-                    pageName:   'agenda',
-                    noCache:    'true'
-                },
-                {
-                    title:      'Previous Meetings',
+                    title:      'Minutes & Agendas',
                     subtitle:   'Links to Minute and Agenda Documents',
                     pageName:   'minutes',
                 },
